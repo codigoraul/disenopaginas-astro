@@ -1,0 +1,131 @@
+/* Custom Colors for diseñopaginas.cl */
+
+/* Primary Color: #2F56DC */
+.btn-primary {
+  background-color: #2F56DC !important;
+  border-color: #2F56DC !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1e3a9e !important;
+  border-color: #1e3a9e !important;
+}
+
+.text-primary {
+  color: #2F56DC !important;
+}
+
+.bg-primary {
+  background-color: #2F56DC !important;
+}
+
+/* Secondary Color: #767586 */
+.text-secondary {
+  color: #767586 !important;
+}
+
+.bg-secondary {
+  background-color: #767586 !important;
+}
+
+/* Tertiary Color: #AEF8FF */
+.text-tertiary {
+  color: #AEF8FF !important;
+}
+
+.bg-tertiary {
+  background-color: #AEF8FF !important;
+}
+
+/* Header specific colors */
+.header-area .navbar-nav li > a:hover,
+.header-area .navbar-nav li > a:focus {
+  color: #2F56DC !important;
+}
+
+.header-area .navbar-nav li .softora-dd-menu li > a:hover,
+.header-area .navbar-nav li .softora-dd-menu li > a:focus {
+  color: #2F56DC !important;
+}
+
+/* Button hover effects */
+.btn-outline-primary {
+  border: 1px solid #2F56DC !important;
+  color: #2F56DC !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #2F56DC !important;
+  border-color: #2F56DC !important;
+}
+
+/* Links */
+a:hover,
+a:focus {
+  color: #2F56DC !important;
+}
+
+/* Form elements */
+.form-control:focus {
+  border-color: #2F56DC !important;
+  box-shadow: 0 0 0 0.2rem rgba(47, 86, 220, 0.25) !important;
+}
+
+/* Custom gradients */
+.gradient-primary {
+  background: linear-gradient(90deg, #2F56DC 0%, #767586 100%) !important;
+}
+
+.gradient-secondary {
+  background: linear-gradient(90deg, #767586 0%, #AEF8FF 100%) !important;
+}
+
+/* Header Top Colors */
+.header-area .header-top {
+  background: #767586 !important;
+}
+
+.header-area .header-top .left-side .text-white {
+  color: #ffffff !important;
+}
+
+.header-area .header-top .right-side .social-nav a {
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.header-area .header-top .right-side .social-nav a:hover {
+  color: #AEF8FF !important;
+  transform: translateY(-2px);
+}
+
+/* Servicios Especiales - Hover Effect */
+.service-card:hover {
+  background-color: rgba(47, 86, 220, 0.05) !important;
+  border-color: #2F56DC !important;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-title,
+.service-card:hover .service-number,
+.service-card:hover .btn {
+  color: #2F56DC !important;
+}
+
+.service-card:hover .service-content h3 {
+  color: #2F56DC !important;
+}
+
+.service-card:hover .service-thumb img {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover específico para servicios especiales */
+.service-card:hover .shape img {
+  filter: brightness(1.1);
+  transition: all 0.3s ease;
+} 

@@ -1,0 +1,73 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", canonical } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content={description}>
+  
+  <!-- Canonical URL for SEO -->
+  {canonical && <link rel="canonical" href={canonical} />}
+
+  <!-- Title & Favicon -->
+  <title>{title}</title>
+  <link rel="shortcut icon" href="/assets/img/core-img/favicon.ico" type="image/x-icon">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/assets/css/hero-colors.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/custom-colors.css">
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <Header />
+
+  <!-- Main Content -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Scripts -->
+  <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+  <script src="/assets/js/swiper-bundle.min.js" is:inline></script>
+  <script src="/assets/js/wow.min.js" is:inline></script>
+  <script src="/assets/js/active.js" is:inline></script>
+  
+  <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html> 

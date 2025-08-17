@@ -1,0 +1,112 @@
+/* Hero Colors para diseñopaginas.cl */
+/* Paleta: Primario #2F56DC, Secundario #767586, Terciario #AEF8FF */
+
+/* Hero Section Background - Colores originales */
+body .hero-section {
+   background-color: #AEF8FF !important;
+   background-image: url('/assets/img/core-img/grid3.png') !important;
+}
+
+/* Hero Content Colors - Colores originales */
+.hero-section .hero-content h2 {
+   color: #ffffff !important;
+}
+
+.hero-section .hero-content h2 span {
+   color: #2F56DC !important;
+   font-weight: bold;
+}
+
+.hero-section .hero-content p {
+   color: #ffffff !important;
+}
+
+/* Hero Button - Colores originales */
+.hero-section .btn-outline-light {
+   border: 2px solid #2F56DC !important;
+   color: #2F56DC !important;
+   background: transparent !important;
+   transition: all 0.3s ease;
+}
+
+.hero-section .btn-outline-light:hover {
+   background: #2F56DC !important;
+   color: #ffffff !important;
+   border-color: #2F56DC !important;
+}
+
+/* CTA Wrapper Background - Colores originales */
+.cta-wrap {
+   background-image: url('/assets/img/bg-img/20.jpg') !important;
+}
+
+/* CTA Card - Colores originales */
+.cta-card {
+   background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Total Clients - Colores originales */
+.total-clients-wrap .total-number h3 {
+   color: #222222 !important;
+   font-weight: bold;
+}
+
+.total-clients-wrap .total-number p {
+   color: #1F1E21 !important;
+}
+
+/* CTA Stats - Colores originales */
+.cta-stats h2 {
+   color: #222222 !important;
+   font-weight: bold;
+}
+
+.cta-stats p {
+   color: #1F1E21 !important;
+}
+
+/* Hover Effects */
+.cta-stats div:hover h2 {
+   color: #AEF8FF !important;
+   transform: scale(1.05);
+   transition: all 0.3s ease;
+}
+
+/* Divider Colors - Colores originales */
+.hero-section .divider {
+   background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.cta-wrap .divider {
+   background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Animation Enhancements */
+.hero-section .wow.fadeInUp {
+   animation-duration: 1.2s !important;
+}
+
+.hero-section .btn-outline-light:hover i {
+   transform: translateX(3px);
+   transition: transform 0.3s ease;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+   .hero-section {
+      background: linear-gradient(180deg, #2F56DC 0%, #767586 100%) !important;
+   }
+   
+   .cta-wrap {
+      background: linear-gradient(180deg, #767586 0%, #2F56DC 100%) !important;
+   }
+}
+
+/* Text Shadow for Better Readability */
+.hero-section .hero-content h2 {
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .hero-content p {
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+} 

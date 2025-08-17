@@ -1,0 +1,256 @@
+/* Solo cambiar la palabra "Páginas Web" al color terciario */
+.hero-section .hero-content h1 span {
+   color: #2F56DC !important;
+}
+
+/* Solo cambiar el color del texto */
+.hero-section .hero-content h1 {
+   color: #736F82 !important;
+ }
+
+/* Estilo específico para el h2 del hero (slide 1) - USANDO CLASE ESPECÍFICA */
+.hero-section .hero-content .hero-subtitle {
+   color: #2F56DC !important;
+   font-size: 24px !important;
+   font-weight: 500 !important;
+   line-height: 1.3 !important;
+   margin-bottom: 16px !important;
+}
+
+/* Responsive para hero-subtitle (h2 del slide 1) */
+@media only screen and (min-width: 576px) {
+   .hero-section .hero-content .hero-subtitle {
+      font-size: 28px !important;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .hero-section .hero-content .hero-subtitle {
+      font-size: 32px !important;
+   }
+}
+
+@media only screen and (min-width: 992px) {
+   .hero-section .hero-content .hero-subtitle {
+      font-size: 36px !important;
+   }
+}
+
+@media only screen and (min-width: 1200px) {
+   .hero-section .hero-content .hero-subtitle {
+      font-size: 40px !important;
+   }
+}
+
+@media only screen and (min-width: 1400px) {
+   body .hero-section .hero-content .hero-subtitle {
+      font-size: 34px !important;
+   }
+}
+
+/* Estilo específico para h2 de slides 2 y 3 - MISMOS ESTILOS QUE H1 */
+.hero-section .hero-content .swiper-slide:nth-child(2) h2,
+.hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+   color: #736f82 !important;
+   font-size: 48px !important;
+   font-weight: 700 !important;
+   line-height: 1.15 !important;
+   margin-bottom: 20px !important;
+}
+
+/* Responsive específico para h2 de slides 2 y 3 */
+@media only screen and (min-width: 576px) {
+   .hero-section .hero-content .swiper-slide:nth-child(2) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+      font-size: 56px !important;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .hero-section .hero-content .swiper-slide:nth-child(2) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+      font-size: 64px !important;
+   }
+}
+
+@media only screen and (min-width: 992px) {
+   .hero-section .hero-content .swiper-slide:nth-child(2) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+      font-size: 72px !important;
+   }
+}
+
+@media only screen and (min-width: 1400px) {
+   .hero-section .hero-content .swiper-slide:nth-child(2) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+      font-size: 65px !important;
+   }
+}
+
+/* Estilo para h3 de slides 2 y 3 */
+.hero-section .hero-content h3 {
+   color: #2F56DC !important;
+   font-size: 24px !important;
+   font-weight: 500 !important;
+   line-height: 1.3 !important;
+   margin-bottom: 16px !important;
+}
+
+/* Responsive para h3 de slides 2 y 3 */
+@media only screen and (min-width: 576px) {
+   .hero-section .hero-content h3 {
+      font-size: 28px !important;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .hero-section .hero-content h3 {
+      font-size: 32px !important;
+   }
+}
+
+@media only screen and (min-width: 992px) {
+   .hero-section .hero-content h3 {
+      font-size: 36px !important;
+   }
+}
+
+@media only screen and (min-width: 1200px) {
+   .hero-section .hero-content h3 {
+      font-size: 40px !important;
+   }
+}
+
+@media only screen and (min-width: 1400px) {
+   body .hero-section .hero-content h3 {
+      font-size: 34px !important;
+   }
+}
+
+.hero-section .hero-content p {
+   color: #4e4960 !important;
+}
+
+/* Solo el color de fondo */
+.hero-section {
+   background-color: #AEF8FF !important;
+   padding-bottom: 50px !important;
+}
+
+/* FORZAR el tamaño correcto del título - SELECTOR MÁS ESPECÍFICO */
+body .hero-section .hero-content h1 {
+   font-size: 48px !important;
+   font-weight: 700 !important;
+   line-height: 1.15 !important;
+}
+
+@media only screen and (min-width: 576px) {
+   body .hero-section .hero-content h1 {
+      font-size: 56px !important;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   body .hero-section .hero-content h1 {
+      font-size: 64px !important;
+   }
+}
+
+@media only screen and (min-width: 992px) {
+   body .hero-section .hero-content h1 {
+      font-size: 72px !important;
+   }
+}
+
+@media only screen and (min-width: 1400px) {
+   body .hero-section .hero-content h1 {
+      font-size: 65px !important;
+   }
+}
+
+/* Estilos para el Hero Slider */
+.hero-swiper {
+   width: 100%;
+   height: 100%;
+}
+
+.hero-swiper .swiper-slide {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Pagination del Hero - SELECTOR MUY ESPECÍFICO */
+body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
+   bottom: 20px !important;
+   position: absolute !important;
+   top: auto !important;
+   transform: none !important;
+}
+
+.hero-pagination .swiper-pagination-bullet {
+   background: #2F56DC !important;
+   opacity: 0.6 !important;
+}
+
+.hero-pagination .swiper-pagination-bullet-active {
+   background: #2F56DC !important;
+   opacity: 1 !important;
+}
+
+/* Navigation del Hero - CÍRCULO ORIGINAL, FLECHAS MÁS PEQUEÑAS */
+.hero-button-next,
+.hero-button-prev {
+   color: #ffffff;
+   background: #2F56DC;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   backdrop-filter: blur(10px);
+}
+
+/* Posicionamiento específico para el botón prev */
+.hero-button-prev {
+   left: auto !important;
+   right: 80px !important;
+}
+
+.hero-button-next::after,
+.hero-button-prev::after {
+   font-size: 14px !important;
+}
+
+.hero-button-next:hover,
+.hero-button-prev:hover {
+   background: #1E3A8A;
+   color: #ffffff;
+}
+
+/* Botón grande del slider */
+.hero-section .btn-outline-light {
+   border: 2px solid #2F56DC !important;
+   color: #2F56DC !important;
+   background: transparent !important;
+   transition: all 0.3s ease;
+}
+
+.hero-section .btn-outline-light:hover {
+   background: #2F56DC !important;
+   color: #ffffff !important;
+   border-color: #2F56DC !important;
+}
+
+/* Clase para h3 en Services */
+.pe-h3 {
+   font-size: 22px;
+   color: #2F56DC;
+   font-weight: 400;
+}
+
+/* Clase para h3 en Services */
+.pe-h3 {
+   font-size: 22px;
+   color: #2F56DC;
+}
+
+ 

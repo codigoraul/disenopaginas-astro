@@ -1,0 +1,180 @@
+---
+import SocialLinks from './SocialLinks.astro';
+---
+
+ <!-- Footer -->
+ <footer class="footer-wrapper">
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container">
+       <div class="row g-5">
+          <!-- Footer Card -->
+          <div class="col-12 col-sm-6 col-lg-4">
+             <div class="footer-card pe-lg-5">
+                <a href="/" class="d-block mb-4">
+                   <img src="/assets/img/logo-disenopaginas.png" alt="DiseñoPáginas.cl" width="185" height="62">
+                </a>
+                <p class="mb-0">Somos especialistas en diseño web profesional con más de 12 años 
+                  de experiencia creando sitios web de alta calidad. Nos comprometemos a encontrar
+                   la mejor solución para comunicar de forma rápida, efectiva y con alcance en el 
+                   tiempo acerca de su empresa o servicios a través de la web. Creamos sitios web
+                    modernos, responsivos y optimizados para SEO que impulsan el crecimiento de su 
+                    negocio.</p>
+
+               
+             </div>
+          </div>
+
+          <!-- Footer Card -->
+          <div class="col-12 col-sm-6 col-lg">
+             <div class="footer-card">
+                <h5 class="mb-4">Links relacionados</h5>
+
+                <!-- Footer Nav with new links -->
+                <div class="row">
+                   <!-- First column -->
+                   <div class="col-6">
+                      <ul class="footer-nav">
+                         <li><a href="paginas-web-clinica-dental.php">Web dentistas</a></li>
+                         <li><a href="diseno-de-logotipo.php">Logos y Afiche</a></li>
+                         <li><a href="web-tienda-online.php">Tiendas Online</a></li>
+                         <li><a href="paginas-web-empresas-mineria.php">Empresas Minería</a></li>
+                         <li><a href="diseno-web-abogados.php">Abogados</a></li>
+                         <li><a href="#">En Google</a></li>
+                         <li><a href="diseno-web-corredor-propiedades.php">Web Corredor Propiedades</a></li>
+                         <li><a href="diseno-web-turismo.php">Web turismo</a></li>
+                      </ul>
+                   </div>
+                   
+                   <!-- Second column -->
+                   <div class="col-6">
+                      <ul class="footer-nav">
+                         <li><a href="https://dise%C3%B1opaginas.cl/antofagasta">Antofagasta</a></li>
+                         <li><a href="https://dise%C3%B1opaginas.cl/la-serena">La Serena</a></li>
+                         <li><a href="https://dise%C3%B1opaginas.cl/santiago">Santiago</a></li>
+                         <li><a href="https://dise%C3%B1opaginas.cl/concepcion">Concepción</a></li>
+                         <li><a href="diseno-web-temuco.php">Temuco</a></li>
+                         <li><a href="diseno-web-valdivia.php">Valdivia</a></li>
+                         <li><a href="diseno-web-osorno.php">Osorno</a></li>
+                         <li><a href="https://diseñopaginas.cl/puerto-montt">Puerto Montt</a></li>
+                         <li><a href="diseno-web-arica.php">Arica</a></li>
+                         <li><a href="https://diseñopaginas.cl/landing/" target="blank">Mi Landing Page</a></li>
+                         <li><a href="https://diseñopaginas.cl/web-inteligencia-artificial/" target="blank">Web con IA</a></li>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+          <!-- Footer Card -->
+          <div class="col-12 col-sm-6 col-lg">
+             <div class="footer-card">
+                <h5 class="mb-4">Información de contacto</h5>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                   <p class="mb-2"><i class="ti ti-map-pin me-2"></i>Temuco - Chile</p>
+                   <p class="mb-2"><i class="ti ti-phone me-2"></i>(+56) 9 61765268</p>
+                   <p class="mb-2"><i class="ti ti-mail me-2"></i>codigoraul@gmail.com</p>
+                   <p class="mb-0"><i class="ti ti-clock me-2"></i>Lunes a sábado</p>
+                </div>
+                <h5 class="mb-4 mt-4">Redes Sociales</h5>
+                 <!-- Social Nav -->
+                 <SocialLinks variant="footer" size="medium" />
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Copyright Wrapper -->
+    <div class="copyright-wrapper">
+       <div class="container">
+          <div class="row align-items-center">
+             <!-- Copyright -->
+             <div class="col-12 col-md-6">
+                <p class="mb-3 mb-md-0 copyright">Copyright © <span id="year">2025</span> <a href="/">DiseñoPáginas.cl</a> - Todos los derechos reservados.</p>
+             </div>
+
+             <!-- Footer Bottom Nav -->
+             <div class="col-12 col-md-6">
+                <div class="footer-bottom-nav">
+                   <a href="/contacto">Contacto</a>
+                   <a href="/servicios">Servicios</a>
+                   <a href="/portafolio">Portafolio</a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+
+<style>
+  /* Estilo para el texto del footer */
+  .footer-wrapper {
+    font-size: 16px !important;
+    background-color: #292A29 !important;
+    color: #DDDEDC !important;
+  }
+  
+  .footer-wrapper p,
+  .footer-wrapper .footer-nav a,
+  .footer-wrapper .contact-info p,
+  .footer-wrapper .copyright,
+  .footer-wrapper .footer-bottom-nav a {
+    font-size: 16px !important;
+    color: #DDDEDC !important;
+  }
+  
+  /* Estilos más específicos para copyright y footer bottom */
+  .copyright-wrapper .copyright,
+  .copyright-wrapper .copyright a,
+  .footer-bottom-nav,
+  .footer-bottom-nav a,
+  .mb-3.mb-md-0.copyright,
+  .mb-3.mb-md-0.copyright a {
+    font-size: 16px !important;
+    color: #DDDEDC !important;
+  }
+  
+  /* Forzar con mayor especificidad */
+  .footer-wrapper .copyright-wrapper .copyright,
+  .footer-wrapper .copyright-wrapper .footer-bottom-nav a {
+    font-size: 16px !important;
+    color: #DDDEDC !important;
+  }
+  
+  /* Asegurar que los enlaces sean visibles */
+  .footer-wrapper .footer-nav a:hover,
+  .footer-wrapper .footer-bottom-nav a:hover {
+    color: #2F56DC !important;
+    text-decoration: none;
+  }
+  
+  /* Títulos del footer en color claro */
+  .footer-wrapper h5 {
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 22px !important;
+  }
+  
+  /* Iconos de redes sociales en color claro */
+  .footer-wrapper .social-nav a,
+  .footer-wrapper .social-nav i {
+    color: white !important;
+  }
+  
+  .footer-wrapper .social-nav a:hover,
+  .footer-wrapper .social-nav a:hover i {
+    color: #2F56DC !important;
+  }
+  
+  /* Copyright wrapper con fondo más oscuro */
+  .footer-wrapper .copyright-wrapper {
+    background-color: #1a1b1a !important;
+    padding: 20px 0 !important;
+  }
+</style>

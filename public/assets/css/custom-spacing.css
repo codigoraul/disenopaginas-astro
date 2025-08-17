@@ -1,0 +1,17 @@
+/* Custom spacing adjustments - Reduce only the services section spacing by 5px */
+.service-section .section-heading {
+  margin-bottom: -5px !important; /* Reduce bottom margin by 5px */
+}
+
+/* Alternative approach - target the specific spacing between title and services */
+.service-section .section-heading + .row,
+.service-section .section-heading + .container,
+.service-section .section-heading + div {
+  margin-top: -5px !important; /* Reduce top margin by 5px */
+}
+
+/* Reduce testimonial text size */
+.testimonial-text {
+  font-size: 16px !important; /* Medium size between original and small */
+  line-height: 1.5 !important; /* Adjust line height for better readability */
+}

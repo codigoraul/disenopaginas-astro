@@ -1,0 +1,59 @@
+---
+// Props para hacer el componente dinámico
+export interface Props {
+  title: string;
+  currentPage: string;
+  bgImage?: string;
+}
+
+const { title, currentPage, bgImage = "/assets/img/bg-img/bg-title.webp" } = Astro.props;
+---
+
+<!-- Breadcrumb Section -->
+  <div class="breadcrumb-section" style={`background-image: url('${bgImage}'); background-size: 100% auto; background-position: center 40px; background-repeat: no-repeat;`}>
+  <div class="container">
+    <!-- Breadcrumb Content -->
+    <div class="breadcrumb-content">
+      
+      <h2 style="font-size: 35px; letter-spacing: .1rem; color: #ececec; line-height: 1.3rem; text-shadow: 1px 1px 1px black;">{title}</h2>
+      <ul class="list-unstyled">
+        <li><a href="/" style="color: #898694;">Inicio</a></li>
+        <li style="color: #898694;">{currentPage}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .breadcrumb-section {
+    padding: 98px 0px 60px;
+    position: relative;
+    z-index: 1;
+    min-height: 200px;
+    background-attachment: fixed;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-size: cover;
+  }
+  
+  /* Sobrescribir el gradiente azul del CSS global */
+  .breadcrumb-section::after {
+    display: none !important;
+  }
+  
+  .breadcrumb-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #73728578;
+    z-index: -1;
+  }
+  
+  .breadcrumb-content {
+    position: relative;
+    z-index: 2;
+  }
+</style>

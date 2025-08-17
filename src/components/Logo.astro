@@ -1,0 +1,66 @@
+---
+// Componente Logo para diseñopaginas.cl
+---
+
+<div class="logo-container">
+  <!-- Logo PNG -->
+  <div class="logo-image">
+    <img src="/assets/img/logo-disenopaginas.png" alt="DiseñoPáginas.cl" width="120" height="40">
+  </div>
+  
+  <!-- Texto del logo -->
+  <div class="logo-text">
+    <span class="logo-text-primary">DISEÑO</span>
+    <span class="logo-text-secondary">PAGINAS</span>
+  </div>
+</div>
+
+<style>
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logo-image {
+    flex-shrink: 0;
+  }
+  
+  .logo-image img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  
+  .logo-text-primary {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #2F56DC;
+    letter-spacing: 0.5px;
+  }
+  
+  .logo-text-secondary {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #767586;
+    letter-spacing: 0.3px;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-text-primary {
+      font-size: 16px;
+    }
+    
+    .logo-text-secondary {
+      font-size: 14px;
+    }
+  }
+</style> 

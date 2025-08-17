@@ -1,0 +1,230 @@
+---
+---
+<style>
+  .service-content p {
+    font-size: 15px !important;
+  }
+  
+  h2 {
+    font-size: clamp(28px, 3vw, 36px) !important;
+  }
+  
+  .section-heading h2 {
+    font-size: clamp(30px, 4vw, 36px) !important;
+  }
+  
+  .pe-h3 {
+    font-size: 20px !important;
+  }
+  
+  h2[data-astro-cid-g5jplrhu] {
+    font-size: clamp(26px, 3vw, 28px) !important;
+  }
+  
+  .service-card {
+    border-radius: 0 !important;
+  }
+  
+  .service-card .service-thumb {
+    border-radius: 0 !important;
+  }
+  
+  .service-card .service-thumb img {
+    border-radius: 0 !important;
+  }
+  
+  .service-card .shape > img {
+    border-radius: 0 !important;
+  }
+  
+  .service-card .shape {
+    border-radius: 0 !important;
+  }
+  
+  .service-card .shape img {
+    border-radius: 0 !important;
+  }
+  
+  /* Forzar todos los bordes redondeados a 0 */
+  .service-card * {
+    border-radius: 0 !important;
+  }
+  
+  /* Estilos más específicos para sobrescribir CSS global */
+  .service-section .service-card,
+  .service-section .service-card *,
+  .service-section .service-card .shape,
+  .service-section .service-card .shape img,
+  .service-section .service-card .service-thumb,
+  .service-section .service-card .service-thumb img {
+    border-radius: 0 !important;
+  }
+  
+  /* Forzar con mayor especificidad */
+  body .service-section .service-card,
+  body .service-section .service-card *,
+  body .service-section .service-card .shape,
+  body .service-section .service-card .shape img,
+  body .service-section .service-card .service-thumb,
+  body .service-section .service-card .service-thumb img {
+    border-radius: 0 !important;
+  }
+  
+  /* Usar los atributos específicos de Astro */
+  [data-astro-cid-g5jplrhu] .service-card,
+  [data-astro-cid-g5jplrhu] .service-card *,
+  [data-astro-cid-g5jplrhu] .service-card .shape,
+  [data-astro-cid-g5jplrhu] .service-card .shape img,
+  [data-astro-cid-g5jplrhu] .service-card .service-thumb,
+  [data-astro-cid-g5jplrhu] .service-card .service-thumb img {
+    border-radius: 0 !important;
+  }
+</style>
+
+ <!-- Service Section -->
+ <section class="service-section">
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container">
+       <div class="row justify-content-center">
+          <!-- Section Heading -->
+          <div class="col-12 col-md-7">
+             <div class="section-heading text-center">
+                
+                <h2 class="mb-0">Servicios de Diseño Web</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider-sm"></div>
+
+    <div class="container">
+       <div class="row g-4 g-xl-3">
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/diseno-web-chile.webp" alt="Diseño Web Chile - Empresas">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Diseño Web Chile
+                    </h2>
+                    <h3 class="pe-h3">Diseño web Empresas</h3>
+                   <p class="mb-0">Desarrollamos sitios web profesionales y personalizados para empresas. 
+                     Optimizados para SEO y con diseños 
+                     modernos que fortalecen tu marca. ¡Impulsa tu presencia digital!</p>
+                </div>
+                <div class="service-number">01</div>
+             </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/diseno-web-autoadministrable.webp" alt="Sitios Web Autoadministrables">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Sitios web Autoadminitrables</h2>
+                   <h3 class="pe-h3">Páginas Web Autogestionables</h3>
+                   <p class="mb-0">Administre su sitio web sin conocimientos técnicos. Nuestro panel de control intuitivo le permite actualizar textos, imágenes y contenido de forma sencilla.
+                      Incluye soporte técnico personalizado por teléfono y WhatsApp</p>
+                </div>
+                <div class="service-number">02</div>
+             </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/diseno-web-venta-online.webp" alt="Páginas Web Venta Online">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Páginas web Venta Online</h2>
+                   <h3 class="pe-h3">Carrito de compra online</h3>
+                   <p class="mb-0">Tiendas online con WooCommerce, incluyendo catálogos 
+                     profesionales y sistemas de venta avanzados. 
+                     Optimizamos el diseño visual y posicionamiento SEO individual para cada producto.</p>
+                </div>
+                <div class="service-number">03</div>
+             </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/posicionamiento-web-seo.webp" alt="Posicionamiento Web SEO">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Posicionamiento Web SEO</h2>
+                   <h3 class="pe-h3">Posicionamiento Web en Google</h3>
+                   <p class="mb-0">Optimizamos tu sitio web para que aparezca en los primeros resultados de Google. Implementamos estrategias SEO avanzadas, optimización de contenido y técnicas de posicionamiento local para aumentar tu visibilidad online y atraer más clientes potenciales.</p>
+                </div>
+                <div class="service-number">04</div>
+             </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/mantenimiento-de-tu-pagina-web.webp" alt="Mantenimiento de Páginas Web">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Mantenimiento de tu Web</h2>
+                   <h3 class="pe-h3">Actualización de contenido</h3>
+                   <p class="mb-0">Servicio de mantenimiento web profesional para empresas en Chile. Actualizamos contenido, optimizamos rendimiento, realizamos copias de seguridad y monitoreamos la seguridad de tu sitio web. Garantizamos que tu página web esté siempre actualizada, segura y funcionando correctamente para mantener tu presencia digital activa.</p>
+                </div>
+                <div class="service-number">05</div>
+             </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-12 col-sm-6 col-xl-4">
+             <div class="service-card">
+                <div class="shape">
+                   <img src="assets/img/core-img/shape7.png" alt="">
+                </div>
+                <div class="service-thumb">
+                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <img src="assets/img/servicios/diseno-de-logotipos.webp" alt="Diseño de Logotipos">
+                </div>
+                <div class="service-content">
+                   <h2 class="service-title">Diseño de Logotipos</h2>
+                   <h3 class="pe-h3">Diseñamos logos Empresa</h3>
+                   <p class="mb-0">Diseño de logotipos para empresas en Chile. Creamos logos únicos y memorables que representan la identidad de su marca. Nuestro proceso incluye investigación de mercado, conceptos creativos, diseño vectorial profesional y entrega en múltiples formatos. Garantizamos logotipos económicos pero con la calidad de un estudio profesional, adaptados a su sector y público objetivo.</p>
+                </div>
+                <div class="service-number">06</div>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+ </section>

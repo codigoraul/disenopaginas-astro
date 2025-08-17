@@ -1,0 +1,181 @@
+---
+// Componente SocialLinks para diseñopaginas.cl
+// Props para personalizar el componente
+interface Props {
+  variant?: 'header' | 'footer';
+  size?: 'small' | 'medium' | 'large';
+  className?: string;
+}
+
+const { 
+  variant = 'header', 
+  size = 'medium', 
+  className = '' 
+} = Astro.props;
+
+// Configuración de redes sociales - Solo los 6 enlaces originales
+const socialLinks = [
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/PaginasChile/',
+    icon: 'ti ti-brand-facebook',
+    color: '#1877F2'
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/raulriquelme2',
+    icon: 'ti ti-brand-x',
+    color: '#1DA1F2'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/raul-riquelme-69a16859/',
+    icon: 'ti ti-brand-linkedin',
+    color: '#0A66C2'
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/disenopaginas/',
+    icon: 'ti ti-brand-instagram',
+    color: '#E4405F'
+  },
+  {
+    name: 'Pinterest',
+    url: 'https://www.pinterest.es/boketo11/',
+    icon: 'ti ti-brand-pinterest',
+    color: '#BD081C'
+  },
+  {
+    name: 'Behance',
+    url: 'https://www.behance.net/codigoraul',
+    icon: 'ti ti-brand-behance',
+    color: '#1769FF'
+  }
+];
+
+// Clases CSS según la variante y tamaño
+const getClasses = () => {
+  const baseClasses = 'social-links d-flex align-items-center';
+  
+  const variantClasses = {
+    header: 'social-header',
+    footer: 'social-footer'
+  };
+  
+  const sizeClasses = {
+    small: 'gap-1',
+    medium: 'gap-2', 
+    large: 'gap-3'
+  };
+  
+  return `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+};
+
+const classes = getClasses();
+---
+
+<nav class={classes} aria-label="Redes sociales">
+  {socialLinks.map((link) => (
+    <a 
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link transition-all duration-300 hover:scale-110"
+      aria-label={`Síguenos en ${link.name}`}
+      title={link.name}
+    >
+      <i class={`${link.icon} text-xl`}></i>
+    </a>
+  ))}
+</nav>
+
+<style>
+  /* Estilos base para los enlaces sociales */
+  .social-links .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-links .social-link:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  
+  /* ===== HEADER - Iconos BLANCOS ===== */
+  .social-header .social-link,
+  .social-header .social-link i,
+  .social-header a,
+  .social-header a i {
+    color: #ffffff !important;
+  }
+  
+  .social-header .social-link:hover,
+  .social-header .social-link:hover i,
+  .social-header a:hover,
+  .social-header a:hover i {
+    color: #AEF8FF !important;
+  }
+  
+  /* Especificidad extra para el header */
+  .header-area .social-header .social-link,
+  .header-area .social-header .social-link i,
+  .header-area .social-header a,
+  .header-area .social-header a i {
+    color: #ffffff !important;
+  }
+  
+  .header-area .social-header .social-link:hover,
+  .header-area .social-header .social-link:hover i,
+  .header-area .social-header a:hover,
+  .header-area .social-header a:hover i {
+    color: #AEF8FF !important;
+  }
+  
+  /* ===== FOOTER - Iconos NEGROS ===== */
+  .social-footer .social-link,
+  .social-footer .social-link i,
+  .social-footer a,
+  .social-footer a i {
+    color: #333333 !important;
+  }
+  
+  .social-footer .social-link:hover,
+  .social-footer .social-link:hover i,
+  .social-footer a:hover,
+  .social-footer a:hover i {
+    color: #2F56DC !important;
+  }
+  
+  /* Especificidad extra para el footer */
+  .footer-wrapper .social-footer .social-link,
+  .footer-wrapper .social-footer .social-link i,
+  .footer-wrapper .social-footer a,
+  .footer-wrapper .social-footer a i {
+    color: #333333 !important;
+  }
+  
+  .footer-wrapper .social-footer .social-link:hover,
+  .footer-wrapper .social-footer .social-link:hover i,
+  .footer-wrapper .social-footer a:hover,
+  .footer-wrapper .social-footer a:hover i {
+    color: #2F56DC !important;
+  }
+  
+  /* Tamaños responsivos */
+  @media (max-width: 768px) {
+    .social-links .social-link {
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    .social-links .social-link i {
+      font-size: 1rem;
+    }
+  }
+</style> 

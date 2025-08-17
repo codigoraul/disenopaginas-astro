@@ -1,0 +1,237 @@
+---
+// Blog component for displaying blog articles
+---
+
+<style>
+  .blog-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .blog-thumb {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .blog-thumb img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-thumb img {
+    transform: scale(1.05);
+  }
+  
+  .blog-content {
+    padding: 25px;
+    background: #fff;
+  }
+  
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .blog-meta i {
+    color: var(--primary-color);
+  }
+  
+  .blog-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .blog-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s ease;
+  }
+  
+  .read-more:hover {
+    gap: 10px;
+  }
+</style>
+
+<!-- Blog Section -->
+<section class="blog-section">
+   <!-- Divider -->
+   <div class="divider"></div>
+
+   <div class="container">
+      <div class="row justify-content-center">
+         <!-- Section Heading -->
+         <div class="col-12 col-md-7">
+            <div class="section-heading text-center">
+               <h2 class="mb-0">Blog - Tips y Noticias</h2>
+               <p class="mt-3">Descubre consejos útiles sobre diseño web, marketing digital y tecnología</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Divider -->
+   <div class="divider-sm"></div>
+
+   <div class="container">
+      <div class="row g-4 g-xl-3">
+         <!-- Blog Card 1 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/1.jpg" alt="Diseño Web Responsive">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 15 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title">Tendencias Web 2025: El Impacto de la IA en el Diseño Digital</h3>
+                  <p class="blog-excerpt">Descubre cómo la inteligencia artificial está revolucionando el diseño web y qué tendencias dominarán el mercado este año...</p>
+                  <a href="/blog/tendencias-web-ia-2025" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Blog Card 2 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/2.jpg" alt="SEO para Sitios Web">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 12 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title"><i class="ti ti-search"></i> Guía completa de SEO para principiantes</h3>
+                  <p class="blog-excerpt">Aprende los fundamentos del SEO y cómo implementar estrategias efectivas para mejorar el ranking de tu sitio web...</p>
+                  <a href="/blog/guia-seo-principiantes" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Blog Card 3 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/3.jpg" alt="WooCommerce Chile">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 10 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title"><i class="ti ti-shopping-cart"></i> Cómo crear una tienda online exitosa con WooCommerce</h3>
+                  <p class="blog-excerpt">Te enseñamos paso a paso cómo configurar tu tienda online y comenzar a vender productos en Chile...</p>
+                  <a href="/blog/tienda-online-woocommerce" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Blog Card 4 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/4.jpg" alt="Marketing Digital">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 8 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title">Estrategias de marketing digital para pequeñas empresas</h3>
+                  <p class="blog-excerpt">Descubre técnicas efectivas de marketing digital que pueden ayudar a tu empresa a crecer en el mercado chileno...</p>
+                  <a href="/blog/marketing-digital-pequenas-empresas" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Blog Card 5 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/5.jpg" alt="Diseño Web Chile">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 5 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title">Tendencias de diseño web para 2025</h3>
+                  <p class="blog-excerpt">Conoce las últimas tendencias en diseño web que dominarán el mercado este año y cómo aplicarlas...</p>
+                  <a href="/blog/tendencias-diseno-web-2025" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Blog Card 6 -->
+         <div class="col-12 col-sm-6 col-xl-4">
+            <div class="blog-card">
+               <div class="blog-thumb">
+                  <img src="assets/img/bg-img/6.jpg" alt="Hosting Web">
+               </div>
+               <div class="blog-content">
+                  <div class="blog-meta">
+                     <span><i class="ti ti-calendar"></i> 3 Enero 2025</span>
+                     <span><i class="ti ti-user"></i> DiseñoPáginas</span>
+                  </div>
+                  <h3 class="blog-title">Cómo elegir el mejor hosting para tu sitio web</h3>
+                  <p class="blog-excerpt">Guía completa para seleccionar el hosting ideal según las necesidades de tu proyecto web...</p>
+                  <a href="/blog/elegir-mejor-hosting" class="read-more">
+                     Leer más <i class="ti ti-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Divider -->
+   <div class="divider-sm"></div>
+
+   <!-- View All Posts Button -->
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-12 text-center">
+            <a href="/blog" class="btn btn-primary">
+               Ver todos los artículos <i class="ti ti-arrow-right"></i>
+            </a>
+         </div>
+      </div>
+   </div>
+</section> 

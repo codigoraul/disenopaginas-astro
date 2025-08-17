@@ -1,0 +1,127 @@
+---
+// Componente Hero Slider para diseñopaginas.cl
+---
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('/assets/img/core-img/fondo2.webp');">
+   <!-- Divider -->
+   <div class="divider"></div>
+
+   <div class="container">
+      <!-- Hero Content -->
+      <div class="hero-content">
+         <!-- Swiper Container -->
+         <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+               <!-- Slide 1 -->
+               <div class="swiper-slide">
+                  <div class="row g-5">
+                     <div class="col-12 col-lg-7">
+                        <h1 class="mb-0 wow fadeInUp "
+                         data-wow-duration="1000ms" data-wow-delay="400ms">
+                         
+                         Diseño de <span>Páginas Web </span>Chile
+                        </h1>
+                        <h2 class="hero-subtitle">Creación de Sitios Web Profesionales para Empresas</h2>
+                     </div>
+
+                     <div class="col-12 col-lg-5">
+                        
+                        <p class=" wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">Desarrollamos páginas web únicas con diseño creativo y tecnología de vanguardia 
+                           para posicionar su empresa en los primeros lugares de google.
+                        </p>
+                        <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
+                           data-wow-delay="800ms" href="/servicios">Ver Servicios <i class="ti ti-arrow-up-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Slide 2 -->
+               <div class="swiper-slide">
+                  <div class="row g-5">
+                     <div class="col-12 col-lg-7">
+                        <h2 class="mb-0 wow fadeInUp " data-wow-duration="1000ms" data-wow-delay="400ms">
+                           Sitios Web de <span>Calidad Profesional</span> 
+                        </h2>
+                        <h3>Diseño Web Empresas con Resultados</h3>
+                     </div>
+
+                     <div class="col-12 col-lg-5">
+                        <p class="text-white wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                           Su sitio web es la primera impresión de su empresa.
+                           Nuestros diseños profesionales generan <strong>
+                           confianza inmediata y conversiones reales</strong>.
+                            Descubra la calidad de nuestro trabajo a través de proyectos exitosos en nuestro portafolio.</p>
+                        </p>
+                        <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
+                           data-wow-delay="800ms" href="/portafolio">Ver portafolio <i class="ti ti-arrow-up-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Slide 3 -->
+               <div class="swiper-slide">
+                  <div class="row g-5">
+                     <div class="col-12 col-lg-7">
+                        <h2 class="mb-0 wow fadeInUp " data-wow-duration="1000ms" data-wow-delay="400ms">
+                           Su sitio <span>web 2025</span>  con IA
+                        </h2>
+                        <h3>Diseño Web con Inteligencia artificial</h3>
+                     </div>
+
+                     <div class="col-12 col-lg-5">
+                        <p class=" wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                           la IA nos ayuda a asegurar que tu sitio sea altamente funcional y fácil de navegar para tus usuarios. Si no tienes tiempo de describir al 100% tus servicios te ayudamos con las nuevas tecnologías de la IA especialistas en crear contenido 
+                           sobre tu empresa y tendrás una web optima para tus clientes potenciales.
+                        </p>
+                        <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
+                           data-wow-delay="800ms" href="/contacto">Solicitar Presupuesto <i class="ti ti-arrow-up-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination hero-pagination"></div>
+         </div>
+      </div>
+   </div>
+
+</section>
+
+
+
+<script>
+// Inicializar Swiper para el Hero
+document.addEventListener('DOMContentLoaded', function() {
+   const heroSwiper = new Swiper('.hero-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+         delay: 5000,
+         disableOnInteraction: false,
+      },
+      pagination: {
+         el: '.hero-pagination',
+         clickable: true,
+      },
+      effect: 'fade',
+      fadeEffect: {
+         crossFade: true
+      },
+      // Mejoras para el loop
+      loopAdditionalSlides: 1,
+      loopedSlides: 1,
+      speed: 1000,
+      // Forzar reflow después de la transición
+      on: {
+         slideChangeTransitionEnd: function() {
+            // Forzar reflow para asegurar que los estilos se apliquen correctamente
+            this.slides.forEach(slide => {
+               slide.style.display = '';
+            });
+         }
+      }
+   });
+});
+</script>
