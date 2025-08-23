@@ -79,6 +79,51 @@
   [data-astro-cid-g5jplrhu] .service-card .service-thumb img {
     border-radius: 0 !important;
   }
+  
+  /* Reemplazar imagen de fondo por gradiente */
+  .shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #EBFFFF !important;
+    border: 1px solid #56e2f5;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  
+  /* Ocultar la imagen */
+  .shape img {
+    display: none !important;
+  }
+  
+  /* Ajustar opacidad al pasar el mouse */
+  .service-card:hover .shape {
+    opacity: 0.7;
+  }
+  
+  /* Asegurar que el contenido esté por encima */
+  .service-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Estilos para los títulos como enlaces */
+  .service-title {
+    display: block;
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .service-title:hover {
+    color: #011C42;
+    text-decoration: none;
+  }
 </style>
 
  <!-- Service Section -->
@@ -110,12 +155,11 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/diseno-web-chile" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/diseno-web-chile.webp" alt="Diseño Web Chile - Empresas">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Diseño Web Chile
-                    </h2>
+                   <a href="/servicios/diseno-web-chile" class="service-title">Diseño Web Chile</a>
                     <h3 class="pe-h3">Diseño web Empresas</h3>
                    <p class="mb-0">Desarrollamos sitios web profesionales y personalizados para empresas. 
                      Optimizados para SEO y con diseños 
@@ -132,14 +176,14 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/sitios-web-autoadministrables" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/diseno-web-autoadministrable.webp" alt="Sitios Web Autoadministrables">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Sitios web Autoadminitrables</h2>
+                   <a href="/servicios/sitios-web-autoadministrables" class="service-title">Sitios web Autoadminitrables</a>
                    <h3 class="pe-h3">Páginas Web Autogestionables</h3>
                    <p class="mb-0">Administre su sitio web sin conocimientos técnicos. Nuestro panel de control intuitivo le permite actualizar textos, imágenes y contenido de forma sencilla.
-                      Incluye soporte técnico personalizado por teléfono y WhatsApp</p>
+                      Incluye soporte técnico personalizado por teléfono...</p>
                 </div>
                 <div class="service-number">02</div>
              </div>
@@ -152,11 +196,11 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/tiendas-online" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/diseno-web-venta-online.webp" alt="Páginas Web Venta Online">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Páginas web Venta Online</h2>
+                   <a href="/servicios/tiendas-online" class="service-title">Páginas web Venta Online</a>
                    <h3 class="pe-h3">Carrito de compra online</h3>
                    <p class="mb-0">Tiendas online con WooCommerce, incluyendo catálogos 
                      profesionales y sistemas de venta avanzados. 
@@ -173,11 +217,11 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/posicionamiento-web-seo" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/posicionamiento-web-seo.webp" alt="Posicionamiento Web SEO">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Posicionamiento Web SEO</h2>
+                   <a href="/servicios/posicionamiento-web-seo" class="service-title">Posicionamiento Web SEO</a>
                    <h3 class="pe-h3">Posicionamiento Web en Google</h3>
                    <p class="mb-0">Optimizamos tu sitio web para que aparezca en los primeros resultados de Google. Implementamos estrategias SEO avanzadas, optimización de contenido y técnicas de posicionamiento local para aumentar tu visibilidad online y atraer más clientes potenciales.</p>
                 </div>
@@ -192,13 +236,15 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/mantenimiento-web" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/mantenimiento-de-tu-pagina-web.webp" alt="Mantenimiento de Páginas Web">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Mantenimiento de tu Web</h2>
+                   <a href="/servicios/mantenimiento-web" class="service-title">Mantenimiento de tu Web</a>
                    <h3 class="pe-h3">Actualización de contenido</h3>
-                   <p class="mb-0">Servicio de mantenimiento web profesional para empresas en Chile. Actualizamos contenido, optimizamos rendimiento, realizamos copias de seguridad y monitoreamos la seguridad de tu sitio web. Garantizamos que tu página web esté siempre actualizada, segura y funcionando correctamente para mantener tu presencia digital activa.</p>
+                   <p class="mb-0">Servicio de mantenimiento web profesional para empresas en Chile. Actualizamos contenido, optimizamos rendimiento,
+                      realizamos copias de seguridad y monitoreamos la seguridad de tu sitio web.
+                       Garantizamos que tu página web esté siempre actualizada, segura y funcionando...</p>
                 </div>
                 <div class="service-number">05</div>
              </div>
@@ -211,13 +257,14 @@
                    <img src="assets/img/core-img/shape7.png" alt="">
                 </div>
                 <div class="service-thumb">
-                   <a href="#" class="btn">Learn More <i class="ti ti-arrow-right"></i></a>
+                   <a href="/servicios/diseno-logotipos" class="btn">Ver más <i class="ti ti-arrow-right"></i></a>
                    <img src="assets/img/servicios/diseno-de-logotipos.webp" alt="Diseño de Logotipos">
                 </div>
                 <div class="service-content">
-                   <h2 class="service-title">Diseño de Logotipos</h2>
+                   <a href="/servicios/diseno-logotipos" class="service-title">Diseño de Logotipos</a>
                    <h3 class="pe-h3">Diseñamos logos Empresa</h3>
-                   <p class="mb-0">Diseño de logotipos para empresas en Chile. Creamos logos únicos y memorables que representan la identidad de su marca. Nuestro proceso incluye investigación de mercado, conceptos creativos, diseño vectorial profesional y entrega en múltiples formatos. Garantizamos logotipos económicos pero con la calidad de un estudio profesional, adaptados a su sector y público objetivo.</p>
+                   <p class="mb-0">Diseño de logotipos para empresas en Chile. Creamos logos únicos y memorables que representan la identidad de su marca.
+                     Nuestro proceso incluye investigación de mercado, conceptos creativos, diseño vectorial profesional y entrega en múltiples formatos. Garantizamos logotipos económicos pero...</p>
                 </div>
                 <div class="service-number">06</div>
              </div>

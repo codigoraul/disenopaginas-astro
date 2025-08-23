@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';   
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Services from '../components/Services.astro';
+import Stats from '../components/Stats.astro';
 
 ---
 
@@ -274,44 +275,8 @@ import Services from '../components/Services.astro';
    </div>
 </section>
 
-<!-- FAQ Wrapper -->
-<div class="faq-wrapper bg-secondary">
-   <div class="container">
-      <div class="row g-4 g-md-5">
-         <!-- Happy Counts -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="happy-counts wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-               <h3 class="counter">12</h3>
-               <h5 class="mb-0">Años de Experiencia</h5>
-            </div>
-         </div>
-
-         <!-- Happy Counts -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="happy-counts wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-               <h3 class="counter">97<span>%</span></h3>
-               <h5 class="mb-0">Clientes Satisfechos</h5>
-            </div>
-         </div>
-
-         <!-- Happy Counts -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="happy-counts wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-               <h3 class="counter">500<span>+</span></h3>
-               <h5 class="mb-0">Proyectos Completados</h5>
-            </div>
-         </div>
-
-         <!-- Happy Counts -->
-         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="happy-counts wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="1000ms">
-               <h3 class="counter">100<span>%</span></h3>
-               <h5 class="mb-0">Sitios Responsivos</h5>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+<!-- Stats Section -->
+<Stats />
 
 <!-- CTA Wrapper -->
 <div class="cta-wrapper bg-img" style="background-image: url(/assets/img/core-img/grid.jpg)">
@@ -431,7 +396,11 @@ import Services from '../components/Services.astro';
       z-index: 2;
    }
    
-   .cta-wrapper h2,
+   .cta-wrapper h2 {
+      color: #FFFFFF;
+      font-size: clamp(36px, 5vw, 52px);
+   }
+   
    .cta-wrapper p {
       color: white;
    }

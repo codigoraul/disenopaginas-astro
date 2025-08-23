@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import Stats from '../components/Stats.astro';
 ---
 
 <Layout title="Portafolio - Diseño de Páginas Web">
@@ -349,36 +350,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   </section>
 
   <!-- Stats Section -->
-  <section class="section-padding bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center mb-4">
-          <div class="stats-card">
-            <h3>50+</h3>
-            <p>Proyectos Completados</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center mb-4">
-          <div class="stats-card">
-            <h3>30+</h3>
-            <p>Clientes Satisfechos</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center mb-4">
-          <div class="stats-card">
-            <h3>5+</h3>
-            <p>Años de Experiencia</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center mb-4">
-          <div class="stats-card">
-            <h3>100%</h3>
-            <p>Proyectos Entregados</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Stats />
 </Layout>
 
 <style>
@@ -448,24 +420,6 @@ import Breadcrumb from '../components/Breadcrumb.astro';
     font-size: 14px;
   }
   
-  .stats-card {
-    padding: 30px 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  .stats-card h3 {
-    color: #601FEB;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  
-  .stats-card p {
-    color: #666;
-    font-weight: 500;
-  }
   
   .portfolio-link {
     color: #0066cc;

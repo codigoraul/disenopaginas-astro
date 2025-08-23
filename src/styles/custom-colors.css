@@ -1,5 +1,64 @@
 /* Custom Colors for diseñopaginas.cl */
 
+/* Brand palette variables */
+:root {
+  --color-primary: #65FED9;        /* aqua */
+  --color-primary-600: #49D9BF;    /* hover/darker */
+  --color-primary-100: #D8FFF5;    /* tint */
+  --color-text-dark: #737285;      /* navy/morado oscuro */
+  --color-text-dark-600: #434363;  /* hover */
+  --color-bg: #F9F3E9;             /* crema claro */
+  --color-paragraph: #353938;      /* body text */
+  --color-heading: #0B100F;        /* títulos */
+  --color-heading-bg: var(--color-primary-100); /* fondo claro para títulos */
+}
+
+/* Brand utilities (non-breaking, additive) */
+.text-brand { color: var(--color-text-dark) !important; }
+.bg-brand { background-color: var(--color-bg) !important; }
+.accent { color: var(--color-primary) !important; }
+.bg-accent { background-color: var(--color-primary) !important; }
+.accent-hover:hover { color: var(--color-primary-600) !important; }
+
+/* Paragraphs */
+p {
+  color: var(--color-paragraph) !important;
+}
+
+/* Headings with light background */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-heading) !important;
+  background-color: var(--color-heading-bg) !important;
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+}
+
+/* Excluir headings del hero para no interferir con su diseño */
+.hero-section .hero-content h1,
+.hero-section .hero-content h2,
+.hero-section .hero-content h3,
+.hero-section .hero-content h4,
+.hero-section .hero-content h5,
+.hero-section .hero-content h6 {
+  background-color: transparent !important;
+}
+
+/* Utilidad para remover fondo si se requiere en algún caso puntual */
+.no-heading-bg h1, .no-heading-bg .h1,
+.no-heading-bg h2, .no-heading-bg .h2,
+.no-heading-bg h3, .no-heading-bg .h3,
+.no-heading-bg h4, .no-heading-bg .h4,
+.no-heading-bg h5, .no-heading-bg .h5,
+.no-heading-bg h6, .no-heading-bg .h6 {
+  background-color: transparent !important;
+}
+
 /* Primary Color: #2F56DC */
 .btn-primary {
   background-color: #2F56DC !important;
@@ -41,12 +100,12 @@
 /* Header specific colors */
 .header-area .navbar-nav li > a:hover,
 .header-area .navbar-nav li > a:focus {
-  color: #2F56DC !important;
+  color: #42F2C6 !important;
 }
 
 .header-area .navbar-nav li .softora-dd-menu li > a:hover,
 .header-area .navbar-nav li .softora-dd-menu li > a:focus {
-  color: #2F56DC !important;
+  color: #42F2C6 !important;
 }
 
 /* Button hover effects */
@@ -84,11 +143,20 @@ a:focus {
 
 /* Header Top Colors */
 .header-area .header-top {
-  background: #767586 !important;
+  background: #737285 !important;
 }
 
 .header-area .header-top .left-side .text-white {
   color: #ffffff !important;
+}
+
+/* Asegurar gris en franja superior también en header style-two y en sticky */
+.header-area.style-two .header-top {
+  background-color: #737285 !important;
+}
+
+.header-area.style-two.sticky-on .header-top {
+  background-color: #737285 !important;
 }
 
 .header-area .header-top .right-side .social-nav a {

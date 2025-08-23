@@ -133,7 +133,7 @@
 
 /* Solo el color de fondo */
 .hero-section {
-   background-color: #AEF8FF !important;
+   background-color: #EEEEF0 !important;
    padding-bottom: 50px !important;
 }
 
@@ -243,14 +243,8 @@ body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
 /* Clase para h3 en Services */
 .pe-h3 {
    font-size: 22px;
-   color: #2F56DC;
+   color: #4877E9;
    font-weight: 400;
-}
-
-/* Clase para h3 en Services */
-.pe-h3 {
-   font-size: 22px;
-   color: #2F56DC;
 }
 
  

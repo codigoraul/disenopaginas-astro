@@ -41,12 +41,23 @@
 /* Header specific colors */
 .header-area .navbar-nav li > a:hover,
 .header-area .navbar-nav li > a:focus {
-  color: #2F56DC !important;
+  color: #42F2C6 !important;
 }
 
 .header-area .navbar-nav li .softora-dd-menu li > a:hover,
 .header-area .navbar-nav li .softora-dd-menu li > a:focus {
-  color: #2F56DC !important;
+  color: #42F2C6 !important;
+}
+
+/* Ensure override for style-two variant as well */
+.header-area.style-two .navbar-nav li > a:hover,
+.header-area.style-two .navbar-nav li > a:focus {
+  color: #4877E9 !important;
+}
+
+.header-area.style-two .navbar-nav li .softora-dd-menu li > a:hover,
+.header-area.style-two .navbar-nav li .softora-dd-menu li > a:focus {
+  color: #42F2C6 !important;
 }
 
 /* Button hover effects */
@@ -84,7 +95,7 @@ a:focus {
 
 /* Header Top Colors */
 .header-area .header-top {
-  background: #5B5A6B !important;
+  background: #737285 !important;
 }
 
 .header-area .header-top .left-side .text-white {
