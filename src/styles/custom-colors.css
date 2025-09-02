@@ -79,13 +79,13 @@ h6, .h6 {
   background-color: #2F56DC !important;
 }
 
-/* Secondary Color: #767586 */
+/* Secondary Color: #444655 */
 .text-secondary {
-  color: #767586 !important;
+  color: #444655 !important;
 }
 
 .bg-secondary {
-  background-color: #767586 !important;
+  background-color: #444655 !important;
 }
 
 /* Tertiary Color: #AEF8FF */
@@ -134,16 +134,16 @@ a:focus {
 
 /* Custom gradients */
 .gradient-primary {
-  background: linear-gradient(90deg, #2F56DC 0%, #767586 100%) !important;
+  background: linear-gradient(90deg, #2F56DC 0%, #444655 100%) !important;
 }
 
 .gradient-secondary {
-  background: linear-gradient(90deg, #767586 0%, #AEF8FF 100%) !important;
+  background: linear-gradient(90deg, #444655 0%, #AEF8FF 100%) !important;
 }
 
 /* Header Top Colors */
 .header-area .header-top {
-  background: #737285 !important;
+  background: #444655 !important;
 }
 
 .header-area .header-top .left-side .text-white {
@@ -152,11 +152,11 @@ a:focus {
 
 /* Asegurar gris en franja superior también en header style-two y en sticky */
 .header-area.style-two .header-top {
-  background-color: #737285 !important;
+  background-color: #444655 !important;
 }
 
 .header-area.style-two.sticky-on .header-top {
-  background-color: #737285 !important;
+  background-color: #444655 !important;
 }
 
 .header-area .header-top .right-side .social-nav a {
@@ -196,4 +196,6 @@ a:focus {
 .service-card:hover .shape img {
   filter: brightness(1.1);
   transition: all 0.3s ease;
-} 
+}
+
+ 

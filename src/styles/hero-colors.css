@@ -3,7 +3,7 @@
 
 /* Hero Section Background - Colores originales */
 body .hero-section {
-   background-color: #AEF8FF !important;
+   background: linear-gradient(135deg, #c3d6fa 0%, #a2f7ff 100%) !important;
    background-image: url('/assets/img/core-img/grid3.png') !important;
 }
 

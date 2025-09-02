@@ -22,62 +22,26 @@
   }
   
   .service-card {
-    border-radius: 0 !important;
+    border-radius: 12px !important;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
   }
-  
+
   .service-card .service-thumb {
-    border-radius: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    margin-bottom: 16px;
   }
-  
+
   .service-card .service-thumb img {
-    border-radius: 0 !important;
+    border-radius: 8px !important;
+    width: 100%;
+    height: auto;
   }
-  
-  .service-card .shape > img {
-    border-radius: 0 !important;
-  }
-  
+
   .service-card .shape {
-    border-radius: 0 !important;
-  }
-  
-  .service-card .shape img {
-    border-radius: 0 !important;
-  }
-  
-  /* Forzar todos los bordes redondeados a 0 */
-  .service-card * {
-    border-radius: 0 !important;
-  }
-  
-  /* Estilos más específicos para sobrescribir CSS global */
-  .service-section .service-card,
-  .service-section .service-card *,
-  .service-section .service-card .shape,
-  .service-section .service-card .shape img,
-  .service-section .service-card .service-thumb,
-  .service-section .service-card .service-thumb img {
-    border-radius: 0 !important;
-  }
-  
-  /* Forzar con mayor especificidad */
-  body .service-section .service-card,
-  body .service-section .service-card *,
-  body .service-section .service-card .shape,
-  body .service-section .service-card .shape img,
-  body .service-section .service-card .service-thumb,
-  body .service-section .service-card .service-thumb img {
-    border-radius: 0 !important;
-  }
-  
-  /* Usar los atributos específicos de Astro */
-  [data-astro-cid-g5jplrhu] .service-card,
-  [data-astro-cid-g5jplrhu] .service-card *,
-  [data-astro-cid-g5jplrhu] .service-card .shape,
-  [data-astro-cid-g5jplrhu] .service-card .shape img,
-  [data-astro-cid-g5jplrhu] .service-card .service-thumb,
-  [data-astro-cid-g5jplrhu] .service-card .service-thumb img {
-    border-radius: 0 !important;
+    border-radius: 12px !important;
   }
   
   /* Reemplazar imagen de fondo por gradiente */
@@ -87,8 +51,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #EBFFFF !important;
-    border: 1px solid #56e2f5;
+    background: #ffffff !important;
     z-index: 0;
     opacity: 0.5;
   }
@@ -124,6 +87,10 @@
     color: #011C42;
     text-decoration: none;
   }
+  
+  .service-section {
+    background: #eeeef0;
+  }
 </style>
 
  <!-- Service Section -->
@@ -136,7 +103,10 @@
           <!-- Section Heading -->
           <div class="col-12 col-md-7">
              <div class="section-heading text-center">
-                
+
+               <span class="sub-title">
+                  Diseño web empresas chile
+               </span>
                 <h2 class="mb-0">Servicios de Diseño Web</h2>
              </div>
           </div>

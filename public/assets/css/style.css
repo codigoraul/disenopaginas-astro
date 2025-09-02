@@ -565,7 +565,7 @@ ol li {
           align-items: center;
   gap: 10px;
   border-radius: 6px;
-  background: rgba(96, 31, 235, 0.1);
+  background: #f7f7f8;
   text-transform: capitalize;
 }
 .section-heading h2 {
@@ -1129,7 +1129,7 @@ picture.jarallax-img img {
 }
 .header-area.style-two.sticky-on .header-top {
   height: 40px;
-  background-color: transparent;
+  background-color: #444655 !important;
 }
 .header-area.style-two.sticky-on::after {
   background-color: rgba(255, 255, 255, 0);
