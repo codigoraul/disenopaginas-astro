@@ -1,38 +1,73 @@
 /* Hero Colors para diseñopaginas.cl */
 /* Paleta: Primario #2F56DC, Secundario #767586, Terciario #AEF8FF */
 
-/* Hero Section Background - Colores originales */
+/* Hero Section Background - Video de fondo con overlay */
 body .hero-section {
-   background: linear-gradient(135deg, #c3d6fa 0%, #a2f7ff 100%) !important;
-   background-image: url('/assets/img/core-img/grid3.png') !important;
+   position: relative;
+   color: #ffffff;
+   padding: 0;
+   overflow: hidden;
+   background: #011C42; /* Color de respaldo */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 700px;
+   margin: 0;
 }
 
-/* Hero Content Colors - Colores originales */
+/* Hero Content Colors - Mejor contraste y legibilidad */
 .hero-section .hero-content h2 {
    color: #ffffff !important;
 }
 
 .hero-section .hero-content h2 span {
-   color: #2F56DC !important;
-   font-weight: bold;
+   color: #AEF8FF !important;
+   font-weight: 600;
 }
 
 .hero-section .hero-content p {
-   color: #ffffff !important;
+   color: rgba(255, 255, 255, 0.9) !important;
+   font-size: 1.1rem;
+   line-height: 1.7;
+   max-width: 600px;
 }
 
-/* Hero Button - Colores originales */
+/* Hero Button - Estilo moderno */
 .hero-section .btn-outline-light {
-   border: 2px solid #2F56DC !important;
-   color: #2F56DC !important;
+   border: 2px solid #AEF8FF !important;
+   color: #ffffff !important;
    background: transparent !important;
-   transition: all 0.3s ease;
+   transition: all 0.4s ease;
+   padding: 12px 28px;
+   border-radius: 4px;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   font-size: 0.9rem;
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+}
+
+.hero-section .btn-outline-light:before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+   background-color: #AEF8FF;
+   transition: all 0.4s ease;
+   z-index: -1;
 }
 
 .hero-section .btn-outline-light:hover {
-   background: #2F56DC !important;
-   color: #ffffff !important;
-   border-color: #2F56DC !important;
+   color: #011C42 !important;
+   border-color: #AEF8FF !important;
+}
+
+.hero-section .btn-outline-light:hover:before {
+   width: 100%;
 }
 
 /* CTA Wrapper Background - Colores originales */

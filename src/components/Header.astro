@@ -1,6 +1,9 @@
 ---
 // Componente Header para diseñopaginas.cl
 import SocialLinks from './SocialLinks.astro';
+
+// Ruta del logo en la carpeta public
+const logoPath = '/assets/img/logo-disenopaginas.png';
 ---
 
 <!-- Header Area-->
@@ -34,7 +37,7 @@ import SocialLinks from './SocialLinks.astro';
       <div class="container">
          <!-- Navbar Brand -->
          <a class="navbar-brand" href="/">
-            <img src="/assets/img/logo-disenopaginas.png" alt="DiseñoPáginas.cl" width="185" height="62">
+            <img src={logoPath} alt="DiseñoPáginas.cl" width="185" height="62">
          </a>
 
          <!-- Navbar Toggler -->
@@ -45,35 +48,31 @@ import SocialLinks from './SocialLinks.astro';
 
          <!-- Navbar Nav -->
          <div class="collapse navbar-collapse justify-content-end" id="disenopaginasNav">
-            <ul class="navbar-nav navbar-nav-scroll">
-               <li>
-                  <a href="/">Inicio</a>
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="/">Inicio</a>
                </li>
-               <li>
-                  <a href="/servicios">Servicios</a>
-               </li>
-               <li>
-                  <a href="/tarifas">Tarifas</a>
-               </li>
-               <li class="softora-dd">
-                  <a href="/portafolio">Portafolio <i class="ti ti-caret-down-filled"></i></a>
-                  <ul class="softora-dd-menu">
-                     <li>
-                        <a href="/portafolio/disenos-web">Diseños Web</a>
-                     </li>
-                     <li>
-                        <a href="/portafolio/tiendas-online">Tiendas Online</a>
-                     </li>
-                     <li>
-                        <a href="/portafolio/aplicaciones">Aplicaciones</a>
-                     </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="/servicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Servicios
+                  </a>
+                  <ul class="dropdown-menu">
+                     <li><a class="dropdown-item" href="/servicios/diseno-web">Diseño Web</a></li>
+                     <li><a class="dropdown-item" href="/servicios/tiendas-online">Tiendas Online</a></li>
+                     <li><a class="dropdown-item" href="/servicios/marketing-digital">Marketing Digital</a></li>
                   </ul>
                </li>
-               <li>
-                  <a href="/blog">Blog</a>
+               <li class="nav-item">
+                  <a class="nav-link" href="/tarifas">Tarifas</a>
                </li>
-               <li>
-                  <a href="/contacto">Contacto</a>
+               <li class="nav-item">
+                  <a class="nav-link" href="/portafolio">Portafolio</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/blog">Blog</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/contacto">Contacto</a>
                </li>
             </ul>
          </div>
@@ -81,17 +80,25 @@ import SocialLinks from './SocialLinks.astro';
    </nav>
 </header>
 
-<script>
-   // Funcionalidad del header
+<script is:inline>
+   // Sticky header
    document.addEventListener('DOMContentLoaded', function() {
-      // Sticky header
-      window.addEventListener('scroll', function() {
-         const header = document.querySelector('.header-area');
-         if (header && window.scrollY > 100) {
-            header.classList.add('sticky-on');
-         } else if (header) {
-            header.classList.remove('sticky-on');
+      const header = document.querySelector('.header-area');
+      
+      function updateHeader() {
+         if (header) {
+            if (window.scrollY > 100) {
+               header.classList.add('sticky-on');
+            } else {
+               header.classList.remove('sticky-on');
+            }
          }
-      });
+      }
+
+      // Inicializar
+      updateHeader();
+      
+      // Actualizar en scroll
+      window.addEventListener('scroll', updateHeader, { passive: true });
    });
-</script> 
+</script>

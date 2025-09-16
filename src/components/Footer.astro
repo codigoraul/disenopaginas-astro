@@ -44,6 +44,8 @@ import SocialLinks from './SocialLinks.astro';
                          <li><a href="#">En Google</a></li>
                          <li><a href="diseno-web-corredor-propiedades.php">Web Corredor Propiedades</a></li>
                          <li><a href="diseno-web-turismo.php">Web turismo</a></li>
+                         <li><a href="https://www.marketers1.com/CL/Temuco/1574128182815302/Dise%C3%B1o-Paginas-Web-Chile" target="blank">
+                           Marketers1.com</a></li>
                       </ul>
                    </div>
                    
@@ -96,7 +98,7 @@ import SocialLinks from './SocialLinks.astro';
           <div class="row align-items-center">
              <!-- Copyright -->
              <div class="col-12 col-md-6">
-                <p class="mb-3 mb-md-0 copyright">Copyright © <span id="year">2025</span> <a href="/">DiseñoPáginas.cl</a> - Todos los derechos reservados.</p>
+                <p class="mb-3 mb-md-0 copyright">Copyright &copy; <span id="year">2025</span> <a href="/">DiseñoPáginas.cl</a> - Todos los derechos reservados.</p>
              </div>
 
              <!-- Footer Bottom Nav -->
@@ -161,15 +163,19 @@ import SocialLinks from './SocialLinks.astro';
     font-size: 22px !important;
   }
   
-  /* Iconos de redes sociales en color claro */
-  .footer-wrapper .social-nav a,
-  .footer-wrapper .social-nav i {
+  /* Iconos de redes sociales en el footer con mayor especificidad */
+  .footer-wrapper :global(.social-footer) :global(.social-link),
+  .footer-wrapper :global(.social-footer) :global(.social-link) i,
+  .footer-wrapper :global(.social-links) :global(.social-link),
+  .footer-wrapper :global(.social-links) :global(.social-link) i {
     color: white !important;
   }
   
-  .footer-wrapper .social-nav a:hover,
-  .footer-wrapper .social-nav a:hover i {
-    color: #27262B !important;
+  .footer-wrapper :global(.social-footer) :global(.social-link):hover,
+  .footer-wrapper :global(.social-footer) :global(.social-link):hover i,
+  .footer-wrapper :global(.social-links) :global(.social-link):hover,
+  .footer-wrapper :global(.social-links) :global(.social-link):hover i {
+    color: #AEF8FF !important;
   }
   
   /* Footer principal con fondo navy */
@@ -183,5 +189,20 @@ import SocialLinks from './SocialLinks.astro';
   .footer-wrapper .copyright-wrapper {
     background-color: #1a1b1a !important;
     padding: 20px 0 !important;
+  }
+  
+  /* Estilos para los enlaces del footer */
+  .footer-wrapper .footer-nav a {
+    color: #DDDEDC !important;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: inline-block;
+    position: relative;
+    transform: translateX(0);
+  }
+  
+  .footer-wrapper .footer-nav a:hover {
+    color: #4877E9 !important;
+    text-decoration: none !important;
+    transform: translateX(5px);
   }
 </style>

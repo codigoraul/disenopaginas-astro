@@ -5,6 +5,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Rutas principales que necesitan ser manejadas
+const mainRoutes = ['servicios', 'tarifas', 'portafolio', 'blog', 'contacto'];
+
 // Función para procesar un archivo HTML o JavaScript
 function processHtmlFile(filePath) {
   try {
@@ -15,61 +18,86 @@ function processHtmlFile(filePath) {
     const depth = relativePath.split(path.sep).length - 1;
     const prefix = depth > 0 ? '../'.repeat(depth) : './';
     
-    // RUTAS RELATIVAS: Ajustar según profundidad
-    content = content.replace(/href="\/assets\//g, `href="${prefix}assets/`);
-    content = content.replace(/src="\/assets\//g, `src="${prefix}assets/`);
-    content = content.replace(/url\(\/assets\//g, `url(${prefix}assets/`);
+    // 1. Manejar los assets (siempre relativos)
+    content = content.replace(/(href=["'])\/assets\//g, `$1${prefix}assets/`);
+    content = content.replace(/(src=["'])\/assets\//g, `$1${prefix}assets/`);
+    content = content.replace(/(url\([\"']?)\/assets\//g, `$1${prefix}assets/`);
     
-    // Convertir links de navegación según profundidad
+    // 1.1. Manejar favicon y otros recursos del root
+    content = content.replace(/(href=["'])\/favicon\.ico/g, `$1${prefix}favicon.ico`);
+    content = content.replace(/(href=["'])\/([^"']*\.css)/g, `$1${prefix}$2`);
+    content = content.replace(/(src=["'])\/([^"']*\.js)/g, `$1${prefix}$2`);
+    
+    // 1.2. Corregir rutas que usan ./ cuando deberían usar ../
     if (depth > 0) {
-      // Para páginas en subdirectorios, usar ../ para volver a la raíz
-      content = content.replace(/href="\/servicios"/g, 'href="../servicios.html"');
-      content = content.replace(/href="\/tarifas"/g, 'href="../tarifas.html"');
-      content = content.replace(/href="\/portafolio"/g, 'href="../portafolio.html"');
-      content = content.replace(/href="\/blog"/g, 'href="../blog.html"');
-      content = content.replace(/href="\/contacto"/g, 'href="../contacto.html"');
-      content = content.replace(/href="\/"/g, 'href="../index.html"');
-    } else {
-      // Para páginas en la raíz, usar ./
-      content = content.replace(/href="\/servicios"/g, 'href="./servicios.html"');
-      content = content.replace(/href="\/tarifas"/g, 'href="./tarifas.html"');
-      content = content.replace(/href="\/portafolio"/g, 'href="./portafolio.html"');
-      content = content.replace(/href="\/blog"/g, 'href="./blog.html"');
-      content = content.replace(/href="\/contacto"/g, 'href="./contacto.html"');
-      content = content.replace(/href="\/"/g, 'href="./index.html"');
+      content = content.replace(/(href=["'])\.\//g, `$1${prefix}`);
+      content = content.replace(/(src=["'])\.\//g, `$1${prefix}`);
     }
     
-    // Convertir rutas absolutas generales a relativas
-    content = content.replace(/href="\/(?!\.)/g, `href="${prefix}`);
-    content = content.replace(/src="\/(?!\.)/g, `src="${prefix}`);
-    content = content.replace(/url\(\/(?!\.)/g, `url(${prefix}`);
+    // 1.3. Corregir rutas CSS dentro de archivos CSS
+    if (filePath.endsWith('.css')) {
+      content = content.replace(/url\(["']?\/assets\//g, `url("${prefix}assets/`);
+      content = content.replace(/url\([\"']?assets\//g, `url("${prefix}assets/`);
+    }
     
-    // Asegurar que assets sin barra inicial tenga el prefijo correcto
-    content = content.replace(/href="assets\//g, `href="${prefix}assets/`);
-    content = content.replace(/src="assets\//g, `src="${prefix}assets/`);
-    content = content.replace(/url\(assets\//g, `url(${prefix}assets/`);
+    // 2. Manejar rutas principales
+    mainRoutes.forEach(route => {
+      // Para enlaces que terminan con /ruta o /ruta#hash
+      content = content.replace(
+        new RegExp(`(href=["'])\/${route}([\"'#])`, 'g'),
+        `$1${prefix}${route}/index.html$2`
+      );
+      
+      // Para enlaces que terminan con /ruta/
+      content = content.replace(
+        new RegExp(`(href=["'])\/${route}\/(["'])`, 'g'),
+        `$1${prefix}${route}/index.html$2`
+      );
+    });
     
-    // Escribir el archivo modificado
+    // 3. Manejar rutas específicas de blog con subdirectorios
+    content = content.replace(
+      /(href=["'])\/blog\/([^"']+)([\"'])/g,
+      (match, p1, slug, p3) => {
+        // Si ya termina con index.html, no cambiar
+        if (slug.endsWith('index.html')) {
+          return `${p1}${prefix}blog/${slug}${p3}`;
+        }
+        // Si es solo el slug, agregar /index.html
+        return `${p1}${prefix}blog/${slug}/index.html${p3}`;
+      }
+    );
+    
+    // 4. Manejar la ruta raíz
+    content = content.replace(/(href=["'])\/"(?!\/)/g, `$1${prefix}index.html"`);
+    content = content.replace(/(href=["'])\/"(?!\/)/g, `$1${prefix}index.html"`);
+    
+    // 5. Manejar recursos sin barra inicial
+    content = content.replace(/(href=["'])assets\//g, `$1${prefix}assets/`);
+    content = content.replace(/(src=["'])assets\//g, `$1${prefix}assets/`);
+    content = content.replace(/(url\([\"']?)assets\//g, `$1${prefix}assets/`);
+    
+    // 6. Corregir rutas CSS
+    content = content.replace(/(url\([\"']?)\.\.\//g, `$1${prefix}`);
+    
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`✅ Procesado: ${filePath} (Profundidad: ${depth}, Prefijo: ${prefix})`);
+    console.log(`✅ Procesado: ${filePath}`);
   } catch (error) {
-    console.error(`❌ Error procesando ${filePath}:`, error.message);
+    console.error(`❌ Error procesando ${filePath}:`, error);
   }
 }
 
 // Función para procesar directorios recursivamente
 function processDirectory(dirPath) {
-  const items = fs.readdirSync(dirPath);
+  const files = fs.readdirSync(dirPath);
   
-  items.forEach(item => {
-    const fullPath = path.join(dirPath, item);
+  files.forEach(file => {
+    const fullPath = path.join(dirPath, file);
     const stat = fs.statSync(fullPath);
     
     if (stat.isDirectory()) {
-      // Procesar subdirectorios
       processDirectory(fullPath);
-    } else if (item.endsWith('.html') || item.endsWith('.js')) {
-      // Procesar archivos HTML y JavaScript
+    } else if (fullPath.endsWith('.html') || fullPath.endsWith('.css') || fullPath.endsWith('.js')) {
       processHtmlFile(fullPath);
     }
   });
@@ -78,18 +106,12 @@ function processDirectory(dirPath) {
 // Directorio del build
 const buildDir = './dist';
 
-console.log('🚀 Iniciando corrección automática de rutas...');
-console.log(`📁 Procesando directorio: ${buildDir}`);
+console.log('🚀 Configurando rutas para producción...');
 
-// Verificar que existe el directorio dist
-if (!fs.existsSync(buildDir)) {
-  console.error('❌ Error: No existe el directorio dist/');
-  console.log('💡 Ejecuta primero: npm run build');
+if (fs.existsSync(buildDir)) {
+  processDirectory(buildDir);
+  console.log('✨ Proceso completado. Las rutas han sido actualizadas.');
+} else {
+  console.error('❌ Error: No se encontró el directorio de build. Ejecuta `npm run build` primero.');
   process.exit(1);
 }
-
-// Procesar todos los archivos HTML y JavaScript
-processDirectory(buildDir);
-
-console.log('🎉 ¡Corrección de rutas completada!');
-console.log('✅ Todas las rutas ahora son relativas (./) para funcionar localmente');

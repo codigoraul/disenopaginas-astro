@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+
+// Generar rutas estáticas para todas las publicaciones
+export async function getStaticPaths() {
+  // Importar las publicaciones desde la carpeta correcta
+  const allPosts = await Astro.glob('../../pages/blog/*.astro');
+  
+  // Filtrar solo los archivos que no sean [slug].astro
+  const posts = allPosts.filter(post => !post.file.includes('[slug]'));
+  
+  return posts.map(post => {
+    const slug = post.file.split('/').pop()?.replace(/\.astro$/, '');
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+// Obtener la publicación actual de las props
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+
+// Si no se encuentra la publicación (no debería pasar con el enrutamiento correcto)
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+// Get the slug from the URL
+const { slug } = Astro.params;
+
+// Importar la imagen correctamente si existe
+let imageUrl = frontmatter.image;
+if (frontmatter.image) {
+  try {
+    // Usar la ruta directa de la imagen
+    imageUrl = frontmatter.image;
+  } catch (e) {
+    console.warn('Could not load image:', frontmatter.image);
+  }
+}
+---
+
+<Layout title={frontmatter.title || 'Artículo del Blog'}>
+  <!-- Breadcrumb -->
+  <Breadcrumb title="Blog" currentPage={frontmatter.title} />
+
+  <!-- Sección del Blog -->
+  <div class="blog-section">
+    <div class="divider"></div>
+    
+    <div class="container">
+      <div class="row g-5 g-md-4 g-xxl-5">
+        <!-- Contenido del Blog -->
+        <div class="col-12 col-md-7 col-lg-8">
+          <div class="pe-lg-3">
+            <div class="single-blog-content">
+              <div class="blog-card-two wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
+                {imageUrl && (
+                  <img 
+                    src={typeof imageUrl === 'string' ? imageUrl : imageUrl.src} 
+                    alt={frontmatter.title} 
+                    class="w-100 mb-4" 
+                    loading="lazy"
+                  />
+                )}
+                <h1 class="mb-3">{frontmatter.title}</h1>
+                <div class="post-meta mb-4">
+                  <span class="post-date">
+                    <i class="bi bi-calendar"></i> {new Date(frontmatter.date || frontmatter.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                  {frontmatter.author && (
+                    <span class="post-author ms-3">
+                      <i class="bi bi-person"></i> {frontmatter.author}
+                    </span>
+                  )}
+                </div>
+                <div class="post-content">
+                  <Content />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .blog-section {
+    padding: 80px 0;
+  }
+  
+  .post-meta {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+  
+  .post-content {
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+  
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+  }
+  
+  .post-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  
+  .post-content ul,
+  .post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .post-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-author {
+    color: var(--text-color);
+  }
+  
+  .bi-calendar,
+  .bi-person {
+    margin-right: 0.25rem;
+    color: var(--primary-color);
+  }
+</style>

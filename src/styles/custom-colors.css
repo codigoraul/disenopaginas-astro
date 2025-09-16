@@ -98,14 +98,101 @@ h6, .h6 {
 }
 
 /* Header specific colors */
+.header-area .navbar-nav li > a {
+  color: #1F1E21 !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  margin: 0 0.5rem;
+}
+
 .header-area .navbar-nav li > a:hover,
-.header-area .navbar-nav li > a:focus {
-  color: #42F2C6 !important;
+.header-area .navbar-nav li > a:focus,
+.header-area .navbar-nav li > a.active {
+  color: #011C42 !important;
+  background: transparent !important;
+}
+
+/* Underline effect on hover */
+.header-area .navbar-nav li > a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #011C42;
+  transition: width 0.3s ease;
+}
+
+.header-area .navbar-nav li > a:hover::after,
+.header-area .navbar-nav li > a:focus::after,
+.header-area .navbar-nav li > a.active::after {
+  width: 100%;
+}
+
+/* Dropdown menu styles */
+.header-area .navbar-nav li .softora-dd-menu {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 0.5rem 0;
+  min-width: 220px;
+}
+
+.header-area .navbar-nav li .softora-dd-menu li > a {
+  color: #4c4b59 !important;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .header-area .navbar-nav li .softora-dd-menu li > a:hover,
 .header-area .navbar-nav li .softora-dd-menu li > a:focus {
-  color: #42F2C6 !important;
+  color: #011C42 !important;
+  background: #F8F9FA !important;
+}
+
+/* Mobile menu styles */
+@media (max-width: 991.98px) {
+  .header-area .navbar-collapse {
+    background: #FFFFFF;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-area .navbar-nav {
+    gap: 0.5rem !important;
+  }
+  
+  .header-area .navbar-nav li > a {
+    padding: 0.75rem 0 !important;
+    margin: 0 !important;
+  }
+  
+  .header-area .navbar-nav li .softora-dd-menu {
+    margin-left: 1rem;
+    box-shadow: none;
+    border-left: 2px solid #f0f0f0;
+    background: transparent;
+  }
+}
+
+/* Ensure menu is always visible on desktop */
+@media (min-width: 992px) {
+  .header-area .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
 }
 
 /* Button hover effects */
@@ -197,5 +284,3 @@ a:focus {
   filter: brightness(1.1);
   transition: all 0.3s ease;
 }
-
- 

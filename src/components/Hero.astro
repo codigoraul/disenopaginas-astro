@@ -2,34 +2,40 @@
 // Componente Hero Slider para diseñopaginas.cl
 ---
 <!-- Hero Section -->
-<section class="hero-section" style="background-color: #EEEEF0;">
-   <!-- Divider -->
-   <div class="divider"></div>
-
-   <div class="container">
+<section class="hero-section d-flex align-items-center">
+   <!-- Video de fondo -->
+   <div class="hero-video-bg">
+      <video autoplay muted loop playsinline preload="metadata">
+         <source src="/assets/videos/bg-video.mp4" type="video/mp4">
+         Tu navegador no soporta videos HTML5.
+      </video>
+      <div class="video-overlay"></div>
+   </div>
+   
+   <div class="container my-auto">
       <!-- Hero Content -->
       <div class="hero-content">
          <!-- Swiper Container -->
-         <div class="swiper hero-swiper">
+         <div class="hero-swiper">
             <div class="swiper-wrapper">
                <!-- Slide 1 -->
                <div class="swiper-slide">
                   <div class="row g-5">
                      <div class="col-12 col-lg-7 hero-titles-container">
-                        <h2 class="hero-subtitle">Diseño Web Empresas Chile</h2>
-                        <h1 class="mb-4 wow fadeInUp hero-main-title"
+                        <h1 class="mb-0 wow fadeInUp hero-main-title"
                          data-wow-duration="1000ms" data-wow-delay="400ms">
                          Diseño de Páginas Web Chile
                         </h1>
+                        <h2 class="hero-subtitle">Creación de Sitios Web Profesionales para Empresas</h2>
                      </div>
 
                      <div class="col-12 col-lg-5">
-                        <p class="mb-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                           Desarrollamos páginas web únicas con diseño creativo y tecnología de vanguardia para posicionar su empresa en los primeros lugares de google.
+                        <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                           Desarrollamos páginas web únicas con diseño creativo y tecnología de vanguardia 
+                           para posicionar su empresa en los primeros lugares de google.
                         </p>
                         <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
-                           data-wow-delay="800ms" href="/servicios">Ver Servicios <i class="ti ti-arrow-up-right"></i>
-                          </a>
+                           data-wow-delay="800ms" href="/servicios">Ver Servicios <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -45,11 +51,10 @@
                      </div>
 
                      <div class="col-12 col-lg-5">
-                        <p class="text-white wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
                            Su sitio web es la primera impresión de su empresa.
                            Nuestros diseños profesionales generan <strong>
                            confianza inmediata y conversiones reales</strong>.
-                            Descubra la calidad de nuestro trabajo a través de proyectos exitosos en nuestro portafolio.
                         </p>
                         <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
                            data-wow-delay="800ms" href="/portafolio">Ver portafolio <i class="ti ti-arrow-up-right"></i></a>
@@ -64,13 +69,12 @@
                         <h2 class="mb-0 wow fadeInUp hero-main-title" data-wow-duration="1000ms" data-wow-delay="400ms">
                            Su sitio web 2025 con IA
                         </h2>
-                        <h3 class="hero-subtitle">Diseño Web con Inteligencia artificial</h3>
+                        <h3 class="hero-subtitle">Diseño Web con Inteligencia Artificial</h3>
                      </div>
 
                      <div class="col-12 col-lg-5">
-                        <p class=" wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                           la IA nos ayuda a asegurar que tu sitio sea altamente funcional y fácil de navegar para tus usuarios. Si no tienes tiempo de describir al 100% tus servicios te ayudamos con las nuevas tecnologías de la IA especialistas en crear contenido 
-                           sobre tu empresa y tendrás una web optima para tus clientes potenciales.
+                        <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                           La IA nos ayuda a asegurar que tu sitio sea altamente funcional y fácil de navegar para tus usuarios. Si no tienes tiempo de describir al 100% tus servicios te ayudamos con las nuevas tecnologías de la IA.
                         </p>
                         <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
                            data-wow-delay="800ms" href="/contacto">Solicitar Presupuesto <i class="ti ti-arrow-up-right"></i></a>
@@ -88,60 +92,183 @@
 </section>
 
 <style>
-/* Hero Titles Visual Order */
+/* Hero Slider */
+.swiper-slide {
+  margin-top: 165px;
+}
+
+/* Centrar verticalmente el contenido de la segunda columna */
+.swiper-slide .row {
+  align-items: center;
+  min-height: 100%;
+}
+
+.swiper-slide .col-lg-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .swiper-slide .col-lg-5 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+    .swiper-slide {
+      margin-top: 80px;
+    }
+}
+
+/* Hero Section Base */
+.hero-section {
+  position: relative;
+  height: 700px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+/* Video de fondo */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-video-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 28, 66, 0.2);
+  z-index: 2;
+}
+
+/* Hero Content Container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+  max-width: 1200px;
+}
+
+/* Hero Titles */
 .hero-titles-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .hero-main-title {
   order: 2;
-  font-size: 60px !important;
-  font-weight: 500;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
   color: #ffffff !important;
+  margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
   order: 1;
-  font-size: 28px;
-  color: #011C42 !important;
+  font-size: 1.4rem;
+  color: #AEF8FF !important;
   margin-bottom: 1rem;
   font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Hero Content */
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero-main-title {
+    font-size: 2.8rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
   .hero-main-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem !important;
   }
   
   .hero-subtitle {
     font-size: 1rem;
   }
+  
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-/* Hero Swiper Styles */
+/* Swiper Container */
 .hero-swiper {
-  overflow: hidden;
-  min-height: 350px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+/* Slides */
 .hero-swiper .swiper-slide {
   display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .hero-swiper .swiper-slide-active {
   display: block;
+  opacity: 1;
 }
 
-.hero-swiper .swiper-slide:first-child:not(.swiper-slide-active) {
-  display: none;
-}
-
-/* Hero Pagination */
+/* Pagination */
 .hero-pagination {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -150,17 +277,19 @@
 }
 
 .hero-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-pagination .swiper-pagination-bullet-active {
-  background: #ffffff;
-  transform: scale(1.2);
+  background: #AEF8FF;
+  transform: scale(1.3);
+  border-color: #AEF8FF;
 }
 </style>
 
