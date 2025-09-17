@@ -1,99 +1,113 @@
 <?php
 header('Content-Type: application/json');
 
-// Permitir CORS desde tu dominio
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Clave secreta de Google reCAPTCHA
+    $secretKey = "6Lc1VBsTAAAAAADwdisnT8GFZWEgcdi058LhJuFm";
+    $captcha = $_POST['g-recaptcha-response'] ?? '';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['error' => 'Método no permitido: Solo se acepta POST']);
-    exit;
-}
-
-// Verificar reCAPTCHA
-$recaptcha_secret = "6Lc1VBsTAAAAAADwdisnT8GFZWEgcdi058LhJuFm";
-$recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
-
-if (empty($recaptcha_response)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Por favor, completa la verificación de reCAPTCHA']);
-    exit;
-}
-
-$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
-$captcha_success = json_decode($verify);
-
-if (!$captcha_success->success) {
-    http_response_code(400);
-    echo json_encode([
-        'error' => 'La verificación de reCAPTCHA falló. Por favor, inténtalo nuevamente.',
-        'details' => $captcha_success
-    ]);
-    exit;
-}
-
-// Obtener y validar datos del formulario
-$campos_requeridos = [
-    'nombre' => 'Nombre',
-    'fono' => 'Teléfono',
-    'email' => 'Email',
-    'presupuesto' => 'Plan seleccionado',
-    'mensaje' => 'Mensaje'
-];
-
-$datos = [];
-$campos_faltantes = [];
-
-foreach ($campos_requeridos as $campo => $nombre) {
-    $valor = $_POST[$campo] ?? '';
-    if (empty($valor)) {
-        $campos_faltantes[] = $nombre;
+    // Verificar si el reCAPTCHA se completó
+    if (empty($captcha)) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'Por favor, verifica el reCAPTCHA.']);
+        exit;
     }
-    $datos[$campo] = $valor;
-}
 
-if (!empty($campos_faltantes)) {
-    http_response_code(400);
-    echo json_encode([
-        'error' => 'Campos requeridos faltantes: ' . implode(', ', $campos_faltantes)
-    ]);
-    exit;
-}
+    // Validar el reCAPTCHA con Google
+    $url = "https://www.google.com/recaptcha/api/siteverify";
+    $data = [
+        'secret' => $secretKey,
+        'response' => $captcha,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    ];
 
-// Validar email
-if (!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'El formato del email no es válido']);
-    exit;
-}
+    $options = [
+        'http' => [
+            'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        ]
+    ];
 
-// Configurar el email
-$to = 'codigoraul@gmail.com';
-$subject = 'Nuevo Mensaje de Contacto - diseñopaginas.cl';
-$headers = [
-    'From' => 'formulario@' . $_SERVER['HTTP_HOST'],
-    'Reply-To' => $datos['email'],
-    'X-Mailer' => 'PHP/' . phpversion(),
-    'Content-Type' => 'text/plain; charset=UTF-8'
-];
+    $context = stream_context_create($options);
+    $response = @file_get_contents($url, false, $context);
+    
+    if ($response === false) {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'error' => 'Error al validar el reCAPTCHA.']);
+        exit;
+    }
 
-$message = "Nuevo mensaje desde el formulario de contacto:\n\n";
-foreach ($campos_requeridos as $campo => $nombre) {
-    $message .= "$nombre: {$datos[$campo]}\n";
-}
+    $result = json_decode($response, true);
 
-// Enviar email
-$success = mail($to, $subject, $message, $headers);
+    if (!$result['success']) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'Error de reCAPTCHA. Inténtalo de nuevo.']);
+        exit;
+    }
 
-if ($success) {
-    echo json_encode(['success' => true, 'message' => 'Mensaje enviado correctamente']);
+    // Validar campos requeridos
+    $required = ['nombre', 'email', 'fono', 'presupuesto', 'mensaje'];
+    $missing = [];
+    
+    foreach ($required as $field) {
+        if (empty($_POST[$field])) {
+            $missing[] = $field;
+        }
+    }
+    
+    if (!empty($missing)) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'Faltan campos requeridos: ' . implode(', ', $missing)]);
+        exit;
+    }
+
+    // Limpiar y validar datos
+    $nombre = htmlspecialchars(trim($_POST['nombre']));
+    $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+    $fono = htmlspecialchars(trim($_POST['fono']));
+    $presupuesto = htmlspecialchars(trim($_POST['presupuesto']));
+    $mensaje = htmlspecialchars(trim($_POST['mensaje']));
+
+    if (!$email) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'El formato del correo electrónico no es válido.']);
+        exit;
+    }
+
+    // Configurar destinatario y asunto
+    $to = "codigoraul@gmail.com";
+    $subject = "[Solicitud de Presupuesto] $presupuesto - $nombre";
+    
+    // Construir el mensaje
+    $message = "Nombre: $nombre\n";
+    $message .= "Email: $email\n";
+    $message .= "Teléfono: $fono\n";
+    $message .= "Presupuesto: $presupuesto\n\n";
+    $message .= "Mensaje:\n$mensaje";
+    
+    // Configurar cabeceras
+    $headers = [
+        'From' => 'contacto@disenopaginas.cl',
+        'Reply-To' => $email,
+        'X-Mailer' => 'PHP/' . phpversion(),
+        'Content-Type' => 'text/plain; charset=UTF-8'
+    ];
+    
+    // Convertir el array de cabeceras en una cadena
+    $headersStr = '';
+    foreach ($headers as $key => $value) {
+        $headersStr .= "$key: $value\r\n";
+    }
+    
+    // Enviar el correo
+    if (mail($to, $subject, $message, $headersStr)) {
+        echo json_encode(['success' => true, 'message' => '¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.']);
+    } else {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'error' => 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.']);
+    }
 } else {
-    $error = error_get_last();
-    http_response_code(500);
-    echo json_encode([
-        'error' => 'Error al enviar el email',
-        'details' => $error ? $error['message'] : 'Error desconocido en el servidor de correo'
-    ]);
+    http_response_code(405);
+    echo json_encode(['success' => false, 'error' => 'Método no permitido']);
 }

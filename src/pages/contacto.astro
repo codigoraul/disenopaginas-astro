@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import Formulario from '../components/Formulario.astro';
 ---
 
 <Layout title="Contacto - Diseño de Páginas Web">
@@ -139,51 +140,11 @@ import Breadcrumb from '../components/Breadcrumb.astro';
                </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="faq-contact-section style-two bg-white">
-               <div class="mb-5">
-                  <h4>Completa el Formulario de Contacto</h4>
-                  <p class="mb-0">No dudes en contactarnos, no enviamos spam a tu email</p>
-               </div>
-
-               <!-- Contact Form -->
-               <form id="contactForm" class="faq-contact-form style-two" method="POST">
-                  <div class="row g-4">
-                     <div class="col-lg-6">
-                        <input type="text" name="nombre" placeholder="Nombre" required class="form-control">
-                     </div>
-                     <div class="col-lg-6">
-                        <input type="tel" name="fono" placeholder="Teléfono" required class="form-control">
-                     </div>
-                     <div class="col-lg-6">
-                        <input type="email" name="email" placeholder="Email" required class="form-control">
-                     </div>
-                     <div class="col-lg-6">
-                        <select name="presupuesto" required class="form-control">
-                           <option value="">Selecciona un plan</option>
-                           <option value="Si ya tienes sitio web">Si ya tienes sitio web - $70.000</option>
-                           <option value="Landing Page - Medio">Landing Page - Medio - $140.000</option>
-                           <option value="Landing Page - Avanzada">Landing Page - Avanzada - $200.000</option>
-                           <option value="Sitio Web Corporativo">Sitio Web Corporativo - $300.000</option>
-                           <option value="Tienda Online">Tienda Online - $500.000</option>
-                        </select>
-                     </div>
-                     <div class="col-12">
-                        <textarea name="mensaje" placeholder="Mensaje" required class="form-control" rows="5"></textarea>
-                     </div>
-                     <div class="col-12">
-                        <!-- Contenedor de reCAPTCHA -->
-                        <div id="recaptcha-container" class="mb-3"></div>
-                        <!-- Mensajes de error/éxito -->
-                        <div id="formMessage" style="display: none;">
-                           <div class="alert alert-success success-message" style="display: none;"></div>
-                           <div class="alert alert-danger error-message" style="display: none;"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-3">Enviar Mensaje</button>
-                     </div>
-                  </div>
-               </form>
-            </div>
+            <!-- Contact Form Component -->
+            <Formulario 
+              title="Completa el Formulario de Contacto"
+              subtitle="No dudes en contactarnos, no enviamos spam a tu email"
+            />
          </div>
       </div>
 
@@ -218,132 +179,4 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   }
 </style>
 
-<script>
-    const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
-    let recaptchaLoaded = false;
-    let recaptchaWidget = null;
 
-    // Variables del DOM
-    let form, formMessage, successMessage, errorMessage;
-
-    // Inicializar cuando el DOM esté listo
-    document.addEventListener('DOMContentLoaded', function() {
-        // Elementos del DOM
-        form = document.getElementById('contactForm');
-        formMessage = document.getElementById('formMessage');
-        successMessage = formMessage?.querySelector('.success-message');
-        errorMessage = formMessage?.querySelector('.error-message');
-
-        // Event listeners
-        if (form) {
-            // Cargar reCAPTCHA cuando el usuario interactúe con el formulario
-            const formInputs = form.querySelectorAll('input, textarea, select');
-            formInputs.forEach(input => {
-                input.addEventListener('focus', loadRecaptcha, { once: true });
-            });
-        }
-    });
-
-    // Función para cargar reCAPTCHA
-    function loadRecaptcha() {
-        if (!recaptchaLoaded) {
-            const script = document.createElement('script');
-            script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
-            script.async = true;
-            script.defer = true;
-            script.onload = function() {
-                // @ts-ignore
-                window.grecaptcha.ready(function() {
-                    try {
-                        // @ts-ignore
-                        recaptchaWidget = window.grecaptcha.render('recaptcha-container', {
-                            'sitekey': SITE_KEY,
-                            'callback': onRecaptchaSuccess,
-                            'error-callback': onRecaptchaError
-                        });
-                    } catch (error) {
-                        console.error('Error al renderizar reCAPTCHA:', error);
-                        showMessage(false, 'Error al cargar el reCAPTCHA. Por favor, recarga la página.');
-                    }
-                });
-            };
-            script.onerror = function() {
-                console.error('Error al cargar el script de reCAPTCHA');
-                showMessage(false, 'Error al cargar el reCAPTCHA. Por favor, recarga la página.');
-            };
-            document.head.appendChild(script);
-            recaptchaLoaded = true;
-        }
-    }
-
-    // Función para manejar el éxito del reCAPTCHA
-    function onRecaptchaSuccess(token: string) {
-        // El token se agregará automáticamente al formulario
-    }
-
-    // Función para manejar errores del reCAPTCHA
-    function onRecaptchaError() {
-        showMessage(false, 'Error en la verificación del reCAPTCHA. Por favor, intenta nuevamente.');
-    }
-
-    // Función para mostrar mensajes
-    function showMessage(success, message) {
-        if (formMessage && successMessage && errorMessage) {
-            formMessage.style.display = 'block';
-            successMessage.style.display = success ? 'block' : 'none';
-            errorMessage.style.display = success ? 'none' : 'block';
-            if (success) {
-                successMessage.textContent = '¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.';
-            } else {
-                errorMessage.textContent = message;
-            }
-        }
-    }
-
-    // Manejar el envío del formulario
-    if (form instanceof HTMLFormElement) {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Verificar reCAPTCHA
-            // @ts-ignore
-            const recaptchaResponse = window.grecaptcha?.getResponse(recaptchaWidget);
-            
-            if (!recaptchaResponse) {
-                showMessage(false, 'Por favor, completa el reCAPTCHA antes de enviar el mensaje');
-                return;
-            }
-            
-            const formData = new FormData(this);
-            formData.append('g-recaptcha-response', recaptchaResponse);
-            
-            try {
-                console.log('Enviando formulario...'); // Debug
-                const response = await fetch('/procesar/procesar-formulario.php', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                console.log('Estado de la respuesta:', response.status); // Debug
-                const data = await response.json();
-                console.log('Respuesta del servidor:', data); // Debug
-                
-                if (data.success) {
-                    showMessage(true, '');
-                    this.reset();
-                    if (recaptchaWidget !== null) {
-                        // @ts-ignore
-                        window.grecaptcha.reset(recaptchaWidget);
-                    }
-                } else {
-                    const errorMsg = data.error || 'Error desconocido al enviar el mensaje';
-                    console.error('Error detallado:', errorMsg); // Debug
-                    showMessage(false, errorMsg);
-                }
-            } catch (error) {
-                console.error('Error completo:', error);
-                showMessage(false, 'Error de conexión: No se pudo contactar con el servidor. Por favor, intenta nuevamente.');
-            }
-        });
-    }
-</script>

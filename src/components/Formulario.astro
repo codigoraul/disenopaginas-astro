@@ -1,0 +1,274 @@
+---
+// Props del componente
+interface Props {
+  title?: string;
+  subtitle?: string;
+  siteKey?: string;
+  siteSecret?: string;
+  action?: string;
+  onSuccess?: string;
+  onError?: string;
+      
+}
+
+const { 
+  title = "Completa el Formulario de Contacto",
+  subtitle = "No dudes en contactarnos, no enviamos spam a tu email"
+} = Astro.props;
+
+const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
+---
+
+<div class="faq-contact-section style-two bg-white">
+  <div class="mb-5">
+    <h4>{title}</h4>
+    <p class="mb-0">{subtitle}</p>
+  </div>
+
+  <!-- Contact Form -->
+  <form id="contactForm" class="faq-contact-form style-two" method="POST">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <input type="text" name="nombre" placeholder="Nombre" required class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <input type="tel" name="fono" placeholder="Teléfono" required class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <input type="email" name="email" placeholder="Email" required class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <select name="presupuesto" required class="form-control">
+          <option value="">Selecciona un plan</option>
+          <option value="Si ya tienes sitio web">Si ya tienes sitio web - $70.000</option>
+          <option value="Landing Page - Medio">Landing Page - Medio - $140.000</option>
+          <option value="Landing Page - Avanzada">Landing Page - Avanzada - $200.000</option>
+          <option value="Sitio Web Corporativo">Sitio Web Corporativo - $300.000</option>
+          <option value="Tienda Online">Tienda Online - $500.000</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <textarea name="mensaje" placeholder="Mensaje" required class="form-control" rows="5"></textarea>
+      </div>
+      <div class="col-12">
+        <!-- Contenedor de reCAPTCHA -->
+        <div id="recaptcha-container" class="mb-3"></div>
+        <!-- Mensajes de error/éxito -->
+        <div id="formMessage" style="display: none;">
+          <div class="alert alert-success success-message" style="display: none;"></div>
+          <div class="alert alert-danger error-message" style="display: none;"></div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<style>
+  .faq-contact-form .form-control {
+    border: 1px solid #e8e8e8;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .faq-contact-form .form-control:focus {
+    box-shadow: none;
+    border-color: #4877E9;
+  }
+  
+  .btn-primary {
+    background-color: #4877E9;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3a62c0;
+    transform: translateY(-2px);
+  }
+  
+  .alert {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  .alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+  }
+  
+  .alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+  }
+</style>
+
+<script is:inline>
+  // @ts-nocheck
+  // Desactivar verificación de tipos para este script
+  const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
+  
+  // Función para mostrar mensajes de error
+  function showError(message) {
+    const errorElement = document.querySelector('.error-message');
+    if (errorElement instanceof HTMLElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+  }
+  
+  // Función para mostrar mensajes de éxito
+  function showSuccess(message) {
+    const successElement = document.querySelector('.success-message');
+    if (successElement instanceof HTMLElement) {
+      successElement.textContent = message;
+      successElement.style.display = 'block';
+    }
+  }
+  
+  // Función para ocultar mensajes
+  function hideMessages() {
+    const messages = document.querySelectorAll('.error-message, .success-message');
+    messages.forEach(msg => {
+      msg.style.display = 'none';
+    });
+  }
+  
+  // Función para cargar reCAPTCHA
+  function loadRecaptcha() {
+    return new Promise((resolve, reject) => {
+      if (window.grecaptcha) {
+        resolve();
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.onload = resolve;
+      script.onerror = () => {
+        showError('Error al cargar reCAPTCHA. Por favor, recarga la página.');
+      };
+      
+      document.head.appendChild(script);
+    });
+  }
+  
+  // Inicialización cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    
+    if (!(form instanceof HTMLFormElement) || !recaptchaContainer) {
+      console.error('No se pudo encontrar el formulario o el contenedor de reCAPTCHA');
+      return;
+    }
+    
+    // Cargar reCAPTCHA cuando se interactúe con el formulario
+    const formFields = form.querySelectorAll('input, textarea, select');
+    let recaptchaWidget;
+    let recaptchaLoaded = false;
+    
+    const initRecaptcha = () => {
+      if (recaptchaLoaded) return;
+      
+      loadRecaptcha().then(() => {
+        if (window.grecaptcha && !recaptchaContainer.hasChildNodes()) {
+          // @ts-ignore
+          recaptchaWidget = window.grecaptcha.render('recaptcha-container', {
+            sitekey: SITE_KEY,
+            callback: (token) => {
+              // Callback opcional cuando se completa el reCAPTCHA
+              console.log('reCAPTCHA completado:', token);
+            },
+            'expired-callback': () => {
+              showError('El reCAPTCHA ha expirado. Por favor, verifica que no eres un robot.');
+            },
+            'error-callback': () => {
+              showError('Error en la verificación reCAPTCHA. Por favor, inténtalo de nuevo.');
+            }
+          });
+          recaptchaLoaded = true;
+        }
+      });
+    };
+    
+    // Inicializar reCAPTCHA al interactuar con el formulario
+    formFields.forEach(field => {
+      field.addEventListener('focus', initRecaptcha, { once: true });
+    });
+    
+    // Manejar el envío del formulario
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      hideMessages();
+      
+      // Verificar reCAPTCHA
+      if (!recaptchaLoaded || !window.grecaptcha) {
+        showError('Por favor, verifica que no eres un robot.');
+        return;
+      }
+      
+      const recaptchaResponse = window.grecaptcha.getResponse(recaptchaWidget);
+      if (!recaptchaResponse) {
+        showError('Por favor, completa la verificación reCAPTCHA.');
+        return;
+      }
+      
+      // Mostrar mensaje de carga
+      const formMessage = document.getElementById('formMessage');
+      if (formMessage) formMessage.style.display = 'block';
+      showSuccess('Enviando mensaje...');
+      
+      // Obtener datos del formulario
+      const formData = new FormData(form);
+      formData.append('g-recaptcha-response', recaptchaResponse);
+      
+      try {
+        // Enviar datos al servidor
+        const response = await fetch('../procesar-formulario.php', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // Éxito: mostrar mensaje y limpiar formulario
+          const successMessage = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+          const formMessage = document.getElementById('formMessage');
+          if (formMessage) {
+            formMessage.style.display = 'block';
+            const successElement = formMessage.querySelector('.success-message');
+            if (successElement) {
+              successElement.textContent = successMessage;
+              successElement.style.display = 'block';
+              // Desplazarse al mensaje
+              formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+          form.reset();
+          if (window.grecaptcha && recaptchaWidget) {
+            // @ts-ignore
+            window.grecaptcha.reset(recaptchaWidget);
+          }
+        } else {
+          // Error: mostrar mensaje de error
+          showError(result.error || 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+        }
+      } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+        showError('Error de conexión. Por favor, inténtalo de nuevo más tarde.');
+      }
+    });
+  });
+</script>

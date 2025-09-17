@@ -1,0 +1,26 @@
+# Habilitar el motor de reescritura
+RewriteEngine On
+
+# Si la ruta solicitada no es un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# Si la ruta solicitada no es un directorio existente
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirigir todas las solicitudes a index.html para manejo de rutas del lado del cliente
+RewriteRule ^(.*)$ /disenopaginas/index.html [L]
+
+# Manejar correctamente los archivos PHP
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Asegurar que los archivos PHP en la carpeta procesar sean accesibles
+<Directory "/procesar">
+    Require all granted
+</Directory>
+
+# Configuración de CORS para el formulario
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>

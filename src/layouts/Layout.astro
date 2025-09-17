@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getAssetPath, getCssPath, getJsPath, getImagePath } from '../utils/assetPath';
 
 export interface Props {
   title: string;
@@ -9,6 +10,9 @@ export interface Props {
 }
 
 const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", canonical } = Astro.props;
+
+// Base URL for assets
+const baseUrl = import.meta.env.BASE_URL || '';
 ---
 
 <!DOCTYPE html>
@@ -23,18 +27,18 @@ const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chil
 
   <!-- Title & Favicon -->
   <title>{title}</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href={getAssetPath('/favicon.ico')}>
+  <link rel="shortcut icon" href={getAssetPath('/favicon.ico')} type="image/x-icon">
+  <link rel="apple-touch-icon" href={getAssetPath('/favicon.ico')}>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/animate.css">
-  <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="/assets/css/hero-colors.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/custom-colors.css">
+  <link rel="stylesheet" href={getCssPath('animate.css')}>
+  <link rel="stylesheet" href={getCssPath('tabler-icons.min.css')}>
+  <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
+  <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
+  <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
+  <link rel="stylesheet" href={getCssPath('style.css')}>
+  <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
 </head>
 
 <body>
@@ -57,10 +61,10 @@ const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chil
   <Footer />
 
   <!-- Scripts -->
-  <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
-  <script src="/assets/js/swiper-bundle.min.js" is:inline></script>
-  <script src="/assets/js/wow.min.js" is:inline></script>
-  <script src="/assets/js/active.js" is:inline></script>
+  <script src={getJsPath('bootstrap.bundle.min.js')} is:inline></script>
+  <script src={getJsPath('swiper-bundle.min.js')} is:inline></script>
+  <script src={getJsPath('wow.min.js')} is:inline></script>
+  <script src={getJsPath('active.js')} is:inline></script>
   
   <script>
     // Preloader
