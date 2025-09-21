@@ -1543,7 +1543,7 @@ picture.jarallax-img img {
   content: "";
   position: absolute;
   z-index: 0;
-  background-color: #601FEB;
+  background-color: #35A3EA;
   -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
   visibility: hidden;
@@ -6151,8 +6151,8 @@ textarea.form-control {
   }
 }
 .contact-small-card .icon {
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6663,10 +6663,11 @@ textarea.form-control {
 }
 .faq-contact-card .faq-contact-section.style-two {
   padding: 40px 36px;
+  background-color: #f8f9fa;
 }
 @media only screen and (min-width:1200px) {
   .faq-contact-card .faq-contact-section.style-two {
-    padding: 50px 48px;
+    padding: 50px 0;
   }
 }
 .faq-contact-card .faq-contact-form .form-control {

@@ -1,0 +1,109 @@
+---
+// @ts-ignore
+export interface Props {
+  titulo: string;
+  imagen: string;
+  descripcionCorta: string;
+  descripcionLarga: string;
+  caracteristicas?: string[];
+}
+
+// @ts-ignore
+const { titulo, imagen, descripcionCorta, descripcionLarga, caracteristicas = [] } = Astro.props;
+---
+
+<div class="detalle-servicio">
+  <!-- Primera fila -->
+  <div class="row align-items-center mb-5">
+    <!-- Columna de imagen -->
+    <div class="col-lg-6 mb-4 mb-lg-0">
+      <div class="servicio-imagen-container">
+        <img 
+          src={imagen} 
+          alt={`Servicio de ${titulo}`} 
+          class="img-fluid rounded-3 shadow"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    
+    <!-- Columna de título y descripción -->
+    <div class="col-lg-6">
+      <h1 class="mb-3">{titulo}</h1>
+      <p class="text-muted mb-4" style="font-size: 1.1rem; line-height: 1.6;">{descripcionCorta}</p>
+      
+      {caracteristicas.length > 0 && (
+        <div class="mt-4">
+          <h5 class="mb-3">Características principales:</h5>
+          <ul class="list-unstyled">
+            {caracteristicas && caracteristicas.map((caracteristica: string) => (
+              <li class="mb-2">
+                <i class="ti ti-check-circle text-primary me-2"></i>
+                {caracteristica}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </div>
+  
+  <!-- Segunda fila con descripción extendida -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="descripcion-extendida">
+        <h3 class="mb-4">Más sobre este servicio</h3>
+        <div class="contenido-descripcion">
+          <slot name="descripcion" />
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sidebar que aparecerá más abajo -->
+    <div class="col-lg-4">
+      <div class="servicio-sidebar">
+        <slot name="sidebar" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .detalle-servicio {
+    padding: 3rem 0;
+  }
+  
+  .servicio-imagen-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .servicio-imagen-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .servicio-imagen-container:hover img {
+    transform: scale(1.02);
+  }
+  
+  .descripcion-extendida {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .servicio-sidebar {
+    position: sticky;
+    top: 2rem;
+  }
+  
+  @media (max-width: 991.98px) {
+    .servicio-sidebar {
+      margin-top: 3rem;
+    }
+  }
+</style>

@@ -157,7 +157,7 @@ import Stats from '../components/Stats.astro';
                 <div class="portfolio-content">
                   <h5>Coligues</h5>
                   <p>Página web Venta de coligues y polines madera</p>
-                  <a href="https://coligues.cl" target="_blank" class="portfolio-link">www.coligues.cl (2024)</a>
+                  <a href="https://coligueschile.cl/" target="_blank" class="portfolio-link">www.coligueschile.cl (2024)</a>
                 </div>
               </div>
             </div>
@@ -173,7 +173,7 @@ import Stats from '../components/Stats.astro';
                 <div class="portfolio-content">
                   <h5>Banquetería</h5>
                   <p>Página web Servicios de Banqueteria y eventos</p>
-                  <a href="https://banqueteria.cl" target="_blank" class="portfolio-link">www.banqueteria.cl (2024)</a>
+                  <a href="https://banqueteriarv.cl/" target="_blank" class="portfolio-link">www.banqueteriarv.cl (2018)</a>
                 </div>
               </div>
             </div>
@@ -188,7 +188,7 @@ import Stats from '../components/Stats.astro';
                 <div class="portfolio-content">
                   <h5>Pasteles Delicia</h5>
                   <p>Página web Cursos de Pastelería</p>
-                  <a href="https://pastelesdelicia.cl" target="_blank" class="portfolio-link">www.pastelesdelicia.cl (2024)</a>
+                  <a href="https://pastelesdelicia.com" target="_blank" class="portfolio-link">www.pastelesdelicia.com (2016)</a>
                 </div>
               </div>
             </div>
@@ -202,9 +202,9 @@ import Stats from '../components/Stats.astro';
               <img src="/assets/img/portafolio/hielos-sur.webp" alt="Diseño Mobiliario Santiago" class="img-fluid">
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
-                  <h5>Hielos Sur</h5>
-                  <p>Sitio web Empresa de hielo sur</p>
-                  <a href="https://hielossur.cl" target="_blank" class="portfolio-link">www.hielossur.cl (2024)</a>
+                  <h5>Mobiliario Urbano - Diseño y Construcción e instalacion</h5>
+                  <p>Sitio web Mobiliario urbano</p>
+                  <a href="https://hielosdelsur.cl/" target="_blank" class="portfolio-link">www.hielosdelsur.cl (2020)</a>
                 </div>
               </div>
             </div>
@@ -251,7 +251,7 @@ import Stats from '../components/Stats.astro';
                 <div class="portfolio-content">
                   <h5>Hidro Casas - Diseño web</h5>
                   <p>Empresa de construcción</p>
-                  <a href="https://hidrocasas.cl" target="_blank" class="portfolio-link">www.hidrocasas.cl (2024)</a>
+                  <a href="https://hidrocasas.cl" target="_blank" class="portfolio-link">www.hidrocasas.cl (2019)</a>
                 </div>
               </div>
             </div>
@@ -267,7 +267,7 @@ import Stats from '../components/Stats.astro';
                 <div class="portfolio-content">
                   <h5>Gonzalo Toro Propiedades</h5>
                   <p>Portal inmobiliario</p>
-                  <a href="https://gonzalotoropropiedades.cl" target="_blank" class="portfolio-link">www.gonzalotoropropiedades.cl (2024)</a>
+                  <a href="https://gonzalotoropropiedades.cl" target="_blank" class="portfolio-link">www.gonzalotoropropiedades.cl (2020)</a>
                 </div>
               </div>
             </div>
@@ -338,16 +338,16 @@ import Stats from '../components/Stats.astro';
           </div>
         </div>
 
-        <!-- Seguridadsj -->
+        <!-- Seguridadsjs -->
         <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
           <div class="portfolio-card">
             <div class="portfolio-img">
-              <img src="/assets/img/portafolio/seguridadsjs.webp" alt="Diseño web Seguridadsj Chile" class="img-fluid">
+              <img src="/assets/img/portafolio/seguridadsjs.webp" alt="Diseño web Seguridad Chile" class="img-fluid">
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
-                  <h5>Seguridadsj</h5>
-                  <p>Empresa de seguridad</p>
-                  <a href="https://seguridadsj.cl" target="_blank" class="portfolio-link">www.seguridadsj.cl (2024)</a>
+                  <h5>Diseño web para empresa de seguridad</h5>
+                  <p>Empresa de seguridad SJS</p>
+                  <a href="https://seguridadsjs.cl/" target="_blank" class="portfolio-link">www.seguridadsj.cl (2024)</a>
                 </div>
               </div>
             </div>
@@ -913,7 +913,7 @@ import Stats from '../components/Stats.astro';
       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
         <div class="portfolio-card">
           <div class="portfolio-img">
-            <img src="/assets/img/portafolio/mcarvalho.webp" alt="Diseño web para MCarvalho" class="img-fluid">
+            <img src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para MCarvalho" class="img-fluid">
           </div>
           <div class="portfolio-overlay">
             <div class="portfolio-content">
@@ -965,10 +965,17 @@ import Stats from '../components/Stats.astro';
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
   .portfolio-card:hover {
     transform: translateY(-5px);
+  }
+  
+  .portfolio-card:hover img {
+    transform: scale(1.03);
   }
   
   .portfolio-img {
@@ -976,10 +983,19 @@ import Stats from '../components/Stats.astro';
     overflow: hidden;
   }
   
+  .portfolio-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 200px; /* Altura mínima para mantener consistencia */
+  }
+  
   .portfolio-img img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
   }
   
   .portfolio-overlay {

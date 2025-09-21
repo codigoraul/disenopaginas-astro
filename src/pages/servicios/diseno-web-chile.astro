@@ -12,154 +12,277 @@ import Footer from '../../components/Footer.astro';
     bgImage="/assets/img/bg-img/bg-title.webp"
   />
 
-  <!-- Service Details Section -->
+  <!-- Sección 1: Imagen y título -->
   <section class="service-details-section section-padding" style="padding-top: 80px;">
     <div class="container">
-      <div class="row g-5">
-        <!-- Main Content -->
-        <div class="col-12 col-lg-8">
-          <div class="service-details-content">
-            <!-- Hero Image -->
-            <img src="/assets/img/servicios/diseno-web-chile.webp" alt="Diseño Web Chile" class="img-fluid rounded mb-4">
-            
-            <!-- Service Title -->
-            <h1 class="h2 fw-bold mb-4">Diseño Web Chile</h1>
-            
-            <!-- Service Description -->
-            <p class="lead mb-4">
-              Desarrollamos sitios web profesionales y personalizados para empresas en Chile. 
-              Optimizados para SEO y con diseños modernos que fortalecen tu marca. 
-              ¡Impulsa tu presencia digital!
-            </p>
-            
-            <p class="mb-4">
-              Creamos soluciones únicas que se adaptan 
-              perfectamente a las necesidades específicas de tu negocio. Utilizamos las últimas 
-              tecnologías y mejores prácticas de la industria para garantizar que tu sitio web 
-              no solo se vea atractivo, sino que también funcione de manera óptima en todos 
-              los dispositivos y navegadores.
-            </p>
+      <div class="row align-items-center mb-5">
+        <!-- Imagen del servicio -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img 
+            src="/assets/img/servicios/diseno-web-chile.webp" 
+            alt="Diseño Web Chile" 
+            class="img-fluid rounded-3 shadow"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Descripción principal -->
+        <div class="col-lg-6">
+          <h1 class="mb-3">Diseño Web Chile</h1>
+          <p class="mb-4">
+            Desarrollamos sitios web profesionales y personalizados para empresas en Chile. 
+            Optimizados para SEO y con diseños modernos que fortalecen tu marca. 
+            ¡Impulsa tu presencia digital!
+          </p>
+          <p class="mb-4">
+            En el competitivo mundo digital actual, tener un sitio web profesional es esencial para cualquier negocio. 
+            Nuestro servicio de Diseño Web en Chile está diseñado para ofrecerte una presencia en línea impactante y 
+            efectiva que impulse tu negocio al siguiente nivel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Features List -->
-            <div class="features-list mb-5">
-              <h4 class="mb-3 fw-bold">¿Qué incluye nuestro servicio?</h4>
-              <ul class="list-unstyled">
-                <li class="d-flex align-items-start mb-3">
-                  <i class="ti ti-check-circle text-primary me-3 mt-1"></i>
-                  <span>Diseño web responsivo que se adapta a todos los dispositivos móviles y tablets</span>
-                </li>
-                <li class="d-flex align-items-start mb-3">
-                  <i class="ti ti-check-circle text-primary me-3 mt-1"></i>
-                  <span>Optimización SEO avanzada para mejorar el posicionamiento en Google</span>
-                </li>
-                <li class="d-flex align-items-start mb-3">
-                  <i class="ti ti-check-circle text-primary me-3 mt-1"></i>
-                  <span>Velocidad de carga optimizada para una mejor experiencia del usuario</span>
-                </li>
-                <li class="d-flex align-items-start mb-3">
-                  <i class="ti ti-check-circle text-primary me-3 mt-1"></i>
-                  <span>Panel de administración intuitivo para gestionar tu contenido</span>
-                </li>
-                <li class="d-flex align-items-start mb-3">
-                  <i class="ti ti-check-circle text-primary me-3 mt-1"></i>
-                  <span>Soporte técnico personalizado por teléfono y WhatsApp</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Process Section -->
-            <div class="process-section mb-5">
-              <h4 class="mb-4 fw-bold">Nuestro Proceso de Trabajo</h4>
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <div class="process-step p-3 bg-light rounded">
-                    <h5 class="fw-bold text-primary">1. Consulta Inicial</h5>
-                    <p class="mb-0">Analizamos tus necesidades y objetivos para crear la mejor estrategia digital.</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="process-step p-3 bg-light rounded">
-                    <h5 class="fw-bold text-primary">2. Diseño y Desarrollo</h5>
-                    <p class="mb-0">Creamos un diseño único y funcional que refleje la identidad de tu marca.</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="process-step p-3 bg-light rounded">
-                    <h5 class="fw-bold text-primary">3. Pruebas y Optimización</h5>
-                    <p class="mb-0">Realizamos pruebas exhaustivas para garantizar un funcionamiento perfecto.</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="process-step p-3 bg-light rounded">
-                    <h5 class="fw-bold text-primary">4. Lanzamiento y Soporte</h5>
-                    <p class="mb-0">Publicamos tu sitio web y te brindamos soporte continuo.</p>
-                  </div>
-                </div>
+  <!-- Sección 2: Contenido + Sidebar -->
+  <section class="section-padding bg-light pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- Columna principal (span9) -->
+        <div class="col-lg-9">
+          <!-- Características principales -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Características principales</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Diseño web 100% personalizado
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Optimización SEO avanzada
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Diseño responsive (adaptable a móviles)
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Tiempos de carga ultrarrápidos
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Integración con redes sociales
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Formularios de contacto seguros
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Certificado SSL incluido
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Panel de administración intuitivo
+                  </li>
+                </ul>
               </div>
             </div>
+          </div>
 
-            <!-- Gallery -->
-            <div class="gallery-section">
-              <h4 class="mb-4 fw-bold">Ejemplos de Nuestros Trabajos</h4>
-              <div class="row g-3">
-                <div class="col-6">
-                  <img src="/assets/img/servicios/diseno-web-autoadministrable.webp" alt="Sitio Web Autoadministrable" class="img-fluid rounded">
+          <!-- Descripción detallada -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Enfoque</h4>
+            <p class="mb-4">
+              Trabajamos con las últimas tecnologías y mejores prácticas de la industria para crear sitios web rápidos, 
+              seguros y optimizados para motores de búsqueda. Nuestro enfoque personalizado garantiza que cada sitio web 
+              que creamos sea único y refleje la identidad de tu marca.
+            </p>
+            <p class="mb-4">
+              Creamos soluciones únicas que se adaptan perfectamente a las necesidades específicas de tu negocio. 
+              Utilizamos las últimas tecnologías y mejores prácticas de la industria para garantizar que tu sitio web 
+              no solo se vea atractivo, sino que también funcione de manera óptima en todos los dispositivos y navegadores.
+            </p>
+          </div>
+
+          <!-- Proceso de trabajo -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Proceso de Trabajo</h4>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">1. Consulta Inicial</h5>
+                  <p class="mb-0">Analizamos tus necesidades y objetivos para crear la mejor estrategia digital.</p>
                 </div>
-                <div class="col-6">
-                  <img src="/assets/img/servicios/diseno-web-venta-online.webp" alt="Tienda Online" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">2. Diseño y Desarrollo</h5>
+                  <p class="mb-0">Creamos un diseño único y funcional que refleje la identidad de tu marca.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">3. Pruebas y Optimización</h5>
+                  <p class="mb-0">Realizamos pruebas exhaustivas para garantizar un funcionamiento perfecto.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">4. Lanzamiento y Soporte</h5>
+                  <p class="mb-0">Publicamos tu sitio web y te brindamos soporte continuo.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="col-12 col-lg-4">
-          <div class="service-sidebar">
-            <!-- Contact Card -->
-            <div class="contact-card p-4 text-dark rounded mb-4">
-              <h4 class="fw-bold mb-3">¿Necesitas un Sitio Web?</h4>
-              <p class="mb-4">Contáctanos para obtener una cotización personalizada</p>
-              <a href="/contacto" class="btn btn-light w-100 mb-3">
-                <i class="ti ti-phone me-2"></i>Solicitar Cotización
-              </a>
-              <a href="tel:+56961765268" class="btn btn-outline-light w-100">
-                <i class="ti ti-phone me-2"></i>+56 9 6176 5268
-              </a>
+        <!-- Sidebar (span3) -->
+        <div class="col-lg-3">
+          <!-- Lista de servicios -->
+          <div class="bg-white p-4 rounded-3 shadow-sm">
+            <h5 class="fw-bold mb-4" style="color: #0B100F; font-size: 1.25rem;">Otros Servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 rounded text-decoration-none text-white" style="background-color: #011C42;">
+                  <span>Diseño Web Chile</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Sitios Web Autoadministrables</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Tiendas Online</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/posicionamiento-seo" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Posicionamiento SEO</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Mantenimiento Web</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Ver Todos los Servicios</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section bg-light py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="mb-4">Preguntas Frecuentes</h2>
+          <p class="lead">Resolvemos tus dudas sobre nuestro servicio de diseño web</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="faqAccordion">
+            <!-- Pregunta 1 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  ¿Cuánto tiempo toma el desarrollo de un sitio web?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web corporativo básico puede estar listo en 2-3 semanas, mientras que sitios más complejos con funcionalidades especiales pueden tomar de 2 a 5 semanas. Incluimos un cronograma detallado en nuestra propuesta inicial.
+                </div>
+              </div>
             </div>
 
-            <!-- Services List -->
-            <div class="services-list mb-4">
-              <h5 class="fw-bold mb-3">Otros Servicios</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Sitios Web Autoadministrables</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Tiendas Online</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/posicionamiento-seo" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Posicionamiento SEO</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Mantenimiento Web</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-              </ul>
+            <!-- Pregunta 2 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  ¿Qué incluye exactamente el servicio de diseño web?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Nuestro servicio completo incluye: diseño personalizado, desarrollo responsive, optimización SEO básica, integración con redes sociales, formulario de contacto, certificado SSL, panel de administración, capacitación básica, y 1 mes de soporte gratuito. También incluye el diseño de logotipo si es necesario para tu proyecto.
+                </div>
+              </div>
             </div>
 
+            <!-- Pregunta 3 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  ¿Puedo actualizar el contenido yo mismo?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  ¡Sí! Todos nuestros sitios web incluyen un panel de administración intuitivo que te permite actualizar textos, imágenes, productos y publicaciones de blog sin necesidad de conocimientos técnicos. Además, te proporcionamos una guía de usuario y una sesión de capacitación para que te sientas cómodo administrando tu sitio.
+                </div>
+              </div>
+            </div>
 
+            <!-- Pregunta 4 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  ¿Qué necesito para comenzar mi proyecto web?
+                </button>
+              </h3>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Para comenzar, necesitamos: 1) Información básica de tu empresa, 2) Contenido (textos e imágenes) que quieras incluir, 3) Ejemplos de sitios web que te gusten, 4) Objetivos del sitio web, 5) Dominio (si ya lo tienes). Si no tienes alguno de estos elementos, ¡no te preocupes! Podemos asesorarte en cada paso del proceso.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h3 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  ¿Ofrecen servicio de mantenimiento para sitios web?
+                </button>
+              </h3>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  ¡Sí! Ofrecemos planes de mantenimiento integral para sitios web, especialmente para WordPress. Nuestro servicio incluye:
+                  <ul class="mt-3">
+                    <li>Actualización periódica de WordPress, temas y plugins (mensual o semestral)</li>
+                    <li>Copias de seguridad automáticas y restauración si es necesario</li>
+                    <li>Monitoreo de seguridad y protección contra malware</li>
+                    <li>Optimización de velocidad y rendimiento</li>
+                    <li>Actualización de contenido, productos y/o catálogos (hasta X horas/mes según plan)</li>
+                    <li>Soporte técnico prioritario</li>
+                  </ul>
+                  Ofrecemos planes flexibles con frecuencias de actualización mensuales o semestrales, adaptados a las necesidades específicas de tu negocio. Los planes semestrales incluyen un descuento especial. ¡Contáctanos para recibir una cotización personalizada!
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -167,7 +290,7 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section bg-primary text-white py-5">
+  <section class="cta-section bg-primary text-white py-5 pt-1">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8">
@@ -182,9 +305,6 @@ import Footer from '../../components/Footer.astro';
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <Footer />
 </Layout>
 
 <style>
@@ -221,6 +341,35 @@ import Footer from '../../components/Footer.astro';
   }
   
   .cta-section {
-    background: linear-gradient(135deg, var(--bs-primary) 0%, #2a46cb 100%);
+    background: linear-gradient(133deg, var(--bs-primary) -64%, #85e5f6 100%);
+  }
+  
+  .cta-section h2 {
+    color: white !important;
+  }
+  
+  .cta-section .row {
+    margin-top: 30px;
+  }
+  
+  h5 {
+    color: #4877E9 !important;
+  }
+  
+  /* Sobrescribir estilos de botones en el sidebar */
+  .service-sidebar .btn-outline-light {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+  }
+  
+  .service-sidebar .btn-outline-light:hover {
+    background-color: #ffffff !important;
+    color: #1F1E21 !important;
+  }
+  
+  /* Eliminar el hover morado de los enlaces del sidebar */
+  .service-sidebar a:hover {
+    background-color: transparent !important;
+    color: inherit !important;
   }
 </style>

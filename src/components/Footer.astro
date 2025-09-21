@@ -151,9 +151,8 @@ import SocialLinks from './SocialLinks.astro';
   
   /* Asegurar que los enlaces sean visibles */
   .footer-wrapper .footer-nav a:hover,
-  .footer-wrapper .footer-bottom-nav a:hover {
-    color: #27262B !important;
-    text-decoration: none;
+  .footer-wrapper  .footer-bottom-nav a:hover {
+    color: #4877E9;
   }
   
   /* Títulos del footer en color claro */
@@ -201,8 +200,24 @@ import SocialLinks from './SocialLinks.astro';
   }
   
   .footer-wrapper .footer-nav a:hover {
-    color: #4877E9 !important;
+    color: #35A3EA !important;
     text-decoration: none !important;
     transform: translateX(5px);
+  }
+  
+  .footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #4877E9;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-wrapper  .footer-link:hover::before {
+    width: 8px;
+    background: #4877E9;
   }
 </style>

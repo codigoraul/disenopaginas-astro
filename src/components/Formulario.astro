@@ -19,10 +19,10 @@ const {
 const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
 ---
 
-<div class="faq-contact-section style-two bg-white">
-  <div class="mb-5">
-    <h4>{title}</h4>
-    <p class="mb-0">{subtitle}</p>
+<div class="faq-contact-section style-two bg-light p-4 p-lg-5 rounded-3">
+  <div class="text-center mb-5">
+    <h4 class="text-dark">{title}</h4>
+    <p class="text-muted mb-0">{subtitle}</p>
   </div>
 
   <!-- Contact Form -->
@@ -38,7 +38,7 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
         <input type="email" name="email" placeholder="Email" required class="form-control">
       </div>
       <div class="col-lg-6">
-        <select name="presupuesto" required class="form-control">
+        <select name="presupuesto" required class="form-select">
           <option value="">Selecciona un plan</option>
           <option value="Si ya tienes sitio web">Si ya tienes sitio web - $70.000</option>
           <option value="Landing Page - Medio">Landing Page - Medio - $140.000</option>
@@ -52,7 +52,7 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
       </div>
       <div class="col-12">
         <!-- Contenedor de reCAPTCHA -->
-        <div id="recaptcha-container" class="mb-3"></div>
+        <div id="recaptcha-container" class="mb-3 d-flex justify-content-center"></div>
         <!-- Mensajes de error/éxito -->
         <div id="formMessage" style="display: none;">
           <div class="alert alert-success success-message" style="display: none;"></div>
@@ -65,49 +65,38 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
 </div>
 
 <style>
-  .faq-contact-form .form-control {
+  .faq-contact-section.style-two {
+    background-color: #f8f9fa;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  }
+  
+  .faq-contact-form .form-control,
+  .faq-contact-form .form-select {
     border: 1px solid #e8e8e8;
     padding: 12px 20px;
     border-radius: 5px;
     font-size: 14px;
     margin-bottom: 0;
+    transition: all 0.3s ease;
   }
   
-  .faq-contact-form .form-control:focus {
-    box-shadow: none;
+  .faq-contact-form .form-control:focus,
+  .faq-contact-form .form-select:focus {
     border-color: #4877E9;
+    box-shadow: 0 0 0 0.2rem rgba(72, 119, 233, 0.15);
   }
   
   .btn-primary {
     background-color: #4877E9;
     border: none;
-    padding: 12px 30px;
+    padding: 12px 24px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
   }
   
   .btn-primary:hover {
     background-color: #3a62c0;
     transform: translateY(-2px);
-  }
-  
-  .alert {
-    margin-bottom: 1rem;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-  }
-  
-  .alert-success {
-    color: #0f5132;
-    background-color: #d1e7dd;
-    border-color: #badbcc;
-  }
-  
-  .alert-danger {
-    color: #842029;
-    background-color: #f8d7da;
-    border-color: #f5c2c7;
   }
 </style>
 

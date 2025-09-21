@@ -14,180 +14,178 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     bgImage="/assets/img/bg-img/bg-title.webp"
   />
 
-  <!-- Service Details Section -->
+  <!-- Sección 1: Imagen y título -->
   <section class="service-details-section section-padding" style="padding-top: 80px;">
     <div class="container">
-      <div class="row g-5">
-        <!-- Main Content -->
-        <div class="col-12 col-lg-8">
-          <div class="service-details-content">
-            <!-- Hero Image -->
-            <img src="/assets/img/servicios/diseno-web-venta-online.webp" alt="Tiendas Online - Páginas Web Venta Online" class="img-fluid rounded mb-4">
-            
-            <!-- Service Title -->
-            <h1 class="h2 fw-bold mb-4">Páginas Web Venta Online</h1>
-            
-            <!-- Service Description -->
-            <p class="lead mb-4">
-              Tiendas online con WooCommerce, incluyendo catálogos profesionales y sistemas de venta avanzados. Optimizamos el diseño visual y posicionamiento SEO individual para cada producto.
-            </p>
-            
-            <p class="mb-4">
-              Creamos tiendas online completas y profesionales que convierten visitantes en clientes. Nuestras soluciones de e-commerce están diseñadas para maximizar las ventas y brindar una experiencia de compra excepcional a sus clientes.
-            </p>
+      <div class="row align-items-center mb-5">
+        <!-- Imagen del servicio -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img 
+            src="/assets/img/servicios/diseno-web-venta-online.webp" 
+            alt="Tiendas Online - Páginas Web Venta Online" 
+            class="img-fluid rounded-3 shadow"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Descripción principal -->
+        <div class="col-lg-6">
+          <h1 class="mb-3">Páginas Web Venta Online</h1>
+          <p class="mb-4">
+            Tiendas online con WooCommerce, incluyendo catálogos profesionales y sistemas de venta avanzados. 
+            Optimizamos el diseño visual y posicionamiento SEO individual para cada producto.
+          </p>
+          <p class="mb-4">
+            Creamos tiendas online completas y profesionales que convierten visitantes en clientes. Nuestras soluciones 
+            de e-commerce están diseñadas para maximizar las ventas y brindar una experiencia de compra excepcional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Key Features -->
-            <h3 class="h4 fw-bold mb-3">¿Qué incluye nuestra tienda online?</h3>
-            <div class="row g-4 mb-5">
+  <!-- Sección 2: Contenido + Sidebar -->
+  <section class="section-padding bg-light pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- Columna principal (span9) -->
+        <div class="col-lg-9">
+          <!-- Características principales -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Características principales</h4>
+            <div class="row">
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-shopping-cart text-primary fs-3 mb-2"></i>
-                  <h5>Carrito de Compras</h5>
-                  <p class="mb-0">Sistema completo de carrito con múltiples opciones de pago y envío para una experiencia fluida.</p>
-                </div>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Carrito de compras avanzado
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Múltiples métodos de pago
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Gestión de inventario
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Sistema de envíos integrado
+                  </li>
+                </ul>
               </div>
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-credit-card text-primary fs-3 mb-2"></i>
-                  <h5>Medios de Pago</h5>
-                  <p class="mb-0">Integración con WebPay, Transbank, PayPal y otras pasarelas de pago seguras.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-package text-primary fs-3 mb-2"></i>
-                  <h5>Gestión de Productos</h5>
-                  <p class="mb-0">Administración completa de inventario, categorías, precios y descuentos desde panel intuitivo.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-truck text-primary fs-3 mb-2"></i>
-                  <h5>Sistema de Envíos</h5>
-                  <p class="mb-0">Configuración de zonas de envío, costos por región y seguimiento de pedidos.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-chart-bar text-primary fs-3 mb-2"></i>
-                  <h5>Reportes de Ventas</h5>
-                  <p class="mb-0">Estadísticas detalladas de ventas, productos más vendidos y comportamiento de clientes.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-seo text-primary fs-3 mb-2"></i>
-                  <h5>SEO por Producto</h5>
-                  <p class="mb-0">Optimización SEO individual para cada producto para mejorar su posicionamiento en Google.</p>
-                </div>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Reportes de ventas detallados
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Optimización SEO avanzada
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Diseño responsive
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Seguridad SSL incluida
+                  </li>
+                </ul>
               </div>
             </div>
+          </div>
 
-            <!-- Benefits Section -->
-            <h3 class="h4 fw-bold mb-3">Beneficios de tener una tienda online profesional</h3>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Ventas 24/7 sin límites geográficos</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Gestión automática de inventario y stock</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Múltiples medios de pago seguros</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Sistema de cupones y descuentos automáticos</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Integración con redes sociales y marketing</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Responsive design para móviles y tablets</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Certificado SSL incluido para transacciones seguras</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Capacitación completa para administrar su tienda</li>
-            </ul>
-
-            <!-- Technologies Section -->
-            <h3 class="h4 fw-bold mb-3">Tecnologías que utilizamos</h3>
+          <!-- Descripción detallada -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Enfoque</h4>
             <p class="mb-4">
-              Trabajamos con <strong>WooCommerce</strong>, la plataforma de e-commerce más popular del mundo, 
-              construida sobre WordPress. Esto garantiza:
+              Creamos tiendas online que no solo se ven profesionales, sino que también están diseñadas para vender. 
+              Nuestro enfoque combina diseño atractivo, funcionalidades avanzadas y optimización para conversiones, 
+              asegurando que su tienda online sea una máquina de generar ventas las 24 horas del día, los 7 días de la semana.
             </p>
-            <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                <div class="tech-badge p-2 text-center bg-light rounded">
-                  <strong>WooCommerce</strong>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="tech-badge p-2 text-center bg-light rounded">
-                  <strong>WordPress</strong>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="tech-badge p-2 text-center bg-light rounded">
-                  <strong>SSL Seguro</strong>
-                </div>
-              </div>
-            </div>
+            <p class="mb-4">
+              Utilizamos WooCommerce, la plataforma de comercio electrónico más confiable y utilizada en el mundo, 
+              construida sobre WordPress. Esto le brinda la flexibilidad y el poder que necesita para hacer crecer su negocio en línea.
+            </p>
+          </div>
 
-            <!-- CTA Section -->
-            <div class="cta-section p-4 rounded text-white mt-5">
-              <div class="row align-items-center">
-                <div class="col-lg-8">
-                  <h4 class="fw-bold mb-2">¿Listo para vender online?</h4>
-                  <p class="mb-0">Comience a vender sus productos online hoy mismo con nuestra tienda profesional.</p>
+          <!-- Proceso de trabajo -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Proceso de Trabajo</h4>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">1. Análisis Estratégico</h5>
+                  <p class="mb-0">Analizamos su mercado, competencia y objetivos para crear una estrategia de e-commerce efectiva.</p>
                 </div>
-                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                  <a href="/contacto" class="btn btn-primary btn-lg">
-                    <i class="ti ti-arrow-right me-2"></i>Comenzar Ahora
-                  </a>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">2. Diseño y Desarrollo</h5>
+                  <p class="mb-0">Creamos un diseño personalizado y desarrollamos todas las funcionalidades de su tienda online.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">3. Configuración y Pruebas</h5>
+                  <p class="mb-0">Configuramos pagos, envíos y realizamos pruebas exhaustivas para garantizar un funcionamiento perfecto.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">4. Lanzamiento y Capacitación</h5>
+                  <p class="mb-0">Lanzamos su tienda y le brindamos capacitación completa para administrarla con confianza.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="col-12 col-lg-4">
-          <div class="service-sidebar">
-            <!-- Contact Card -->
-            <div class="contact-card p-4 text-dark rounded mb-4">
-              <h4 class="fw-bold mb-3">¿Necesitas una Tienda Online?</h4>
-              <p class="mb-4">Contáctanos para obtener una cotización personalizada</p>
-              <a href="/contacto" class="btn btn-primary w-100 mb-3">
-                <i class="ti ti-shopping-cart me-2"></i>Solicitar Cotización
-              </a>
-              <a href="tel:+56961765268" class="btn btn-outline-primary w-100">
-                <i class="ti ti-phone me-2"></i>+56 9 6176 5268
-              </a>
-            </div>
-
-            <!-- Pricing Info -->
-            <div class="pricing-card p-4 border rounded mb-4">
-              <h5 class="fw-bold mb-3">Incluido en el Servicio</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Diseño responsive</li>
-                <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Configuración de pagos</li>
-                <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Carga de productos</li>
-                <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Capacitación incluida</li>
-                <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Soporte técnico</li>
-              </ul>
-            </div>
-
-            <!-- Services List -->
-            <div class="services-list mb-4">
-              <h5 class="fw-bold mb-3">Otros Servicios</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Diseño Web Chile</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Sitios Web Autoadministrables</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Ver Todos los Servicios</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <!-- Sidebar (span3) -->
+        <div class="col-lg-3">
+          <!-- Lista de servicios -->
+          <div class="bg-white p-4 rounded-3 shadow-sm">
+            <h5 class="fw-bold mb-4" style="color: #0B100F; font-size: 1.25rem;">Otros Servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Diseño Web Chile</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Sitios Web Autoadministrables</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 rounded text-decoration-none text-white" style="background-color: #011C42;">
+                  <span>Tiendas Online</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/posicionamiento-seo" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Posicionamiento SEO</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Mantenimiento Web</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Ver Todos los Servicios</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

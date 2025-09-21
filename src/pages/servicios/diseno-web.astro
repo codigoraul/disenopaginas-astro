@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DetalleServicio from '../../components/DetalleServicio.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout 
+  title="Diseño Web Profesional | Nuestros Servicios"
+  description="Diseño web profesional y personalizado para empresas que buscan destacar en internet con un sitio web atractivo, funcional y optimizado para motores de búsqueda."
+  canonical="https://www.tudominio.cl/servicios/diseno-web"
+>
+  <!-- Breadcrumb -->
+  <Breadcrumb 
+    title="Diseño Web Profesional" 
+    currentPage="Diseño Web"
+    bgImage="/assets/img/bg-img/bg-title.webp"
+  />
+
+  <div class="container py-5">
+    <DetalleServicio
+      titulo="Diseño Web Profesional"
+      imagen="/assets/img/servicios/diseno-web-profesional.jpg"
+      descripcionCorta="Creamos sitios web profesionales, rápidos y atractivos que generan más clientes y ventas para tu negocio. Diseños únicos adaptados a tus necesidades específicas."
+      descripcionLarga=""
+      caracteristicas={[
+        "Diseño 100% personalizado y único",
+        "Totalmente adaptable a móviles",
+        "Optimizado para motores de búsqueda (SEO)",
+        "Integración con redes sociales",
+        "Panel de administración fácil de usar"
+      ]}
+    >
+      <div slot="descripcion">
+        <p>Nuestro servicio de diseño web profesional está pensado para empresas que buscan destacar en Internet con una presencia digital de alto impacto. Cada sitio web que creamos es único y desarrollado específicamente para cumplir con los objetivos de tu negocio.</p>
+        
+        <h4 class="mt-4">¿Qué incluye nuestro servicio?</h4>
+        <ul>
+          <li>Diseño personalizado según tu marca</li>
+          <li>Desarrollo web responsive (adaptable a móviles)</li>
+          <li>Optimización SEO básica</li>
+          <li>Formulario de contacto</li>
+          <li>Integración con Google Analytics</li>
+          <li>Capacitación para el manejo del sitio</li>
+        </ul>
+        
+        <h4 class="mt-4">Proceso de trabajo</h4>
+        <p>Trabajamos de manera cercana contigo en cada etapa del proyecto, asegurando que el resultado final cumpla con todas tus expectativas y necesidades de negocio.</p>
+      </div>
+      
+      <div slot="sidebar">
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-body">
+            <h5 class="card-title mb-3">¿Necesitas ayuda?</h5>
+            <p class="card-text">Contáctanos para una asesoría personalizada sobre tu proyecto web.</p>
+            <a href="/contacto" class="btn btn-primary w-100">Solicitar Cotización</a>
+          </div>
+        </div>
+        
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Otros servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="/servicios/tiendas-online" class="text-decoration-none">Tiendas Online</a></li>
+              <li class="mb-2"><a href="/servicios/seo" class="text-decoration-none">Posicionamiento SEO</a></li>
+              <li class="mb-2"><a href="/servicios/marketing-digital" class="text-decoration-none">Marketing Digital</a></li>
+              <li><a href="/servicios/hosting" class="text-decoration-none">Hosting y Dominio</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </DetalleServicio>
+  </div>
+</Layout>

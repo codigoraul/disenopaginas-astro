@@ -14,128 +14,178 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     bgImage="/assets/img/bg-img/bg-title.webp"
   />
 
-  <!-- Service Details Section -->
+  <!-- Sección 1: Imagen y título -->
   <section class="service-details-section section-padding" style="padding-top: 80px;">
     <div class="container">
-      <div class="row g-5">
-        <!-- Main Content -->
-        <div class="col-12 col-lg-8">
-          <div class="service-details-content">
-            <!-- Hero Image -->
-            <img src="/assets/img/servicios/diseno-web-autoadministrable.webp" alt="Sitios Web Autoadministrables" class="img-fluid rounded mb-4">
-            
-            <!-- Service Title -->
-            <h1 class="h2 fw-bold mb-4">Sitios Web Autoadministrables</h1>
-            
-            <!-- Service Description -->
-            <p class="lead mb-4">
-              Administre su sitio web sin conocimientos técnicos. Nuestro panel de control intuitivo le permite actualizar textos, imágenes y contenido de forma sencilla. Incluye soporte técnico personalizado por teléfono y WhatsApp.
-            </p>
-            
-            <p class="mb-4">
-              Creamos sitios web que usted puede gestionar completamente por su cuenta. Sin dependencia de programadores, sin costos adicionales por actualizaciones de contenido. Nuestro sistema de gestión de contenidos (CMS) está diseñado para ser extremadamente fácil de usar.
-            </p>
+      <div class="row align-items-center mb-5">
+        <!-- Imagen del servicio -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img 
+            src="/assets/img/servicios/diseno-web-autoadministrable.webp" 
+            alt="Sitios Web Autoadministrables" 
+            class="img-fluid rounded-3 shadow"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Descripción principal -->
+        <div class="col-lg-6">
+          <h1 class="mb-3">Sitios Web Autoadministrables</h1>
+          <p class="mb-4">
+            Administre su sitio web sin conocimientos técnicos. Nuestro panel de control intuitivo le permite actualizar textos, 
+            imágenes y contenido de forma sencilla. Incluye soporte técnico personalizado por teléfono y WhatsApp.
+          </p>
+          <p class="mb-4">
+            Cree, edite y gestione su propio sitio web sin necesidad de conocimientos técnicos. Con nuestros sitios autoadministrables, 
+            tendrá el control total sobre su contenido, pudiendo realizar actualizaciones en tiempo real cuando lo necesite.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Key Features -->
-            <h3 class="h4 fw-bold mb-3">¿Qué incluye nuestro servicio?</h3>
-            <div class="row g-4 mb-5">
+  <!-- Sección 2: Contenido + Sidebar -->
+  <section class="section-padding bg-light pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- Columna principal (span9) -->
+        <div class="col-lg-9">
+          <!-- Características principales -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Características principales</h4>
+            <div class="row">
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-edit text-primary fs-3 mb-2"></i>
-                  <h5>Editor Intuitivo</h5>
-                  <p class="mb-0">Interface simple para editar textos, cambiar imágenes y actualizar contenido sin conocimientos técnicos.</p>
-                </div>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Panel de control intuitivo y fácil de usar
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Editor de texto enriquecido (WYSIWYG)
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Gestor de imágenes y archivos
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Actualizaciones en tiempo real
+                  </li>
+                </ul>
               </div>
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-phone text-primary fs-3 mb-2"></i>
-                  <h5>Soporte Personalizado</h5>
-                  <p class="mb-0">Asistencia técnica por teléfono y WhatsApp incluida para resolver cualquier duda sobre la administración.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-shield-check text-primary fs-3 mb-2"></i>
-                  <h5>Respaldos Automáticos</h5>
-                  <p class="mb-0">Sistema de copias de seguridad automáticas para proteger su contenido y tranquilidad total.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-device-mobile text-primary fs-3 mb-2"></i>
-                  <h5>Gestión desde Móvil</h5>
-                  <p class="mb-0">Administre su sitio web desde cualquier dispositivo: computador, tablet o teléfono móvil.</p>
-                </div>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Soporte técnico personalizado
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Capacitación incluida
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Acceso desde cualquier dispositivo
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Respaldos automáticos
+                  </li>
+                </ul>
               </div>
             </div>
+          </div>
 
-            <!-- Benefits Section -->
-            <h3 class="h4 fw-bold mb-3">Beneficios de tener un sitio autoadministrable</h3>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Independencia total para actualizar contenido</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Ahorro en costos de mantenimiento</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Actualizaciones inmediatas cuando las necesite</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Control total sobre su información</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Capacitación incluida para usar el sistema</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Soporte técnico permanente</li>
-            </ul>
+          <!-- Descripción detallada -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Enfoque</h4>
+            <p class="mb-4">
+              Nuestros sitios web autoadministrables están diseñados pensando en la facilidad de uso. Utilizamos sistemas de gestión de 
+              contenidos intuitivos que permiten a cualquier persona, sin importar su nivel de experiencia, mantener su sitio web actualizado 
+              de manera profesional.
+            </p>
+            <p class="mb-4">
+              No necesita conocimientos de programación ni diseño web. Con nuestro panel de administración podrá agregar nuevas páginas, 
+              publicar noticias, actualizar productos y mucho más, todo de forma sencilla y visual.
+            </p>
+          </div>
 
-            <!-- CTA Section -->
-            <div class="cta-section p-4 rounded text-white mt-5">
-              <div class="row align-items-center">
-                <div class="col-lg-8">
-                  <h4 class="fw-bold mb-2">¿Listo para tener control total de su sitio web?</h4>
-                  <p class="mb-0">Solicite una demostración gratuita y vea lo fácil que es administrar su propio sitio web.</p>
+          <!-- Proceso de trabajo -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Proceso de Trabajo</h4>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">1. Análisis de Requerimientos</h5>
+                  <p class="mb-0">Analizamos sus necesidades para diseñar la mejor estructura para su sitio web autoadministrable.</p>
                 </div>
-                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                  <a href="/contacto" class="btn btn-primary btn-lg">
-                    <i class="ti ti-arrow-right me-2"></i>Solicitar Demo
-                  </a>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">2. Diseño y Desarrollo</h5>
+                  <p class="mb-0">Creamos un diseño personalizado adaptado a su marca y desarrollamos el panel de administración.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">3. Capacitación</h5>
+                  <p class="mb-0">Le enseñamos a usar el panel de administración para que pueda gestionar su sitio web sin problemas.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">4. Lanzamiento y Soporte</h5>
+                  <p class="mb-0">Publicamos su sitio web y le brindamos soporte continuo para cualquier consulta o actualización.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="col-12 col-lg-4">
-          <div class="service-sidebar">
-            <!-- Contact Card -->
-            <div class="contact-card p-4 text-dark rounded mb-4">
-              <h4 class="fw-bold mb-3">¿Necesitas un Sitio Autoadministrable?</h4>
-              <p class="mb-4">Contáctanos para obtener una cotización personalizada</p>
-              <a href="/contacto" class="btn btn-primary w-100 mb-3">
-                <i class="ti ti-phone me-2"></i>Solicitar Cotización
-              </a>
-              <a href="tel:+56961765268" class="btn btn-outline-primary w-100">
-                <i class="ti ti-phone me-2"></i>+56 9 6176 5268
-              </a>
-            </div>
-
-            <!-- Services List -->
-            <div class="services-list mb-4">
-              <h5 class="fw-bold mb-3">Otros Servicios</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Diseño Web Chile</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Tiendas Online</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Ver Todos los Servicios</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <!-- Sidebar (span3) -->
+        <div class="col-lg-3">
+          <!-- Lista de servicios -->
+          <div class="bg-white p-4 rounded-3 shadow-sm">
+            <h5 class="fw-bold mb-4" style="color: #0B100F; font-size: 1.25rem;">Otros Servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Diseño Web Chile</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 rounded text-decoration-none text-white" style="background-color: #011C42;">
+                  <span>Sitios Web Autoadministrables</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Tiendas Online</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/posicionamiento-seo" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Posicionamiento SEO</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Mantenimiento Web</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Ver Todos los Servicios</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

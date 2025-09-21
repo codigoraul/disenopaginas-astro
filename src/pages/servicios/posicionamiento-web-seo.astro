@@ -14,176 +14,181 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     bgImage="/assets/img/bg-img/bg-title.webp"
   />
 
-  <!-- Service Details Section -->
+  <!-- Sección 1: Imagen y título -->
   <section class="service-details-section section-padding" style="padding-top: 80px;">
     <div class="container">
-      <div class="row g-5">
-        <!-- Main Content -->
-        <div class="col-12 col-lg-8">
-          <div class="service-details-content">
-            <!-- Hero Image -->
-            <img src="/assets/img/servicios/posicionamiento-web-seo.webp" alt="Posicionamiento Web SEO" class="img-fluid rounded mb-4">
-            
-            <!-- Service Title -->
-            <h1 class="h2 fw-bold mb-4">Posicionamiento Web SEO</h1>
-            
-            <!-- Service Description -->
-            <p class="lead mb-4">
-              Optimizamos tu sitio web para que aparezca en los primeros resultados de Google. Implementamos estrategias SEO avanzadas, optimización de contenido y técnicas de posicionamiento local para aumentar tu visibilidad online y atraer más clientes potenciales.
-            </p>
-            
+      <div class="row align-items-center mb-5">
+        <!-- Imagen del servicio -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img 
+            src="/assets/img/servicios/posicionamiento-web-seo.webp" 
+            alt="Posicionamiento Web SEO" 
+            class="img-fluid rounded-3 shadow"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Descripción principal -->
+        <div class="col-lg-6">
+          <h1 class="mb-3">Posicionamiento Web SEO</h1>
+          <p class="mb-4">
+            Optimizamos tu sitio web para que aparezca en los primeros resultados de Google. Implementamos estrategias 
+            SEO avanzadas, optimización de contenido y técnicas de posicionamiento local para aumentar tu visibilidad 
+            online y atraer más clientes potenciales.
+          </p>
+          <p class="mb-4">
+            Nuestro servicio de SEO está diseñado para empresas chilenas que quieren dominar los resultados de búsqueda 
+            en Google. Utilizamos técnicas probadas y actualizadas que cumplen con las últimas directrices de Google 
+            para garantizar resultados sostenibles a largo plazo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2: Contenido + Sidebar -->
+  <section class="section-padding bg-light pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- Columna principal (span9) -->
+        <div class="col-lg-9">
+          <!-- Características principales -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestros Servicios SEO</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Análisis de palabras clave estratégicas
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Optimización de contenido y metaetiquetas
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Mejora de la velocidad de carga
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Estrategias de link building
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Optimización para móviles
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    SEO Local y Google Mi Negocio
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Reportes mensuales detallados
+                  </li>
+                  <li class="mb-3">
+                    <i class="ti ti-check text-success me-2"></i>
+                    Auditorías SEO completas
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción detallada -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Enfoque</h4>
             <p class="mb-4">
-              Nuestro servicio de SEO está diseñado para empresas chilenas que quieren dominar los resultados de búsqueda en Google. Utilizamos técnicas probadas y actualizadas que cumplen con las últimas directrices de Google para garantizar resultados sostenibles a largo plazo.
+              En el competitivo mundo digital actual, aparecer en los primeros resultados de búsqueda ya no es una opción, 
+              es una necesidad. Nuestro enfoque de SEO combina lo mejor de las técnicas probadas con las últimas tendencias 
+              del algoritmo de Google para ofrecerte una estrategia integral que genere resultados reales y medibles.
             </p>
+            <p class="mb-4">
+              No nos enfocamos en atajos o técnicas de sombrero negro que puedan perjudicar tu sitio a largo plazo. 
+              En su lugar, construimos una base sólida de autoridad, contenido de calidad y experiencia de usuario 
+              excepcional que Google premia con mejores posiciones.
+            </p>
+          </div>
 
-            <!-- Key Features -->
-            <h3 class="h4 fw-bold mb-3">¿Qué incluye nuestro servicio SEO?</h3>
-            <div class="row g-4 mb-5">
+          <!-- Proceso de trabajo -->
+          <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+            <h4 class="mb-4 fw-bold">Nuestro Proceso de Trabajo</h4>
+            <div class="row g-4">
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-search text-primary fs-3 mb-2"></i>
-                  <h5>Análisis de Palabras Clave</h5>
-                  <p class="mb-0">Investigación profunda de keywords relevantes para tu negocio y sector en Chile.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-file-text text-primary fs-3 mb-2"></i>
-                  <h5>Optimización de Contenido</h5>
-                  <p class="mb-0">Mejoramos títulos, meta descripciones, textos y estructura para mejor posicionamiento.</p>
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">1. Auditoría Inicial</h5>
+                  <p class="mb-0">Analizamos tu sitio web actual para identificar oportunidades de mejora y problemas técnicos que puedan estar afectando tu posicionamiento.</p>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-map-pin text-primary fs-3 mb-2"></i>
-                  <h5>SEO Local Chile</h5>
-                  <p class="mb-0">Optimización específica para búsquedas locales en ciudades de Chile.</p>
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">2. Investigación de Palabras Clave</h5>
+                  <p class="mb-0">Identificamos los términos de búsqueda más relevantes y con mejor potencial para tu negocio en el mercado chileno.</p>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-link text-primary fs-3 mb-2"></i>
-                  <h5>Link Building</h5>
-                  <p class="mb-0">Construcción de enlaces de calidad para aumentar la autoridad de tu dominio.</p>
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">3. Optimización Técnica</h5>
+                  <p class="mb-0">Mejoramos la estructura, velocidad y rendimiento de tu sitio para cumplir con los estándares de Google.</p>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-chart-line text-primary fs-3 mb-2"></i>
-                  <h5>Reportes Mensuales</h5>
-                  <p class="mb-0">Informes detallados de posiciones, tráfico y mejoras implementadas.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-box p-3 border rounded">
-                  <i class="ti ti-tools text-primary fs-3 mb-2"></i>
-                  <h5>Optimización Técnica</h5>
-                  <p class="mb-0">Mejoras en velocidad, estructura del sitio y aspectos técnicos para SEO.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- SEO Process -->
-            <h3 class="h4 fw-bold mb-3">Nuestro proceso de optimización SEO</h3>
-            <div class="row g-3 mb-4">
-              <div class="col-md-3">
-                <div class="process-step text-center p-3 bg-light rounded">
-                  <div class="step-number bg-primary text-white rounded-circle mb-2">1</div>
-                  <h6>Auditoría SEO</h6>
-                  <p class="small mb-0">Análisis completo del estado actual</p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="process-step text-center p-3 bg-light rounded">
-                  <div class="step-number bg-primary text-white rounded-circle mb-2">2</div>
-                  <h6>Investigación</h6>
-                  <p class="small mb-0">Keywords y competencia</p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="process-step text-center p-3 bg-light rounded">
-                  <div class="step-number bg-primary text-white rounded-circle mb-2">3</div>
-                  <h6>Optimización</h6>
-                  <p class="small mb-0">Implementación de mejoras</p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="process-step text-center p-3 bg-light rounded">
-                  <div class="step-number bg-primary text-white rounded-circle mb-2">4</div>
-                  <h6>Seguimiento</h6>
-                  <p class="small mb-0">Monitoreo y reportes</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Benefits Section -->
-            <h3 class="h4 fw-bold mb-3">Beneficios del posicionamiento SEO</h3>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Mayor visibilidad en Google Chile</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Aumento del tráfico web cualificado</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Más leads y ventas online</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Mejor posicionamiento que la competencia</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Resultados sostenibles a largo plazo</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>ROI medible y transparente</li>
-              <li class="mb-2"><i class="ti ti-check text-success me-2"></i>Autoridad y credibilidad online</li>
-            </ul>
-
-            <!-- CTA Section -->
-            <div class="cta-section p-4 rounded text-dark mt-5">
-              <div class="row align-items-center">
-                <div class="col-lg-8">
-                  <h4 class="fw-bold mb-2">¿Listo para dominar Google?</h4>
-                  <p class="mb-0">Comienza tu estrategia SEO hoy y aparece en los primeros resultados de búsqueda.</p>
-                </div>
-                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                  <a href="/contacto" class="btn btn-primary btn-lg">
-                    <i class="ti ti-arrow-right me-2"></i>Solicitar Auditoría
-                  </a>
+                <div class="p-3 border rounded h-100">
+                  <h5 class="fw-bold text-primary">4. Creación de Contenido</h5>
+                  <p class="mb-0">Desarrollamos contenido de calidad, relevante y optimizado para tus palabras clave objetivo.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="col-12 col-lg-4">
-          <div class="service-sidebar">
-            <!-- Contact Card -->
-            <div class="contact-card p-4 text-dark rounded mb-4">
-              <h4 class="fw-bold mb-3">¿Necesitas Posicionamiento SEO?</h4>
-              <p class="mb-4">Contáctanos para una auditoría SEO gratuita</p>
-              <a href="/contacto" class="btn btn-primary w-100 mb-3">
-                <i class="ti ti-search me-2"></i>Auditoría Gratuita
-              </a>
-              <a href="tel:+56961765268" class="btn btn-outline-primary w-100">
-                <i class="ti ti-phone me-2"></i>+56 9 6176 5268
-              </a>
-            </div>
-
-            <!-- Services List -->
-            <div class="services-list mb-4">
-              <h5 class="fw-bold mb-3">Otros Servicios</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Diseño Web Chile</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Mantenimiento Web</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a href="/servicios/diseno-logotipos" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none">
-                    <span>Diseño de Logotipos</span>
-                    <i class="ti ti-chevron-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <!-- Sidebar (span3) -->
+        <div class="col-lg-3">
+          <!-- Lista de servicios -->
+          <div class="bg-white p-4 rounded-3 shadow-sm">
+            <h5 class="fw-bold mb-4" style="color: #0B100F; font-size: 1.25rem;">Otros Servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a href="/servicios/diseno-web-chile" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Diseño Web Chile</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/sitios-web-autoadministrables" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Sitios Web Autoadministrables</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/tiendas-online" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Tiendas Online</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/posicionamiento-seo" class="d-flex justify-content-between align-items-center p-3 rounded text-decoration-none text-white" style="background-color: #011C42;">
+                  <span>Posicionamiento SEO</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="/servicios/mantenimiento-web" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Mantenimiento Web</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/servicios" class="d-flex justify-content-between align-items-center p-3 bg-light rounded text-decoration-none" style="color: #0B100F;">
+                  <span>Ver Todos los Servicios</span>
+                  <i class="ti ti-arrow-narrow-right"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

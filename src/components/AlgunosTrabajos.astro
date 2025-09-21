@@ -21,7 +21,7 @@
 
           <div class="col-12 col-sm-5">
              <!-- Project Navigation -->
-             <div class="project-navigation-container justify-content-sm-end">
+             <div class="project-navigation-container justify-content-end">
                 <div class="project-button-prev">
                    <i class="ti ti-arrow-left"></i>
                 </div>
@@ -148,27 +148,78 @@
        </div>
     </div>
 
+    <!-- Botón Ver Todos -->
+    <div class="container mt-5">
+       <div class="row">
+          <div class="col-12 text-end">
+             <a href="/portafolio" class="btn btn-outline-primary">
+                Ver todos los proyectos
+                <i class="ti ti-arrow-right ms-2"></i>
+             </a>
+          </div>
+       </div>
+    </div>
+    
     <!-- Divider -->
     <div class="divider"></div>
  </section>
 
+<!-- Inicialización del Swiper -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.project-swiper', {
+      slidesPerView: 1.2,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.project-button-next',
+        prevEl: '.project-button-prev',
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2.2,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 25
+        },
+        992: {
+          slidesPerView: 4,  // 4 imágenes en tablets/notebooks
+          spaceBetween: 30
+        },
+        1400: {
+          slidesPerView: 5,  // 5 imágenes en escritorios grandes
+          spaceBetween: 30
+        }
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  });
+</script>
+
 <style>
-  /* Limitar el ancho de las cards del proyecto a 390px */
+  /* Limitar el ancho de las cards del proyecto */
   .project-swiper-card {
-    max-width: 390px;
     width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     border-radius: 8px !important;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
-  /* Permitir que las imágenes se vean completas dentro del contenedor de 390px */
+  /* Estilo para las imágenes del carrusel */
   .project-swiper-card img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-width: 390px;
-    border-radius: 8px !important;
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0 !important;
   }
   
   /* Usar ancho MÁXIMO de la pantalla completa para el portafolio */
@@ -193,12 +244,28 @@
   .project-swiper .swiper-wrapper {
     display: flex;
     align-items: stretch;
+    padding: 10px 0;
   }
   
   .project-swiper .swiper-slide {
     display: flex;
     height: auto;
     flex-shrink: 0;
+    padding: 5px;
+  }
+  
+  /* Ajustes para pantallas grandes */
+  @media (min-width: 1400px) {
+    .project-swiper .swiper-slide {
+      width: calc(100% / 5 - 25px) !important;
+    }
+  }
+  
+  /* Ajustes para tablets/notebooks */
+  @media (min-width: 992px) and (max-width: 1399px) {
+    .project-swiper .swiper-slide {
+      width: calc(100% / 4 - 23px) !important;
+    }
   }
   
   /* Estilo para los títulos h4 - más pequeños para las cards más pequeñas */

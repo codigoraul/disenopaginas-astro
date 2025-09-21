@@ -64,32 +64,18 @@ if (header) {
     window.addEventListener('scroll', stickyNavigation);
 }
 
-// 1.2 Mobile Dropdown Menu
+// 1.2 Mobile Dropdown Menu - Deshabilitada para usar la funcionalidad de Bootstrap
+// La funcionalidad de menú desplegable se maneja directamente con Bootstrap
 
-function mobileDropdownMenu() {
-    const sbdropdown = document.querySelectorAll('.softora-dd');
-    if (sbdropdown.length > 0) {
-        const navUrl = document.querySelectorAll('.navbar-nav li ul');
-        navUrl.forEach(url => {
-            url.insertAdjacentHTML('beforebegin', '<div class="dropdown-toggler"><i class="bi bi-caret-down-fill"></i></div>');
-        });
-
-        const ddtrogglers = document.querySelectorAll('.dropdown-toggler');
-        ddtrogglers.forEach(ddtoggler => {
-            ddtoggler.addEventListener('click', () => {
-                const ddNext = ddtoggler.nextElementSibling;
-                slideToggle(ddNext, 300);
-            });
+// 1.3 Prevenir comportamiento por defecto solo en enlaces vacíos que no sean menús
+const emptyAnchors = document.querySelectorAll('a[href="#"]:not([data-bs-toggle]):not([role="button"])');
+emptyAnchors.forEach(anchor => {
+    // No hacer nada con los enlaces que ya tienen manejadores de clic
+    if (!anchor.hasAttribute('onclick')) {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
         });
     }
-}
-window.addEventListener('load', mobileDropdownMenu);
-
-// 1.3 Anchor Prevent Default
-
-const anchors = document.querySelectorAll('a[href="#"]');
-anchors.forEach(anchor => {
-    anchor.addEventListener('click', e => e.preventDefault());
 });
 
 // 1.4 Search Form
