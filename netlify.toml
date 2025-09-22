@@ -1,0 +1,42 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Redirecciones para páginas principales
+[[redirects]]
+  from = "/servicios/*"
+  to = "/servicios/:splat/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/:splat/index.html"
+  status = 200
+
+# Redirecciones para páginas específicas
+[[redirects]]
+  from = "/tarifas"
+  to = "/tarifas/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/portafolio"
+  to = "/portafolio/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contacto"
+  to = "/contacto/index.html"
+  status = 200
+
+# Redirección para la página de inicio
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Redirección para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

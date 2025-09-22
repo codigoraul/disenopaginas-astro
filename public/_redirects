@@ -1,0 +1,11 @@
+# Redirecciones para Netlify
+/servicios/* /servicios/:splat 200
+/servicios /servicios/ 200
+/tarifas /tarifas/ 200
+/portafolio /portafolio/ 200
+/blog/* /blog/:splat 200
+/blog /blog/ 200
+/contacto /contacto/ 200
+
+# Redireccionar a HTTPS
+/*  https://diseñopaginas.cl$1  301!

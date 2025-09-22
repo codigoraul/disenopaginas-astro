@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/servicios/(.*)", "destination": "/servicios/$1/index.html" },
+    { "source": "/blog/(.*)", "destination": "/blog/$1/index.html" },
+    { "source": "/tarifas", "destination": "/tarifas/index.html" },
+    { "source": "/portafolio", "destination": "/portafolio/index.html" },
+    { "source": "/contacto", "destination": "/contacto/index.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "outputDirectory": "dist"
+}
