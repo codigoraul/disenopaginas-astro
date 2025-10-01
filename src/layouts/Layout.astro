@@ -6,10 +6,11 @@ import { getAssetPath, getCssPath, getJsPath, getImagePath } from '../utils/asse
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
   canonical?: string;
 }
 
-const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", canonical } = Astro.props;
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical } = Astro.props;
 
 // Base URL for assets
 const baseUrl = import.meta.env.BASE_URL || '';
@@ -21,6 +22,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content={description}>
+  {keywords && <meta name="keywords" content={keywords}>}
   
   <!-- Canonical URL for SEO -->
   {canonical && <link rel="canonical" href={canonical} />}
@@ -76,5 +78,8 @@ const baseUrl = import.meta.env.BASE_URL || '';
       }
     });
   </script>
+  
+  <!-- Jivosite Chat Widget -->
+  <script src="//code.jivosite.com/widget/PgpmFYkQWG" async></script>
 </body>
 </html> 

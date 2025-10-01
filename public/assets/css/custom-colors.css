@@ -17,7 +17,7 @@
 }
 
 .bg-primary {
-  background-color: #2F56DC !important;
+  background-color: #B4EDF2 !important;
 }
 
 /* Secondary Color: #767586 */
@@ -26,15 +26,15 @@
 }
 
 .bg-secondary {
-  background-color: #cdfcff !important;
+  background-color: #e8e8e8 !important;
 }
-/* Tertiary Color: #AEF8FF */
+/* Tertiary Color: #004597 */
 .text-tertiary {
-  color: #AEF8FF !important;
+  color: #004597 !important;
 }
 
 .bg-tertiary {
-  background-color: #AEF8FF !important;
+  background-color: #004597 !important;
 }
 
 /* Header specific colors */
@@ -89,12 +89,12 @@ a:focus {
 }
 
 .gradient-secondary {
-  background: linear-gradient(90deg, #767586 0%, #AEF8FF 100%) !important;
+  background: linear-gradient(90deg, #767586 0%, #004597 100%) !important;
 }
 
 /* Header Top Colors */
 .header-area .header-top {
-  background: #444655 !important;
+  background: #004597 !important;
 }
 
 .header-area .header-top .left-side .text-white {
@@ -107,6 +107,6 @@ a:focus {
 }
 
 .header-area .header-top .right-side .social-nav a:hover {
-  color: #AEF8FF !important;
+  color: #004597 !important;
   transform: translateY(-2px);
 } 

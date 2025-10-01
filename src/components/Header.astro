@@ -3,7 +3,10 @@
 import SocialLinks from './SocialLinks.astro';
 
 // Ruta del logo en la carpeta public
-const logoPath = '/assets/img/logo-disenopaginas.png';
+const logoPath = '/assets/img/logo-disenopaginas.svg';
+
+// Obtener la página actual desde la URL
+const currentPath = Astro.url.pathname;
 ---
 
 <!-- Header Area-->
@@ -50,24 +53,24 @@ const logoPath = '/assets/img/logo-disenopaginas.png';
          <div class="collapse navbar-collapse justify-content-end" id="disenopaginasNav">
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link" href="/">Inicio</a>
+                  <a class={`nav-link ${currentPath === '/' ? 'active' : ''}`} href="/">Inicio</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/servicios">
+                  <a class={`nav-link ${currentPath === '/servicios' || currentPath === '/servicios/' ? 'active' : ''}`} href="/servicios">
                      Servicios
                   </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/tarifas">Tarifas</a>
+                  <a class={`nav-link ${currentPath === '/tarifas' || currentPath === '/tarifas/' ? 'active' : ''}`} href="/tarifas">Tarifas</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/portafolio">Portafolio</a>
+                  <a class={`nav-link ${currentPath === '/portafolio' || currentPath === '/portafolio/' ? 'active' : ''}`} href="/portafolio">Portafolio</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/blog">Blog</a>
+                  <a class={`nav-link ${currentPath === '/blog' || currentPath === '/blog/' ? 'active' : ''}`} href="/blog">Blog</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/contacto">Contacto</a>
+                  <a class={`nav-link ${currentPath === '/contacto' || currentPath === '/contacto/' ? 'active' : ''}`} href="/contacto">Contacto</a>
                </li>
             </ul>
          </div>
@@ -97,3 +100,14 @@ const logoPath = '/assets/img/logo-disenopaginas.png';
       window.addEventListener('scroll', updateHeader, { passive: true });
    });
 </script>
+
+<style>
+   .nav-link.active {
+      color: #004597 !important;
+      font-weight: 500;
+   }
+   
+   .nav-link.active:hover {
+      color: #00F4F3 !important;
+   }
+</style>

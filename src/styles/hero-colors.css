@@ -1,5 +1,5 @@
 /* Hero Colors para diseñopaginas.cl */
-/* Paleta: Primario #2F56DC, Secundario #767586, Terciario #AEF8FF */
+/* Paleta: Primario #2B75FF, Secundario #767586, Terciario #00F4F3 */
 
 /* Hero Section Background - Video de fondo con overlay */
 body .hero-section {
@@ -21,7 +21,7 @@ body .hero-section {
 }
 
 .hero-section .hero-content h2 span {
-   color: #AEF8FF !important;
+   color: #004597 !important;
    font-weight: 600;
 }
 
@@ -34,7 +34,7 @@ body .hero-section {
 
 /* Hero Button - Estilo moderno */
 .hero-section .btn-outline-light {
-   border: 2px solid #AEF8FF !important;
+   border: 2px solid #004597 !important;
    color: #ffffff !important;
    background: transparent !important;
    transition: all 0.4s ease;
@@ -56,14 +56,14 @@ body .hero-section {
    left: 0;
    width: 0;
    height: 100%;
-   background-color: #AEF8FF;
+   background-color: #004597;
    transition: all 0.4s ease;
    z-index: -1;
 }
 
 .hero-section .btn-outline-light:hover {
    color: #011C42 !important;
-   border-color: #AEF8FF !important;
+   border-color: #004597 !important;
 }
 
 .hero-section .btn-outline-light:hover:before {
@@ -102,7 +102,7 @@ body .hero-section {
 
 /* Hover Effects */
 .cta-stats div:hover h2 {
-   color: #AEF8FF !important;
+   color: #004597 !important;
    transform: scale(1.05);
    transition: all 0.3s ease;
 }
@@ -129,11 +129,11 @@ body .hero-section {
 /* Responsive Enhancements */
 @media (max-width: 768px) {
    .hero-section {
-      background: linear-gradient(180deg, #2F56DC 0%, #767586 100%) !important;
+      background: linear-gradient(180deg, #004597 0%, #767586 100%) !important;
    }
    
    .cta-wrap {
-      background: linear-gradient(180deg, #767586 0%, #2F56DC 100%) !important;
+      background: linear-gradient(180deg, #767586 0%, #004597 100%) !important;
    }
 }
 

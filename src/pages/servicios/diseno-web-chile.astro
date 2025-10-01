@@ -194,7 +194,7 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- FAQ Section -->
-  <section class="faq-section bg-light py-5">
+  <section id="faq" class="faq-section bg-light py-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center mb-5">
@@ -308,6 +308,11 @@ import Footer from '../../components/Footer.astro';
 </Layout>
 
 <style>
+
+h3.accordion-header button {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+  }
   /* Personalizar el color de fondo del breadcrumb */
   .breadcrumb-section::before {
     background: #73728578 !important;

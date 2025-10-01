@@ -196,7 +196,7 @@
 
 /* Pagination del Hero - SELECTOR MUY ESPECÍFICO */
 body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
-   bottom: 20px !important;
+   bottom: -48px !important;
    position: absolute !important;
    top: auto !important;
    transform: none !important;
@@ -257,6 +257,6 @@ body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
 /* Clase para h3 en Services */
 .pe-h3 {
    font-size: 22px;
-   color: #4877E9;
+   color: #164597;
    font-weight: 400;
 }
