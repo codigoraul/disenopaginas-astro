@@ -33,15 +33,49 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <link rel="shortcut icon" href={getAssetPath('/favicon.ico')} type="image/x-icon">
   <link rel="apple-touch-icon" href={getAssetPath('/favicon.ico')}>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href={getCssPath('animate.css')}>
-  <!-- Tabler Icons -->
-  <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+  <!-- Preconnect para reducir latencia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://code.jivosite.com">
+  <link rel="preconnect" href="https://node-ya-7.jivosite.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href={getJsPath('bootstrap.bundle.min.js')} as="script">
+  <link rel="preload" href={getJsPath('swiper-bundle.min.js')} as="script">
+  <link rel="preload" href={getCssPath('bootstrap.min.css')} as="style">
+  
+  <!-- CSS Crítico - Carga inmediata -->
   <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
-  <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
-  <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
   <link rel="stylesheet" href={getCssPath('style.css')}>
   <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
+  
+  <!-- CSS No crítico - Carga diferida -->
+  <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback para navegadores sin JS -->
+  <noscript>
+    <link rel="stylesheet" href={getCssPath('animate.css')}>
+    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+    <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
+    <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
+  </noscript>
+  
+  <!-- Optimización font-display para reducir bloqueo de fuentes -->
+  <style>
+    @font-face {
+      font-family: 'tabler-icons';
+      src: url('/assets/fonts/tabler-icons.woff2?v3.31.0') format('woff2');
+      font-display: swap;
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    /* Font-display para Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+  </style>
 </head>
 
 <body>
@@ -63,11 +97,11 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <!-- Footer -->
   <Footer />
 
-  <!-- Scripts -->
-  <script src={getJsPath('bootstrap.bundle.min.js')} is:inline></script>
-  <script src={getJsPath('swiper-bundle.min.js')} is:inline></script>
-  <script src={getJsPath('wow.min.js')} is:inline></script>
-  <script src={getJsPath('active.js')} is:inline></script>
+  <!-- Scripts - Carga optimizada -->
+  <script src={getJsPath('bootstrap.bundle.min.js')} defer></script>
+  <script src={getJsPath('swiper-bundle.min.js')} defer></script>
+  <script src={getJsPath('wow.min.js')} defer></script>
+  <script src={getJsPath('active.js')} defer></script>
   
   <script>
     // Preloader

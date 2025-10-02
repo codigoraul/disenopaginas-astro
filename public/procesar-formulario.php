@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Configurar cabeceras
     $headers = [
-        'From' => 'contacto@disenopaginas.cl',
+        'From' => 'codigoraul@gmail.com',
         'Reply-To' => $email,
         'X-Mailer' => 'PHP/' . phpversion(),
         'Content-Type' => 'text/plain; charset=UTF-8'
