@@ -1,0 +1,380 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout title="Diseño Web Híbrido - WordPress Headless con Astro.js | Diseño Web Chile">
+   <!-- Breadcrumb -->
+   <Breadcrumb title="Blog" currentPage="Diseño Web Híbrido -  WordPress Headless con Astro.js" />
+
+   <!-- Blog Details Section -->
+   <div class="blog-details-section bg-white">
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+               <!-- Blog Details Content -->
+               <div class="blog-details-content">
+                  <!-- Post Image -->
+                  <div class="post-img mb-4">
+                     <img src="/assets/img/blog/wordpress-headless-astro/portada.webp" alt="Diseño Web Híbrido WordPress Headless Astro">
+                  </div>
+
+                  <!-- Post Meta -->
+                  <div class="blog-meta flex-wrap d-flex align-items-center gap-3 mb-4">
+                     <a href="#" class="category-tag">Diseño Web</a>
+                     <div class="dot"></div>
+                     <a href="#">12 Febrero 2025</a>
+                     <div class="dot"></div>
+                     <a href="#">Tiempo de lectura: 8 min</a>
+                  </div>
+
+                  <!-- Post Title -->
+                  <h1 class="post-title mb-4">Diseño Web Híbrido: WordPress Headless con Astro.js</h1>
+
+                  <!-- Post Excerpt -->
+                  <p class="lead mb-4">Descubre cómo combinar lo mejor de dos mundos: la facilidad de gestión de WordPress con el rendimiento y velocidad de Astro.js para crear sitios web ultrarrápidos y fáciles de administrar.</p>
+
+                  <!-- Post Content -->
+                  <div class="post-content">
+                     <h2>¿Qué es el Diseño Web Híbrido?</h2>
+                     <p>El diseño web híbrido es una arquitectura que combina un CMS tradicional como WordPress (headless) con un generador de sitios estáticos moderno como Astro.js. Esta solución te permite mantener el panel de administración familiar de WordPress mientras obtienes los beneficios de rendimiento de un sitio estático.</p>
+
+                     <h3>Ventajas del Enfoque Híbrido</h3>
+                     <ul>
+                        <li><strong>Rendimiento Superior:</strong> Sitios estáticos que cargan en milisegundos</li>
+                        <li><strong>SEO Optimizado:</strong> Mejor posicionamiento gracias a la velocidad</li>
+                        <li><strong>Seguridad:</strong> Menos vulnerabilidades al no exponer el backend</li>
+                        <li><strong>Gestión Fácil:</strong> Panel de WordPress para contenido</li>
+                        <li><strong>Escalabilidad:</strong> Soporta alto tráfico sin problemas</li>
+                     </ul>
+
+                     <h2>¿Cómo Funciona WordPress Headless?</h2>
+                     <p>WordPress Headless significa que usamos WordPress solo como sistema de gestión de contenido (CMS), mientras que el frontend lo construye Astro.js. La comunicación entre ambos se realiza a través de una API REST o GraphQL.</p>
+
+                     <h3>Arquitectura Típica</h3>
+                     <ol>
+                        <li><strong>WordPress Backend:</strong> Gestión de contenido, usuarios y media</li>
+                        <li><strong>API REST/GraphQL:</strong> Exposición de datos de WordPress</li>
+                        <li><strong>Astro.js Frontend:</strong> Generación de páginas estáticas</li>
+                        <li><strong>CDN:</strong> Distribución global del contenido estático</li>
+                     </ol>
+
+                     <h2>¿Por qué Astro.js?</h2>
+                     <p>Astro.js es ideal para este enfoque híbrido porque:</p>
+                     <ul>
+                        <li><strong>Islands Architecture:</strong> Solo hidrata el JavaScript necesario</li>
+                        <li><strong>Zero JS por Default:</strong> Páginas ultraligeras</li>
+                        <li><strong>Multi-framework:</strong> Compatible con React, Vue, Svelte</li>
+                        <li><strong>Build Optimizado:</strong> Genera HTML estático puro</li>
+                        <li><strong>Image Optimization:</strong> Optimización automática de imágenes</li>
+                     </ul>
+
+                     <h2>Casos de Uso Ideales</h2>
+                     <p>El diseño web híbrido es perfecto para:</p>
+                     <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                           <div class="use-case-card">
+                              <h4><i class="ti ti-world-www"></i> Blogs y Revistas</h4>
+                              <p>Contenido actualizado frecuentemente con máxima velocidad de carga</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="use-case-card">
+                              <h4><i class="ti ti-store"></i> E-commerce</h4>
+                              <p>Productos gestionados en WordPress con frontend ultrarrápido</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="use-case-card">
+                              <h4><i class="ti ti-building-factory-2"></i> Sitios Corporativos</h4>
+                              <p>Contenido fácil de actualizar para equipos de marketing</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="use-case-card">
+                              <h4><i class="ti ti-news"></i> Portales de Noticias</h4>
+                              <p>Alto tráfico con contenido dinámico gestionado por WordPress</p>
+                           </div>
+                        </div>
+                     </div>
+
+                     <h2>Implementación Paso a Paso</h2>
+                     <h3>1. Configurar WordPress Headless</h3>
+                     <p>Instalar WordPress y configurar el plugin WPGraphQL o activar la API REST. Configurar tipos de contenido personalizados según necesidades.</p>
+
+                     <h3>2. Crear Proyecto Astro</h3>
+                     <pre><code>npm create astro@latest
+cd mi-proyecto
+npm install</code></pre>
+
+                     <h3>3. Conectar con WordPress</h3>
+                    <pre><code>// astro.config.mjs
+export default defineConfig(&​#123;
+  integrations: [wpGraphQL(&​#123;
+    url: 'https://tu-wordpress.com/graphql'
+  &​#125;)]
+&​#125;);
+</code></pre>
+
+                     <h3>4. Crear Templates</h3>
+                     <p>Crear plantillas Astro para cada tipo de contenido (posts, pages, productos) que consuman datos de WordPress.</p>
+
+                     <h2>Métricas de Rendimiento</h2>
+                     <p>Los resultados típicos al pasar de WordPress tradicional a híbrido:</p>
+                     <div class="metrics-grid">
+                        <div class="metric-item">
+                           <h4>Velocidad de Carga</h4>
+                           <div class="metric-value">-85%</div>
+                           <p>De 3.2s a 0.5s</p>
+                        </div>
+                        <div class="metric-item">
+                           <h4>Core Web Vitals</h4>
+                           <div class="metric-value">95+</div>
+                           <p>Puntuación perfecta</p>
+                        </div>
+                        <div class="metric-item">
+                           <h4>SEO Score</h4>
+                           <div class="metric-value">100</div>
+                           <p>Optimización completa</p>
+                        </div>
+                        <div class="metric-item">
+                           <h4>Costo Hosting</h4>
+                           <div class="metric-value">-60%</div>
+                           <p>Servidores más económicos</p>
+                        </div>
+                     </div>
+
+                     <h2>Herramientas Recomendadas</h2>
+                     <ul>
+                        <li><strong>WPGraphQL:</strong> Para consulta eficiente de datos</li>
+                        <li><strong>WPEngine Headless:</strong> Hosting especializado</li>
+                        <li><strong>Vercel/Netlify:</strong> Para despliegue del frontend</li>
+                        <li><strong>Cloudinary:</strong> Optimización de imágenes</li>
+                        <li><strong>Algolia:</strong> Búsqueda instantánea</li>
+                     </ul>
+
+                     <h2>Conclusión</h2>
+                     <p>El diseño web híbrido con WordPress Headless y Astro.js representa el futuro del desarrollo web. Combina la facilidad de uso que los equipos de marketing necesitan con el rendimiento que los usuarios exigen. Es la solución perfecta para empresas que quieren escalar sin comprometer la velocidad o la experiencia de usuario.</p>
+
+                     <p>En <strong>Diseño Web Chile</strong> somos expertos en implementar soluciones híbridas que transforman sitios WordPress tradicionales en aplicaciones web modernas y ultrarrápidas.</p>
+
+                     <!-- CTA Section -->
+                     <div class="cta-section bg-primary text-white rounded p-5 my-5">
+                        <h3 class="mb-3">¿Listo para transformar tu sitio WordPress?</h3>
+                        <p class="mb-4">Descubre cómo podemos mejorar el rendimiento de tu sitio web hasta en un 85% manteniendo la facilidad de gestión de WordPress.</p>
+                        <a href="/contacto" class="btn btn-light btn-lg">Solicitar Consulta Gratuita</a>
+                     </div>
+
+                     <!-- Tags -->
+                     <div class="tags-section">
+                        <h4>Etiquetas:</h4>
+                        <div class="tags-list">
+                           <a href="#" class="tag">WordPress</a>
+                           <a href="#" class="tag">Astro.js</a>
+                           <a href="#" class="tag">Headless CMS</a>
+                           <a href="#" class="tag">Web Performance</a>
+                           <a href="#" class="tag">Jamstack</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+   </div>
+</Layout>
+
+<style>
+   .blog-details-section {
+      padding: 80px 0;
+   }
+
+   .post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0B100F;
+      margin-bottom: 1.5rem;
+   }
+
+   .lead {
+      font-size: 1.25rem;
+      color: #767586;
+      line-height: 1.6;
+   }
+
+   .post-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #011C42;
+      margin: 3rem 0 1.5rem;
+      border-bottom: 3px solid #AEF8FF;
+      padding-bottom: 0.5rem;
+   }
+
+   .post-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #011C42;
+      margin: 2rem 0 1rem;
+   }
+
+   .post-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #011C42;
+      margin: 1.5rem 0 0.5rem;
+   }
+
+   .post-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.5rem;
+   }
+
+   .post-content ul, .post-content ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+   }
+
+   .post-content li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      color: #333;
+   }
+
+   .use-case-card {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #011C42;
+      height: 100%;
+   }
+
+   .use-case-card h4 {
+      color: #011C42;
+      margin-bottom: 0.5rem;
+   }
+
+   .use-case-card h4 i {
+      margin-right: 0.5rem;
+      color: #AEF8FF;
+   }
+
+   .use-case-card p {
+      font-size: 1rem;
+      margin-bottom: 0;
+   }
+
+   pre {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+   }
+
+   pre code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #333;
+   }
+
+   .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+   }
+
+   .metric-item {
+      background: linear-gradient(135deg, #011C42, #AEF8FF);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+   }
+
+   .metric-item h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+   }
+
+   .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+   }
+
+   .metric-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      opacity: 0.9;
+   }
+
+   .cta-section {
+      text-align: center;
+   }
+
+   .cta-section h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+   }
+
+   .category-tag {
+      background: #011C42;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+   }
+
+   .tags-section h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #011C42;
+      margin-bottom: 1rem;
+   }
+
+   .tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+   }
+
+   .tag {
+      background: #f8f9fa;
+      color: #011C42;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+   }
+
+   .tag:hover {
+      background: #011C42;
+      color: white;
+   }
+
+   @media (max-width: 768px) {
+      .post-title {
+         font-size: 2rem;
+      }
+      
+      .metrics-grid {
+         grid-template-columns: repeat(2, 1fr);
+      }
+   }
+</style>
