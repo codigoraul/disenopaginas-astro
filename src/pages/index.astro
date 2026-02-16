@@ -17,8 +17,112 @@ import Testimonials from '../components/Testimonials.astro';
    <Hero />
    <Services />
    <Services2 />
+   
+   <!-- Proyecto Web Banner Section -->
+   <section class="proyecto-web-banner py-5 bg-light">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+               <h2 class="mb-4">¿Qué necesito para comenzar mi proyecto web?</h2>
+               <p class="mb-4">Para comenzar tu proyecto web, necesitas:</p>
+               <div class="requisitos-list">
+                  <div class="requisito-item">
+                     <strong>1. Información básica de tu empresa</strong>
+                  </div>
+                  <div class="requisito-item">
+                     <strong>2. Contenido (textos e imágenes) que quieras incluir</strong>
+                  </div>
+                  <div class="requisito-item">
+                     <strong>3. Ejemplos de sitios web que te gusten</strong>
+                  </div>
+                  <div class="requisito-item">
+                     <strong>4. Objetivos del sitio web</strong>
+                  </div>
+                  <div class="requisito-item">
+                     <strong>5. Dominio (si ya lo tienes)</strong>
+                  </div>
+               </div>
+               <div class="mt-4">
+                  <p class="text-primary fw-bold">¿No tienes alguno de estos elementos? ¡No te preocupes!</p>
+                  <p>Podemos asesorarte en cada paso del proceso.</p>
+               </div>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+               <div class="banner-cta">
+                  <h3 class="mb-3">Comienza tu sitio web profesional hoy</h3>
+                  <a href="/contacto" class="btn btn-primary btn-lg">Comenzar Ahora <i class="ti ti-arrow-up-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   
    <AlgunosTrabajos />
    <Testimonials />
    <Proceso />
    
 </Layout> 
+
+<style>
+.proyecto-web-banner {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-top: 3px solid #004597;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.proyecto-web-banner h2 {
+  color: #011C42;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.proyecto-web-banner h3 {
+  color: #011C42;
+  font-weight: 600;
+}
+
+.requisitos-list {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-left: 4px solid #004597;
+}
+
+.requisito-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f3f4;
+  color: #333;
+}
+
+.requisito-item:last-child {
+  border-bottom: none;
+}
+
+.requisito-item strong {
+  color: #011C42;
+  font-size: 1.1rem;
+}
+
+.banner-cta {
+  background: #BEFCFE;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .proyecto-web-banner h2 {
+    font-size: 1.5rem;
+  }
+  
+  .requisitos-list {
+    padding: 20px;
+  }
+  
+  .banner-cta {
+    padding: 30px 20px;
+    margin-top: 30px;
+  }
+}
+</style> 

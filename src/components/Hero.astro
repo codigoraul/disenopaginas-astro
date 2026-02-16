@@ -81,6 +81,33 @@
                      </div>
                   </div>
                </div>
+
+               <!-- Slide 4 -->
+               <div class="swiper-slide">
+                  <div class="row g-5">
+                     <div class="col-12 col-lg-7 hero-titles-container">
+                        <h1 class="mb-0 wow fadeInUp hero-main-title"
+                         data-wow-duration="1000ms" data-wow-delay="400ms">
+                         ¿Qué necesito para comenzar mi proyecto web?
+                        </h1>
+                        <h3 class="hero-subtitle">Comienza tu sitio web profesional hoy</h3>
+                     </div>
+
+                     <div class="col-12 col-lg-5">
+                        <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                           Para comenzar tu proyecto web, necesitas:<br><br>
+                           <strong>1. Información básica de tu empresa</strong><br>
+                           <strong>2. Contenido (textos e imágenes) que quieras incluir</strong><br>
+                           <strong>3. Ejemplos de sitios web que te gusten</strong><br>
+                           <strong>4. Objetivos del sitio web</strong><br>
+                           <strong>5. Dominio (si ya lo tienes)</strong><br><br>
+                           <strong>¿No tienes alguno de estos elementos? ¡No te preocupes!</strong> Podemos asesorarte en cada paso del proceso.
+                        </p>
+                        <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
+                           data-wow-delay="800ms" href="/contacto">Comenzar Ahora <i class="ti ti-arrow-up-right"></i></a>
+                     </div>
+                  </div>
+               </div>
             </div>
 
             <!-- Swiper Pagination -->
@@ -305,8 +332,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (paginationContainer) {
     paginationContainer.innerHTML = '';
     
-    // Create exactly 3 bullets
-    for (let i = 0; i < 3; i++) {
+    // Create exactly 4 bullets
+    for (let i = 0; i < 4; i++) {
       const bullet = document.createElement('span');
       bullet.className = 'swiper-pagination-bullet';
       bullet.addEventListener('click', () => {
@@ -333,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function nextSlide() {
     if (slides.length === 0) return;
-    currentSlide = (currentSlide + 1) % 3; // Force only 3 slides
+    currentSlide = (currentSlide + 1) % 4; // Force only 4 slides
     showSlide(currentSlide);
   }
 
