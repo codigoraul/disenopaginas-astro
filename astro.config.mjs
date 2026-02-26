@@ -11,6 +11,9 @@ export default defineConfig({
   base: isDev ? '/' : './',
   output: 'static',
   outDir: './dist',
+  build: {
+    format: 'directory'
+  },
   
   // Development server configuration
   server: {
