@@ -12,7 +12,6 @@ export interface Props {
 
 const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical } = Astro.props;
 
-// Base URL for assets
 const baseUrl = import.meta.env.BASE_URL || '';
 ---
 
@@ -23,6 +22,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content={description}>
   {keywords && <meta name="keywords" content={keywords}>}
+
   <!-- ===== OPEN GRAPH ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://diseñopaginas.cl/" />
@@ -40,7 +40,8 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
-  <!-- Canonical URL for SEO -->
+
+  <!-- Canonical URL -->
   {canonical && <link rel="canonical" href={canonical} />}
 
   <!-- Title & Favicon -->
@@ -49,43 +50,25 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <link rel="shortcut icon" href={getAssetPath('/favicon.ico')} type="image/x-icon">
   <link rel="apple-touch-icon" href={getAssetPath('/favicon.ico')}>
 
-  <!-- Preconnect para reducir latencia -->
+  <!-- Preconnect SOLO los más importantes (max 2) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://code.jivosite.com">
-  <link rel="preconnect" href="https://node-ya-7.jivosite.com">
-  
-  <!-- Preload critical CSS -->
-  <link rel="preload" href={getCssPath('bootstrap.min.css')} as="style">
-  
-  <!-- Preload fuente crítica para LCP (título principal) -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
-  
-  <!-- CSS Crítico - Carga inmediata -->
-  <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
-  <link rel="stylesheet" href={getCssPath('style.css')}>
-  <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
-  
-  <!-- CSS No crítico - Carga diferida -->
-  <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback para navegadores sin JS -->
-  <noscript>
-    <link rel="stylesheet" href={getCssPath('animate.css')}>
-    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
-    <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
-    <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
-  </noscript>
-  
-  <!-- Google Fonts - Carga diferida para no bloquear render -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"></noscript>
 
-  <!-- Optimización font-display para reducir bloqueo de fuentes -->
+  <!-- Preload fuente crítica para LCP -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS Crítico inline para evitar bloqueo del render -->
   <style>
+    /* Reset mínimo crítico para evitar FOUC */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', 'Outfit', sans-serif; }
+    .preloader {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* Font swap para tabler-icons */
     @font-face {
       font-family: 'tabler-icons';
       src: url('/assets/fonts/tabler-icons.woff2?v3.31.0') format('woff2');
@@ -95,80 +78,104 @@ const baseUrl = import.meta.env.BASE_URL || '';
     }
   </style>
 
-  <!-- Schema Markup para SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": ["ProfessionalService", "LocalBusiness"],
-  "name": "Diseño Páginas Chile",
-  "alternateName": "DiseñoPaginas.cl",
-  "image": "https://diseñopaginas.cl/assets/img/1774663825835_image.png",
-  "url": "https://diseñopaginas.cl",
-  "telephone": "+56961765268",
-  "email": "codigoraul@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Santiago",
-    "addressRegion": "Región Metropolitana",
-    "addressCountry": "CL"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -33.4489,
-    "longitude": -70.6693
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Chile"
-  },
-  "priceRange": "$$",
-  "description": "Diseño de páginas web profesionales en Chile. Sitios web rápidos, optimizados para SEO y responsive. Atendemos empresas en todo Chile.",
-  "sameAs": [
-    "https://web.facebook.com/PaginasChile",
-    "https://www.instagram.com/disenopaginas/",
-    "https://www.linkedin.com/in/raul-riquelme-69a16859/",
-    "https://x.com/raulriquelme2",
-    "https://pinterest.com/raulriquelme/"
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios de Diseño Web",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Diseño de Páginas Web",
-          "description": "Sitios web profesionales y optimizados para SEO"
+  <!-- CSS principal diferido - NO bloquea el render -->
+  <link rel="preload" href={getCssPath('bootstrap.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('style.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('custom-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback para navegadores sin JS -->
+  <noscript>
+    <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
+    <link rel="stylesheet" href={getCssPath('style.css')}>
+    <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
+    <link rel="stylesheet" href={getCssPath('animate.css')}>
+    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+    <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
+    <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
+  </noscript>
+
+  <!-- Google Fonts diferido -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"></noscript>
+
+  <!-- Schema Markup SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["ProfessionalService", "LocalBusiness"],
+    "name": "Diseño Páginas Chile",
+    "alternateName": "DiseñoPaginas.cl",
+    "image": "https://diseñopaginas.cl/assets/img/1774663825835_image.png",
+    "url": "https://diseñopaginas.cl",
+    "telephone": "+56961765268",
+    "email": "codigoraul@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressRegion": "Región Metropolitana",
+      "addressCountry": "CL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.4489,
+      "longitude": -70.6693
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Chile"
+    },
+    "priceRange": "$$",
+    "description": "Diseño de páginas web profesionales en Chile. Sitios web rápidos, optimizados para SEO y responsive. Atendemos empresas en todo Chile.",
+    "sameAs": [
+      "https://web.facebook.com/PaginasChile",
+      "https://www.instagram.com/disenopaginas/",
+      "https://www.linkedin.com/in/raul-riquelme-69a16859/",
+      "https://x.com/raulriquelme2",
+      "https://pinterest.com/raulriquelme/"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Diseño Web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Diseño de Páginas Web",
+            "description": "Sitios web profesionales y optimizados para SEO"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Landing Pages",
+            "description": "Páginas de aterrizaje optimizadas para conversión"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tiendas Online",
+            "description": "E-commerce profesional para vender en línea"
+          }
         }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Landing Pages",
-          "description": "Páginas de aterrizaje optimizadas para conversión"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Tiendas Online",
-          "description": "E-commerce profesional para vender en línea"
-        }
-      }
-    ]
+      ]
+    }
   }
-}
-</script>
+  </script>
 
 </head>
 
@@ -191,14 +198,14 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <!-- Footer -->
   <Footer />
 
-  <!-- Scripts - Carga optimizada -->
+  <!-- Scripts diferidos - no bloquean render -->
   <script src={getJsPath('bootstrap.bundle.min.js')} defer></script>
   <script src={getJsPath('swiper-bundle.min.js')} defer></script>
   <script src={getJsPath('wow.min.js')} defer></script>
   <script src={getJsPath('active.js')} defer></script>
-  
+
   <script>
-    // Preloader
+    // Ocultar preloader cuando carga la página
     window.addEventListener('load', function() {
       const preloader = document.getElementById('preloader');
       if (preloader) {
@@ -206,8 +213,8 @@ const baseUrl = import.meta.env.BASE_URL || '';
       }
     });
   </script>
-  
-  <!-- Jivosite Chat Widget - Cargar después de que la página esté lista -->
+
+  <!-- Jivosite Chat - carga 4s después para no afectar métricas -->
   <script>
     window.addEventListener('load', function() {
       setTimeout(function() {
@@ -215,8 +222,9 @@ const baseUrl = import.meta.env.BASE_URL || '';
         s.src = '//code.jivosite.com/widget/PgpmFYkQWG';
         s.async = true;
         document.body.appendChild(s);
-      }, 3000);
+      }, 4000);
     });
   </script>
+
 </body>
-</html> 
+</html>
