@@ -1,144 +1,33 @@
+cat > "/Users/raulr/Downloads/PARADOCUMENTOS/paginas web2025:26/MI PROPIA WEB/disenopaginas nueva astro/disenopaginas-astro/postcss.config.mjs" << 'EOF'
 import purgecss from '@fullhuman/postcss-purgecss';
+
+const isProd = process.env.NODE_ENV === 'production';
 
 export default {
   plugins: [
-    purgecss({
-      // Analiza todos los archivos Astro, HTML y JS para detectar clases usadas
+    isProd && purgecss({
       content: [
         './src/**/*.astro',
         './src/**/*.html',
         './src/**/*.js',
         './src/**/*.ts',
-        './public/**/*.html',
       ],
-      // Detectar clases dinámicas correctamente
-      defaultExtractor: content => {
-        const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
-        const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || [];
-        return broadMatches.concat(innerMatches);
-      },
-      // Clases que NUNCA se deben eliminar (dinámicas, JS, animaciones)
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
       safelist: {
-        standard: [
-          // Bootstrap dinámico
-          /^modal/,
-          /^show/,
-          /^collaps/,
-          /^offcanvas/,
-          /^dropdown/,
-          /^tooltip/,
-          /^popover/,
-          /^fade/,
-          /^active/,
-          /^disabled/,
-          /^open/,
-          /^nav/,
-          /^navbar/,
-          // Swiper
-          /^swiper/,
-          // WOW animaciones
-          /^wow/,
-          /^animate/,
-          /^animated/,
-          // Preloader
-          /^preloader/,
-          /^spinner/,
-          /^visually/,
-          // Astro
-          /^astro/,
-          // Estados JS
-          /^is-/,
-          /^has-/,
-          /^js-/,
-        ],
-        deep: [
-          /^modal/,
-          /^swiper/,
-          /^wow/,
-          /^animate/,
-        ],
         greedy: [
-          /^col-/,
-          /^row/,
-          /^d-/,
-          /^mt-/,
-          /^mb-/,
-          /^ms-/,
-          /^me-/,
-          /^p-/,
-          /^pt-/,
-          /^pb-/,
-          /^ps-/,
-          /^pe-/,
-          /^mx-/,
-          /^my-/,
-          /^px-/,
-          /^py-/,
-          /^text-/,
-          /^bg-/,
-          /^btn/,
-          /^form/,
-          /^input/,
-          /^flex/,
-          /^g-/,
-          /^gap/,
-          /^align/,
-          /^justify/,
-          /^container/,
-          /^section/,
-          /^display/,
-          /^w-/,
-          /^h-/,
-          /^fs-/,
-          /^fw-/,
-          /^lh-/,
-          /^border/,
-          /^rounded/,
-          /^shadow/,
-          /^position/,
-          /^top-/,
-          /^bottom-/,
-          /^start-/,
-          /^end-/,
-          /^overflow/,
-          /^z-/,
-          /^float/,
-          /^order/,
-          /^offset/,
-          /^visible/,
-          /^invisible/,
-          /^opacity/,
-          /^ratio/,
-          /^object/,
-          /^img/,
-          /^figure/,
-          /^list/,
-          /^link/,
-          /^badge/,
-          /^alert/,
-          /^card/,
-          /^table/,
-          /^thead/,
-          /^tbody/,
-          /^tr/,
-          /^td/,
-          /^th/,
-          /^breadcrumb/,
-          /^pagination/,
-          /^progress/,
-          /^spinner/,
-          /^placeholder/,
-          /^close/,
-          /^accordion/,
-          /^tab/,
-          /^pill/,
-          /^grid/,
-          /^vstack/,
-          /^hstack/,
-          /^clearfix/,
-          /^stretched/,
+          /^col-/, /^row/, /^d-/, /^m[tbesx]-/, /^p[tbesx]-/,
+          /^text-/, /^bg-/, /^btn/, /^nav/, /^modal/, /^show/,
+          /^collaps/, /^offcanvas/, /^dropdown/, /^fade/, /^active/,
+          /^swiper/, /^wow/, /^animate/, /^preloader/, /^spinner/,
+          /^card/, /^alert/, /^badge/, /^border/, /^rounded/,
+          /^shadow/, /^w-/, /^h-/, /^flex/, /^align/, /^justify/,
+          /^container/, /^accordion/, /^tab/, /^form/, /^input/,
         ]
-      }
+      },
+      // CLAVE: ignorar estilos inline de Astro
+      skippedContentGlobs: ['**/*.astro'],
     })
-  ]
+  ].filter(Boolean)
 };
+EOF
+echo "OK"
