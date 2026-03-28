@@ -60,7 +60,7 @@ if (frontmatter.image) {
             <div class="single-blog-content">
               <div class="blog-card-two wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
                 {imageUrl && (
-                  <img 
+                  <img loading="lazy" 
                     src={typeof imageUrl === 'string' ? imageUrl : imageUrl.src} 
                     alt={frontmatter.title} 
                     class="w-100 mb-4" 
