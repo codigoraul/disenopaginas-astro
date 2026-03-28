@@ -50,25 +50,38 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <link rel="shortcut icon" href={getAssetPath('/favicon.ico')} type="image/x-icon">
   <link rel="apple-touch-icon" href={getAssetPath('/favicon.ico')}>
 
-  <!-- Preconnect SOLO los más importantes (max 2) -->
+  <!-- Preconnect solo los críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Preload fuente crítica para LCP -->
   <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- CSS Crítico inline para evitar bloqueo del render -->
+  <!-- CSS CRÍTICO: Bootstrap + estilos base - carga síncrona para evitar FOUC -->
+  <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
+  <link rel="stylesheet" href={getCssPath('style.css')}>
+  <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
+
+  <!-- CSS NO CRÍTICO: diferido para no bloquear render -->
+  <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback sin JS -->
+  <noscript>
+    <link rel="stylesheet" href={getCssPath('animate.css')}>
+    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+    <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
+    <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
+  </noscript>
+
+  <!-- Google Fonts diferido con display=swap para evitar CLS -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"></noscript>
+
+  <!-- Font display swap para evitar CLS con tabler-icons -->
   <style>
-    /* Reset mínimo crítico para evitar FOUC */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Inter', 'Outfit', sans-serif; }
-    .preloader {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #fff; z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
-    }
-    /* Font swap para tabler-icons */
     @font-face {
       font-family: 'tabler-icons';
       src: url('/assets/fonts/tabler-icons.woff2?v3.31.0') format('woff2');
@@ -76,31 +89,14 @@ const baseUrl = import.meta.env.BASE_URL || '';
       font-weight: normal;
       font-style: normal;
     }
+    /* Evitar CLS del preloader */
+    .preloader {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+    }
   </style>
-
-  <!-- CSS principal diferido - NO bloquea el render -->
-  <link rel="preload" href={getCssPath('bootstrap.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('style.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('custom-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Fallback para navegadores sin JS -->
-  <noscript>
-    <link rel="stylesheet" href={getCssPath('bootstrap.min.css')}>
-    <link rel="stylesheet" href={getCssPath('style.css')}>
-    <link rel="stylesheet" href={getCssPath('custom-colors.css')}>
-    <link rel="stylesheet" href={getCssPath('animate.css')}>
-    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
-    <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
-    <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
-  </noscript>
-
-  <!-- Google Fonts diferido -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"></noscript>
 
   <!-- Schema Markup SEO -->
   <script type="application/ld+json">
@@ -198,23 +194,20 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <!-- Footer -->
   <Footer />
 
-  <!-- Scripts diferidos - no bloquean render -->
+  <!-- Scripts diferidos -->
   <script src={getJsPath('bootstrap.bundle.min.js')} defer></script>
   <script src={getJsPath('swiper-bundle.min.js')} defer></script>
   <script src={getJsPath('wow.min.js')} defer></script>
   <script src={getJsPath('active.js')} defer></script>
 
   <script>
-    // Ocultar preloader cuando carga la página
     window.addEventListener('load', function() {
       const preloader = document.getElementById('preloader');
-      if (preloader) {
-        preloader.style.display = 'none';
-      }
+      if (preloader) preloader.style.display = 'none';
     });
   </script>
 
-  <!-- Jivosite Chat - carga 4s después para no afectar métricas -->
+  <!-- Jivosite Chat - 4s después para no afectar métricas -->
   <script>
     window.addEventListener('load', function() {
       setTimeout(function() {
