@@ -73,7 +73,8 @@
 
 /* Estilo específico para h2 de slides 2 y 3 - MISMOS ESTILOS QUE H1 */
 .hero-section .hero-content .swiper-slide:nth-child(2) h2,
-.hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+.hero-section .hero-content .swiper-slide:nth-child(3) h2,
+.hero-section .hero-content .swiper-slide:nth-child(4) h2 {
    color: #444f67 !important;
    font-size: 48px !important;
    font-weight: 600 !important;

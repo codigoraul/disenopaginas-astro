@@ -23,7 +23,23 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content={description}>
   {keywords && <meta name="keywords" content={keywords}>}
-  
+  <!-- ===== OPEN GRAPH ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diseñopaginas.cl/" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:site_name" content="DiseñoPaginas.cl" />
+
+  <!-- ===== TWITTER / X ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@raulriquelme2" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
   <!-- Canonical URL for SEO -->
   {canonical && <link rel="canonical" href={canonical} />}
 
@@ -84,17 +100,18 @@ const baseUrl = import.meta.env.BASE_URL || '';
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "LocalBusiness"],
   "name": "Diseño Páginas Chile",
   "alternateName": "DiseñoPaginas.cl",
-  "image": "https://diseñopaginas.cl/assets/logo/disenopaginas.svg",
+  "image": "https://diseñopaginas.cl/assets/img/1774663825835_image.png",
   "url": "https://diseñopaginas.cl",
   "telephone": "+56961765268",
   "email": "codigoraul@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "CL",
-    "addressRegion": "Chile"
+    "addressLocality": "Santiago",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
   },
   "geo": {
     "@type": "GeoCoordinates",
