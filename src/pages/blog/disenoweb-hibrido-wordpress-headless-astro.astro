@@ -120,11 +120,11 @@ npm install</code></pre>
 
                      <h3>3. Conectar con WordPress</h3>
                      <pre><code>// astro.config.mjs
-export default defineConfig({
-  integrations: [wpGraphQL({
+export default defineConfig(&#123;
+  integrations: [wpGraphQL(&#123;
     url: 'https://tu-wordpress.com/graphql'
-  })]
-});</code></pre>
+  &#125;)]
+&#125;);</code></pre>
 
                      <h3>4. Crear Templates</h3>
                      <p>Crear plantillas Astro para cada tipo de contenido (posts, pages, productos) que consuman datos de WordPress.</p>
