@@ -4,54 +4,60 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
 
 <Layout title="Diseño Web Híbrido - WordPress Headless con Astro.js | Diseño Web Chile">
-   <!-- Breadcrumb -->
-   <Breadcrumb title="Blog" currentPage="Diseño Web Híbrido -  WordPress Headless con Astro.js" />
+   <Breadcrumb title="Blog" currentPage="Diseño Web Híbrido" />
 
-   <!-- Blog Details Section -->
-   <div class="blog-details-section bg-white">
-      <!-- Divider -->
+   <div class="blog-section">
       <div class="divider"></div>
-
       <div class="container">
          <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-               <!-- Blog Details Content -->
-               <div class="blog-details-content">
-                  <!-- Post Image -->
-                  <div class="post-img mb-4">
-                     <img loading="lazy" src="/assets/img/blog/wordpress-headless-astro/portada.webp" alt="Diseño Web Híbrido WordPress Headless Astro">
+            <!-- Contenido Principal - ancho completo sin sidebar -->
+            <div class="col-12 col-lg-9 col-xl-8">
+
+               <!-- Cabecera del artículo -->
+               <div class="article-header mb-4 wow fadeInUp" data-wow-duration="800ms">
+
+                  <!-- Meta arriba -->
+                  <div class="blog-meta mb-3 d-flex align-items-center flex-wrap gap-3">
+                     <span><i class="ti ti-user"></i> Por DiseñoPáginas</span>
+                     <span><i class="ti ti-calendar"></i> 12 Febrero 2025</span>
+                     <span><i class="ti ti-clock"></i> 8 min de lectura</span>
+                     <span class="badge-categoria">Diseño Web</span>
                   </div>
 
-                  <!-- Post Meta -->
-                  <div class="blog-meta flex-wrap d-flex align-items-center gap-3 mb-4">
-                     <a href="#" class="category-tag">Diseño Web</a>
-                     <div class="dot"></div>
-                     <a href="#">12 Febrero 2025</a>
-                     <div class="dot"></div>
-                     <a href="#">Tiempo de lectura: 8 min</a>
-                  </div>
-
-                  <!-- Post Title -->
+                  <!-- Título primero -->
                   <h1 class="post-title mb-4">Diseño Web Híbrido: WordPress Headless con Astro.js</h1>
 
-                  <!-- Post Excerpt -->
-                  <p class="lead mb-4">Descubre cómo combinar lo mejor de dos mundos: la facilidad de gestión de WordPress con el rendimiento y velocidad de Astro.js para crear sitios web ultrarrápidos y fáciles de administrar.</p>
+                  <!-- Intro + imagen en fila -->
+                  <div class="intro-row d-flex gap-4 mb-5">
+                     <p class="intro-text">Descubre cómo combinar lo mejor de dos mundos: la facilidad de gestión de WordPress con el rendimiento y velocidad de Astro.js para crear sitios web ultrarrápidos y fáciles de administrar.</p>
+                     <div class="intro-img-wrap flex-shrink-0">
+                        <img loading="lazy"
+                           src="/assets/img/blog/wordpress-headless-astro/portada.webp"
+                           alt="Diseño Web Híbrido WordPress Headless Astro"
+                           width="280" height="200">
+                     </div>
+                  </div>
+               </div>
 
-                  <!-- Post Content -->
-                  <div class="post-content">
-                     <h2>¿Qué es el Diseño Web Híbrido?</h2>
+               <!-- Cuerpo del artículo -->
+               <div class="post-body wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
+                  <div class="d-flex flex-column gap-4">
+
+                     <h2><i class="ti ti-world-www"></i> ¿Qué es el Diseño Web Híbrido?</h2>
                      <p>El diseño web híbrido es una arquitectura que combina un CMS tradicional como WordPress (headless) con un generador de sitios estáticos moderno como Astro.js. Esta solución te permite mantener el panel de administración familiar de WordPress mientras obtienes los beneficios de rendimiento de un sitio estático.</p>
 
-                     <h3>Ventajas del Enfoque Híbrido</h3>
-                     <ul>
-                        <li><strong>Rendimiento Superior:</strong> Sitios estáticos que cargan en milisegundos</li>
-                        <li><strong>SEO Optimizado:</strong> Mejor posicionamiento gracias a la velocidad</li>
-                        <li><strong>Seguridad:</strong> Menos vulnerabilidades al no exponer el backend</li>
-                        <li><strong>Gestión Fácil:</strong> Panel de WordPress para contenido</li>
-                        <li><strong>Escalabilidad:</strong> Soporta alto tráfico sin problemas</li>
-                     </ul>
+                     <div class="highlight-box">
+                        <h5><i class="ti ti-bulb"></i> Ventajas del Enfoque Híbrido:</h5>
+                        <ul>
+                           <li><strong>Rendimiento Superior:</strong> Sitios estáticos que cargan en milisegundos</li>
+                           <li><strong>SEO Optimizado:</strong> Mejor posicionamiento gracias a la velocidad</li>
+                           <li><strong>Seguridad:</strong> Menos vulnerabilidades al no exponer el backend</li>
+                           <li><strong>Gestión Fácil:</strong> Panel de WordPress para contenido</li>
+                           <li><strong>Escalabilidad:</strong> Soporta alto tráfico sin problemas</li>
+                        </ul>
+                     </div>
 
-                     <h2>¿Cómo Funciona WordPress Headless?</h2>
+                     <h2><i class="ti ti-server"></i> ¿Cómo Funciona WordPress Headless?</h2>
                      <p>WordPress Headless significa que usamos WordPress solo como sistema de gestión de contenido (CMS), mientras que el frontend lo construye Astro.js. La comunicación entre ambos se realiza a través de una API REST o GraphQL.</p>
 
                      <h3>Arquitectura Típica</h3>
@@ -62,7 +68,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
                         <li><strong>CDN:</strong> Distribución global del contenido estático</li>
                      </ol>
 
-                     <h2>¿Por qué Astro.js?</h2>
+                     <h2><i class="ti ti-rocket"></i> ¿Por qué Astro.js?</h2>
                      <p>Astro.js es ideal para este enfoque híbrido porque:</p>
                      <ul>
                         <li><strong>Islands Architecture:</strong> Solo hidrata el JavaScript necesario</li>
@@ -72,36 +78,38 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
                         <li><strong>Image Optimization:</strong> Optimización automática de imágenes</li>
                      </ul>
 
-                     <h2>Casos de Uso Ideales</h2>
+                     <h2><i class="ti ti-layout"></i> Casos de Uso Ideales</h2>
                      <p>El diseño web híbrido es perfecto para:</p>
-                     <div class="row g-4 mb-4">
-                        <div class="col-md-6">
-                           <div class="use-case-card">
-                              <h4><i class="ti ti-world-www"></i> Blogs y Revistas</h4>
-                              <p>Contenido actualizado frecuentemente con máxima velocidad de carga</p>
+
+                     <div class="row g-4 my-2">
+                        <div class="col-12 col-lg-6">
+                           <div class="info-box h-100">
+                              <h5><i class="ti ti-world-www"></i> Blogs y Revistas</h5>
+                              <p class="mb-0">Contenido actualizado frecuentemente con máxima velocidad de carga</p>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="use-case-card">
-                              <h4><i class="ti ti-store"></i> E-commerce</h4>
-                              <p>Productos gestionados en WordPress con frontend ultrarrápido</p>
+                        <div class="col-12 col-lg-6">
+                           <div class="info-box h-100">
+                              <h5><i class="ti ti-store"></i> E-commerce</h5>
+                              <p class="mb-0">Productos gestionados en WordPress con frontend ultrarrápido</p>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="use-case-card">
-                              <h4><i class="ti ti-building-factory-2"></i> Sitios Corporativos</h4>
-                              <p>Contenido fácil de actualizar para equipos de marketing</p>
+                        <div class="col-12 col-lg-6">
+                           <div class="info-box h-100">
+                              <h5><i class="ti ti-building-factory-2"></i> Sitios Corporativos</h5>
+                              <p class="mb-0">Contenido fácil de actualizar para equipos de marketing</p>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="use-case-card">
-                              <h4><i class="ti ti-news"></i> Portales de Noticias</h4>
-                              <p>Alto tráfico con contenido dinámico gestionado por WordPress</p>
+                        <div class="col-12 col-lg-6">
+                           <div class="info-box h-100">
+                              <h5><i class="ti ti-news"></i> Portales de Noticias</h5>
+                              <p class="mb-0">Alto tráfico con contenido dinámico gestionado por WordPress</p>
                            </div>
                         </div>
                      </div>
 
-                     <h2>Implementación Paso a Paso</h2>
+                     <h2><i class="ti ti-list-check"></i> Implementación Paso a Paso</h2>
+
                      <h3>1. Configurar WordPress Headless</h3>
                      <p>Instalar WordPress y configurar el plugin WPGraphQL o activar la API REST. Configurar tipos de contenido personalizados según necesidades.</p>
 
@@ -111,43 +119,51 @@ cd mi-proyecto
 npm install</code></pre>
 
                      <h3>3. Conectar con WordPress</h3>
-                    <pre><code>// astro.config.mjs
-export default defineConfig(&​#123;
-  integrations: [wpGraphQL(&​#123;
+                     <pre><code>// astro.config.mjs
+export default defineConfig({
+  integrations: [wpGraphQL({
     url: 'https://tu-wordpress.com/graphql'
-  &​#125;)]
-&​#125;);
-</code></pre>
+  })]
+});</code></pre>
 
                      <h3>4. Crear Templates</h3>
                      <p>Crear plantillas Astro para cada tipo de contenido (posts, pages, productos) que consuman datos de WordPress.</p>
 
-                     <h2>Métricas de Rendimiento</h2>
+                     <h2><i class="ti ti-chart-bar"></i> Métricas de Rendimiento</h2>
                      <p>Los resultados típicos al pasar de WordPress tradicional a híbrido:</p>
-                     <div class="metrics-grid">
-                        <div class="metric-item">
-                           <h4>Velocidad de Carga</h4>
-                           <div class="metric-value">-85%</div>
-                           <p>De 3.2s a 0.5s</p>
+
+                     <div class="row g-4 my-2">
+                        <div class="col-6 col-lg-3">
+                           <div class="highlight-box text-center">
+                              <h5>Velocidad</h5>
+                              <strong style="font-size: 1.8rem; color: var(--primary-color);">-85%</strong>
+                              <p class="mb-0 small">De 3.2s a 0.5s</p>
+                           </div>
                         </div>
-                        <div class="metric-item">
-                           <h4>Core Web Vitals</h4>
-                           <div class="metric-value">95+</div>
-                           <p>Puntuación perfecta</p>
+                        <div class="col-6 col-lg-3">
+                           <div class="highlight-box text-center">
+                              <h5>Web Vitals</h5>
+                              <strong style="font-size: 1.8rem; color: var(--primary-color);">95+</strong>
+                              <p class="mb-0 small">Puntuación perfecta</p>
+                           </div>
                         </div>
-                        <div class="metric-item">
-                           <h4>SEO Score</h4>
-                           <div class="metric-value">100</div>
-                           <p>Optimización completa</p>
+                        <div class="col-6 col-lg-3">
+                           <div class="highlight-box text-center">
+                              <h5>SEO Score</h5>
+                              <strong style="font-size: 1.8rem; color: var(--primary-color);">100</strong>
+                              <p class="mb-0 small">Optimización total</p>
+                           </div>
                         </div>
-                        <div class="metric-item">
-                           <h4>Costo Hosting</h4>
-                           <div class="metric-value">-60%</div>
-                           <p>Servidores más económicos</p>
+                        <div class="col-6 col-lg-3">
+                           <div class="highlight-box text-center">
+                              <h5>Hosting</h5>
+                              <strong style="font-size: 1.8rem; color: var(--primary-color);">-60%</strong>
+                              <p class="mb-0 small">Más económico</p>
+                           </div>
                         </div>
                      </div>
 
-                     <h2>Herramientas Recomendadas</h2>
+                     <h2><i class="ti ti-tools"></i> Herramientas Recomendadas</h2>
                      <ul>
                         <li><strong>WPGraphQL:</strong> Para consulta eficiente de datos</li>
                         <li><strong>WPEngine Headless:</strong> Hosting especializado</li>
@@ -156,225 +172,280 @@ export default defineConfig(&​#123;
                         <li><strong>Algolia:</strong> Búsqueda instantánea</li>
                      </ul>
 
-                     <h2>Conclusión</h2>
-                     <p>El diseño web híbrido con WordPress Headless y Astro.js representa el futuro del desarrollo web. Combina la facilidad de uso que los equipos de marketing necesitan con el rendimiento que los usuarios exigen. Es la solución perfecta para empresas que quieren escalar sin comprometer la velocidad o la experiencia de usuario.</p>
-
-                     <p>En <strong>Diseño Web Chile</strong> somos expertos en implementar soluciones híbridas que transforman sitios WordPress tradicionales en aplicaciones web modernas y ultrarrápidas.</p>
-
-                     <!-- CTA Section -->
-                     <div class="cta-section bg-primary text-white rounded p-5 my-5">
-                        <h3 class="mb-3">¿Listo para transformar tu sitio WordPress?</h3>
-                        <p class="mb-4">Descubre cómo podemos mejorar el rendimiento de tu sitio web hasta en un 85% manteniendo la facilidad de gestión de WordPress.</p>
-                        <a href="/contacto" class="btn btn-light btn-lg">Solicitar Consulta Gratuita</a>
+                     <div class="conclusion-box">
+                        <h4><i class="ti ti-target"></i> Conclusión</h4>
+                        <p>El diseño web híbrido con WordPress Headless y Astro.js representa el futuro del desarrollo web. Combina la facilidad de uso que los equipos de marketing necesitan con el rendimiento que los usuarios exigen. Es la solución perfecta para empresas que quieren escalar sin comprometer la velocidad o la experiencia de usuario.</p>
                      </div>
+                  </div>
+               </div>
 
-                     <!-- Tags -->
-                     <div class="tags-section">
-                        <h4>Etiquetas:</h4>
-                        <div class="tags-list">
-                           <a href="#" class="tag">WordPress</a>
-                           <a href="#" class="tag">Astro.js</a>
-                           <a href="#" class="tag">Headless CMS</a>
-                           <a href="#" class="tag">Web Performance</a>
-                           <a href="#" class="tag">Jamstack</a>
-                        </div>
+               <div class="divider-sm"></div>
+
+               <!-- Etiquetas y Compartir -->
+               <div class="tag-share d-flex flex-wrap justify-content-between align-items-center py-4">
+                  <div class="tag-widget d-flex align-items-center gap-2">
+                     <h6 class="mb-0">Etiquetas:</h6>
+                     <div class="tag-list list-unstyled d-flex flex-wrap align-items-center gap-2 mb-0">
+                        <li><a href="#">WordPress</a></li>
+                        <li><a href="#">Astro.js</a></li>
+                        <li><a href="#">Headless CMS</a></li>
+                        <li><a href="#">Jamstack</a></li>
                      </div>
+                  </div>
+                  <div class="share-widget">
+                     <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                        <li><span>Compartir:</span></li>
+                        <li><a href="#"><i class="ti ti-brand-facebook"></i></a></li>
+                        <li><a href="#"><i class="ti ti-brand-twitter"></i></a></li>
+                        <li><a href="#"><i class="ti ti-brand-linkedin"></i></a></li>
+                        <li><a href="#"><i class="ti ti-brand-whatsapp"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+
+               <!-- Sobre el Autor -->
+               <div class="about-author bg-light p-4 rounded-4 mb-5">
+                  <div class="d-flex flex-column flex-sm-row align-items-center gap-4">
+                     <div class="author-img">
+                        <img loading="lazy" src="/assets/img/author.jpg" alt="Autor" class="rounded-circle" width="100" height="100">
+                     </div>
+                     <div class="author-info text-center text-sm-start">
+                        <h5 class="mb-1">Equipo DiseñoPáginas</h5>
+                        <p class="mb-2">Expertos en desarrollo web y marketing digital, ayudando a negocios a crecer en línea desde 2023.</p>
+                        <ul class="list-unstyled d-flex align-items-center justify-content-center justify-content-sm-start gap-3 mb-0">
+                           <li><a href="#"><i class="ti ti-brand-facebook"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-twitter"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-instagram"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-linkedin"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Artículos Relacionados -->
+               <div class="related-posts mb-5">
+                  <h3 class="mb-4">Artículos Relacionados</h3>
+                  <div class="row g-4">
+                     <div class="col-12 col-sm-6">
+                        <a href="/blog/guia-seo-principiantes" class="related-card d-flex gap-3 text-decoration-none">
+                           <img loading="lazy"
+                              src="/assets/img/blog/guia-seo-principiantes/portada.webp"
+                              alt="Guía SEO para Principiantes"
+                              width="90" height="70"
+                              class="rounded-2 flex-shrink-0 object-fit-cover">
+                           <div>
+                              <h6 class="mb-1">Guía completa de SEO para principiantes</h6>
+                              <span class="text-muted small">12 Ene 2025</span>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <a href="/blog/tendencias-web-ia-2025" class="related-card d-flex gap-3 text-decoration-none">
+                           <img loading="lazy"
+                              src="/assets/img/blog/tendencias-web-ia-2025/portada.jpg"
+                              alt="Tendencias Web IA 2025"
+                              width="90" height="70"
+                              class="rounded-2 flex-shrink-0 object-fit-cover">
+                           <div>
+                              <h6 class="mb-1">SEO y Estructura Web 2025</h6>
+                              <span class="text-muted small">15 Ene 2025</span>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Formulario de Comentarios -->
+               <div class="comments-area bg-light p-4 p-lg-5 rounded-4 mb-5">
+                  <h3 class="mb-4">Deja un comentario</h3>
+                  <form action="#" class="row g-4">
+                     <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="Tu nombre">
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <input type="email" class="form-control" placeholder="Tu correo">
+                     </div>
+                     <div class="col-12">
+                        <textarea class="form-control" rows="5" placeholder="Tu comentario"></textarea>
+                     </div>
+                     <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Publicar comentario</button>
+                     </div>
+                  </form>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <div class="divider"></div>
+   </div>
+
+   <!-- CTA -->
+   <div class="cta-wrapper bg-img" style="background-image: url('/assets/img/core-img/grid.webp')">
+      <div class="overlay"></div>
+      <div class="divider"></div>
+      <div class="container">
+         <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-lg-8 text-center">
+               <div class="cta-content wow fadeInUp" data-wow-duration="1000ms">
+                  <h2 class="mb-4">¿Listo para transformar tu sitio WordPress?</h2>
+                  <p class="mb-5">Descubre cómo podemos mejorar el rendimiento de tu sitio web hasta en un 85% manteniendo la facilidad de gestión de WordPress.</p>
+                  <div class="button-group d-flex flex-wrap align-items-center justify-content-center gap-4">
+                     <a href="/contacto" class="btn btn-primary">Solicitar Cotización</a>
+                     <a href="tel:+56961765268" class="btn btn-outline-light">
+                        <i class="ti ti-phone-call me-2"></i> +56 9 6176 5268
+                     </a>
                   </div>
                </div>
             </div>
          </div>
       </div>
-
-      <!-- Divider -->
       <div class="divider"></div>
    </div>
 </Layout>
 
 <style>
-   .blog-details-section {
-      padding: 80px 0;
+   .blog-section { padding: 80px 0; }
+
+   /* Meta info */
+   .blog-meta span {
+      color: #6c757d;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+   }
+   .blog-meta .ti { color: var(--primary-color); }
+   .badge-categoria {
+      background: var(--primary-color);
+      color: white;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
    }
 
+   /* Título */
    .post-title {
-      font-size: 2.5rem;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 700;
-      line-height: 1.2;
-      color: #0B100F;
-      margin-bottom: 1.5rem;
+      line-height: 1.3;
    }
 
-   .lead {
-      font-size: 1.25rem;
-      color: #767586;
-      line-height: 1.6;
-   }
-
-   .post-content h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #011C42;
-      margin: 3rem 0 1.5rem;
-      border-bottom: 3px solid #AEF8FF;
-      padding-bottom: 0.5rem;
-   }
-
-   .post-content h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #011C42;
-      margin: 2rem 0 1rem;
-   }
-
-   .post-content h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #011C42;
-      margin: 1.5rem 0 0.5rem;
-   }
-
-   .post-content p {
+   /* Intro con imagen flotante */
+   .intro-row { align-items: flex-start; }
+   .intro-text {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #333;
-      margin-bottom: 1.5rem;
+      color: #444;
+      margin: 0;
+   }
+   .intro-img-wrap img {
+      width: 280px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
    }
 
-   .post-content ul, .post-content ol {
-      margin: 1.5rem 0;
-      padding-left: 2rem;
+   /* En móvil la imagen va debajo */
+   @media (max-width: 768px) {
+      .intro-row { flex-direction: column; }
+      .intro-img-wrap { width: 100%; }
+      .intro-img-wrap img { width: 100%; height: 220px; }
    }
 
-   .post-content li {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
-      color: #333;
+   /* Contenido */
+   .post-body { line-height: 1.8; color: #333; }
+   .post-body h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
    }
+   .post-body h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+   .post-body p { margin-bottom: 1.2rem; }
+   .post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+   .post-body li { margin-bottom: 0.4rem; }
 
-   .use-case-card {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-      border-left: 4px solid #011C42;
-      height: 100%;
-   }
-
-   .use-case-card h4 {
-      color: #011C42;
-      margin-bottom: 0.5rem;
-   }
-
-   .use-case-card h4 i {
-      margin-right: 0.5rem;
-      color: #AEF8FF;
-   }
-
-   .use-case-card p {
-      font-size: 1rem;
-      margin-bottom: 0;
-   }
-
+   /* Código */
    pre {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
       border-radius: 8px;
       padding: 1rem;
       overflow-x: auto;
-      margin: 1.5rem 0;
+      margin: 0.5rem 0 1.2rem;
    }
-
    pre code {
       font-family: 'Courier New', monospace;
       font-size: 0.9rem;
       color: #333;
    }
 
-   .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-   }
-
-   .metric-item {
-      background: linear-gradient(135deg, #011C42, #AEF8FF);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-   }
-
-   .metric-item h4 {
-      color: white;
-      margin-bottom: 0.5rem;
-   }
-
-   .metric-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0.5rem 0;
-   }
-
-   .metric-item p {
-      font-size: 0.9rem;
-      margin-bottom: 0;
-      opacity: 0.9;
-   }
-
-   .cta-section {
-      text-align: center;
-   }
-
-   .cta-section h3 {
-      font-size: 1.8rem;
-      font-weight: 600;
-   }
-
-   .category-tag {
-      background: #011C42;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-   }
-
-   .tags-section h4 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #011C42;
-      margin-bottom: 1rem;
-   }
-
-   .tags-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-   }
-
-   .tag {
+   /* Cajas destacadas */
+   .highlight-box {
       background: #f8f9fa;
-      color: #011C42;
-      padding: 0.5rem 1rem;
+      border-left: 4px solid var(--primary-color);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+   }
+   .highlight-box h5 { color: var(--primary-color); margin-bottom: 12px; }
+   .info-box {
+      background: #e9f5ff;
+      border: 1px solid #d0e3ff;
+      border-radius: 8px;
+      padding: 20px;
+   }
+   .info-box h5 { color: #0d6efd; margin-bottom: 12px; }
+   .conclusion-box {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 25px;
+      border: 1px dashed #dee2e6;
+   }
+   .blog-quote {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 25px;
+      position: relative;
+   }
+   .quote-icon {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 50px;
+      opacity: 0.08;
+      color: var(--primary-color);
+   }
+
+   /* Tags */
+   .tag-share { border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
+   .tag-list a {
+      background: #f8f9fa;
+      color: #6c757d;
+      padding: 4px 14px;
       border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      transition: all 0.3s;
    }
+   .tag-list a:hover { background: var(--primary-color); color: white; }
 
-   .tag:hover {
-      background: #011C42;
-      color: white;
-   }
+   /* Autor */
+   .author-img img { width: 100px; height: 100px; object-fit: cover; }
 
-   @media (max-width: 768px) {
-      .post-title {
-         font-size: 2rem;
-      }
-      
-      .metrics-grid {
-         grid-template-columns: repeat(2, 1fr);
-      }
+   /* Artículos relacionados */
+   .related-card {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      transition: all 0.3s;
+      color: inherit;
    }
+   .related-card:hover { border-color: var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+   .related-card img { width: 90px; height: 70px; object-fit: cover; }
+   .related-card h6 { color: #333; font-size: 0.95rem; line-height: 1.4; }
+
+   /* Comentarios */
+   .comments-area { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 </style>

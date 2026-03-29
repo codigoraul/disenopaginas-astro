@@ -1,645 +1,425 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-
 ---
 
 <Layout title="SEO y Estructura Web 2025: Optimización para Empresas">
-   <!-- Breadcrumb -->
-   <Breadcrumb title="Blog" currentPage="Blog Details" />
+   <Breadcrumb title="Blog" currentPage="SEO y Estructura Web 2025" />
 
-   <!-- Blog Section -->
    <div class="blog-section">
-      <!-- Divider -->
       <div class="divider"></div>
-
       <div class="container">
-         <div class="row g-5 g-md-4 g-xxl-5">
-            <!-- Single Blog Content -->
-            <div class="col-12 col-md-7 col-lg-8">
-               <div class="pe-lg-3">
-                  <!-- Single Blog Content -->
-                  <div class="single-blog-content">
-                     <div class="blog-card-two wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-                        <!-- Post Image -->
-                        <div class="post-img">
-                           <img loading="lazy" src="/assets/img/blog/tendencias-web-ia-2025/portada.jpg" alt="SEO y Estructura Web 2025">
+         <div class="row justify-content-center">
+            <!-- Contenido Principal - ancho completo sin sidebar -->
+            <div class="col-12 col-lg-9 col-xl-8">
+
+               <!-- Cabecera del artículo -->
+               <div class="article-header mb-4 wow fadeInUp" data-wow-duration="800ms">
+
+                  <!-- Meta arriba -->
+                  <div class="blog-meta mb-3 d-flex align-items-center flex-wrap gap-3">
+                     <span><i class="ti ti-user"></i> Por DiseñoPáginas</span>
+                     <span><i class="ti ti-calendar"></i> 15 Enero 2025</span>
+                     <span><i class="ti ti-clock"></i> 8 min de lectura</span>
+                     <span class="badge-categoria">SEO</span>
+                  </div>
+
+                  <!-- Título primero -->
+                  <h1 class="post-title mb-4">SEO y Estructura Web 2025: Optimización para Empresas</h1>
+
+                  <!-- Intro + imagen en fila -->
+                  <div class="intro-row d-flex gap-4 mb-5">
+                     <p class="intro-text">El año 2025 presenta nuevos desafíos para las empresas en el mundo digital. Un sitio web bien estructurado y optimizado para SEO ya no es una opción, sino una necesidad fundamental para el éxito empresarial.</p>
+                     <div class="intro-img-wrap flex-shrink-0">
+                        <img loading="lazy"
+                           src="/assets/img/blog/tendencias-web-ia-2025/portada.jpg"
+                           alt="SEO y Estructura Web 2025"
+                           width="280" height="200">
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Cuerpo del artículo -->
+               <div class="post-body wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
+                  <div class="d-flex flex-column gap-4">
+
+                     <h2><i class="ti ti-robot"></i> Diseño Web Profesional para Empresas</h2>
+                     <p>Un sitio web profesional es la carta de presentación digital de tu empresa. Debe transmitir confianza, profesionalismo y claridad sobre los servicios que ofreces.</p>
+
+                     <div class="highlight-box">
+                        <h5><i class="ti ti-bulb"></i> Características de un sitio web profesional:</h5>
+                        <ul>
+                           <li>Diseño limpio y fácil de navegar</li>
+                           <li>Información clara sobre servicios y productos</li>
+                           <li>Información de contacto visible y accesible</li>
+                           <li>Testimonios y casos de éxito de clientes</li>
+                        </ul>
+                     </div>
+
+                     <h2><i class="ti ti-palette"></i> Elementos Básicos para una Página Web Empresarial Efectiva</h2>
+
+                     <h3>1. Página de Inicio Clara y Atractiva</h3>
+                     <p>La página principal debe comunicar inmediatamente qué hace tu empresa y qué valor ofrece. Incluye un mensaje claro, llamadas a la acción prominentes y testimonios de clientes satisfechos.</p>
+
+                     <h3>2. Páginas de Servicios Detalladas</h3>
+                     <p>Cada servicio debe tener su propia página con descripción completa, beneficios, proceso de trabajo y ejemplos de proyectos realizados. Esto mejora el SEO y ayuda a los clientes a tomar decisiones informadas.</p>
+
+                     <h3>3. Catálogo de Productos Organizado</h3>
+                     <p>Si vendes productos, organiza tu catálogo con categorías claras, imágenes de alta calidad, descripciones detalladas y precios. Incluye filtros de búsqueda para facilitar la navegación.</p>
+
+                     <div class="row g-4 my-2">
+                        <div class="col-12 col-lg-6">
+                           <img loading="lazy"
+                              src="/assets/img/bg-img/2.jpg"
+                              alt="SEO para Empresas"
+                              width="540" height="360"
+                              class="img-fluid rounded-3">
                         </div>
-
-                        <!-- Post Body -->
-                        <div class="post-body">
-                           <!-- Blog Meta -->
-                           <div class="blog-meta mb-2 flex-wrap d-flex align-items-center gap-4">
-                              <a href="#">
-                                 <i class="ti ti-user"></i>
-                                 Por DiseñoPáginas
-                              </a>
-                              <a href="#">
-                                 <i class="ti ti-calendar"></i>
-                                 15 Enero 2025
-                              </a>
-                              <a href="#">
-                                 <i class="ti ti-message-circle"></i>
-                                 8 min de lectura
-                              </a>
-                           </div>
-
-                           <!-- Post Title -->
-                           <h3 class="post-title mb-4">SEO y Estructura Web 2025: Optimización para Empresas</h3>
-
-                           <div class="d-flex flex-column gap-4">
-                              <p>El año 2025 presenta nuevos desafíos para las empresas en el mundo digital. Un sitio web bien estructurado y optimizado para SEO ya no es una opción, sino una necesidad fundamental para el éxito empresarial.</p>
-
-                              <h4><i class="ti ti-robot"></i> Diseño Web Profesional para Empresas</h4>
-                              <p>Un sitio web profesional es la carta de presentación digital de tu empresa. Debe transmitir confianza, profesionalismo y claridad sobre los servicios que ofreces.</p>
-
-                              <div class="highlight-box">
-                                 <h5><i class="ti ti-bulb"></i> Características de un sitio web profesional:</h5>
-                                 <ul>
-                                    <li>Diseño limpio y fácil de navegar</li>
-                                    <li>Información clara sobre servicios y productos</li>
-                                    <li>Información de contacto visible y accesible</li>
-                                    <li>Testimonios y casos de éxito de clientes</li>
-                                 </ul>
-                              </div>
-
-                              <h4><i class="ti ti-palette"></i> Elementos Básicos para una Página Web Empresarial Efectiva</h4>
-                              
-                              <h5>1. Página de Inicio Clara y Atractiva</h5>
-                              <p>La página principal debe comunicar inmediatamente qué hace tu empresa y qué valor ofrece. Incluye un mensaje claro, llamadas a la acción prominentes y testimonios de clientes satisfechos.</p>
-
-                              <h5>2. Páginas de Servicios Detalladas</h5>
-                              <p>Cada servicio debe tener su propia página con descripción completa, beneficios, proceso de trabajo y ejemplos de proyectos realizados. Esto mejora el SEO y ayuda a los clientes a tomar decisiones informadas.</p>
-
-                              <h5>3. Catálogo de Productos Organizado</h5>
-                              <p>Si vendes productos, organiza tu catálogo con categorías claras, imágenes de alta calidad, descripciones detalladas y precios. Incluye filtros de búsqueda para facilitar la navegación.</p>
-
-                              <div class="d-flex flex-column gap-4">
-                                 <div class="row g-4">
-                                    <div class="col-12 col-lg-6">
-                                       <img loading="lazy" src="assets/img/bg-img/2.jpg" alt="SEO para Empresas">
-                                    </div>
-
-                                    <div class="col-12 col-lg-6">
-                                       <!-- Blog Quote -->
-                                       <div class="blog-quote">
-                                          <i class="ti ti-quote" style="font-size: 40px; color: var(--primary-color);"></i>
-                                          <p>Un sitio web bien estructurado y optimizado para SEO es fundamental para el éxito de cualquier empresa en 2025. La combinación de diseño moderno, contenido relevante y optimización técnica te ayudará a destacar en el mercado digital.</p>
-                                          <h5 class="mb-0"><span class="small-line"></span> DiseñoPáginas.cl</h5>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-
-                              <h4><i class="ti ti-search"></i> Posicionamiento Web Básico para Empresas</h4>
-                              <p>El SEO es fundamental para que tu empresa aparezca en los resultados de búsqueda. Los elementos básicos incluyen palabras clave relevantes, contenido de calidad y estructura técnica optimizada.</p>
-
-                              <div class="info-box">
-                                 <h5><i class="ti ti-chart-bar"></i> Factores Clave para el Posicionamiento:</h5>
-                                 <ul>
-                                    <li>Palabras clave específicas de tu industria y ubicación</li>
-                                    <li>Contenido original y útil para tu audiencia</li>
-                                    <li>Velocidad de carga rápida (menos de 3 segundos)</li>
-                                    <li>Diseño responsive para móviles</li>
-                                    <li>Información de contacto clara y accesible</li>
-                                 </ul>
-                              </div>
-
-                              <h4><i class="ti ti-file-text"></i> Contenido Básico pero Efectivo</h4>
-                              <p>El contenido de tu sitio web debe ser claro, útil y orientado a convertir visitantes en clientes. Incluye:</p>
-                              <ul>
-                                 <li>Descripción clara de tus servicios y productos</li>
-                                 <li>Información sobre tu empresa y experiencia</li>
-                                 <li>Testimonios y casos de éxito de clientes</li>
-                                 <li>Blog con artículos útiles sobre tu industria</li>
-                                 <li>Preguntas frecuentes (FAQ) para resolver dudas</li>
-                              </ul>
-
-                              <h4><i class="ti ti-building"></i> Elementos Técnicos Básicos</h4>
-                              <p>Para que tu sitio web funcione correctamente y sea encontrado por los clientes, asegúrate de incluir:</p>
-                              <ul>
-                                 <li>Dominio profesional que refleje tu marca</li>
-                                 <li>Hosting confiable y rápido</li>
-                                 <li>Certificado SSL para seguridad</li>
-                                 <li>Optimización para Google My Business</li>
-                                 <li>Integración con redes sociales</li>
-                              </ul>
-
-                              <h4><i class="ti ti-zap"></i> Optimización de Rendimiento Web</h4>
-                              <p>La velocidad de carga es crucial para el SEO y la experiencia del usuario. La IA optimiza automáticamente:</p>
-                              <ul>
-                                 <li>Compresión inteligente de imágenes sin pérdida de calidad</li>
-                                 <li>Carga prioritaria de contenido crítico</li>
-                                 <li>Optimización de código CSS y JavaScript</li>
-                                 <li>Predicción y precarga de recursos necesarios</li>
-                              </ul>
-
-                              <h4><i class="ti ti-rocket"></i> Cómo Optimizar tu Sitio Web para Empresas</h4>
-                              
-                              <h5>Paso 1: Análisis de Palabras Clave</h5>
-                              <p>Identifica las palabras clave más relevantes para tu negocio y tu mercado objetivo. Utiliza herramientas como Google Keyword Planner, SEMrush o Ahrefs.</p>
-
-                              <h5>Paso 2: Estructura de Contenido</h5>
-                              <p>Organiza tu contenido de manera lógica y jerárquica:</p>
-                              <ul>
-                                 <li><strong>Página Principal:</strong> Presentación clara de servicios y propuesta de valor</li>
-                                 <li><strong>Servicios:</strong> Descripción detallada de cada servicio ofrecido</li>
-                                 <li><strong>Productos:</strong> Catálogo organizado con imágenes y especificaciones</li>
-                                 <li><strong>Acerca de:</strong> Historia, misión y valores de la empresa</li>
-                                 <li><strong>Contacto:</strong> Información de contacto y formularios</li>
-                              </ul>
-
-                              <h5>Paso 3: Optimización SEO Técnica</h5>
-                              <p>Implementa las mejores prácticas de SEO técnico:</p>
-                              <ul>
-                                 <li>URLs amigables y descriptivas</li>
-                                 <li>Meta títulos y descripciones optimizados</li>
-                                 <li>Estructura de encabezados H1, H2, H3</li>
-                                 <li>Optimización de imágenes con alt text</li>
-                                 <li>Velocidad de carga optimizada</li>
-                              </ul>
-
-                              <h4><i class="ti ti-crystal-ball"></i> Tendencias Web para Empresas en 2025</h4>
-                              <p>Las empresas que quieran destacar en 2025 deberán implementar:</p>
-                              <ul>
-                                 <li>Sitios web con diseño responsive avanzado</li>
-                                 <li>Optimización SEO local para captar clientes del área</li>
-                                 <li>Integración con redes sociales y Google My Business</li>
-                                 <li>Contenido multimedia (videos, infografías, podcasts)</li>
-                                 <li>Experiencias de usuario personalizadas</li>
-                              </ul>
-
-                              <div class="conclusion-box">
-                                 <h4><i class="ti ti-target"></i> Conclusión</h4>
-                                 <p>Un sitio web bien estructurado y optimizado para SEO es fundamental para el éxito de cualquier empresa en 2025. La combinación de diseño moderno, contenido relevante y optimización técnica te ayudará a destacar en el mercado digital y atraer más clientes.</p>
-                              </div>
+                        <div class="col-12 col-lg-6">
+                           <div class="blog-quote h-100 d-flex flex-column justify-content-center">
+                              <i class="ti ti-quote quote-icon"></i>
+                              <p>Un sitio web bien estructurado y optimizado para SEO es fundamental para el éxito de cualquier empresa en 2025. La combinación de diseño moderno, contenido relevante y optimización técnica te ayudará a destacar en el mercado digital.</p>
+                              <h5 class="mb-0"><span class="small-line"></span> DiseñoPáginas.cl</h5>
                            </div>
                         </div>
                      </div>
+
+                     <h2><i class="ti ti-search"></i> Posicionamiento Web Básico para Empresas</h2>
+                     <p>El SEO es fundamental para que tu empresa aparezca en los resultados de búsqueda. Los elementos básicos incluyen palabras clave relevantes, contenido de calidad y estructura técnica optimizada.</p>
+
+                     <div class="info-box">
+                        <h5><i class="ti ti-chart-bar"></i> Factores Clave para el Posicionamiento:</h5>
+                        <ul>
+                           <li>Palabras clave específicas de tu industria y ubicación</li>
+                           <li>Contenido original y útil para tu audiencia</li>
+                           <li>Velocidad de carga rápida (menos de 3 segundos)</li>
+                           <li>Diseño responsive para móviles</li>
+                           <li>Información de contacto clara y accesible</li>
+                        </ul>
+                     </div>
+
+                     <h2><i class="ti ti-file-text"></i> Contenido Básico pero Efectivo</h2>
+                     <p>El contenido de tu sitio web debe ser claro, útil y orientado a convertir visitantes en clientes. Incluye:</p>
+                     <ul>
+                        <li>Descripción clara de tus servicios y productos</li>
+                        <li>Información sobre tu empresa y experiencia</li>
+                        <li>Testimonios y casos de éxito de clientes</li>
+                        <li>Blog con artículos útiles sobre tu industria</li>
+                        <li>Preguntas frecuentes (FAQ) para resolver dudas</li>
+                     </ul>
+
+                     <h2><i class="ti ti-building"></i> Elementos Técnicos Básicos</h2>
+                     <p>Para que tu sitio web funcione correctamente y sea encontrado por los clientes, asegúrate de incluir:</p>
+                     <ul>
+                        <li>Dominio profesional que refleje tu marca</li>
+                        <li>Hosting confiable y rápido</li>
+                        <li>Certificado SSL para seguridad</li>
+                        <li>Optimización para Google My Business</li>
+                        <li>Integración con redes sociales</li>
+                     </ul>
+
+                     <h2><i class="ti ti-zap"></i> Optimización de Rendimiento Web</h2>
+                     <p>La velocidad de carga es crucial para el SEO y la experiencia del usuario. La IA optimiza automáticamente:</p>
+                     <ul>
+                        <li>Compresión inteligente de imágenes sin pérdida de calidad</li>
+                        <li>Carga prioritaria de contenido crítico</li>
+                        <li>Optimización de código CSS y JavaScript</li>
+                        <li>Predicción y precarga de recursos necesarios</li>
+                     </ul>
+
+                     <h2><i class="ti ti-rocket"></i> Cómo Optimizar tu Sitio Web para Empresas</h2>
+
+                     <h3>Paso 1: Análisis de Palabras Clave</h3>
+                     <p>Identifica las palabras clave más relevantes para tu negocio y tu mercado objetivo. Utiliza herramientas como Google Keyword Planner, SEMrush o Ahrefs.</p>
+
+                     <h3>Paso 2: Estructura de Contenido</h3>
+                     <p>Organiza tu contenido de manera lógica y jerárquica:</p>
+                     <ul>
+                        <li><strong>Página Principal:</strong> Presentación clara de servicios y propuesta de valor</li>
+                        <li><strong>Servicios:</strong> Descripción detallada de cada servicio ofrecido</li>
+                        <li><strong>Productos:</strong> Catálogo organizado con imágenes y especificaciones</li>
+                        <li><strong>Acerca de:</strong> Historia, misión y valores de la empresa</li>
+                        <li><strong>Contacto:</strong> Información de contacto y formularios</li>
+                     </ul>
+
+                     <h3>Paso 3: Optimización SEO Técnica</h3>
+                     <p>Implementa las mejores prácticas de SEO técnico:</p>
+                     <ul>
+                        <li>URLs amigables y descriptivas</li>
+                        <li>Meta títulos y descripciones optimizados</li>
+                        <li>Estructura de encabezados H1, H2, H3</li>
+                        <li>Optimización de imágenes con alt text</li>
+                        <li>Velocidad de carga optimizada</li>
+                     </ul>
+
+                     <h2><i class="ti ti-crystal-ball"></i> Tendencias Web para Empresas en 2025</h2>
+                     <p>Las empresas que quieran destacar en 2025 deberán implementar:</p>
+                     <ul>
+                        <li>Sitios web con diseño responsive avanzado</li>
+                        <li>Optimización SEO local para captar clientes del área</li>
+                        <li>Integración con redes sociales y Google My Business</li>
+                        <li>Contenido multimedia (videos, infografías, podcasts)</li>
+                        <li>Experiencias de usuario personalizadas</li>
+                     </ul>
+
+                     <div class="conclusion-box">
+                        <h4><i class="ti ti-target"></i> Conclusión</h4>
+                        <p>Un sitio web bien estructurado y optimizado para SEO es fundamental para el éxito de cualquier empresa en 2025. La combinación de diseño moderno, contenido relevante y optimización técnica te ayudará a destacar en el mercado digital y atraer más clientes.</p>
+                     </div>
                   </div>
+               </div>
 
-                  <div class="divider-sm"></div>
+               <div class="divider-sm"></div>
 
-                  <!-- Tag & Share -->
-                  <div class="tag-share-wrapper">
-                     <ul class="list-unstyled tag-list">
-                        <li>Tags:</li>
+               <!-- Etiquetas y Compartir -->
+               <div class="tag-share d-flex flex-wrap justify-content-between align-items-center py-4">
+                  <div class="tag-widget d-flex align-items-center gap-2">
+                     <h6 class="mb-0">Etiquetas:</h6>
+                     <div class="tag-list list-unstyled d-flex flex-wrap align-items-center gap-2 mb-0">
                         <li><a href="#">SEO</a></li>
                         <li><a href="#">Diseño Web</a></li>
                         <li><a href="#">Empresas</a></li>
-                     </ul>
-
-                     <ul class="list-unstyled share-list">
-                        <li>Compartir:</li>
+                     </div>
+                  </div>
+                  <div class="share-widget">
+                     <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                        <li><span>Compartir:</span></li>
                         <li><a href="#"><i class="ti ti-brand-facebook"></i></a></li>
-                        <li><a href="#"><i class="ti ti-brand-x"></i></a></li>
+                        <li><a href="#"><i class="ti ti-brand-twitter"></i></a></li>
                         <li><a href="#"><i class="ti ti-brand-linkedin"></i></a></li>
                         <li><a href="#"><i class="ti ti-brand-whatsapp"></i></a></li>
                      </ul>
                   </div>
                </div>
-            </div>
 
-            <div class="col-12 col-md-5 col-lg-4">
-               <div class="d-flex flex-column gap-5">
-                  <!-- Widget -->
-                  <div class="blog-widget">
-                     <h4 class="fw-bold mb-4">Buscar Aquí</h4>
-
-                     <!-- Form -->
-                     <form action="#" method="get">
-                        <input type="search" placeholder="Buscar aquí..." class="form-control">
-                        <button type="submit">
-                           <i class="ti ti-search"></i>
-                        </button>
-                     </form>
-                  </div>
-
-                  <!-- Widget -->
-                  <div class="blog-widget">
-                     <h4 class="fw-bold mb-4">Categorías</h4>
-
-                     <ul class="blog-list style-two">
-                        <li>
-                           <a href="/blog">
-                              Diseño Web
-                              <span>04</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="/blog">
-                              SEO
-                              <span>03</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="/blog">
-                              E-commerce
-                              <span>02</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="/blog">
-                              Marketing Digital
-                              <span>05</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="/blog">
-                              Tecnología
-                              <span>06</span>
-                           </a>
-                        </li>
-                     </ul>
-                  </div>
-
-                  <!-- Widget -->
-                  <div class="blog-widget">
-                     <h4 class="fw-bold mb-4">Artículos Recientes</h4>
-
-                     <div class="d-flex flex-column gap-4">
-
-                        <!-- Widget Blog Post -->
-                        <div class="widget-blog-post">
-                           <div class="blog-thumbnail">
-                              <img loading="lazy" src="assets/img/bg-img/2.jpg" alt="Guía SEO">
-                           </div>
-                           <div class="blog-content">
-                              <p class="mb-1 text-primary">12 Enero 2025</p>
-                              <a href="/blog/guia-seo-principiantes">Guía completa de SEO para principiantes</a>
-                           </div>
-                        </div>
-
-                        <!-- Widget Blog Post -->
-                        <div class="widget-blog-post">
-                           <div class="blog-thumbnail">
-                              <img loading="lazy" src="assets/img/bg-img/3.jpg" alt="Tienda Online">
-                           </div>
-                           <div class="blog-content">
-                              <p class="mb-1 text-primary">10 Enero 2025</p>
-                              <a href="/blog/tienda-online-woocommerce">Cómo crear una tienda online exitosa con WooCommerce</a>
-                           </div>
-                        </div>
-
-                        <!-- Widget Blog Post -->
-                        <div class="widget-blog-post">
-                           <div class="blog-thumbnail">
-                              <img loading="lazy" src="assets/img/bg-img/4.jpg" alt="Marketing Digital">
-                           </div>
-                           <div class="blog-content">
-                              <p class="mb-1 text-primary">8 Enero 2025</p>
-                              <a href="/blog/marketing-digital-pequenas-empresas">Estrategias de marketing digital para pequeñas empresas</a>
-                           </div>
-                        </div>
-
+               <!-- Sobre el Autor -->
+               <div class="about-author bg-light p-4 rounded-4 mb-5">
+                  <div class="d-flex flex-column flex-sm-row align-items-center gap-4">
+                     <div class="author-img">
+                        <img loading="lazy" src="/assets/img/author.jpg" alt="Autor" class="rounded-circle" width="100" height="100">
+                     </div>
+                     <div class="author-info text-center text-sm-start">
+                        <h5 class="mb-1">Equipo DiseñoPáginas</h5>
+                        <p class="mb-2">Expertos en desarrollo web y marketing digital, ayudando a negocios a crecer en línea desde 2023.</p>
+                        <ul class="list-unstyled d-flex align-items-center justify-content-center justify-content-sm-start gap-3 mb-0">
+                           <li><a href="#"><i class="ti ti-brand-facebook"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-twitter"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-instagram"></i></a></li>
+                           <li><a href="#"><i class="ti ti-brand-linkedin"></i></a></li>
+                        </ul>
                      </div>
                   </div>
+               </div>
 
-                  <!-- Widget -->
-                  <div class="blog-widget">
-                     <h4 class="fw-bold mb-4">Tags</h4>
+               <!-- Artículos Relacionados -->
+               <div class="related-posts mb-5">
+                  <h3 class="mb-4">Artículos Relacionados</h3>
+                  <div class="row g-4">
+                     <div class="col-12 col-sm-6">
+                        <a href="/blog/guia-seo-principiantes" class="related-card d-flex gap-3 text-decoration-none">
+                           <img loading="lazy"
+                              src="/assets/img/blog/guia-seo-principiantes/portada.webp"
+                              alt="Guía SEO para Principiantes"
+                              width="90" height="70"
+                              class="rounded-2 flex-shrink-0 object-fit-cover">
+                           <div>
+                              <h6 class="mb-1">Guía completa de SEO para principiantes</h6>
+                              <span class="text-muted small">12 Ene 2025</span>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <a href="/blog/disenoweb-hibrido-wordpress-headless-astro" class="related-card d-flex gap-3 text-decoration-none">
+                           <img loading="lazy"
+                              src="/assets/img/blog/wordpress-headless-astro/portada.webp"
+                              alt="Diseño Web Híbrido"
+                              width="90" height="70"
+                              class="rounded-2 flex-shrink-0 object-fit-cover">
+                           <div>
+                              <h6 class="mb-1">Diseño Web Híbrido WordPress Headless</h6>
+                              <span class="text-muted small">12 Feb 2025</span>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
 
-                     <ul class="tag-list list-unstyled">
-                        <li><a href="#">SEO</a></li>
-                        <li><a href="#">Diseño Web</a></li>
-                        <li><a href="#">Digital</a></li>
-                        <li><a href="#">Empresas</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Tecnología</a></li>
-                        <li><a href="#">E-commerce</a></li>
-                        <li><a href="#">Optimización</a></li>
-                     </ul>
+               <!-- Formulario de Comentarios -->
+               <div class="comments-area bg-light p-4 p-lg-5 rounded-4 mb-5">
+                  <h3 class="mb-4">Deja un comentario</h3>
+                  <form action="#" class="row g-4">
+                     <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="Tu nombre">
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <input type="email" class="form-control" placeholder="Tu correo">
+                     </div>
+                     <div class="col-12">
+                        <textarea class="form-control" rows="5" placeholder="Tu comentario"></textarea>
+                     </div>
+                     <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Publicar comentario</button>
+                     </div>
+                  </form>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <div class="divider"></div>
+   </div>
+
+   <!-- CTA -->
+   <div class="cta-wrapper bg-img" style="background-image: url('/assets/img/core-img/grid.webp')">
+      <div class="overlay"></div>
+      <div class="divider"></div>
+      <div class="container">
+         <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-lg-8 text-center">
+               <div class="cta-content wow fadeInUp" data-wow-duration="1000ms">
+                  <h2 class="mb-4">¿Listo para optimizar tu sitio web para el éxito?</h2>
+                  <p class="mb-5">En DiseñoPáginas.cl te ayudamos a crear sitios web optimizados para SEO que convierten visitantes en clientes.</p>
+                  <div class="button-group d-flex flex-wrap align-items-center justify-content-center gap-4">
+                     <a href="/contacto" class="btn btn-primary">Solicitar Cotización</a>
+                     <a href="tel:+56961765268" class="btn btn-outline-light">
+                        <i class="ti ti-phone-call me-2"></i> +56 9 6176 5268
+                     </a>
                   </div>
                </div>
             </div>
          </div>
       </div>
-
-      <!-- Divider -->
-      <div class="divider"></div>
-   </div>
-
-   <!-- CTA Wrapper -->
-   <div class="cta-wrapper bg-img" style="background-image: url(assets/img/core-img/grid.webp)">
-      <!-- Divider -->
-      <div class="divider"></div>
-
-      <div class="container">
-         <div class="row g-4 g-xl-5 align-items-center">
-            <div class="col-12 col-lg-6 col-xl-7">
-               <h2 class="mb-0 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">¿Listo para optimizar tu sitio web para el éxito?</h2>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-5">
-               <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">En DiseñoPáginas.cl te ayudamos a crear sitios web optimizados para SEO que convierten visitantes en clientes. Solicita tu consulta gratuita y comienza a mejorar tu presencia digital.</p>
-               <a href="/contacto" class="btn btn-primary btn-hover-border wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">Solicitar consulta <i class="ti ti-arrow-up-right"></i></a>
-            </div>
-         </div>
-      </div>
-
-      <!-- Divider -->
       <div class="divider"></div>
    </div>
 </Layout>
 
 <style>
-   .blog-section {
-      padding: 80px 0;
-   }
+   .blog-section { padding: 80px 0; }
 
-   .blog-card-two {
-      background: #fff;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-   }
-
-   .post-img {
-      position: relative;
-      overflow: hidden;
-   }
-
-   .post-img img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-   }
-
-   .post-body {
-      padding: 40px;
-   }
-
-   .blog-meta {
-      margin-bottom: 20px;
-   }
-
-   .blog-meta a {
-      color: #666;
-      text-decoration: none;
-      font-size: 14px;
-      display: flex;
+   /* Meta info */
+   .blog-meta span {
+      color: #6c757d;
+      font-size: 0.9rem;
+      display: inline-flex;
       align-items: center;
       gap: 5px;
    }
-
-   .blog-meta a i {
-      color: var(--primary-color);
+   .blog-meta .ti { color: var(--primary-color); }
+   .badge-categoria {
+      background: var(--primary-color);
+      color: white;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
    }
 
+   /* Título */
    .post-title {
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 700;
       line-height: 1.3;
-      color: #333;
    }
 
-   .post-body h4 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 30px 0 15px 0;
-      color: #444;
-   }
-
-   .post-body h5 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 25px 0 10px 0;
-      color: #555;
-   }
-
-   .post-body p {
-      font-size: 16px;
+   /* Intro con imagen flotante */
+   .intro-row { align-items: flex-start; }
+   .intro-text {
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin-bottom: 20px;
-      color: #666;
-   }
-
-   .post-body ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
-   }
-
-   .post-body li {
-      margin-bottom: 8px;
-      line-height: 1.6;
-   }
-
-   .highlight-box, .info-box, .conclusion-box {
-      background: #f8f9fa;
-      border-left: 4px solid var(--primary-color);
-      padding: 25px;
-      margin: 30px 0;
-      border-radius: 0 8px 8px 0;
-   }
-
-   .conclusion-box {
-      background: #e8f4fd;
-      border-left-color: #007bff;
-   }
-
-   .blog-quote {
-      background: #f8f9fa;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-   }
-
-   .blog-quote p {
-      font-style: italic;
-      font-size: 18px;
-      margin: 20px 0;
-      color: #555;
-   }
-
-   .small-line {
-      display: inline-block;
-      width: 30px;
-      height: 2px;
-      background: var(--primary-color);
-      margin-right: 10px;
-   }
-
-   .tag-share-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 30px 0;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-   }
-
-   .tag-list, .share-list {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+      color: #444;
       margin: 0;
    }
-
-   .tag-list li:first-child, .share-list li:first-child {
-      font-weight: 600;
-      color: #333;
+   .intro-img-wrap img {
+      width: 280px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
    }
 
-   .tag-list a, .share-list a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s ease;
+   /* En móvil la imagen va debajo */
+   @media (max-width: 768px) {
+      .intro-row { flex-direction: column; }
+      .intro-img-wrap { width: 100%; }
+      .intro-img-wrap img { width: 100%; height: 220px; }
    }
 
-   .tag-list a:hover, .share-list a:hover {
-      color: var(--primary-color);
+   /* Contenido */
+   .post-body { line-height: 1.8; color: #333; }
+   .post-body h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
    }
+   .post-body h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+   .post-body p { margin-bottom: 1.2rem; }
+   .post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+   .post-body li { margin-bottom: 0.4rem; }
 
-   .blog-widget {
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+   /* Cajas destacadas */
+   .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--primary-color);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
    }
-
-   .blog-widget h4 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #333;
+   .highlight-box h5 { color: var(--primary-color); margin-bottom: 12px; }
+   .info-box {
+      background: #e9f5ff;
+      border: 1px solid #d0e3ff;
+      border-radius: 8px;
+      padding: 20px;
    }
-
-   .blog-widget form {
+   .info-box h5 { color: #0d6efd; margin-bottom: 12px; }
+   .conclusion-box {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 25px;
+      border: 1px dashed #dee2e6;
+   }
+   .blog-quote {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 25px;
       position: relative;
    }
-
-   .blog-widget input {
-      padding: 15px 50px 15px 20px;
-      border: 2px solid #eee;
-      border-radius: 8px;
-      width: 100%;
-   }
-
-   .blog-widget button {
+   .quote-icon {
       position: absolute;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-   }
-
-   .blog-list.style-two {
-      list-style: none;
-      padding: 0;
-   }
-
-   .blog-list.style-two li {
-      margin-bottom: 15px;
-   }
-
-   .blog-list.style-two a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #666;
-      text-decoration: none;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-      transition: color 0.3s ease;
-   }
-
-   .blog-list.style-two a:hover {
+      top: 10px;
+      left: 15px;
+      font-size: 50px;
+      opacity: 0.08;
       color: var(--primary-color);
    }
 
-   .blog-list.style-two span {
-      background: var(--primary-color);
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 12px;
-   }
-
-   .widget-blog-post {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-   }
-
-   .blog-thumbnail img {
-      width: 80px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 8px;
-   }
-
-   .blog-content a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      line-height: 1.4;
-      display: block;
-   }
-
-   .blog-content a:hover {
-      color: var(--primary-color);
-   }
-
-   .tag-list.list-unstyled {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-   }
-
-   .tag-list.list-unstyled li a {
+   /* Tags */
+   .tag-share { border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
+   .tag-list a {
       background: #f8f9fa;
-      padding: 8px 15px;
+      color: #6c757d;
+      padding: 4px 14px;
       border-radius: 20px;
-      font-size: 14px;
-      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      transition: all 0.3s;
    }
+   .tag-list a:hover { background: var(--primary-color); color: white; }
 
-   .tag-list.list-unstyled li a:hover {
-      background: var(--primary-color);
-      color: white;
-   }
+   /* Autor */
+   .author-img img { width: 100px; height: 100px; object-fit: cover; }
 
-   .cta-wrapper {
-      padding: 80px 0;
-      color: white;
+   /* Artículos relacionados */
+   .related-card {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      transition: all 0.3s;
+      color: inherit;
    }
+   .related-card:hover { border-color: var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+   .related-card img { width: 90px; height: 70px; object-fit: cover; }
+   .related-card h6 { color: #333; font-size: 0.95rem; line-height: 1.4; }
 
-   .cta-wrapper h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-   }
-
-   .cta-wrapper p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-   }
-
-   @media (max-width: 768px) {
-      .post-body {
-         padding: 25px;
-      }
-      
-      .post-title {
-         font-size: 1.5rem;
-      }
-      
-      .tag-share-wrapper {
-         flex-direction: column;
-         align-items: flex-start;
-      }
-      
-      .cta-wrapper h2 {
-         font-size: 2rem;
-      }
-   }
-</style> 
+   /* Comentarios */
+   .comments-area { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+</style>
