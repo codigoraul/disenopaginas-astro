@@ -25,6 +25,7 @@ export default defineConfig({
   // Vite configuration
   vite: {
     base: isDev ? '/' : './',
+    cacheDir: '/tmp/.vite-cache',
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
