@@ -13,14 +13,17 @@ import Footer from '../components/Footer.astro';
   <Header />
   
   <!-- Hero Section -->
-  <section class="hero-section bg-gradient-primary py-5">
-    <div class="container">
+  <section class="hero-section position-relative overflow-hidden" style="padding: 120px 0;">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="/assets/videos/bg-abogados.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
       <div class="row align-items-center min-vh-75">
         <div class="col-lg-8">
           <div class="hero-content text-white">
-            <span class="badge bg-light text-primary mb-3 fs-6">Especialistas en Sector Legal</span>
-            <h1 class="display-4 fw-bold mb-4">
-              Diseño Web para <span class="text-aqua">Abogados y Estudios Jurídicos</span>
+            <h1 class="display-4 fw-medium mb-4">
+              Diseño Web para <span class="text-white">Abogados y Estudios Jurídicos</span>
             </h1>
             <p class="lead mb-4 fs-5">
               Creamos sitios web profesionales para abogados que transmiten confianza, credibilidad y 
@@ -41,7 +44,7 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Servicios Web Especializados para Abogados</h2>
+          <h2 class="text-[32px] fw-bold text-gray mb-4">Servicios Web Especializados para Abogados</h2>
           <p class="lead text-muted">Soluciones digitales diseñadas específicamente para el sector legal</p>
         </div>
       </div>
@@ -354,6 +357,39 @@ import Footer from '../components/Footer.astro';
   
   .hero-buttons .btn {
     min-width: 180px;
+  }
+  
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  .hero-section .container {
+    z-index: 2;
+  }
+  
+  section h2 {
+    font-size: 38px !important;
+    font-weight: bold !important;
+    color: #454655 !important;
   }
   
   @media (max-width: 768px) {

@@ -1,16 +1,15 @@
 /* Solo cambiar la palabra "Páginas Web" al color terciario */
 .hero-section .hero-content h1 span {
-   color: #2F56DC !important;
+   color: #39b3ee !important;
 }
 
 /* Estilos para el título principal en móvil */
 .hero-section .hero-content h1 {
-   color: #444f67 !important;
+   color: #fff !important;
    font-size: 48px !important;
    font-weight: 600 !important;
    line-height: 1.15 !important;
    margin-bottom: 20px !important;
-   text-shadow: 2px 2px 2px snow;
 }
 
 /* Reducir espacio en móviles */
@@ -243,8 +242,8 @@ body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
 
 /* Botón grande del slider */
 .hero-section .btn-outline-light {
-   border: 2px solid #2F56DC !important;
-   color: #2F56DC !important;
+       border: 2px solid #39b3ee !important;
+    color: #39b3ee !important;
    background: transparent !important;
    transition: all 0.3s ease;
 }
