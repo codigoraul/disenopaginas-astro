@@ -1,4 +1,62 @@
+# robots.txt para diseñopaginas.cl
+# Última actualización: 2026-04-11
+
+# Permitir todos los bots de búsqueda principales
 User-agent: *
 Allow: /
 
-Sitemap: https://www.diseñopaginas.cl/sitemap.xml
+# Bloquear carpetas del sistema y archivos sensibles
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.env
+Disallow: /.htaccess
+Disallow: /*.log$
+
+# Bloquear parámetros de búsqueda y sesiones duplicadas
+Disallow: /*?sessionid=
+Disallow: /*?utm_*
+Disallow: /*?ref=
+
+# Googlebot - acceso completo
+User-agent: Googlebot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+
+# Googlebot para imágenes
+User-agent: Googlebot-Image
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots de scraping y spam conocidos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap
+Sitemap: https://xn--diseopaginas-dhb.cl/sitemap.xml
