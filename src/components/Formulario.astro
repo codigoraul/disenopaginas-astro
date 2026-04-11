@@ -40,7 +40,7 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
       <div class="col-lg-6">
         <select name="presupuesto" required class="form-select">
           <option value="">Selecciona un plan</option>
-          <option value="Si ya tienes sitio web">Si ya tienes sitio web - $70.000</option>
+          <option value="Si ya tienes sitio web">Si ya tienes sitio web - $90.000</option>
           <option value="Landing Page - Medio">Landing Page - Medio - $140.000</option>
           <option value="Landing Page - Avanzada">Landing Page - Avanzada - $200.000</option>
           <option value="Sitio Web Corporativo">Sitio Web Corporativo - $300.000</option>
@@ -66,38 +66,69 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
 
 <style>
   .faq-contact-section.style-two {
-    background-color: #BEFCFE !important;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, #004597 0%, #05459a 100%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px !important;
+  }
+  
+  .faq-contact-section.style-two h3 {
+    color: #ffffff !important;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .faq-contact-section.style-two p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 16px;
   }
   
   .faq-contact-form .form-control,
   .faq-contact-form .form-select {
-    border: 1px solid #e8e8e8;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    background-color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #ffffff;
     margin-bottom: 0;
     transition: all 0.3s ease;
+    color: #666;
+  }
+  
+  .faq-contact-form .form-control::placeholder,
+  .faq-contact-form .form-select {
+    color: #666;
   }
   
   .faq-contact-form .form-control:focus,
   .faq-contact-form .form-select:focus {
-    border-color: #4877E9;
-    box-shadow: 0 0 0 0.2rem rgba(72, 119, 233, 0.15);
+    border: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    outline: none;
+  }
+  
+  .faq-contact-form textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
   }
   
   .btn-primary {
-    background-color: #4877E9;
+    background-color: #5ce1e6 !important;
     border: none;
-    padding: 12px 24px;
-    font-weight: 600;
+    padding: 15px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    border-radius: 8px;
+    color: #000000 !important;
   }
   
   .btn-primary:hover {
-    background-color: #3a62c0;
+    background-color: #4dd4d9 !important;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(92, 225, 230, 0.4);
   }
 </style>
 
