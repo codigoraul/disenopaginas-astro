@@ -1,26 +1,45 @@
 # robots.txt para diseñopaginas.cl
 # Última actualización: 2026-04-11
 
-# Permitir todos los bots de búsqueda principales
+# ================================
+# Reglas generales para todos los bots
+# ================================
 User-agent: *
 Allow: /
 
-# Bloquear carpetas del sistema y archivos sensibles
+# Carpetas del sistema y archivos sensibles
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /cache/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /node_modules/
+Disallow: /.astro/
+Disallow: /dist/
+
+# Archivos de configuración sensibles
 Disallow: /.env
 Disallow: /.htaccess
-Disallow: /*.log$
+Disallow: /.htpasswd
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /astro.config.mjs
+Disallow: /tsconfig.json
+Disallow: /*.log
 
-# Bloquear parámetros de búsqueda y sesiones duplicadas
+# Evitar indexación de URLs con parámetros duplicados
 Disallow: /*?sessionid=
 Disallow: /*?utm_*
 Disallow: /*?ref=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
 
-# Googlebot - acceso completo
+# Velocidad de rastreo (1 petición por segundo para no sobrecargar hosting compartido)
+Crawl-delay: 1
+
+# ================================
+# Googlebot - acceso completo a recursos
+# ================================
 User-agent: Googlebot
 Allow: /
 Allow: /*.css$
@@ -31,6 +50,7 @@ Allow: /*.png$
 Allow: /*.webp$
 Allow: /*.svg$
 Allow: /*.gif$
+Crawl-delay: 1
 
 # Googlebot para imágenes
 User-agent: Googlebot-Image
@@ -41,11 +61,24 @@ Allow: /*.webp$
 Allow: /*.svg$
 Allow: /*.gif$
 
-# Bingbot
+# ================================
+# Otros buscadores permitidos
+# ================================
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
-# Bloquear bots de scraping y spam conocidos
+User-agent: Yandex
+Allow: /
+Crawl-delay: 3
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# ================================
+# Bots de scraping y spam - BLOQUEADOS
+# ================================
 User-agent: AhrefsBot
 Disallow: /
 
@@ -58,5 +91,34 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+# ================================
 # Sitemap
+# ================================
 Sitemap: https://xn--diseopaginas-dhb.cl/sitemap.xml
