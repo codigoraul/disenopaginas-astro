@@ -10,10 +10,14 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 
    <!-- Blog Section -->
    <div class="blog-section bg-white">
-      <!-- Divider -->
-      <div class="divider"></div>
-
       <div class="container">
+         <!-- Section Heading -->
+         <div class="row">
+            <div class="col-12 text-center mb-5">
+               <h2 class="section-title">Artículos Destacados</h2>
+            </div>
+         </div>
+
          <div class="row g-4 g-xxl-5 justify-content-center">
 
             <!-- Blog Card 1 -->
@@ -141,6 +145,21 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 <style>
    .blog-section {
       padding: 80px 0;
+   }
+
+   .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+   }
+
+   .section-subtitle {
+      font-size: 18px;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
    }
 
    .blog-card {
