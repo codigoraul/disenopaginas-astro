@@ -6,8 +6,8 @@ import Stats from '../components/Stats.astro';
 
 <Layout title="Portafolio - Diseño de Páginas Web">
   <!-- Breadcrumb Section -->
-  <Breadcrumb 
-    title="Nuestro Portafolio" 
+  <Breadcrumb
+    title="Nuestro Portafolio"
     currentPage="Portafolio"
     bgImage="/assets/img/bg-img/bg-title.webp"
   />
@@ -19,15 +19,32 @@ import Stats from '../components/Stats.astro';
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <div class="section-heading">
-            <h2>Proyectos Destacados</h2>
-            <p>Descubre algunos de nuestros mejores trabajos en diseño web y desarrollo para empresas chilenas.</p>
+            <h2>Nuestros mejores trabajos en diseño web</h2>
           </div>
         </div>
       </div>
-      
-      <div class="row mt-5 portfolio-grid">
+
+      <!-- Filtros -->
+      <div class="row mt-4 mb-2">
+        <div class="col-12 text-center">
+          <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="astro">Astro JS (Rapidas)</button>
+            <button class="filter-btn" data-filter="dentistas">Dentistas</button>
+            <button class="filter-btn" data-filter="abogados">Abogados</button>
+            <button class="filter-btn" data-filter="inmobiliaria">Inmobiliaria</button>
+            <button class="filter-btn" data-filter="salud">Salud</button>
+            <button class="filter-btn" data-filter="construccion">Construccion</button>
+            <button class="filter-btn" data-filter="empresa">Empresas</button>
+            <button class="filter-btn" data-filter="productos">Productos</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 portfolio-grid" id="portfolio-grid">
+
         <!-- Dr. Ejuvenece -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/drejuvenece.webp" alt="Clínica estética Chile" class="img-fluid">
@@ -41,8 +58,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- Puerto de Hielo -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/puertodehielo.webp" alt="Diseño web Refrigeración industrial y comercial" class="img-fluid">
@@ -56,8 +74,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- RSM Tye -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/rsmtye.webp" alt="Diseño web Abogados Chile" class="img-fluid">
@@ -71,8 +90,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- Arqueo Cat -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/arqueocat.webp" alt="Arqueocat - Servicios arqueológicos profesionales" class="img-fluid">
@@ -86,9 +106,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Sergenspa.cl -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa construccion">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/sergenspa.webp" alt="Sergenspa - Servios Ingeniería empresas" class="img-fluid">
@@ -102,8 +122,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- Comercialaysen.cl -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/comercialaysen.webp" alt="Comercial Aysen - Proteina carnes" class="img-fluid">
@@ -117,8 +138,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-         <!-- Roman Service -->
-         <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+
+        <!-- Roman Service -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/romanservice.webp" alt="Páginas web Montaje agroindustrial" class="img-fluid">
@@ -132,9 +154,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Constructoratresh -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="construccion">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/constructoratresh.webp" alt="Constructoratresh - Web para constructoras" class="img-fluid">
@@ -148,8 +170,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-         <!-- Coligues -->
-         <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+
+        <!-- Coligues -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/coligues-ch.webp" alt="Diseño web coligues Chile" class="img-fluid">
@@ -163,9 +186,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Banquetería -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/banqueteria-ch.webp" alt="Página web Banquetería" class="img-fluid">
@@ -179,8 +202,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-         <!-- Pasteles Delicia -->
-         <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+
+        <!-- Pasteles Delicia -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/pastelesdelicia-ch.webp" alt="Diseño web Cursos de Pastelería" class="img-fluid">
@@ -194,9 +218,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Hielos Sur -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa construccion">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/hielos-sur.webp" alt="Diseño Mobiliario Santiago" class="img-fluid">
@@ -210,8 +234,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- Hem Maquinaria -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/hemmaquinaria.webp" alt="Diseño web - Arriendo de equipos" class="img-fluid">
@@ -225,9 +250,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Ortodoncia Para Todos -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="dentistas">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/ortodonciaparatodos.webp" alt="Web dentistas de Ortodoncia" class="img-fluid">
@@ -241,9 +266,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Hidro Casas -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="construccion">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/hidrocasas.webp" alt="Diseño web empresa de Lavado de casas" class="img-fluid">
@@ -257,9 +282,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Gonzalo Toro Propiedades -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/gonzalotoropropiedades.webp" alt="Diseño web para propiedades" class="img-fluid">
@@ -275,7 +300,7 @@ import Stats from '../components/Stats.astro';
         </div>
 
         <!-- Damary -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/damary.webp" alt="Diseño web Inmobiliaria La Serena" class="img-fluid">
@@ -289,9 +314,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Kofluir -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/kofluir.webp" alt="Diseño web Psicología Valdivia" class="img-fluid">
@@ -305,9 +330,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Mebcarq -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa construccion">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/mebcarq.webp" alt="Páginas web Arquitectura Chile" class="img-fluid">
@@ -321,9 +346,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Centro Impúlsate -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/centroimpulsate.webp" alt="Centro Impúlsate - Centro de desarrollo personal" class="img-fluid">
@@ -339,7 +364,7 @@ import Stats from '../components/Stats.astro';
         </div>
 
         <!-- Seguridadsjs -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/seguridadsjs.webp" alt="Diseño web Seguridad Chile" class="img-fluid">
@@ -355,7 +380,7 @@ import Stats from '../components/Stats.astro';
         </div>
 
         <!-- Serachile -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/serachile.webp" alt="Sera Chile product para peces y acuarios" class="img-fluid">
@@ -369,9 +394,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Endodonciatemuco -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="dentistas">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/endodonciatemuco.webp" alt="Endodoncia Temuco Sociedad Dentistas" class="img-fluid">
@@ -387,7 +412,7 @@ import Stats from '../components/Stats.astro';
         </div>
 
         <!-- Asesordeinsolvencia -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/asesordeinsolvencia.webp" alt="Asesor de Insolvencia Chile" class="img-fluid">
@@ -401,8 +426,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
+
         <!-- Atlc.cl -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/atlc.webp" alt="Diseño web Consultoria y Asesoría Tributaria" class="img-fluid">
@@ -418,7 +444,7 @@ import Stats from '../components/Stats.astro';
         </div>
 
         <!-- Ceromultas.cl -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/ceromultas.webp" alt="Los diseños web para Asesorías empresa" class="img-fluid">
@@ -432,9 +458,9 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-        
+
         <!-- Opticacity.cl -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud empresa">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/opticacity.webp" alt="Diseño web Optica" class="img-fluid">
@@ -449,451 +475,442 @@ import Stats from '../components/Stats.astro';
           </div>
         </div>
 
-       <!-- sle -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/sle.webp" alt="Diseño web para Abogados y auditores" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>SLE</h5>
-                 <p>Diseño web para SLE</p>
-                 <a href="https://sle.cl" target="_blank" class="portfolio-link">www.sle.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- Deliciasmimo.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/deliciasmimo.webp" alt="Diseño web para Deliciasmimo" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Deliciasmimo</h5>
-                 <p>Diseño web para Pastelería</p>
-                 <a href="https://deliciasmimo.cl" target="_blank" class="portfolio-link">www.deliciasmimo.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <!-- acasalud.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/acasalud.webp" alt="Diseño web para Acasalud" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Acasalud</h5>
-                 <p>Diseño web para Capacitación Salud</p>
-                 <a href="https://acasalud.cl" target="_blank" class="portfolio-link">www.acasalud.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- Corrotek.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/corrotek.webp" alt="Diseño web para Corrotek" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Corrotek (revisar)</h5>
-                 <p>Diseño web para Corrotek</p>
-                 <a href="https://corrotek.cl" target="_blank" class="portfolio-link">www.corrotek.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- Royalsoccer.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/royalsoccer.webp" alt="Royalsoccer Eventos de fútbol" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Royalsoccer</h5>
-                 <p>Diseño web para Futbol y deportes</p>
-                 <a href="https://royalsoccer.cl" target="_blank" class="portfolio-link">www.royalsoccer.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <!-- Propiedadescarolina.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/propiedades-carolina.webp" alt="Propiedadescarolina.cl" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Propiedadescarolina</h5>
-                 <p>Páginas web para corredora de propiedades</p>
-                 <a href="https://propiedadescarolina.cl" target="_blank" class="portfolio-link">www.propiedadescarolina.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- Proambiental.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/proambientalchile.webp" alt="diseño web Proambiental.cl" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Proambiental</h5>
-                 <p>Páginas web para Proambiental.cl</p>
-                 <a href="https://proambientalchile.cl" target="_blank" class="portfolio-link">www.proambientalchile.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- lapaisajismo.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/lapaisajismo.webp" alt="diseño web para Paisajismo" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Lapaisajismo</h5>
-                 <p>Páginas web para lapaisajismo.cl</p>
-                 <a href="https://lapaisajismo.cl" target="_blank" class="portfolio-link">www.lapaisajismo.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- apurolegal.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/apurolegal.webp" alt="diseño web para Abogados" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Apurolegal</h5>
-                 <p>Páginas web para Abogados</p>
-                 <a href="https://apurolegal.cl" target="_blank" class="portfolio-link">www.apurolegal.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- animaldoc.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/animaldoc.webp" alt="diseño web para veterinaria" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Animaldoc</h5>
-                 <p>Páginas web para Veterinaria</p>
-                 <a href="https://animaldoc.cl" target="_blank" class="portfolio-link">www.animaldoc.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <!-- comprobe.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-         <div class="portfolio-card">
-           <div class="portfolio-img">
-             <img loading="lazy" src="/assets/img/portafolio/comprobe.webp" alt="Comprobe - Servicios para la minería" class="img-fluid">
-             <div class="portfolio-overlay">
-               <div class="portfolio-content">
-                 <h5>Comprobe</h5>
-                 <p>Páginas web servicios minería</p>
-                 <a href="https://comprobe.cl" target="_blank" class="portfolio-link">www.comprobe.cl (2024)</a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-      <!--  Constructorazteca.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/constructorazteca.webp" alt="Constructorazteca - Constructora Chiloe" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Constructorazteca</h5>
-                <p>Páginas web empresa constructora</p>
-                <a href="https://constructorazteca.cl" target="_blank" class="portfolio-link">www.constructorazteca.cl (2024)</a>
+        <!-- sle -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa abogados">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/sle.webp" alt="Diseño web para Abogados y auditores" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>SLE</h5>
+                  <p>Diseño web para SLE</p>
+                  <a href="https://sle.cl" target="_blank" class="portfolio-link">www.sle.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Venedent.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/venedent.webp" alt="Venedent - Clinica dental Chile" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Venedent</h5>
-                <p>Páginas web Clinica dental </p>
-                <a href="https://venedent.cl" target="_blank" class="portfolio-link">www.venedent.cl (2024)</a>
+        <!-- Deliciasmimo.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/deliciasmimo.webp" alt="Diseño web para Deliciasmimo" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Deliciasmimo</h5>
+                  <p>Diseño web para Pastelería</p>
+                  <a href="https://deliciasmimo.cl" target="_blank" class="portfolio-link">www.deliciasmimo.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- wps.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/wps.webp" alt=" Tuberias de Pipeline y Estaciones " class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>WPS Pipelines</h5>    
-                <p> Web para Tuberias de Pipeline y Estaciones</p>
-                <a href="https://wps.cl" target="_blank" class="portfolio-link">www.wps.cl (2024)</a>
+        <!-- acasalud.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/acasalud.webp" alt="Diseño web para Acasalud" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Acasalud</h5>
+                  <p>Diseño web para Capacitación Salud</p>
+                  <a href="https://acasalud.cl" target="_blank" class="portfolio-link">www.acasalud.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- AMW.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/amw.webp" alt=" AMW.cl " class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>AMW.cl Certified forest
-                  </h5>    
-                <p> Web para AMW.cl Certified forest</p>
-                <a href="https://amw.cl" target="_blank" class="portfolio-link">www.amw.cl (2024)</a>
+        <!-- Corrotek.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/corrotek.webp" alt="Diseño web para Corrotek" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Corrotek (revisar)</h5>
+                  <p>Diseño web para Corrotek</p>
+                  <a href="https://corrotek.cl" target="_blank" class="portfolio-link">www.corrotek.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- reservaelchequen.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/reservaelchequen.webp" alt=" reservaelchequen.cl " class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>reservaelchequen.cl</h5>    
-                <p> Web para reservaelchequen.cl</p>
-                <a href="https://reservaelchequen.cl/mantenimiento.html" target="_blank" class="portfolio-link">www.reservaelchequen.cl (2024)</a>
+        <!-- Royalsoccer.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/royalsoccer.webp" alt="Royalsoccer Eventos de fútbol" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Royalsoccer</h5>
+                  <p>Diseño web para Futbol y deportes</p>
+                  <a href="https://royalsoccer.cl" target="_blank" class="portfolio-link">www.royalsoccer.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- jcspropiedades.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/jcspropiedades.webp" alt=" jcspropiedades.cl " class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Propiedades Chile</h5>    
-                <p> Web para Corredora de propiedades</p>
-                <a href="https://jcspropiedades.cl" target="_blank" class="portfolio-link">www.jcspropiedades.cl (2024)</a>
+        <!-- Propiedadescarolina.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/propiedades-carolina.webp" alt="Propiedadescarolina.cl" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Propiedadescarolina</h5>
+                  <p>Páginas web para corredora de propiedades</p>
+                  <a href="https://propiedadescarolina.cl" target="_blank" class="portfolio-link">www.propiedadescarolina.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- bestproperty.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/bestproperty.webp" alt="BestProperty web propiedades " class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Best Property pagina web propiedades</h5>    
-                <p> Web para Best Property</p>
-                <a href="https://diseñopaginas.cl/besproperty/" target="_blank" class="portfolio-link">www.bestproperty.cl (2024)</a>
+        <!-- Proambiental.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/proambientalchile.webp" alt="diseño web Proambiental.cl" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Proambiental</h5>
+                  <p>Páginas web para Proambiental.cl</p>
+                  <a href="https://proambientalchile.cl" target="_blank" class="portfolio-link">www.proambientalchile.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- bordoliabogados.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/bordoliabogados.webp" alt="Bordoli Abogados" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Bordoli abogados</h5>
-                <p>Diseño web Abogados en chile</p>
-                <a href="https://bordoliabogados.cl" target="_blank" class="portfolio-link">www.bordoliabogados.cl (2024)</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- https://ingenieriamym.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/ingenieriamym.webp" alt="Ingeniería MyM" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Ingeniería MyM</h5>
-                <p>Diseño web Ingeniería </p>
-                <a href="https://ingenieriamym.cl" target="_blank" class="portfolio-link">www.ingenieriamym.cl (2024)</a>
+        <!-- lapaisajismo.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/lapaisajismo.webp" alt="diseño web para Paisajismo" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Lapaisajismo</h5>
+                  <p>Páginas web para lapaisajismo.cl</p>
+                  <a href="https://lapaisajismo.cl" target="_blank" class="portfolio-link">www.lapaisajismo.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- metaperitaje.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/metaperitaje.webp" alt="Metaperitaje" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Metaperitaje</h5>
-                <p>Diseño web Metaperitaje</p>
-                <a href="https://metaperitaje.cl" target="_blank" class="portfolio-link">www.metaperitaje.cl (2025)</a>
+        <!-- apurolegal.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/apurolegal.webp" alt="diseño web para Abogados" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Apurolegal</h5>
+                  <p>Páginas web para Abogados</p>
+                  <a href="https://apurolegal.cl" target="_blank" class="portfolio-link">www.apurolegal.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- myvending.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/myvending.webp" alt="MyVending Venta de maquinas Vending" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>MyVending</h5>
-                <p>Diseño web venta Maquinas Vending</p>
-                <a href="https://myvending.cl" target="_blank" class="portfolio-link">www.myvending.cl (2025)</a>
+        <!-- animaldoc.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/animaldoc.webp" alt="diseño web para veterinaria" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Animaldoc</h5>
+                  <p>Páginas web para Veterinaria</p>
+                  <a href="https://animaldoc.cl" target="_blank" class="portfolio-link">www.animaldoc.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- laboralma.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/laboralma.webp" alt="Laboralma psicologos para empresas" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Laboralma</h5>
-                <p>Diseño web psicologos para empresas</p>
-                <a href="https://laboralma.cl" target="_blank" class="portfolio-link">www.laboralma.cl (2025)</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- opcioninmobiliaria.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/opcioninmobiliaria.webp" alt="Opcion Inmobiliaria Propiedades" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Opcion Inmobiliaria</h5>
-                <p>Diseño web para Corredora de Propiedades</p>
-                <a href="https://opcioninmobiliaria.cl" target="_blank" class="portfolio-link">www.opcioninmobiliaria.cl (2025)</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- maxop.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/maxop.webp" alt="Maxop - Proyectos electricos" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Sitio web Proyectos electricos</h5>
-                <p> proyectos eléctricos en BT y MT </p>
-                <a href="https://maxop.cl" target="_blank" class="portfolio-link">www.maxop.cl (2025)</a>
+        <!-- comprobe.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/comprobe.webp" alt="Comprobe - Servicios para la minería" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Comprobe</h5>
+                  <p>Páginas web servicios minería</p>
+                  <a href="https://comprobe.cl" target="_blank" class="portfolio-link">www.comprobe.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- nelparts.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/nelparts.webp" alt="Nelparts - Repuestos para camion" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Web Repuestos Camiones</h5>
-              <p>Diseño web Nelparts</p>
-              <a href="https://nelparts.cl" target="_blank" class="portfolio-link">www.nelparts.cl (2025)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-
-      <!-- seguroscancino.cl -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/seguros-cancino.webp" alt="Empresa de seguros Scancino" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Seguro Scancino</h5>
-                <p>Diseño web para empresa de seguros </p>
-                <a href="https://seguroscancino.cl" target="_blank" class="portfolio-link">www.seguroscancino.cl (2025)</a>
+        <!-- Constructorazteca.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="construccion">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/constructorazteca.webp" alt="Constructorazteca - Constructora Chiloe" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Constructorazteca</h5>
+                  <p>Páginas web empresa constructora</p>
+                  <a href="https://constructorazteca.cl" target="_blank" class="portfolio-link">www.constructorazteca.cl (2024)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- rangiantu.com -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/rangiantu.webp" alt="Rangiantu Tensoestructuras" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Empresa Rangiantu</h5>
-                <p>Diseño web para Rangiantu Tensoestructuras</p>
-                <a href="https://rangiantu.com" target="_blank" class="portfolio-link">www.rangiantu.com (2025)</a>
+        <!-- wps.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/wps.webp" alt=" Tuberias de Pipeline y Estaciones " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>WPS Pipelines</h5>
+                  <p> Web para Tuberias de Pipeline y Estaciones</p>
+                  <a href="https://wps.cl" target="_blank" class="portfolio-link">www.wps.cl (2024)</a>
+                </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
-      <!-- Sergen Spa -->
-        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
+
+        <!-- AMW.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/amw.webp" alt=" AMW.cl " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>AMW.cl Certified forest</h5>
+                  <p> Web para AMW.cl Certified forest</p>
+                  <a href="https://amw.cl" target="_blank" class="portfolio-link">www.amw.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- reservaelchequen.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/reservaelchequen.webp" alt=" reservaelchequen.cl " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>reservaelchequen.cl</h5>
+                  <p> Web para reservaelchequen.cl</p>
+                  <a href="https://reservaelchequen.cl/mantenimiento.html" target="_blank" class="portfolio-link">www.reservaelchequen.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- jcspropiedades.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/jcspropiedades.webp" alt=" jcspropiedades.cl " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Propiedades Chile</h5>
+                  <p> Web para Corredora de propiedades</p>
+                  <a href="https://jcspropiedades.cl" target="_blank" class="portfolio-link">www.jcspropiedades.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bestproperty.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/bestproperty.webp" alt="BestProperty web propiedades " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Best Property pagina web propiedades</h5>
+                  <p> Web para Best Property</p>
+                  <a href="https://diseñopaginas.cl/besproperty/" target="_blank" class="portfolio-link">www.bestproperty.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bordoliabogados.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/bordoliabogados.webp" alt="Bordoli Abogados" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Bordoli abogados</h5>
+                  <p>Diseño web Abogados en chile</p>
+                  <a href="https://bordoliabogados.cl" target="_blank" class="portfolio-link">www.bordoliabogados.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ingenieriamym.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/ingenieriamym.webp" alt="Ingeniería MyM" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Ingeniería MyM</h5>
+                  <p>Diseño web Ingeniería </p>
+                  <a href="https://ingenieriamym.cl" target="_blank" class="portfolio-link">www.ingenieriamym.cl (2024)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- metaperitaje.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/metaperitaje.webp" alt="Metaperitaje" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Metaperitaje</h5>
+                  <p>Diseño web Metaperitaje</p>
+                  <a href="https://metaperitaje.cl" target="_blank" class="portfolio-link">www.metaperitaje.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- myvending.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/myvending.webp" alt="MyVending Venta de maquinas Vending" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>MyVending</h5>
+                  <p>Diseño web venta Maquinas Vending</p>
+                  <a href="https://myvending.cl" target="_blank" class="portfolio-link">www.myvending.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- laboralma.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/laboralma.webp" alt="Laboralma psicologos para empresas" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Laboralma</h5>
+                  <p>Diseño web psicologos para empresas</p>
+                  <a href="https://laboralma.cl" target="_blank" class="portfolio-link">www.laboralma.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- opcioninmobiliaria.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/opcioninmobiliaria.webp" alt="Opcion Inmobiliaria Propiedades" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Opcion Inmobiliaria</h5>
+                  <p>Diseño web para Corredora de Propiedades</p>
+                  <a href="https://opcioninmobiliaria.cl" target="_blank" class="portfolio-link">www.opcioninmobiliaria.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- maxop.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/maxop.webp" alt="Maxop - Proyectos electricos" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Sitio web Proyectos electricos</h5>
+                  <p> proyectos eléctricos en BT y MT </p>
+                  <a href="https://maxop.cl" target="_blank" class="portfolio-link">www.maxop.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- nelparts.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/nelparts.webp" alt="Nelparts - Repuestos para camion" class="img-fluid">
+              <div class="portfolio-img">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-content">
+                    <h5>Web Repuestos Camiones</h5>
+                    <p>Diseño web Nelparts</p>
+                    <a href="https://nelparts.cl" target="_blank" class="portfolio-link">www.nelparts.cl (2025)</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- seguroscancino.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/seguros-cancino.webp" alt="Empresa de seguros Scancino" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Seguro Scancino</h5>
+                  <p>Diseño web para empresa de seguros </p>
+                  <a href="https://seguroscancino.cl" target="_blank" class="portfolio-link">www.seguroscancino.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- rangiantu.com -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/rangiantu.webp" alt="Rangiantu Tensoestructuras" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Empresa Rangiantu</h5>
+                  <p>Diseño web para Rangiantu Tensoestructuras</p>
+                  <a href="https://rangiantu.com" target="_blank" class="portfolio-link">www.rangiantu.com (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sergen Spa -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud">
           <div class="portfolio-card">
             <div class="portfolio-img">
               <img loading="lazy" src="/assets/img/portafolio/sergenspa.webp" alt="Diseño Servicios Ingeniería empresas" class="img-fluid">
@@ -907,318 +924,373 @@ import Stats from '../components/Stats.astro';
             </div>
           </div>
         </div>
-      <!-- https://www.airmobilechile.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/airmobilechile.webp" alt="Servicios Aire Acondicionado vehículos" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Air Mobile Chile</h5>
-              <p>Diseño web para Calefacción de Vehículos</p>
-              <a href="https://airmobilechile.cl/" target="_blank" class="portfolio-link">www.airmobilechile.cl (2025)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.airmobilechile.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/emcl.webp" alt="Estandares mineros Chile" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Estandares mineros Chile</h5>
-              <p>Control de calidad minero</p>
-              <a href="https://emcl.cl/" target="_blank" class="portfolio-link">www.emcl.cl (2025)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.manriquezrivera.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/manriquezrivera.webp" alt="Abogados Laborale " class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Abogados Empresas y Personas </h5>
-              <p>Diseño web para abogados Empresas y personas  </p>
-              <a href="https://manriquezrivera.cl/" target="_blank" class="portfolio-link">www.manriquezrivera.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.protrabajo.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/protrabajo.webp" alt="Abogados Laborales" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Abogados Derecho Laborales </h5>
-              <p>Diseño web para abogados Empresas y personas  </p>
-              <a href="https://protrabajo.cl/" target="_blank" class="portfolio-link">www.protrabajo.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.dicore.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/dicore.webp" alt="Empresa Dicore" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Dicore distribuildor oficial </h5>
-              <p>Productos In-Situ, Solinst, Waterra</p>
-              <a href="https://dicore.cl/" target="_blank" class="portfolio-link">www.dicore.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.legaldatos.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/legaldatos.webp" alt="Abogados Publicaciones y Blog" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Abogados Legaldatos</h5>
-              <p>Abogados Legaldatos</p>
-              <a href="https://legaldatos.cl/" target="_blank" class="portfolio-link">www.legaldatos.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div> 
-      <!-- https://www.ckdelap.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/ckdelap.webp" alt="Psicologia online" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Psicoterapia Online</h5>
-              <p>Servicios Psicología Online</p>
-              <a href="https://ckdelap.cl" target="_blank" class="portfolio-link">www.ckadelap.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div> 
-      <!-- https://www.cetracon.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/cetracon.webp" alt="asesoría en servidumbres eléctricas" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5> Cetracon Asesorías estratégicas</h5>
-              <p>asesoría en servidumbres eléctricas</p>
-              <a href="https://cetracon.cl/" target="_blank" class="portfolio-link">www.cetracon.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.dentistaantofagasta.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/dentovital.webp" alt="Diseño web para dentistas" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Clinica dental Antofagasta</h5>
-              <p>Clinica DentoVital</p>
-              <a href="https://dentistaantofagasta.cl/" target="_blank" class="portfolio-link">www.dentistaantofagasta.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      
-      <!-- https://www.academiadental.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Abogados Publicaciones y Blog" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Academia Dental Chile </h5>
-              <p>Cursos y capacitacion para Dentistas </p>
-              <a href="https://academiadental.cl/" target="_blank" class="portfolio-link">www.academiadental.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
 
-      <!-- https://ramsy.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Ramsy - Venta de productos" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Ramsy</h5>
-              <p>Tienda online - Venta de productos</p>
-              <a href="https://ramsy.cl/" target="_blank" class="portfolio-link">www.ramsy.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-
-      <!-- https://istmoconsultores.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Istmo Consultores" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Istmo Consultores</h5>
-              <p>Consultoría y asesoría empresarial</p>
-              <a href="https://istmoconsultores.cl/" target="_blank" class="portfolio-link">www.istmoconsultores.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://grilliabogados.cl/ -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Grilli Abogados" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Grilli Abogados Chile</h5>
-              <p>Asesoría legal y servicios jurídicos</p>
-              <a href="https://grilliabogados.cl/" target="_blank" class="portfolio-link">www.grilliabogados.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://rematesbipro.cl -->
-       <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Remates Bipro" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Remates Bipro</h5>
-              <p>Sitio web de remates y subastas</p>
-              <a href="https://rematesbipro.cl/" target="_blank" class="portfolio-link">www.rematesbipro.cl (2026)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-       
-
-      <!-- https://www.elquicapital.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Empresa inmobiliaria" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Elqui Capital</h5>
-              <p>Asesorías Inmobiliarias</p>
-              <a href="https://elquicapital.cl" target="_blank" class="portfolio-link">www.elquicapital.cl (2026)</a>
-
-            </div>
-          </div>
-        </div> 
-      </div>
-      <!-- https://www.viman.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Abogados Laborales" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Escaleras y  </h5>
-              <p>Viman - Ingenieria aeroportuaria  </p>
-              <a href="https://viman.cl/prueba/" target="_blank" class="portfolio-link">www.viman.cl (2026)</a>
-
-            </div>
-          </div>
-        </div> 
-      </div> 
-      <!-- asesorialimentos.cl  -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para Asesoría de alimentos" class="img-fluid">
-            <div class="portfolio-overlay">
-              <div class="portfolio-content">
-                <h5>Asesoría de alimentos</h5>
-                <p>Asesoría de alimentos</p>
-                <a href="https://asesorialimentos.cl" target="_blank" class="portfolio-link">www.asesorialimentos.cl (2025)</a>
+        <!-- airmobilechile.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/airmobilechile.webp" alt="Servicios Aire Acondicionado vehículos" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Air Mobile Chile</h5>
+                  <p>Diseño web para Calefacción de Vehículos</p>
+                  <a href="https://airmobilechile.cl/" target="_blank" class="portfolio-link">www.airmobilechile.cl (2025)</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- https://www.mcarvalho.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para MCarvalho" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>Michelle Carvalho</h5>
-              <p>Diseño web para Influencer</p>
-              <a href="https://www.mcarvalho.cl" target="_blank" class="portfolio-link">www.mcarvalho.cl (2025)</a>
-            </div>
-          </div>
-        </div> 
-      </div> 
-    <!-- https://www.ianatural.cl/ -->
-      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-        <div class="portfolio-card">
-          <div class="portfolio-img">
-            <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para MCarvalho" class="img-fluid">
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-content">
-              <h5>IA Natural</h5>
-              <p>Venta de Produtos CalmMINT.</p>
-              <a href="https://www.ianatural.cl" target="_blank" class="portfolio-link">www.ianatural.cl (2022)</a>
-            </div>
-          </div>
-        </div> 
-      </div>
-        
 
+        <!-- emcl.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/emcl.webp" alt="Estandares mineros Chile" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Estandares mineros Chile</h5>
+                  <p>Control de calidad minero</p>
+                  <a href="https://emcl.cl/" target="_blank" class="portfolio-link">www.emcl.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- manriquezrivera.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/manriquezrivera.webp" alt="Abogados Laborale " class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Abogados Empresas y Personas </h5>
+                  <p>Diseño web para abogados Empresas y personas  </p>
+                  <a href="https://manriquezrivera.cl/" target="_blank" class="portfolio-link">www.manriquezrivera.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- protrabajo.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/protrabajo.webp" alt="Abogados Laborales" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Abogados Derecho Laborales </h5>
+                  <p>Diseño web para abogados Empresas y personas  </p>
+                  <a href="https://protrabajo.cl/" target="_blank" class="portfolio-link">www.protrabajo.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- dicore.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa productos astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/dicore.webp" alt="Empresa Dicore" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Dicore distribuildor oficial </h5>
+                  <p>Productos In-Situ, Solinst, Waterra</p>
+                  <a href="https://dicore.cl/" target="_blank" class="portfolio-link">www.dicore.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- legaldatos.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/legaldatos.webp" alt="Abogados Publicaciones y Blog" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Abogados Legaldatos</h5>
+                  <p>Abogados Legaldatos</p>
+                  <a href="https://legaldatos.cl/" target="_blank" class="portfolio-link">www.legaldatos.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ckdelap.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="salud astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/ckdelap.webp" alt="Psicologia online" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Psicoterapia Online</h5>
+                  <p>Servicios Psicología Online</p>
+                  <a href="https://ckdelap.cl" target="_blank" class="portfolio-link">www.ckadelap.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- cetracon.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/cetracon.webp" alt="asesoría en servidumbres eléctricas" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5> Cetracon Asesorías estratégicas</h5>
+                  <p>asesoría en servidumbres eléctricas</p>
+                  <a href="https://cetracon.cl/" target="_blank" class="portfolio-link">www.cetracon.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- dentistaantofagasta.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="dentistas astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/dentovital.webp" alt="Diseño web para dentistas" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Clinica dental Antofagasta</h5>
+                  <p>Clinica DentoVital</p>
+                  <a href="https://dentistaantofagasta.cl/" target="_blank" class="portfolio-link">www.dentistaantofagasta.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- academiadental.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="dentistas astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Abogados Publicaciones y Blog" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Academia Dental Chile </h5>
+                  <p>Cursos y capacitacion para Dentistas </p>
+                  <a href="https://academiadental.cl/" target="_blank" class="portfolio-link">www.academiadental.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ramsy.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="productos astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Ramsy - Venta de productos" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Ramsy</h5>
+                  <p>Tienda online - Venta de productos</p>
+                  <a href="https://ramsy.cl/" target="_blank" class="portfolio-link">www.ramsy.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- istmoconsultores.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Istmo Consultores" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Istmo Consultores</h5>
+                  <p>Consultoría y asesoría empresarial</p>
+                  <a href="https://istmoconsultores.cl/" target="_blank" class="portfolio-link">www.istmoconsultores.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- grilliabogados.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="abogados astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Grilli Abogados" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Grilli Abogados Chile</h5>
+                  <p>Asesoría legal y servicios jurídicos</p>
+                  <a href="https://grilliabogados.cl/" target="_blank" class="portfolio-link">www.grilliabogados.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- rematesbipro.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Remates Bipro" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Remates Bipro</h5>
+                  <p>Sitio web de remates y subastas</p>
+                  <a href="https://rematesbipro.cl/" target="_blank" class="portfolio-link">www.rematesbipro.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- elquicapital.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="inmobiliaria astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Empresa inmobiliaria" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Elqui Capital</h5>
+                  <p>Asesorías Inmobiliarias</p>
+                  <a href="https://elquicapital.cl" target="_blank" class="portfolio-link">www.elquicapital.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- viman.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Abogados Laborales" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Escaleras y Viman</h5>
+                  <p>Viman - Ingenieria aeroportuaria  </p>
+                  <a href="https://viman.cl/prueba/" target="_blank" class="portfolio-link">www.viman.cl (2026)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- asesorialimentos.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para Asesoría de alimentos" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Asesoría de alimentos</h5>
+                  <p>Asesoría de alimentos</p>
+                  <a href="https://asesorialimentos.cl" target="_blank" class="portfolio-link">www.asesorialimentos.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mcarvalho.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="empresa astro">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para MCarvalho" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>Michelle Carvalho</h5>
+                  <p>Diseño web para Influencer</p>
+                  <a href="https://www.mcarvalho.cl" target="_blank" class="portfolio-link">www.mcarvalho.cl (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ianatural.cl -->
+        <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item" data-category="productos">
+          <div class="portfolio-card">
+            <div class="portfolio-img">
+              <img loading="lazy" src="/assets/img/portafolio/enconstruccion.webp" alt="Diseño web para IAnatural" class="img-fluid">
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h5>IA Natural</h5>
+                  <p>Venta de Produtos CalmMINT.</p>
+                  <a href="https://www.ianatural.cl" target="_blank" class="portfolio-link">www.ianatural.cl (2022)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.portfolio-grid -->
     </div>
   </section>
 
- 
 </Layout>
 
 <style>
+  /* Filtros */
+  .portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .filter-btn {
+    padding: 7px 22px;
+    border: 1.5px solid #004597;
+    background: transparent;
+    color: #004597;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    background: #004597;
+    color: #fff;
+  }
+
+  .filter-btn.active {
+    background: #004597;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 69, 151, 0.3);
+  }
+
+  .section-heading h2 {
+    font-size: 32px;
+    color: #004597;
+    font-weight: 700;
+  }
+
+  /* Grid */
   .portfolio-grid {
-    margin: 0 -12px; /* Compensar el padding de los items */
+    margin: 0 -12px;
   }
-  
+
   .portfolio-item {
-    padding: 0 12px; /* 24px entre columnas (12px a cada lado) */
-    margin-bottom: 28px; /* 28px entre filas */
+    padding: 0 12px;
+    margin-bottom: 28px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  
+
+  .portfolio-item.hidden {
+    display: none;
+  }
+
+  /* Cards */
   .portfolio-card {
     position: relative;
     border-radius: 10px;
@@ -1229,70 +1301,64 @@ import Stats from '../components/Stats.astro';
     display: flex;
     flex-direction: column;
   }
-  
+
   .portfolio-card:hover {
     transform: translateY(-5px);
   }
-  
+
   .portfolio-card:hover img {
     transform: scale(1.03);
   }
-  
-  .portfolio-img {
-    position: relative;
-    overflow: hidden;
-  }
-  
+
   .portfolio-img {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 100%;
-    min-height: 200px; /* Altura mínima para mantener consistencia */
+    min-height: 200px;
   }
-  
+
   .portfolio-img img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
   }
-  
+
   .portfolio-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #95e3ebe0; /* Color #aef8ff con transparencia */
+    background: #95e3ebe0;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   .portfolio-card:hover .portfolio-overlay {
     opacity: 1;
   }
-  
+
   .portfolio-content {
     text-align: center;
     color: white;
     padding: 20px;
   }
-  
+
   .portfolio-content h5 {
     margin-bottom: 10px;
     font-weight: 600;
   }
-  
+
   .portfolio-content p {
     margin-bottom: 15px;
     font-size: 14px;
   }
-  
-  
+
   .portfolio-link {
     color: #0066cc;
     text-decoration: underline;
@@ -1300,10 +1366,33 @@ import Stats from '../components/Stats.astro';
     font-size: 14px;
     transition: all 0.3s ease;
   }
-  
+
   .portfolio-link:hover {
     color: #f0f0f0;
     text-decoration: none;
     transform: scale(1.05);
   }
 </style>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      buttons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.dataset.filter;
+
+      items.forEach(item => {
+        const cats = item.dataset.category || '';
+        if (filter === 'todos' || cats.split(' ').includes(filter)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
