@@ -8,10 +8,10 @@ import SocialLinks from './SocialLinks.astro';
     <div class="divider"></div>
 
     <div class="container">
-       <div class="row g-5">
+       <div class="row g-3">
           <!-- Footer Card -->
           <div class="col-12 col-sm-6 col-lg-4">
-             <div class="footer-card pe-lg-5">
+             <div class="footer-card pe-lg-4">
                 <a href="/" class="d-block mb-4">
                    <img loading="lazy" src="/assets/img/logo-disenopaginas-n.png" alt="DiseñoPáginas.cl" width="185" height="62">
                 </a>
@@ -27,7 +27,7 @@ import SocialLinks from './SocialLinks.astro';
           </div>
 
           <!-- Footer Card -->
-          <div class="col-12 col-sm-6 col-lg">
+          <div class="col-12 col-sm-6 col-lg-5 offset-lg-0">
              <div class="footer-card">
                 <h5 class="mb-4">Links relacionados</h5>
 
@@ -39,6 +39,7 @@ import SocialLinks from './SocialLinks.astro';
                          <li><a href="https://xn--diseopaginas-dhb.cl/paginas-web-clinica-dental.php">Web dentistas</a></li>
                          <li><a href="https://xn--diseopaginas-dhb.cl/diseno-de-logotipo.php">Logos y Afiche</a></li>
                          <li><a href="https://www.diseñopaginas.cl/tienda-online/">Tiendas Online</a></li>
+                         <li><a href="https://aplicacionweb.cl" rel="dofollow" target="_blank">Apps web para tu negocio</a></li>
                          <li><a href="https://xn--diseopaginas-dhb.cl/paginas-web-empresas-mineria.php">Empresas Minería</a></li>
                          <li><a href="https://xn--diseopaginas-dhb.cl/diseno-web-abogados.php">Abogados</a></li>
                
@@ -73,7 +74,7 @@ import SocialLinks from './SocialLinks.astro';
           </div>
 
           <!-- Footer Card -->
-          <div class="col-12 col-sm-6 col-lg">
+          <div class="col-12 col-sm-6 col-lg-3">
              <div class="footer-card">
                 <h5 class="mb-4">Información de contacto</h5>
 
@@ -127,12 +128,22 @@ import SocialLinks from './SocialLinks.astro';
   }
   
   .footer-wrapper p,
-  .footer-wrapper .footer-nav a,
   .footer-wrapper .contact-info p,
   .footer-wrapper .copyright,
   .footer-wrapper .footer-bottom-nav a {
     font-size: 16px !important;
     color: #DDDEDC !important;
+  }
+  
+  .footer-wrapper .footer-nav a {
+    font-size: 14px !important;
+    color: #DDDEDC !important;
+    line-height: 1 !important;
+  }
+  
+  .footer-wrapper .footer-nav li {
+    margin-bottom: 0px !important;
+    padding: 1px 0 !important;
   }
   
   /* Estilos más específicos para copyright y footer bottom */
@@ -201,6 +212,12 @@ import SocialLinks from './SocialLinks.astro';
     display: inline-block;
     position: relative;
     transform: translateX(0);
+    padding: 2px 0 !important;
+  }
+  
+  .footer-wrapper .footer-nav {
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
   }
   
   .footer-wrapper .footer-nav a:hover {
