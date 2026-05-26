@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 
 <Layout 
   title="Posicionamiento Web SEO Chile - Posicionamiento Web en Google"
+  description="Servicios de posicionamiento web SEO en Chile. Mejora tu ranking en Google con estrategias SEO profesionales. Más tráfico orgánico y clientes para tu negocio."
   canonical="https://www.diseñopaginas.cl/servicios/posicionamiento-web-seo"
 >
   <!-- Breadcrumb Section -->
@@ -195,6 +196,36 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 </Layout>
+
+<!-- Schema.org para Servicio de SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Posicionamiento Web SEO",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Diseño Páginas Chile",
+    "url": "https://diseñopaginas.cl",
+    "telephone": "+56961765268",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressCountry": "CL"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "description": "Servicios profesionales de posicionamiento web SEO en Chile. Optimización para motores de búsqueda, auditorías SEO, link building y estrategias de contenido.",
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceRange": "$$"
+  }
+}
+</script>
 
 <style>
   .feature-box {

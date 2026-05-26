@@ -13,6 +13,7 @@ export interface Props {
 const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL || '';
+const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`;
 ---
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
 
   <!-- ===== OPEN GRAPH ===== -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://diseñopaginas.cl/" />
+  <meta property="og:url" content={currentUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
@@ -88,13 +89,6 @@ const baseUrl = import.meta.env.BASE_URL || '';
       font-display: swap;
       font-weight: normal;
       font-style: normal;
-    }
-    /* Evitar CLS del preloader */
-    .preloader {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #fff; z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
     }
   </style>
 
@@ -176,13 +170,6 @@ const baseUrl = import.meta.env.BASE_URL || '';
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="spinner-grow" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-
   <!-- Header -->
   <Header />
 
@@ -199,13 +186,6 @@ const baseUrl = import.meta.env.BASE_URL || '';
   <script src={getJsPath('swiper-bundle.min.js')} defer></script>
   <script src={getJsPath('wow.min.js')} defer></script>
   <script src={getJsPath('active.js')} defer></script>
-
-  <script>
-    window.addEventListener('load', function() {
-      const preloader = document.getElementById('preloader');
-      if (preloader) preloader.style.display = 'none';
-    });
-  </script>
 
   <!-- Jivosite Chat - 4s después para no afectar métricas -->
   <script>
