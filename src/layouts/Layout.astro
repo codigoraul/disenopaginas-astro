@@ -92,78 +92,208 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
     }
   </style>
 
-  <!-- Schema Markup SEO -->
+  <!-- Schema LocalBusiness + Person — E-E-A-T y autoridad -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["ProfessionalService", "LocalBusiness"],
-    "name": "Diseño Páginas Chile",
-    "alternateName": "DiseñoPaginas.cl",
-    "image": "https://diseñopaginas.cl/assets/img/1774663825835_image.png",
-    "url": "https://diseñopaginas.cl",
-    "telephone": "+56961765268",
-    "email": "codigoraul@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Santiago",
-      "addressRegion": "Región Metropolitana",
-      "addressCountry": "CL"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -33.4489,
-      "longitude": -70.6693
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Chile"
-    },
-    "priceRange": "$$",
-    "description": "Diseño de páginas web profesionales en Chile. Sitios web rápidos, optimizados para SEO y responsive. Atendemos empresas en todo Chile.",
-    "sameAs": [
-      "https://web.facebook.com/PaginasChile",
-      "https://www.instagram.com/disenopaginas/",
-      "https://www.linkedin.com/in/raul-riquelme-69a16859/",
-      "https://x.com/raulriquelme2",
-      "https://pinterest.com/raulriquelme/"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Servicios de Diseño Web",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Diseño de Páginas Web",
-            "description": "Sitios web profesionales y optimizados para SEO"
-          }
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://diseñopaginas.cl/#negocio",
+        "name": "DiseñoPaginas.cl",
+        "legalName": "DiseñoPaginas.cl",
+        "description": "Agencia de diseño web profesional en Chile con más de 13 años de experiencia. Especialistas en páginas web con Astro, sitios autoadministrables con WordPress, tiendas online y posicionamiento SEO para empresas chilenas.",
+        "url": "https://diseñopaginas.cl/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://diseñopaginas.cl/assets/img/logo-disenopaginas.svg",
+          "width": 300,
+          "height": 80
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Landing Pages",
-            "description": "Páginas de aterrizaje optimizadas para conversión"
-          }
+        "image": "https://diseñopaginas.cl/assets/img/og-image.jpg",
+        "telephone": "+56961765268",
+        "email": "codigoraul@gmail.com",
+        "foundingDate": "2012",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Temuco",
+          "addressRegion": "La Araucanía",
+          "addressCountry": "CL"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Tiendas Online",
-            "description": "E-commerce profesional para vender en línea"
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Chile"
+          },
+          {
+            "@type": "City",
+            "name": "Santiago"
+          },
+          {
+            "@type": "City",
+            "name": "Temuco"
+          },
+          {
+            "@type": "City",
+            "name": "Concepción"
+          },
+          {
+            "@type": "City",
+            "name": "Valparaíso"
+          },
+          {
+            "@type": "City",
+            "name": "Antofagasta"
+          },
+          {
+            "@type": "City",
+            "name": "La Serena"
+          },
+          {
+            "@type": "City",
+            "name": "Valdivia"
+          },
+          {
+            "@type": "City",
+            "name": "Puerto Montt"
           }
+        ],
+        "serviceType": [
+          "Diseño Web",
+          "Desarrollo Web con Astro",
+          "Sitios Web Autoadministrables",
+          "Tiendas Online WooCommerce",
+          "Posicionamiento SEO",
+          "Diseño de Logotipos",
+          "Diseño UX UI en Figma",
+          "Mantenimiento Web"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/PaginasChile/",
+          "https://www.linkedin.com/in/raul-riquelme-69a16859/",
+          "https://www.instagram.com/disenopaginas/",
+          "https://www.behance.net/codigoraul",
+          "https://www.pinterest.es/boketo11/"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "10",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 1
+        },
+        "knowsAbout": [
+          "Diseño Web Profesional",
+          "Desarrollo con Astro Framework",
+          "WordPress",
+          "WooCommerce",
+          "SEO Chile",
+          "Diseño Gráfico",
+          "UX UI Design",
+          "Figma"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Diseño Web",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Diseño Web con Astro",
+                "description": "Páginas web ultrarrápidas desarrolladas con Astro Framework. Puntaje PageSpeed superior a 95/100."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sitio Web Autoadministrable",
+                "description": "Sitios web con WordPress que el cliente puede editar sin conocimientos técnicos."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tienda Online",
+                "description": "Tiendas con WooCommerce con catálogo de productos, carrito de compras y pasarela de pago."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Posicionamiento SEO",
+                "description": "Estrategia SEO para aparecer en los primeros resultados de Google en Chile."
+              }
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://diseñopaginas.cl/#raul",
+        "name": "Raúl Riquelme",
+        "givenName": "Raúl",
+        "familyName": "Riquelme",
+        "jobTitle": "Diseñador Web y Desarrollador — Fundador de DiseñoPaginas.cl",
+        "description": "Diseñador gráfico y desarrollador web con más de 13 años de experiencia profesional. Especialista en diseño web con Astro, WordPress y posicionamiento SEO para empresas chilenas. Más de 200 proyectos web entregados.",
+        "url": "https://diseñopaginas.cl/",
+        "email": "codigoraul@gmail.com",
+        "telephone": "+56961765268",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Temuco",
+          "addressRegion": "La Araucanía",
+          "addressCountry": "CL"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/raul-riquelme-69a16859/",
+          "https://twitter.com/raulriquelme2",
+          "https://www.behance.net/codigoraul",
+          "https://www.instagram.com/disenopaginas/"
+        ],
+        "knowsAbout": [
+          "Diseño Gráfico",
+          "Diseño Web",
+          "Astro Framework",
+          "WordPress",
+          "SEO",
+          "UX UI Design",
+          "Figma",
+          "WooCommerce",
+          "HTML",
+          "CSS"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Formación universitaria en Diseño Gráfico y Diseño Web"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certificaciones Google",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Google"
+            }
+          }
+        ],
+        "worksFor": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        },
+        "founder": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        }
+      }
+    ]
   }
   </script>
 

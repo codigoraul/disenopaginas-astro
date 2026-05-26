@@ -60,6 +60,59 @@ import Testimonials from '../components/Testimonials.astro';
    <AlgunosTrabajos />
    <Testimonials />
    <Proceso />
+
+   <!-- Sección E-E-A-T: Quiénes somos — señales de autoridad para Google e IAs -->
+   <section class="eeat-section section-padding bg-light" aria-label="Sobre DiseñoPaginas.cl">
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-lg-10">
+               <h2 class="text-center mb-5">Diseño web en Chile con experiencia real</h2>
+
+               <div class="eeat-content">
+                  <p>
+                     <strong>DiseñoPaginas.cl</strong> es una agencia de diseño web profesional fundada en 2012
+                     por <strong>Raúl Riquelme</strong>, diseñador gráfico y desarrollador web con formación
+                     universitaria y más de <strong>13 años de experiencia</strong> creando sitios web para
+                     empresas chilenas.
+                  </p>
+
+                  <p>
+                     Hemos desarrollado <strong>más de 200 proyectos web</strong> para empresas de distintos
+                     rubros: abogados, clínicas dentales, psicólogos, empresas industriales, tiendas online,
+                     corredor de propiedades y muchos más. Trabajamos con clientes en todo Chile, desde
+                     Arica hasta Puerto Montt, de forma 100% digital.
+                  </p>
+
+                  <p>
+                     Somos especialistas en <strong>desarrollo web con Astro</strong>, el framework moderno que
+                     genera sitios ultrarrápidos con puntajes de Google PageSpeed superiores a 95/100.
+                     También desarrollamos sitios autoadministrables con WordPress y tiendas online con
+                     WooCommerce.
+                  </p>
+
+                  <p>
+                     Contamos con <strong>certificaciones Google</strong> en herramientas digitales y aplicamos
+                     las últimas técnicas de <strong>posicionamiento SEO</strong> validadas por Google para
+                     que tu empresa aparezca en los primeros resultados de búsqueda de forma sostenida.
+                  </p>
+
+                  <div class="eeat-highlights mt-5">
+                     <h3 class="h5 mb-4">Experiencia verificable</h3>
+                     <ul class="eeat-list">
+                        <li>+13 años de experiencia en diseño y desarrollo web</li>
+                        <li>+200 proyectos web entregados en Chile</li>
+                        <li>Fundado en 2012 — más de una década en el mercado chileno</li>
+                        <li>Formación universitaria en Diseño Gráfico y Diseño Web</li>
+                        <li>Certificaciones Google en herramientas digitales</li>
+                        <li>Especialistas en Astro, WordPress, WooCommerce y Figma</li>
+                        <li>SEO local para todo Chile: Santiago, Temuco, Concepción y más</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
    
 </Layout> 
 
@@ -124,5 +177,53 @@ import Testimonials from '../components/Testimonials.astro';
     padding: 30px 20px;
     margin-top: 30px;
   }
+}
+
+/* Estilos E-E-A-T */
+.eeat-section {
+  padding: 80px 0;
+}
+
+.eeat-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.eeat-content strong {
+  color: #011C42;
+  font-weight: 600;
+}
+
+.eeat-highlights {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 4px solid #004597;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.eeat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eeat-list li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+.eeat-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #004597;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 </style> 
