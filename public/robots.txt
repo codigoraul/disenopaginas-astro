@@ -121,4 +121,4 @@ Disallow: /
 # ================================
 # Sitemap
 # ================================
-Sitemap: https://xn--diseopaginas-dhb.cl/sitemap.xml
+Sitemap: https://diseñopaginas.cl/sitemap.xml

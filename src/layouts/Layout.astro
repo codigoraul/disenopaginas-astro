@@ -43,7 +43,7 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
   <meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
 
   <!-- Canonical URL -->
-  {canonical && <link rel="canonical" href={canonical} />}
+  <link rel="canonical" href={currentUrl} />
 
   <!-- Title & Favicon -->
   <title>{title}</title>
