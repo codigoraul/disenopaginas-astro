@@ -1,6 +1,5 @@
 # Optimizaciones de rendimiento para el servidor
-# Apache/Nginx performance optimizations
-
+# Apache performance optimizations
 # Habilitar compresión GZIP
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
@@ -14,62 +13,65 @@
     AddOutputFilterByType DEFLATE application/x-javascript
     AddOutputFilterByType DEFLATE application/json
     AddOutputFilterByType DEFLATE image/svg+xml
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI \
+        \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \
+        \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
 </IfModule>
 
 <IfModule !mod_rewrite.c>
-  ErrorDocument 403 "El módulo mod_rewrite no está habilitado. Por favor, habilítalo para continuar."
+  ErrorDocument 403 "El módulo mod_rewrite no está habilitado."
 </IfModule>
 
-# Cache de archivos estáticos
+ErrorDocument 404 /404.html
+
 <IfModule mod_expires.c>
     ExpiresActive on
-    
-    # Imágenes
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
-    
-    # CSS y JavaScript
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType application/x-javascript "access plus 1 year"
-    
-    # Fuentes
     ExpiresByType font/woff2 "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/ttf "access plus 1 year"
     ExpiresByType application/font-woff "access plus 1 year"
     ExpiresByType application/font-woff2 "access plus 1 year"
-    
-    # Videos
     ExpiresByType video/mp4 "access plus 1 year"
     ExpiresByType video/webm "access plus 1 year"
     ExpiresByType video/ogg "access plus 1 year"
-    
-    # HTML
     ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ===== BLOQUEO DE IP =====
+<IfModule mod_authz_core.c>
+    <RequireAll>
+        Require all granted
+        Require not ip 186.10.247.138
+    </RequireAll>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+    Deny from 186.10.247.138
 </IfModule>
 
 # ===== REDIRECCIONES =====
 RewriteEngine On
 
-# 1. Eliminar www y forzar HTTPS en una sola regla
+# 1. Forzar HTTPS y eliminar www
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]
 
 # 2. Eliminar index.php
 RewriteCond %{THE_REQUEST} /index\.php[\s?] [NC]
 RewriteRule ^(.*?)index\.php$ /$1 [L,R=301,NC,NE]
-
-# 3. Normalizar trailing slash - DESHABILITADO para evitar redirecciones innecesarias
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_URI} !(.*)/$
-# RewriteRule ^(.*)$ /$1/ [R=301,L]
 
 # Redirecciones específicas
 Redirect 301 /contacto.php /contacto
@@ -105,67 +107,38 @@ Redirect 301 /inicio.php /
 Redirect 301 /home.php /
 Redirect 301 /nosotros.php /
 Redirect 301 /quienes-somos.php /
+Redirect 301 /diseno-web-corredor-propiedades.php https://diseñopaginas.cl/diseno-web-corredor-propiedades
 
-# Optimizaciones para reducir TTFB (Time To First Byte)
+# ===== HEADERS DE CACHE =====
 <IfModule mod_headers.c>
-    # Reducir latencia del servidor
     Header unset ETag
     Header set Connection keep-alive
-    
-    # Cache de recursos estáticos
+    Header set Keep-Alive "timeout=5, max=100"
     <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|eot)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
         Header append Vary Accept-Encoding
     </FilesMatch>
-    
-    # Cache HTML optimizado
     <FilesMatch "\.(html|php)$">
         Header set Cache-Control "public, max-age=300"
         Header append Vary Accept-Encoding
     </FilesMatch>
 </IfModule>
 
-# ===== OPTIMIZACIONES APACHE/PHP =====
-
-# Optimizar Apache
-<IfModule mod_deflate.c>
-    # Forzar compresión para todos los tipos
-    SetOutputFilter DEFLATE
-    SetEnvIfNoCase Request_URI \
-        \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-    SetEnvIfNoCase Request_URI \
-        \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
-</IfModule>
-
-# Optimizaciones PHP para reducir TTFB
+# ===== OPTIMIZACIONES PHP =====
 <IfModule mod_php.c>
-    # Optimizar memoria y ejecución
     php_value memory_limit 512M
     php_value max_execution_time 60
     php_value max_input_time 60
-    
-    # Buffer de salida optimizado
     php_value output_buffering 4096
     php_value zlib.output_compression On
     php_value zlib.output_compression_level 6
-    
-    # Optimizar sesiones
     php_value session.gc_maxlifetime 1440
     php_value session.gc_probability 1
     php_value session.gc_divisor 1000
-    
-    # Reducir overhead
     php_value expose_php Off
     php_value log_errors On
     php_value display_errors Off
 </IfModule>
-
-# Optimizar conexiones Keep-Alive
-<IfModule mod_headers.c>
-    Header set Connection "Keep-Alive"
-    Header set Keep-Alive "timeout=5, max=100"
-</IfModule>
-
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the "ea-php81" package as the default "PHP" programming language.
