@@ -51,6 +51,9 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
   <link rel="shortcut icon" href={getAssetPath('/favicon.ico')} type="image/x-icon">
   <link rel="apple-touch-icon" href={getAssetPath('/favicon.ico')}>
 
+  <!-- Preload imagen hero LCP para mobile -->
+  <link rel="preload" as="image" href="/assets/img/blog/ia-diseno-web-experto-humano/portada.webp" fetchpriority="high" media="(max-width: 991px)">
+
   <!-- Preconnect solo los críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

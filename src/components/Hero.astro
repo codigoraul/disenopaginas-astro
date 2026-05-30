@@ -5,10 +5,12 @@
 <section class="hero-section d-flex align-items-center">
    <!-- Video de fondo -->
    <div class="hero-video-bg">
-      <video autoplay muted loop playsinline preload="metadata">
+      <!-- Video desktop -->
+      <video class="hero-desktop-video" autoplay muted loop playsinline preload="metadata">
          <source src="/assets/videos/bg-video.mp4" type="video/mp4">
-         Tu navegador no soporta videos HTML5.
       </video>
+      <!-- Mobile: imagen de fondo que cambia con cada slide -->
+      <div class="hero-mobile-bg" aria-hidden="true"></div>
       <div class="video-overlay"></div>
    </div>
    
@@ -18,24 +20,22 @@
          <!-- Swiper Container -->
          <div class="hero-swiper">
             <div class="swiper-wrapper">
-               <!-- Slide 1 -->
+               <!-- Slide 1 (sin animaciones wow para evitar CLS en LCP) -->
                <div class="swiper-slide">
                   <div class="row g-5">
                      <div class="col-12 col-lg-7 hero-titles-container">
-                        <h1 class="mb-0 wow fadeInUp hero-main-title"
-                         data-wow-duration="600ms" data-wow-delay="100ms">
+                        <h1 class="mb-0 hero-main-title">
                          Diseño de Páginas Web Chile
                         </h1>
                         <h2 class="hero-subtitle">Diseño Web Empresas con estilo único</h2>
                      </div>
 
                      <div class="col-12 col-lg-5">
-                        <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                           Desarrollamos páginas web únicas con diseño creativo y tecnología de vanguardia 
+                        <p>
+                           Desarrollamos páginas web únicas con diseño creativo y tecnología de vanguardia
                            para posicionar su empresa en los primeros lugares de google.
                         </p>
-                        <a class="btn border-2 btn-outline-light wow fadeInUp" data-wow-duration="1000ms"
-                           data-wow-delay="800ms" href="/servicios">Ver Servicios <i class="ti ti-arrow-up-right"></i></a>
+                        <a class="btn border-2 btn-outline-light" href="/servicios">Ver Servicios <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -176,7 +176,8 @@
   overflow: hidden;
 }
 
-.hero-video-bg video {
+/* Video desktop */
+.hero-desktop-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -184,6 +185,27 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Mobile: imagen de fondo dinámica */
+.hero-mobile-bg {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #011c42;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease;
+}
+
+@media (max-width: 991px) {
+  .hero-desktop-video {
+    display: none;
+  }
+  .hero-mobile-bg {
+    display: block;
+  }
 }
 
 .video-overlay {
@@ -326,8 +348,17 @@
 document.addEventListener('DOMContentLoaded', function() {
   const slides = document.querySelectorAll('.swiper-slide');
   const paginationContainer = document.querySelector('.hero-pagination');
+  const mobileBg = document.querySelector('.hero-mobile-bg');
   let currentSlide = 0;
   let slideInterval;
+
+  // Imágenes para el fondo mobile (una por slide)
+  const mobileBgImages = [
+    '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp',
+    '/assets/img/blog/seo-estructura.jpg',
+    '/assets/img/blog/guia-seo-principiantes/portada.webp',
+    '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp'
+  ];
 
   // Clear any existing bullets first
   if (paginationContainer) {
@@ -350,12 +381,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const pagination = document.querySelectorAll('.swiper-pagination-bullet');
     slides.forEach(slide => slide.classList.remove('swiper-slide-active'));
     pagination.forEach(bullet => bullet.classList.remove('swiper-pagination-bullet-active'));
-    
+
     if (slides[index]) {
       slides[index].classList.add('swiper-slide-active');
     }
     if (pagination[index]) {
       pagination[index].classList.add('swiper-pagination-bullet-active');
+    }
+    // Cambiar imagen de fondo en mobile
+    if (mobileBg && mobileBgImages[index]) {
+      mobileBg.style.backgroundImage = `url('${mobileBgImages[index]}')`;
     }
   }
 
