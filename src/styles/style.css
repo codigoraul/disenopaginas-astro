@@ -4041,8 +4041,8 @@ picture.jarallax-img img {
 }
 .project-navigation-container .project-button-prev,
 .project-navigation-container .project-button-next {
-  width: 60px;
-  height: 60px;
+  width: 32px;
+  height: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4060,7 +4060,7 @@ picture.jarallax-img img {
 }
 .project-navigation-container .project-button-prev i,
 .project-navigation-container .project-button-next i {
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1;
 }
 .project-navigation-container .project-button-prev:hover, .project-navigation-container .project-button-prev:focus,
