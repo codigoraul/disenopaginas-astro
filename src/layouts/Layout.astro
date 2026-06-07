@@ -3,14 +3,20 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getAssetPath, getCssPath, getJsPath, getImagePath } from '../utils/assetPath';
 
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 export interface Props {
   title: string;
   description?: string;
   keywords?: string;
   canonical?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical } = Astro.props;
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, breadcrumbs } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL || '';
 const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`;
@@ -299,6 +305,23 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
     ]
   }
   </script>
+
+  <!-- Schema BreadcrumbList — generado dinámicamente por página -->
+  {breadcrumbs && breadcrumbs.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://diseñopaginas.cl/" },
+        ...breadcrumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          "position": i + 2,
+          "name": crumb.name,
+          "item": crumb.url
+        }))
+      ]
+    })} />
+  )}
 
   <!-- Schema FAQPage — Optimizado para IA (ChatGPT, Perplexity, Google AI Overviews) -->
   <script type="application/ld+json">
