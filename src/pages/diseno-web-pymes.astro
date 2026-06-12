@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
   </script>
 
   <!-- Hero Section -->
-  <section class="hero-section bg-gradient-primary py-5" style="background-image: linear-gradient(135deg, rgba(1,28,66,0.88) 0%, rgba(0,69,151,0.72) 100%), url('/assets/img/heroes/diseno-web-pymes-chile.webp'); background-size: cover; background-position: center;">
+  <section class="hero-section bg-gradient-primary py-5" style="background-image: linear-gradient(135deg, rgba(1,28,66,0.55) 0%, rgba(0,69,151,0.35) 100%), url('/assets/img/heroes/diseno-web-pymes-chile.webp') !important; background-size: cover !important; background-position: center !important;">
     <div class="container">
       <div class="row align-items-center min-vh-75">
         <div class="col-lg-8">
@@ -350,7 +350,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- CTA Section -->
-  <section class="py-5 bg-gradient-primary text-white">
+  <section class="py-5 bg-gradient-primary text-white cta-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
@@ -376,6 +376,26 @@ import Layout from '../layouts/Layout.astro';
 <style>
   .bg-gradient-primary {
     background: linear-gradient(135deg, #011C42 0%, #004597 100%);
+  }
+
+  /* Contraste y padding del hero con imagen de fondo */
+  .hero-section .hero-content {
+    padding: 5rem 1.5rem 3rem 2rem;
+  }
+
+  .hero-section .hero-content h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-section .hero-content h1 .text-aqua {
+    color: #AEF8FF !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-section .hero-content p {
+    color: #f2f6fb !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
   }
 
   .text-navy {
@@ -412,6 +432,31 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-buttons .btn {
     min-width: 180px;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, #002767 0%, #004ea1 100%);
+    color: #fefefe;
+  }
+
+  .cta-section h2,
+  .cta-section p {
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .cta-section .btn-light {
+    color: #011C42;
+  }
+
+  .cta-section .btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .cta-section .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #011C42;
   }
 
   @media (max-width: 768px) {
