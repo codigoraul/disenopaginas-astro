@@ -1,0 +1,8 @@
+{
+    "editor.fontSize": 16,
+    "editor.codeLensFontSize": 100,
+    "editor.inlayHints.fontSize": 90,
+    "editor.suggestFontSize": 100,
+    "notebook.markup.fontSize": 100,
+    "notebook.output.fontSize": 100
+}

@@ -1,0 +1,428 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Diseño Web para Pymes en Chile | Páginas Web Profesionales para tu Negocio"
+  description="Diseño web para pymes en Chile con más de 13 años de experiencia. Páginas web profesionales, rápidas y optimizadas con SEO para que tu pyme aparezca en Google y consiga más clientes. ¡Cotización gratis!"
+  keywords="diseño web para pymes chile, páginas web pymes, sitios web pequeñas empresas, diseño web emprendedores, página web para mi negocio"
+  canonical="https://diseñopaginas.cl/diseno-web-pymes"
+  breadcrumbs={[{ name: "Diseño Web para Pymes", url: "https://diseñopaginas.cl/diseno-web-pymes" }]}
+>
+
+  <!-- Schema Service + FAQPage específico de esta página -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://diseñopaginas.cl/diseno-web-pymes#servicio",
+        "name": "Diseño Web para Pymes en Chile",
+        "serviceType": "Diseño de páginas web para pequeñas y medianas empresas",
+        "description": "Servicio de diseño web profesional para pymes chilenas: sitios corporativos, autoadministrables y tiendas online, optimizados con SEO local y velocidad de carga superior.",
+        "provider": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Chile"
+        },
+        "url": "https://diseñopaginas.cl/diseno-web-pymes"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta una página web para una pyme en Chile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Una página web corporativa para pyme parte desde $200.000 CLP. Un sitio autoadministrable, donde puedes editar contenidos tú mismo, va entre $300.000 y $600.000 CLP. Una tienda online con WooCommerce parte desde $500.000 CLP. Trabajamos con tarifas claras y sin costos ocultos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Mi pyme realmente necesita una página web si ya tengo Instagram?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Las redes sociales complementan pero no reemplazan un sitio web propio: en Instagram no apareces en Google cuando alguien busca tu servicio, no controlas el algoritmo y tu cuenta puede ser suspendida. Una página web propia te da presencia en Google, credibilidad y un canal de ventas que te pertenece."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto demora el desarrollo del sitio web de mi pyme?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Una página web corporativa para pyme tarda entre 2 y 4 semanas. Un sitio autoadministrable de 3 a 5 semanas, y una tienda online entre 4 y 8 semanas, dependiendo de la rapidez con que se entregue la información del negocio."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Atienden pymes de regiones o solo de Santiago?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabajamos con pymes de todo Chile, desde Arica hasta Puerto Montt, de forma 100% digital: videollamadas, WhatsApp y correo electrónico durante todo el proceso. La distancia no es un obstáculo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Hero Section -->
+  <section class="hero-section bg-gradient-primary py-5" style="background-image: linear-gradient(135deg, rgba(1,28,66,0.88) 0%, rgba(0,69,151,0.72) 100%), url('/assets/img/heroes/diseno-web-pymes-chile.webp'); background-size: cover; background-position: center;">
+    <div class="container">
+      <div class="row align-items-center min-vh-75">
+        <div class="col-lg-8">
+          <div class="hero-content text-white">
+            <span class="badge bg-light text-primary mb-3 fs-6">Especialistas en Pymes y Emprendedores</span>
+            <h1 class="display-4 fw-bold mb-4">
+              Diseño Web para <span class="text-aqua">Pymes en Chile</span>
+            </h1>
+            <p class="lead mb-4 fs-5">
+              Creamos páginas web profesionales para pequeñas y medianas empresas que necesitan
+              aparecer en Google, generar confianza y conseguir más clientes. Más de 13 años
+              ayudando a pymes chilenas a crecer en internet.
+            </p>
+            <div class="hero-buttons">
+              <a href="/contacto" class="btn btn-light btn-lg me-3">Cotización Gratuita</a>
+              <a href="/portafolio" class="btn btn-outline-light btn-lg">Ver Trabajos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Específicos -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center mb-5">
+          <h2 class="display-5 fw-bold text-navy mb-4">Soluciones Web para Pequeñas y Medianas Empresas</h2>
+          <p class="lead text-muted">Todo lo que tu pyme necesita para tener presencia profesional en internet</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Servicio 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-world text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Página Web Corporativa</h4>
+            <p class="text-muted mb-3">Tu carta de presentación digital: quiénes son, qué ofrecen y cómo contactarlos, con un diseño que genera confianza.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Diseño personalizado</li>
+              <li><i class="ti ti-check text-success me-2"></i>Adaptada a móviles</li>
+              <li><i class="ti ti-check text-success me-2"></i>Carga ultrarrápida</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-edit text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Sitio Autoadministrable</h4>
+            <p class="text-muted mb-3">Actualiza textos, fotos y noticias tú mismo, sin depender de nadie ni saber programar.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Panel WordPress intuitivo</li>
+              <li><i class="ti ti-check text-success me-2"></i>Capacitación incluida</li>
+              <li><i class="ti ti-check text-success me-2"></i>Soporte post-lanzamiento</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-shopping-cart text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Tienda Online</h4>
+            <p class="text-muted mb-3">Vende tus productos por internet con carrito de compras y pago con Webpay.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Catálogo de productos</li>
+              <li><i class="ti ti-check text-success me-2"></i>Pasarela de pago chilena</li>
+              <li><i class="ti ti-check text-success me-2"></i>Gestión de inventario</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-search text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">SEO Local para Pymes</h4>
+            <p class="text-muted mb-3">Aparece en Google cuando tus clientes buscan tus productos o servicios en tu ciudad.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Google Business Profile</li>
+              <li><i class="ti ti-check text-success me-2"></i>Palabras clave locales</li>
+              <li><i class="ti ti-check text-success me-2"></i>Contenido optimizado</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-brand-whatsapp text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Integración WhatsApp</h4>
+            <p class="text-muted mb-3">Botón de WhatsApp para que tus clientes te contacten con un solo clic desde el sitio.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Contacto directo</li>
+              <li><i class="ti ti-check text-success me-2"></i>Formularios conectados</li>
+              <li><i class="ti ti-check text-success me-2"></i>Más conversiones</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-headset text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Dominio, Hosting y Soporte</h4>
+            <p class="text-muted mb-3">Nos encargamos de todo lo técnico: dominio .cl, hosting, correos corporativos y mantenimiento.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Correos con tu dominio</li>
+              <li><i class="ti ti-check text-success me-2"></i>Certificado SSL</li>
+              <li><i class="ti ti-check text-success me-2"></i>Respaldo y seguridad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="display-5 fw-bold text-navy mb-4">¿Por qué las pymes chilenas nos eligen?</h2>
+          <div class="feature-list">
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-award text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">+13 Años de Experiencia</h5>
+                <p class="text-muted mb-0">Más de 200 proyectos web entregados a empresas y pymes de todo Chile desde 2012.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-rocket text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Sitios Ultrarrápidos</h5>
+                <p class="text-muted mb-0">Desarrollamos con Astro: puntajes superiores a 95/100 en Google PageSpeed, mejor que la gran mayoría de la competencia.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-coin text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Precios para Pymes</h5>
+                <p class="text-muted mb-0">Tarifas claras y accesibles, pensadas para el presupuesto de una pequeña empresa. Sin costos ocultos.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex">
+              <div class="feature-icon me-3">
+                <i class="ti ti-map-pin text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Atención en Todo Chile</h5>
+                <p class="text-muted mb-0">Trabajamos 100% digital con pymes de Santiago, Temuco, Concepción, Valparaíso y todo el país.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="ps-lg-5 mt-5 mt-lg-0">
+            <h3 class="fw-bold text-navy mb-3">Tu pyme necesita más que redes sociales</h3>
+            <p class="text-muted">
+              Instagram y Facebook son útiles, pero no aparecen en Google cuando un cliente busca
+              tus servicios. Una <strong>página web profesional</strong> es tu local comercial en internet:
+              abierto 24/7, posicionado en buscadores y bajo tu control.
+            </p>
+            <p class="text-muted">
+              Conoce nuestros <a href="/servicios">servicios de diseño web</a>, revisa las
+              <a href="/tarifas">tarifas y planes</a> o mira ejemplos reales en el
+              <a href="/portafolio">portafolio de trabajos</a>.
+            </p>
+            <a href="/contacto" class="btn btn-primary btn-lg mt-3">Solicitar Cotización <i class="ti ti-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ visible (coincide con el schema FAQPage de esta página) -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="display-6 fw-bold text-navy mb-5 text-center">Preguntas frecuentes de pymes</h2>
+
+          <div class="accordion" id="faqPymes">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  ¿Cuánto cuesta una página web para una pyme en Chile?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqPymes">
+                <div class="accordion-body text-muted">
+                  Una página web corporativa para pyme parte desde $200.000 CLP. Un sitio autoadministrable,
+                  donde puedes editar contenidos tú mismo, va entre $300.000 y $600.000 CLP. Una tienda online
+                  con WooCommerce parte desde $500.000 CLP. Trabajamos con tarifas claras y sin costos ocultos.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  ¿Mi pyme realmente necesita una página web si ya tengo Instagram?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqPymes">
+                <div class="accordion-body text-muted">
+                  Sí. Las redes sociales complementan pero no reemplazan un sitio web propio: en Instagram no
+                  apareces en Google cuando alguien busca tu servicio, no controlas el algoritmo y tu cuenta
+                  puede ser suspendida. Una página web propia te da presencia en Google, credibilidad y un
+                  canal de ventas que te pertenece.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  ¿Cuánto demora el desarrollo del sitio web de mi pyme?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqPymes">
+                <div class="accordion-body text-muted">
+                  Una página web corporativa para pyme tarda entre 2 y 4 semanas. Un sitio autoadministrable
+                  de 3 a 5 semanas, y una tienda online entre 4 y 8 semanas, dependiendo de la rapidez con que
+                  se entregue la información del negocio.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  ¿Atienden pymes de regiones o solo de Santiago?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqPymes">
+                <div class="accordion-body text-muted">
+                  Trabajamos con pymes de todo Chile, desde Arica hasta Puerto Montt, de forma 100% digital:
+                  videollamadas, WhatsApp y correo electrónico durante todo el proceso. La distancia no es
+                  un obstáculo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-gradient-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="display-5 fw-bold mb-4">¿Listo para que tu pyme aparezca en Google?</h2>
+          <p class="lead mb-4">
+            Cotización gratuita y sin compromiso. Te asesoramos en cada paso del proceso.
+          </p>
+          <div class="cta-buttons">
+            <a href="/contacto" class="btn btn-light btn-lg me-3">
+              <i class="ti ti-mail me-2"></i>Cotización Gratuita
+            </a>
+            <a href="tel:+56961765268" class="btn btn-outline-light btn-lg">
+              <i class="ti ti-phone me-2"></i>(+56) 9 61765268
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #011C42 0%, #004597 100%);
+  }
+
+  .text-navy {
+    color: #011C42 !important;
+  }
+
+  .text-aqua {
+    color: #AEF8FF !important;
+  }
+
+  .min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  }
+
+  .feature-item {
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .feature-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .hero-buttons .btn {
+    min-width: 180px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-buttons .btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .hero-buttons .btn:last-child {
+      margin-bottom: 0;
+    }
+  }
+</style>
