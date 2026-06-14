@@ -1,0 +1,860 @@
+---
+// Landing page — Diseño Tienda Online Chile
+// Estructura basada en diseñopaginas.cl/tienda-online/ con SEO mejorado
+// Footer importado de Footer.astro (idéntico al sitio principal)
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diseño Tienda Online Chile | WooCommerce + Webpay + Carrito de Compras</title>
+  <meta name="description" content="Creamos tu tienda online en Chile con WooCommerce, carrito de compras, Webpay Plus y Chilexpress. Ecommerce profesional con SEO para aparecer en Google. +13 años de experiencia. Cotiza gratis." />
+  <meta name="keywords" content="diseño tienda online chile, tienda online chile, crear tienda online chile, ecommerce chile, woocommerce chile, página web con carrito de compras, tienda virtual chile, carrito compras webpay, woocommerce santiago" />
+  <link rel="canonical" href="https://diseñopaginas.cl/tienda-online/" />
+  <meta property="og:title" content="Diseño Tienda Online Chile | WooCommerce + Webpay + Carrito de Compras" />
+  <meta property="og:description" content="Tiendas online profesionales en Chile. WooCommerce, Webpay Plus, Chilexpress y SEO para Google. +13 años de experiencia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diseñopaginas.cl/tienda-online/" />
+  <meta property="og:image" content="https://diseñopaginas.cl/assets/img/servicios/diseno-web-venta-online.webp" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/webfont/tabler-icons.min.css" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://diseñopaginas.cl/" },
+          { "@type": "ListItem", "position": 2, "name": "Diseño Tienda Online Chile", "item": "https://diseñopaginas.cl/tienda-online/" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Diseño Tienda Online Chile con Carrito de Compras",
+        "serviceType": "Ecommerce WooCommerce Chile",
+        "description": "Creamos tiendas online en Chile con WooCommerce, carrito de compras, Webpay Plus, MercadoPago y Chilexpress. SEO optimizado para Google.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "DiseñoPaginas.cl",
+          "url": "https://diseñopaginas.cl",
+          "telephone": "+56961765268",
+          "email": "codigoraul@gmail.com",
+          "address": { "@type": "PostalAddress", "addressLocality": "Temuco", "addressCountry": "CL" }
+        },
+        "areaServed": { "@type": "Country", "name": "Chile" },
+        "url": "https://diseñopaginas.cl/tienda-online/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Cuánto cuesta el diseño de una tienda online en Chile?", "acceptedAnswer": { "@type": "Answer", "text": "Una tienda online con WooCommerce, carrito de compras y Webpay Plus parte desde $290.000 CLP. Un ecommerce completo con catálogo ilimitado, SEO avanzado, MercadoPago y Chilexpress automático va entre $490.000 y $890.000 CLP. Cotización gratuita en menos de 24 horas." } },
+          { "@type": "Question", "name": "¿WooCommerce, Shopify o Jumpseller para una tienda online en Chile?", "acceptedAnswer": { "@type": "Answer", "text": "WooCommerce es la mejor opción para Chile: no cobra comisión por venta, integra Webpay Plus de forma nativa y tiene control total del SEO. Shopify cobra hasta 2% por venta y Jumpseller limita la personalización." } },
+          { "@type": "Question", "name": "¿Cuánto demora crear una tienda online en Chile?", "acceptedAnswer": { "@type": "Answer", "text": "Una tienda con hasta 50 productos tarda entre 10 y 15 días hábiles. Con catálogo amplio, entre 3 y 5 semanas." } },
+          { "@type": "Question", "name": "¿La tienda online queda optimizada para Google?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. URLs amigables por producto, meta únicos, schema Product + Offer para rich snippets en Google, sitemap XML automático, imágenes WebP con alt text y Google Search Console configurado." } },
+          { "@type": "Question", "name": "¿Integran Webpay Plus, MercadoPago y Chilexpress?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Webpay Plus (Transbank), MercadoPago con cuotas sin interés, PayPal y Chilexpress con cálculo automático de tarifas por región. Todo probado antes de publicar." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      color: #6B7280;
+      background: #fff;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --navy: #0045A7;
+      --blue: #0045A7;
+      --blue-hover: #003380;
+      --soft: #6B7280;
+      --muted: #9CA3AF;
+      --light: #F9FAFB;
+      --border: #E5E7EB;
+    }
+    h1, h2, h3, h4, h5 { color: var(--navy); font-weight: 700; line-height: 1.2; }
+
+    /* ── NAVBAR ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 0; gap: 1rem;
+    }
+    .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-logo img { display: block; }
+    .nav-links { display: flex; align-items: center; gap: .2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      text-decoration: none; color: var(--soft); font-size: .875rem; font-weight: 500;
+      padding: .4rem .75rem; border-radius: 8px; transition: color .15s, background .15s;
+    }
+    .nav-links a:hover { color: var(--blue); background: #EFF6FF; }
+    .nav-cta { background: var(--blue) !important; color: white !important; border-radius: 10px; }
+    .nav-cta:hover { opacity: .9; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: .4rem .6rem; cursor: pointer; color: var(--navy); }
+    @media (max-width: 900px) {
+      .nav-links { display: none; flex-direction: column; align-items: flex-start; position: absolute; top: 100%; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 1rem; gap: .2rem; box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .site-nav { position: relative; }
+    }
+
+    /* ── HERO SLIDER ── */
+    .hero-section {
+      position: relative; height: 680px;
+      overflow: hidden; color: #fff;
+      display: flex; align-items: center;
+    }
+    /* Cada slide tiene su propia imagen de fondo */
+    .swiper-slide {
+      display: none; opacity: 0; transition: opacity .6s ease;
+      position: absolute; inset: 0;
+    }
+    .swiper-slide-active { display: block; opacity: 1; }
+    .slide-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .slide-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(1,20,55,.75) 40%, rgba(1,20,55,.35) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 3; width: 100%;
+      display: flex; align-items: center; height: 100%;
+      padding-top: 80px;
+    }
+    .hero-swiper { position: relative; width: 100%; height: 100%; }
+    .swiper-wrapper { position: relative; width: 100%; height: 100%; }
+    .hero-main-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-weight: 800; color: #fff !important; line-height: 1.15; margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: .85rem; color: #AEF8FF !important;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem;
+    }
+    .slide-body { position: relative; z-index: 2; padding: 2rem 0; }
+    .slide-text { font-size: .975rem; line-height: 1.8; margin-bottom: 1.5rem; color: rgba(255,255,255,.88); }
+    .hero-titles-container { display: flex; flex-direction: column; justify-content: center; }
+    .hero-pagination {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 10px; z-index: 10;
+    }
+    .swiper-pagination-bullet {
+      width: 10px; height: 10px; background: rgba(255,255,255,.35);
+      border-radius: 50%; cursor: pointer; transition: all .3s ease;
+      border: 1.5px solid rgba(255,255,255,.3);
+    }
+    .swiper-pagination-bullet-active { background: #AEF8FF; transform: scale(1.3); border-color: #AEF8FF; }
+    @media (max-width: 768px) {
+      .hero-section { height: 100svh; min-height: 580px; }
+      .slide-overlay { background: rgba(1,20,55,.65); }
+    }
+
+    /* ── STATS ── */
+    .stats-bar { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stat-cell { text-align: center; padding: 2rem 1rem; }
+    .stat-num { font-size: 40px; font-weight: 800; color: var(--blue); line-height: 1; display: block; letter-spacing: -.02em; }
+    .stat-lbl { font-size: 14px; color: var(--muted); margin-top: .4rem; display: block; }
+
+    /* ── LABELS / TITLES ── */
+    .section-label {
+      display: inline-block; background: none; color: #39ceee;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: .75rem; padding: 0; border: none;
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700;
+      color: var(--navy); margin-bottom: .9rem; line-height: 40px;
+    }
+    .section-sub { font-size: 16px; color: var(--soft); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── SERVICIOS ── */
+    .serv-card {
+      background: white; border: 1px solid var(--border); border-radius: 20px;
+      padding: 2.25rem 2rem; height: 100%;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .serv-card:hover { box-shadow: 0 16px 40px rgba(37,99,235,.12); transform: translateY(-4px); }
+    .serv-card.featured { border-color: var(--blue); border-width: 2px; position: relative; }
+    .serv-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: white; font-size: .78rem; font-weight: 700;
+      padding: .35rem 1.1rem; border-radius: 999px; white-space: nowrap;
+    }
+    .serv-img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 1.5rem; }
+    .serv-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .75rem; line-height: 28px; }
+    .serv-card p { font-size: 15px; color: var(--soft); margin-bottom: 1.1rem; line-height: 1.7; }
+    .feat-list { list-style: none; padding: 0; margin: 0 0 1.75rem; }
+    .feat-list li { font-size: 14px; color: #374151; padding: .35rem 0; display: flex; align-items: center; gap: .6rem; }
+    .feat-list li i { color: var(--blue); font-size: 1rem; flex-shrink: 0; }
+    .serv-tag { display: inline-block; background: #EFF6FF; color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 1rem; }
+
+    /* ── PORTAFOLIO ── */
+    .port-card {
+      background: white; border: 1px solid var(--border); border-radius: 18px;
+      overflow: hidden; height: 100%;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .port-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .port-card img { width: 100%; height: 210px; object-fit: cover; }
+    .port-body { padding: 1.35rem 1.5rem 1.6rem; }
+    .port-cat { font-size: 12px; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: .4rem; }
+    .port-body h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .4rem; line-height: 26px; }
+    .port-body p { font-size: 14px; color: var(--muted); margin-bottom: .9rem; line-height: 1.6; }
+    .port-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .9rem; }
+    .port-tag-item { background: #EFF6FF; color: var(--blue); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+    .port-link { font-size: 14px; font-weight: 700; color: var(--blue); text-decoration: none; }
+    .port-link:hover { text-decoration: underline; }
+    .port-bar { display: flex; gap: 5px; align-items: center; padding: .55rem .85rem; background: #F8FAFC; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* ── VENTAJAS ── */
+    .adv-item {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.6rem; background: white; border: 1px solid var(--border);
+      border-radius: 16px; height: 100%;
+      transition: box-shadow .2s;
+    }
+    .adv-item:hover { box-shadow: 0 8px 24px rgba(37,99,235,.08); }
+    .adv-icon {
+      width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem;
+    }
+    .adv-item h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
+    .adv-item p { font-size: 15px; color: var(--soft); margin: 0; line-height: 1.65; }
+
+    /* ── PROCESO ── */
+    .step { background: white; border: 1px solid var(--border); border-radius: 18px; padding: 2.5rem 1.75rem; text-align: center; height: 100%; }
+    .step-n { width: 58px; height: 58px; display: inline-flex; align-items: center; justify-content: center; background: var(--blue); color: white; border-radius: 50%; font-weight: 800; font-size: 1.3rem; margin-bottom: 1.4rem; }
+    .step h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .6rem; }
+    .step p { font-size: 15px; color: var(--soft); margin: 0; line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-box { background: linear-gradient(135deg, #1E3A5F 0%, #1D4ED8 100%); border-radius: 24px; padding: 4rem 2rem; text-align: center; }
+    .cta-box h2 { color: white; font-size: 30px; font-weight: 700; margin-bottom: .75rem; line-height: 36px; }
+    .cta-box p { color: rgba(255,255,255,.8); font-size: 16px; margin-bottom: 2rem; }
+
+    /* ── FORM ── */
+    .form-box { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.05); }
+    .form-label { font-size: .82rem; font-weight: 600; color: var(--navy); margin-bottom: .35rem; }
+    .form-control, .form-select { border-color: var(--border); border-radius: 10px; font-size: .875rem; padding: .65rem 1rem; color: #374151; }
+    .form-control:focus, .form-select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+
+    /* ── BUTTONS ── */
+    .btn-main { display: inline-flex; align-items: center; gap: .5rem; background: var(--blue); color: white; text-decoration: none; border: none; border-radius: 12px; padding: .8rem 1.75rem; font-weight: 700; font-size: .9rem; transition: opacity .2s, transform .15s; cursor: pointer; }
+    .btn-main:hover { opacity: .9; color: white; transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: .5rem; background: white; color: var(--navy); text-decoration: none; border: 1.5px solid var(--border); border-radius: 12px; padding: .8rem 1.75rem; font-weight: 600; font-size: .9rem; transition: border-color .2s; }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-full { width: 100%; justify-content: center; padding: .9rem; font-size: .95rem; }
+
+    /* ── FAQ ── */
+    .faq-wrap { background: white; border: 1px solid var(--border); border-radius: 12px; margin-bottom: .6rem; overflow: hidden; }
+    .faq-wrap .accordion-button { font-size: 16px; font-weight: 600; color: var(--navy); padding: 1.35rem 1.6rem; background: white; }
+    .faq-wrap .accordion-button:not(.collapsed) { background: #EFF6FF; color: var(--blue); box-shadow: none; }
+    .faq-wrap .accordion-button:focus { box-shadow: none; }
+    .faq-wrap .accordion-body { font-size: 15px; color: var(--soft); padding: 1rem 1.6rem 1.4rem; line-height: 1.8; }
+
+    /* ── COMPARE ── */
+    .cmp-table { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.06); width: 100%; }
+    .cmp-table th { background: var(--navy); color: white; padding: .9rem 1.25rem; font-size: .85rem; font-weight: 600; border: none; }
+    .cmp-table th.hl { background: var(--blue); }
+    .cmp-table td { padding: .8rem 1.25rem; border-color: var(--border); font-size: .85rem; vertical-align: middle; }
+    .good { color: var(--blue); font-weight: 700; }
+    .ok { color: #16A34A; font-weight: 600; }
+    .bad { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          <img src="/assets/img/tienda-online/logo.svg" alt="DiseñoPaginas.cl" width="140" height="53" style="height:40px;width:auto;" />
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#por-que">¿Por qué nosotros?</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#contacto" class="nav-cta">Cotiza gratis</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+          <i class="ti ti-menu-2"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO SLIDER ══ -->
+  <section class="hero-section" id="inicio" aria-label="Hero tienda online Chile">
+    <div class="hero-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 — imagen slider-1.webp de diseñopaginas.cl/tienda-online/ -->
+        <div class="swiper-slide">
+          <img src="/assets/img/tienda-online/slider-1.webp" alt="Tienda online Chile con carrito de compras WooCommerce" class="slide-img" />
+          <div class="slide-overlay"></div>
+          <div class="slide-body container">
+            <div class="row align-items-center" style="min-height:580px;">
+              <div class="col-12 col-lg-6">
+                <p class="hero-subtitle">Tienda Online Chile</p>
+                <h1 class="hero-main-title">Tu tienda online Chile<br/><em style="font-style:normal;color:#AEF8FF;">vende por internet hoy</em></h1>
+                <p class="slide-text">¿Quieres vender tus productos en línea? Creamos tu <strong>tienda virtual con carrito de compras</strong>, Webpay Plus, catálogo y diseño a medida.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                  <a href="#servicios" class="btn border-2 btn-outline-light fw-bold">Quiero mi tienda online <i class="ti ti-arrow-up-right"></i></a>
+                  <a href="#contacto" class="btn border-2 btn-outline-light">Cotizar ahora</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 — imagen slider-2.webp -->
+        <div class="swiper-slide">
+          <img src="/assets/img/tienda-online/slider-2.webp" alt="WooCommerce Chile ecommerce con Webpay Plus carrito de compras" class="slide-img" />
+          <div class="slide-overlay"></div>
+          <div class="slide-body container">
+            <div class="row align-items-center" style="min-height:580px;">
+              <div class="col-12 col-lg-6">
+                <p class="hero-subtitle">Tienda Online</p>
+                <h2 class="hero-main-title">Vende 24/7 con tu<br/><em style="font-style:normal;color:#AEF8FF;">e-commerce propio</em></h2>
+                <p class="slide-text">Tiendas <strong>WooCommerce</strong> con pasarela de pago chilena (<strong>Webpay Plus</strong>), gestión de productos y diseño a medida para tu marca.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                  <a href="#servicios" class="btn border-2 btn-outline-light fw-bold">Quiero mi tienda <i class="ti ti-arrow-up-right"></i></a>
+                  <a href="#contacto" class="btn border-2 btn-outline-light">Cotizar ahora</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 — imagen slider-3.webp -->
+        <div class="swiper-slide">
+          <img src="/assets/img/tienda-online/slider-3.webp" alt="Web rápida Astro JS Chile 100/100 PageSpeed SEO" class="slide-img" />
+          <div class="slide-overlay"></div>
+          <div class="slide-body container">
+            <div class="row align-items-center" style="min-height:580px;">
+              <div class="col-12 col-lg-6">
+                <p class="hero-subtitle">Astro JS — Velocidad máxima</p>
+                <h2 class="hero-main-title">Páginas rápidas,<br/><em style="font-style:normal;color:#AEF8FF;">posicionadas en Google</em></h2>
+                <p class="slide-text">Con <strong>Astro JS</strong> construimos sitios con rendimiento perfecto: <strong>100/100 en PageSpeed</strong> y SEO técnico desde el inicio.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                  <a href="/productos-muestra/" class="btn border-2 btn-outline-light fw-bold">Conocer Astro JS <i class="ti ti-arrow-up-right"></i></a>
+                  <a href="#contacto" class="btn border-2 btn-outline-light">Cotizar ahora</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hero-pagination"></div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ══ -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
+          <span class="stat-num">+120</span>
+          <span class="stat-lbl">Sitios entregados</span>
+        </div>
+        <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
+          <span class="stat-num">5 años</span>
+          <span class="stat-lbl">De experiencia</span>
+        </div>
+        <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
+          <span class="stat-num">100/100</span>
+          <span class="stat-lbl">Google PageSpeed</span>
+        </div>
+        <div class="col-6 col-md-3 stat-cell">
+          <span class="stat-num">24 h</span>
+          <span class="stat-lbl">Respuesta garantizada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SERVICIOS ══ -->
+  <section class="py-5" id="servicios" style="background:var(--light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Lo que hacemos</span>
+        <h2 class="section-title">Nuestros servicios</h2>
+        <p class="section-sub">Soluciones web a medida para tu negocio en Chile. Cada proyecto es único, diseñado para convertir visitas en clientes.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+
+        <!-- WordPress -->
+        <div class="col-md-6 col-lg-4">
+          <div class="serv-card">
+            <span class="serv-tag">CMS #1 del mundo</span>
+            <img src="/assets/img/tienda-online/img-wordpress.webp"
+              alt="Diseño Web WordPress Chile" class="serv-img" loading="lazy" />
+            <h3>Diseño Web WordPress</h3>
+            <p>Sitios web profesionales, modernos y fáciles de administrar. Diseño a medida que representa tu marca y atrae clientes.</p>
+            <ul class="feat-list">
+              <li><i class="ti ti-check"></i> Diseño personalizado para tu negocio</li>
+              <li><i class="ti ti-check"></i> Panel de administración simple</li>
+              <li><i class="ti ti-check"></i> Blog y noticias integradas</li>
+              <li><i class="ti ti-check"></i> Formularios de contacto y cotización</li>
+              <li><i class="ti ti-check"></i> SEO técnico optimizado</li>
+            </ul>
+            <a href="#contacto" class="btn-ghost" style="width:100%;justify-content:center;">Quiero mi sitio WordPress</a>
+          </div>
+        </div>
+
+        <!-- Tienda Online — Destacada -->
+        <div class="col-md-6 col-lg-4">
+          <div class="serv-card featured">
+            <span class="serv-badge">✦ Más solicitado</span>
+            <span class="serv-tag" style="margin-top:.5rem;display:inline-block;">WooCommerce Chile</span>
+            <img src="/assets/img/tienda-online/img-tienda.webp"
+              alt="Tienda Online WooCommerce Chile carrito de compras" class="serv-img" loading="lazy" />
+            <h3>Tienda Online</h3>
+            <p>Vende tus productos las 24 horas. <strong>WooCommerce</strong> con diseño atractivo, gestión de stock y pasarelas de pago chilenas — sin comisión por venta.</p>
+            <ul class="feat-list">
+              <li><i class="ti ti-check"></i> Catálogo ilimitado de productos</li>
+              <li><i class="ti ti-check"></i> WebPay y MercadoPago integrado</li>
+              <li><i class="ti ti-check"></i> Gestión de stock e inventario</li>
+              <li><i class="ti ti-check"></i> Carrito y proceso de compra claro</li>
+              <li><i class="ti ti-check"></i> Panel de ventas y reportes</li>
+            </ul>
+            <a href="#contacto" class="btn-main" style="width:100%;justify-content:center;">Quiero mi tienda online</a>
+          </div>
+        </div>
+
+        <!-- Astro JS -->
+        <div class="col-md-6 col-lg-4">
+          <div class="serv-card">
+            <span class="serv-tag">Velocidad perfecta</span>
+            <img src="/assets/img/tienda-online/img-astro.webp"
+              alt="Web Rápida Astro JS Chile 100/100 PageSpeed" class="serv-img" loading="lazy" />
+            <h3>Web Rápida con Astro JS</h3>
+            <p>El framework más moderno para sitios ultrarrápidos. Carga instantánea, 100/100 en Google PageSpeed y SEO técnico avanzado desde el inicio.</p>
+            <ul class="feat-list">
+              <li><i class="ti ti-check"></i> 100/100 en Google PageSpeed</li>
+              <li><i class="ti ti-check"></i> Carga en menos de 1 segundo</li>
+              <li><i class="ti ti-check"></i> SEO técnico avanzado incluido</li>
+              <li><i class="ti ti-check"></i> Sin plugins lentos ni CMS pesado</li>
+              <li><i class="ti ti-check"></i> Ideal para Landing Pages</li>
+            </ul>
+            <a href="#contacto" class="btn-ghost" style="width:100%;justify-content:center;">Quiero una web Astro JS</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PORTAFOLIO ══ -->
+  <section class="py-5" id="portafolio">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Nuestro trabajo</span>
+        <h2 class="section-title">Portafolio</h2>
+        <p class="section-sub">Algunos de los proyectos que hemos desarrollado para clientes en Chile.</p>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3">
+          <div class="port-card">
+            <div class="port-bar">
+              <div class="dot" style="background:#F87171;"></div>
+              <div class="dot" style="background:#FBBF24;"></div>
+              <div class="dot" style="background:#4ADE80;"></div>
+            </div>
+            <img src="/assets/img/tienda-online/hielos-sur.webp"
+              alt="Hielos del Sur - Tienda online WordPress Chile" loading="lazy" />
+            <div class="port-body">
+              <p class="port-cat">Mobiliario Urbano</p>
+              <h4>Hielos del Sur</h4>
+              <p>Sitio web Mobiliario urbano - Diseño y Construcción e instalación (2020)</p>
+              <div class="port-tags">
+                <span class="port-tag-item">WordPress</span>
+                <span class="port-tag-item">Diseño</span>
+              </div>
+              <a href="https://hielosdelsur.cl/" target="_blank" rel="noopener" class="port-link">Ver sitio →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="port-card">
+            <div class="port-bar">
+              <div class="dot" style="background:#F87171;"></div>
+              <div class="dot" style="background:#FBBF24;"></div>
+              <div class="dot" style="background:#4ADE80;"></div>
+            </div>
+            <img src="/assets/img/tienda-online/nelparts.webp"
+              alt="Nelparts - Ecommerce repuestos camiones Chile WooCommerce" loading="lazy" />
+            <div class="port-body">
+              <p class="port-cat">Web Repuestos Camiones</p>
+              <h4>Nelparts</h4>
+              <p>Diseño web Nelparts - www.nelparts.cl (2025)</p>
+              <div class="port-tags">
+                <span class="port-tag-item">WordPress</span>
+                <span class="port-tag-item">E-commerce</span>
+              </div>
+              <a href="https://nelparts.cl/" target="_blank" rel="noopener" class="port-link">Ver sitio →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="port-card">
+            <div class="port-bar">
+              <div class="dot" style="background:#F87171;"></div>
+              <div class="dot" style="background:#FBBF24;"></div>
+              <div class="dot" style="background:#4ADE80;"></div>
+            </div>
+            <img src="/assets/img/tienda-online/ramsy.png"
+              alt="Ramsy - Tienda online productos industrias WooCommerce Chile" loading="lazy" />
+            <div class="port-body">
+              <p class="port-cat">Venta Productos Industrias</p>
+              <h4>Ramsy</h4>
+              <p>ramsy.cl (2026)</p>
+              <div class="port-tags">
+                <span class="port-tag-item">E-commerce</span>
+                <span class="port-tag-item">WordPress</span>
+              </div>
+              <a href="https://ramsy.cl/prueba/" target="_blank" rel="noopener" class="port-link">Ver sitio →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="port-card">
+            <div class="port-bar">
+              <div class="dot" style="background:#F87171;"></div>
+              <div class="dot" style="background:#FBBF24;"></div>
+              <div class="dot" style="background:#4ADE80;"></div>
+            </div>
+            <img src="/assets/img/tienda-online/novatech-screenshot.jpg"
+              alt="NovaTech - Tienda online tecnología Astro JS carga rápida Chile" loading="lazy" style="object-position: top;" />
+            <div class="port-body">
+              <p class="port-cat">Tienda Online Rápida</p>
+              <h4>NovaTech — Demo Tienda</h4>
+              <p>Ecommerce con Astro JS: carga en menos de 1 seg, 100/100 PageSpeed y carrito integrado.</p>
+              <div class="port-tags">
+                <span class="port-tag-item">Astro JS</span>
+                <span class="port-tag-item">E-commerce</span>
+              </div>
+              <a href="https://disenopaginas.cl/productos-muestra/" target="_blank" rel="noopener" class="port-link">Ver demo →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-4">
+        <a href="#contacto" class="btn-ghost">Cotiza tu proyecto →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ POR QUÉ ELEGIRNOS ══ -->
+  <section class="py-5" id="por-que" style="background:var(--light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Ventajas</span>
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <p class="section-sub">Más de 5 años creando sitios web para negocios en Chile. Entrega rápida, resultados reales.</p>
+      </div>
+      <div class="row g-3">
+        {[
+          { i:"ti-rocket", t:"Velocidad extrema", d:"Sitios con carga en menos de 1 segundo. Google premia la velocidad con mejores posiciones y tus usuarios también la agradecen." },
+          { i:"ti-search", t:"SEO desde el inicio", d:"Metaetiquetas, estructura semántica y contenido optimizado para posicionar en Google desde el primer día que publicas." },
+          { i:"ti-device-mobile", t:"100% Responsive", d:"Tu sitio luce perfecto en celular, tablet y computador. El 60% de las compras en Chile se hacen desde smartphone." },
+          { i:"ti-lock", t:"Seguridad incluida", d:"Certificado SSL, protección básica y actualizaciones para mantener tu sitio seguro y a tus clientes confiados." },
+          { i:"ti-headset", t:"Soporte en Chile", d:"Comunicación directa, sin intermediarios. Soporte en español y horario chileno. Sin esperar días para una respuesta." },
+          { i:"ti-palette", t:"Diseño a medida", d:"Sin plantillas genéricas. Cada proyecto refleja tu identidad de marca, tus objetivos y el mercado que quieres conquistar." },
+        ].map(a => (
+          <div class="col-md-6 col-lg-4">
+            <div class="adv-item">
+              <div class="adv-icon"><i class={`ti ${a.i}`}></i></div>
+              <div>
+                <h4>{a.t}</h4>
+                <p>{a.d}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESO ══ -->
+  <section class="py-5" id="proceso">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Metodología</span>
+        <h2 class="section-title">Así trabajamos</h2>
+        <p class="section-sub">Un proceso claro y transparente. Desde la primera conversación hasta el lanzamiento.</p>
+      </div>
+      <div class="row g-4">
+        {[
+          { n:"1", t:"Conversamos", d:"Nos cuentas tu proyecto, metas y presupuesto. Sin compromiso, sin presión. Te enviamos propuesta en menos de 24 horas." },
+          { n:"2", t:"Diseñamos", d:"Creamos el diseño visual de tu sitio. Tú lo apruebas antes de que programemos una línea de código." },
+          { n:"3", t:"Desarrollamos", d:"Construimos con código limpio, optimizado para velocidad y posicionamiento en buscadores. De 10 a 15 días hábiles." },
+          { n:"4", t:"Lanzamos", d:"Publicamos tu sitio, configuramos el dominio y te capacitamos para que puedas actualizarlo sin ayuda." },
+        ].map(s => (
+          <div class="col-md-6 col-lg-3">
+            <div class="step">
+              <div class="step-n">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMPARATIVA ══ -->
+  <section class="py-5" style="background:var(--light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Comparativa</span>
+        <h2 class="section-title">WooCommerce vs Shopify vs Jumpseller en Chile</h2>
+        <p class="section-sub">Elige la plataforma correcta para tu tienda online.</p>
+      </div>
+      <div class="table-responsive">
+        <table class="cmp-table table table-bordered">
+          <thead>
+            <tr>
+              <th style="width:34%;">Característica</th>
+              <th class="hl text-center">WooCommerce ✦</th>
+              <th class="text-center">Shopify</th>
+              <th class="text-center">Jumpseller</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="color:#374151;font-weight:500;font-size:.85rem;">Comisión por venta</td><td class="text-center good">0%</td><td class="text-center bad">0.5%–2%</td><td class="text-center ok">0%</td></tr>
+            <tr class="table-light"><td style="color:#374151;font-weight:500;font-size:.85rem;">Webpay Plus nativo</td><td class="text-center ok">✓</td><td class="text-center ok">✓</td><td class="text-center ok">✓</td></tr>
+            <tr><td style="color:#374151;font-weight:500;font-size:.85rem;">Diseño 100% a medida</td><td class="text-center ok">✓</td><td class="text-center bad">Solo temas</td><td class="text-center bad">Solo temas</td></tr>
+            <tr class="table-light"><td style="color:#374151;font-weight:500;font-size:.85rem;">Control total SEO</td><td class="text-center ok">✓</td><td class="text-center bad">Limitado</td><td class="text-center bad">Limitado</td></tr>
+            <tr><td style="color:#374151;font-weight:500;font-size:.85rem;">Chilexpress automático</td><td class="text-center ok">✓</td><td class="text-center bad">Con app paga</td><td class="text-center ok">✓</td></tr>
+            <tr class="table-light"><td style="color:#374151;font-weight:500;font-size:.85rem;">Costo mensual</td><td class="text-center good">Solo hosting</td><td class="text-center bad">USD 29–299/mes</td><td class="text-center bad">USD 19–119/mes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-5">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Preguntas frecuentes</h2>
+            <p class="section-sub">Todo lo que necesitas saber antes de crear tu tienda online en Chile.</p>
+          </div>
+          <div class="accordion" id="faqAcc">
+            {[
+              { id:"q1", q:"¿Cuánto cuesta el diseño de una tienda online en Chile?", a:"Una tienda online con WooCommerce, carrito de compras y Webpay Plus parte desde $290.000 CLP. Un ecommerce completo con catálogo ilimitado, SEO avanzado, MercadoPago y Chilexpress automático va entre $490.000 y $890.000 CLP. Incluye diseño a medida, configuración completa, carga de productos y capacitación. Cotización gratuita en menos de 24 horas." },
+              { id:"q2", q:"¿WooCommerce, Shopify o Jumpseller para una tienda online en Chile?", a:"WooCommerce es la mejor opción para el mercado chileno: no cobra comisión por venta, integra Webpay Plus de forma nativa, admite catálogos ilimitados sin costo extra y el SEO es superior. Con Shopify, en $5M de ventas mensuales pagas hasta $100.000 CLP solo en comisiones — con WooCommerce eso queda en tu bolsillo." },
+              { id:"q3", q:"¿Cuánto demora crear una tienda online en Chile?", a:"De 10 a 15 días hábiles para una tienda con hasta 50 productos. Con catálogo amplio (100+ productos), entre 3 y 5 semanas. El factor principal es la rapidez con que el cliente entrega fotos, descripciones y datos de la empresa." },
+              { id:"q4", q:"¿La tienda online queda optimizada para aparecer en Google?", a:"Sí. Aplicamos SEO completo: URLs amigables por producto, meta title y description únicos, schema markup Product + Offer para rich snippets, sitemap XML automático, imágenes WebP con alt text y Google Search Console configurado." },
+              { id:"q5", q:"¿Integran Webpay Plus, MercadoPago y Chilexpress?", a:"Sí. Webpay Plus (Transbank) para tarjetas chilenas, MercadoPago con cuotas sin interés, PayPal para clientes internacionales y Chilexpress con cálculo automático de tarifas por peso y región. Todo probado antes de publicar." },
+              { id:"q6", q:"¿Puedo administrar mi tienda online sin saber programar?", a:"Absolutamente. WooCommerce tiene un panel de administración intuitivo para agregar productos, revisar pedidos, controlar stock y crear cupones sin programar. Incluimos capacitación personalizada de 2 horas y soporte por WhatsApp el primer mes." },
+              { id:"q7", q:"¿Pueden migrar mi tienda de Shopify o Jumpseller a WooCommerce?", a:"Sí. Migramos productos, imágenes, categorías, precios e inventario desde Shopify, Jumpseller y Prestashop. Primero construimos la nueva tienda y la apruebas, luego hacemos el cambio de DNS para no perder ni un día de ventas." },
+            ].map((item, i) => (
+              <div class="faq-wrap">
+                <h3 class="accordion-header">
+                  <button class={`accordion-button ${i>0?'collapsed':''}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${item.id}`}>
+                    {item.q}
+                  </button>
+                </h3>
+                <div id={item.id} class={`accordion-collapse collapse ${i===0?'show':''}`} data-bs-parent="#faqAcc">
+                  <div class="accordion-body">{item.a}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="py-5" style="background:var(--light);">
+    <div class="container">
+      <div class="cta-box">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p>Hablemos y te entregamos una propuesta sin costo.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="#contacto" class="btn-main" style="background:white;color:var(--navy);">
+            Cotiza gratis ahora →
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=56961765268" target="_blank" rel="noopener" class="btn-ghost" style="background:transparent;color:white;border-color:rgba(255,255,255,.35);">
+            <i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FORMULARIO ══ -->
+  <section class="py-5" id="contacto">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="text-center mb-5">
+            <span class="section-label">Hablemos</span>
+            <h2 class="section-title">Cotiza tu proyecto <span style="color:var(--blue);">sin costo</span></h2>
+            <p class="section-sub">Cuéntanos qué necesitas y te enviamos una propuesta detallada en menos de 24 horas. Sin compromisos.</p>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-4">
+              <a href="mailto:codigoraul@gmail.com" class="d-block p-3 bg-white rounded-3 border text-center text-decoration-none h-100">
+                <i class="ti ti-mail d-block mb-1" style="color:var(--blue);font-size:1.3rem;"></i>
+                <div style="font-size:.78rem;font-weight:600;color:var(--navy);">Email</div>
+                <div style="font-size:.7rem;color:var(--muted);">codigoraul@gmail.com</div>
+              </a>
+            </div>
+            <div class="col-4">
+              <a href="https://api.whatsapp.com/send?phone=56961765268" target="_blank" rel="noopener" class="d-block p-3 bg-white rounded-3 border text-center text-decoration-none h-100">
+                <i class="ti ti-brand-whatsapp d-block mb-1" style="color:#25D366;font-size:1.3rem;"></i>
+                <div style="font-size:.78rem;font-weight:600;color:var(--navy);">WhatsApp</div>
+                <div style="font-size:.7rem;color:var(--muted);">+56 9 6176 5268</div>
+              </a>
+            </div>
+            <div class="col-4">
+              <div class="p-3 bg-white rounded-3 border text-center h-100">
+                <i class="ti ti-clock d-block mb-1" style="color:var(--blue);font-size:1.3rem;"></i>
+                <div style="font-size:.78rem;font-weight:600;color:var(--navy);">Respuesta</div>
+                <div style="font-size:.7rem;color:var(--muted);">Menos de 24 h</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <form action="/procesar-formulario.php" method="POST">
+              <input type="hidden" name="servicio" value="tienda-online" />
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nombre</label>
+                  <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="tu@email.cl" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">¿Qué necesitas?</label>
+                  <select name="tipo" class="form-select">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="wordpress">Diseño Web WordPress</option>
+                    <option value="tienda" selected>Tienda Online</option>
+                    <option value="astro">Web rápida con Astro JS</option>
+                    <option value="otro">Otro / No lo sé aún</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Tu proyecto</label>
+                  <textarea name="mensaje" class="form-control" rows="4" placeholder="¿Qué quieres lograr con tu sitio web?"></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-main btn-full">Enviar cotización gratuita →</button>
+                  <p class="text-center mt-2 mb-0" style="font-size:.78rem;color:var(--muted);">Sin compromiso · Respuesta en menos de 24 horas</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER — idéntico a diseñopaginas.cl ══ -->
+  <style is:global>
+    /* Estilos globales del footer que normalmente vienen de Layout.astro */
+    .footer-wrapper { padding: 3.5rem 0 0; }
+    .footer-card { padding-bottom: 2.5rem; }
+    .footer-card p { font-size: 15px; line-height: 1.7; }
+    .footer-nav { list-style: none; padding-left: 0; margin-bottom: 0; }
+    .footer-nav li { padding: 3px 0; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 0; }
+    .copyright-wrapper { background-color: #1a1b1a; padding: 1.1rem 0; }
+    .footer-bottom-nav {
+      display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .footer-bottom-nav a {
+      font-size: 14px !important; text-decoration: none; color: #DDDEDC !important;
+    }
+    .footer-bottom-nav a:hover { color: #35A3EA !important; }
+    @media (max-width: 768px) {
+      .footer-bottom-nav { justify-content: flex-start; margin-top: .5rem; }
+    }
+  </style>
+  <Footer />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    // ── Navbar hamburguesa
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => navLinks?.classList.toggle('open'));
+    navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Hero Slider
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides     = document.querySelectorAll('.hero-swiper .swiper-slide');
+      const pagination = document.querySelector('.hero-pagination');
+      let current = 0, timer;
+
+      if (pagination) {
+        pagination.innerHTML = '';
+        slides.forEach((_, i) => {
+          const b = document.createElement('span');
+          b.className = 'swiper-pagination-bullet';
+          b.addEventListener('click', () => { current = i; show(i); restart(); });
+          pagination.appendChild(b);
+        });
+      }
+
+      function show(idx) {
+        const bullets = document.querySelectorAll('.hero-pagination .swiper-pagination-bullet');
+        slides.forEach(s  => s.classList.remove('swiper-slide-active'));
+        bullets.forEach(b => b.classList.remove('swiper-pagination-bullet-active'));
+        if (slides[idx])  slides[idx].classList.add('swiper-slide-active');
+        if (bullets[idx]) bullets[idx].classList.add('swiper-pagination-bullet-active');
+      }
+
+      function next() { current = (current + 1) % slides.length; show(current); }
+      function restart() { clearInterval(timer); timer = setInterval(next, 5000); }
+
+      setTimeout(() => { show(0); if (slides.length > 1) restart(); }, 100);
+    });
+  </script>
+
+</body>
+</html>

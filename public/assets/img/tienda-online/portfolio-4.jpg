@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="es" data-astro-cid-sckkx6r4> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos"><!-- ===== OPEN GRAPH ===== --><meta property="og:type" content="website"><meta property="og:url" content="https://diseñopaginas.cl/404/"><meta property="og:title" content="Página no encontrada - Diseño Páginas Chile"><meta property="og:description" content="Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos"><meta property="og:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="es_CL"><meta property="og:site_name" content="DiseñoPaginas.cl"><!-- ===== TWITTER / X ===== --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@raulriquelme2"><meta name="twitter:title" content="Página no encontrada - Diseño Páginas Chile"><meta name="twitter:description" content="Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos"><meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg"><!-- Canonical URL --><link rel="canonical" href="https://diseñopaginas.cl/404/"><!-- Title & Favicon --><title>Página no encontrada - Diseño Páginas Chile</title><link rel="icon" type="image/x-icon" href="./favicon.ico"><link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="./favicon.ico"><!-- Preload imagen hero LCP para mobile --><link rel="preload" as="image" href="./assets/img/blog/ia-diseno-web-experto-humano/portada.webp" fetchpriority="high" media="(max-width: 991px)"><!-- Preconnect solo los críticos --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Preload fuente crítica para LCP --><link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin><!-- CSS CRÍTICO: Bootstrap + estilos base - carga síncrona para evitar FOUC --><link rel="stylesheet" href="./assets/css/bootstrap.min.css"><link rel="stylesheet" href="./assets/css/style.css"><link rel="stylesheet" href="./assets/css/custom-colors.css"><!-- CSS NO CRÍTICO: diferido para no bloquear render --><link rel="preload" href="./assets/css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="./assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="./assets/css/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="./assets/css/hero-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><!-- Fallback sin JS --><noscript><link rel="stylesheet" href="./assets/css/animate.css"><link rel="stylesheet" href="./assets/css/tabler-icons.min.css"><link rel="stylesheet" href="./assets/css/swiper-bundle.min.css"><link rel="stylesheet" href="./assets/css/hero-colors.css"></noscript><!-- Google Fonts diferido con display=swap para evitar CLS --><link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"></noscript><!-- Font display swap para evitar CLS con tabler-icons --><!-- Schema LocalBusiness + Person — E-E-A-T y autoridad --><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://diseñopaginas.cl/#website",
+        "url": "https://diseñopaginas.cl/",
+        "name": "DiseñoPaginas.cl",
+        "description": "Diseño de páginas web profesionales en Chile",
+        "inLanguage": "es-CL",
+        "publisher": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://diseñopaginas.cl/#negocio",
+        "name": "DiseñoPaginas.cl",
+        "legalName": "DiseñoPaginas.cl",
+        "description": "Agencia de diseño web profesional en Chile con más de 13 años de experiencia. Especialistas en páginas web con Astro, sitios autoadministrables con WordPress, tiendas online y posicionamiento SEO para empresas chilenas.",
+        "url": "https://diseñopaginas.cl/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://diseñopaginas.cl/assets/img/logo-disenopaginas.svg",
+          "width": 300,
+          "height": 80
+        },
+        "image": "https://diseñopaginas.cl/assets/img/og-image.jpg",
+        "telephone": "+56961765268",
+        "email": "codigoraul@gmail.com",
+        "foundingDate": "2012",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Temuco",
+          "addressRegion": "La Araucanía",
+          "addressCountry": "CL"
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Chile"
+          },
+          {
+            "@type": "City",
+            "name": "Santiago"
+          },
+          {
+            "@type": "City",
+            "name": "Temuco"
+          },
+          {
+            "@type": "City",
+            "name": "Concepción"
+          },
+          {
+            "@type": "City",
+            "name": "Valparaíso"
+          },
+          {
+            "@type": "City",
+            "name": "Antofagasta"
+          },
+          {
+            "@type": "City",
+            "name": "La Serena"
+          },
+          {
+            "@type": "City",
+            "name": "Valdivia"
+          },
+          {
+            "@type": "City",
+            "name": "Puerto Montt"
+          }
+        ],
+        "serviceType": [
+          "Diseño Web",
+          "Desarrollo Web con Astro",
+          "Sitios Web Autoadministrables",
+          "Tiendas Online WooCommerce",
+          "Posicionamiento SEO",
+          "Diseño de Logotipos",
+          "Diseño UX UI en Figma",
+          "Mantenimiento Web"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/PaginasChile/",
+          "https://www.linkedin.com/in/raul-riquelme-69a16859/",
+          "https://www.instagram.com/disenopaginas/",
+          "https://www.behance.net/codigoraul",
+          "https://www.pinterest.es/boketo11/"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "10",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 1
+        },
+        "knowsAbout": [
+          "Diseño Web Profesional",
+          "Desarrollo con Astro Framework",
+          "WordPress",
+          "WooCommerce",
+          "SEO Chile",
+          "Diseño Gráfico",
+          "UX UI Design",
+          "Figma"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Diseño Web",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Diseño Web con Astro",
+                "description": "Páginas web ultrarrápidas desarrolladas con Astro Framework. Puntaje PageSpeed superior a 95/100."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sitio Web Autoadministrable",
+                "description": "Sitios web con WordPress que el cliente puede editar sin conocimientos técnicos."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tienda Online",
+                "description": "Tiendas con WooCommerce con catálogo de productos, carrito de compras y pasarela de pago."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Posicionamiento SEO",
+                "description": "Estrategia SEO para aparecer en los primeros resultados de Google en Chile."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://diseñopaginas.cl/#raul",
+        "name": "Raúl Riquelme",
+        "givenName": "Raúl",
+        "familyName": "Riquelme",
+        "jobTitle": "Diseñador Web y Desarrollador — Fundador de DiseñoPaginas.cl",
+        "description": "Diseñador gráfico y desarrollador web con más de 13 años de experiencia profesional. Especialista en diseño web con Astro, WordPress y posicionamiento SEO para empresas chilenas. Más de 200 proyectos web entregados.",
+        "url": "https://diseñopaginas.cl/",
+        "email": "codigoraul@gmail.com",
+        "telephone": "+56961765268",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Temuco",
+          "addressRegion": "La Araucanía",
+          "addressCountry": "CL"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/raul-riquelme-69a16859/",
+          "https://twitter.com/raulriquelme2",
+          "https://www.behance.net/codigoraul",
+          "https://www.instagram.com/disenopaginas/"
+        ],
+        "knowsAbout": [
+          "Diseño Gráfico",
+          "Diseño Web",
+          "Astro Framework",
+          "WordPress",
+          "SEO",
+          "UX UI Design",
+          "Figma",
+          "WooCommerce",
+          "HTML",
+          "CSS"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Formación universitaria en Diseño Gráfico y Diseño Web"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certificaciones Google",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Google"
+            }
+          }
+        ],
+        "worksFor": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        },
+        "founder": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        }
+      }
+    ]
+  }
+  </script><!-- Schema BreadcrumbList — generado dinámicamente por página --><!-- Schema FAQPage movido a index.astro (solo debe estar en la home, donde el FAQ es visible) --><link rel="stylesheet" href="././assets/css/404.css">
+<link rel="stylesheet" href="././assets/css/blog-2.css"><script type="module" src="././assets/js/hoisted.DbOotVmP.js"></script></head> <body data-astro-cid-sckkx6r4> <!-- Header --> <!-- Header Area--><header class="header-area style-two" data-astro-cid-3ef6ksr2> <div class="header-top" data-astro-cid-3ef6ksr2> <div class="container h-100 d-flex align-items-center justify-content-between" data-astro-cid-3ef6ksr2> <!-- Left Side --> <div class="left-side d-flex align-items-center gap-4 gap-lg-5" data-astro-cid-3ef6ksr2> <div class="d-flex align-items-center gap-2 text-white" data-astro-cid-3ef6ksr2> <i class="ti ti-mail-filled d-none d-lg-flex" data-astro-cid-3ef6ksr2></i> <span class="d-none d-lg-block" data-astro-cid-3ef6ksr2>codigoraul@gmail.com</span> </div> <div class="d-flex align-items-center gap-2 text-white" data-astro-cid-3ef6ksr2> <i class="ti ti-map-pin-filled d-none d-lg-flex" data-astro-cid-3ef6ksr2></i> <span class="d-none d-lg-block" data-astro-cid-3ef6ksr2>Santiago, Chile</span> </div> <div class="d-flex align-items-center gap-2 text-white" data-astro-cid-3ef6ksr2> <i class="ti ti-phone d-none d-lg-flex" data-astro-cid-3ef6ksr2></i> <span class="d-none d-lg-block" data-astro-cid-3ef6ksr2>+56 9 6176 5268</span> </div> </div> <!-- Right Side --> <div class="right-side" data-astro-cid-3ef6ksr2> <nav class="social-links d-flex align-items-center social-header gap-1 " aria-label="Redes sociales" data-astro-cid-zamss57n> <a href="https://www.facebook.com/PaginasChile/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Facebook" title="Facebook" data-astro-cid-zamss57n> <i class="ti ti-brand-facebook text-xl" data-astro-cid-zamss57n></i> </a><a href="https://twitter.com/raulriquelme2" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Twitter" title="Twitter" data-astro-cid-zamss57n> <i class="ti ti-brand-x text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.linkedin.com/in/raul-riquelme-69a16859/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en LinkedIn" title="LinkedIn" data-astro-cid-zamss57n> <i class="ti ti-brand-linkedin text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.instagram.com/disenopaginas/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Instagram" title="Instagram" data-astro-cid-zamss57n> <i class="ti ti-brand-instagram text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.pinterest.es/boketo11/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Pinterest" title="Pinterest" data-astro-cid-zamss57n> <i class="ti ti-brand-pinterest text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.behance.net/codigoraul" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Behance" title="Behance" data-astro-cid-zamss57n> <i class="ti ti-brand-behance text-xl" data-astro-cid-zamss57n></i> </a><a href="https://api.whatsapp.com/send?phone=56961765268&text=Hola,%20vi%20su%20contacto%20desde%20dise%C3%B1opaginas.cl%20y%20necesito%20un%20servicio:" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en WhatsApp" title="WhatsApp" data-astro-cid-zamss57n> <i class="ti ti-brand-whatsapp text-xl" data-astro-cid-zamss57n></i> </a> </nav>  </div> </div> </div> <nav class="navbar navbar-expand-lg" data-astro-cid-3ef6ksr2> <div class="container" data-astro-cid-3ef6ksr2> <!-- Navbar Brand --> <a class="navbar-brand" href="./index.html" data-astro-cid-3ef6ksr2> <img loading="eager" src="./assets/img/logo-disenopaginas.svg" alt="DiseñoPáginas.cl" width="185" height="62" data-astro-cid-3ef6ksr2> </a> <!-- Navbar Toggler --> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#disenopaginasNav" aria-controls="disenopaginasNav" aria-expanded="false" aria-label="Toggle navigation" data-astro-cid-3ef6ksr2> <i class="ti ti-category" data-astro-cid-3ef6ksr2></i> </button> <!-- Navbar Nav --> <div class="collapse navbar-collapse justify-content-end" id="disenopaginasNav" data-astro-cid-3ef6ksr2> <ul class="navbar-nav" data-astro-cid-3ef6ksr2> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./index.html" data-astro-cid-3ef6ksr2>Inicio</a> </li> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./servicios/index.html" data-astro-cid-3ef6ksr2>
+Servicios
+</a> </li> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./tarifas/index.html" data-astro-cid-3ef6ksr2>Tarifas</a> </li> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./portafolio/index.html" data-astro-cid-3ef6ksr2>Portafolio</a> </li> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./blog/index.html" data-astro-cid-3ef6ksr2>Blog</a> </li> <li class="nav-item" data-astro-cid-3ef6ksr2> <a class="nav-link " href="./contacto/index.html" data-astro-cid-3ef6ksr2>Contacto</a> </li> </ul> </div> </div> </nav> </header> <script>
+   // Sticky header
+   document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.header-area');
+      
+      function updateHeader() {
+         if (header) {
+            if (window.scrollY > 100) {
+               header.classList.add('sticky-on');
+            } else {
+               header.classList.remove('sticky-on');
+            }
+         }
+      }
+
+      // Inicializar
+      updateHeader();
+      
+      // Actualizar en scroll
+      window.addEventListener('scroll', updateHeader, { passive: true });
+   });
+</script>  <!-- Main Content --> <main data-astro-cid-sckkx6r4>  <section class="error-404-section" data-astro-cid-zetdm5md> <div class="container" data-astro-cid-zetdm5md> <div class="row" data-astro-cid-zetdm5md> <div class="col-lg-12" data-astro-cid-zetdm5md> <div class="error-404-content text-center" data-astro-cid-zetdm5md> <h1 class="error-code" data-astro-cid-zetdm5md>404</h1> <h2 class="error-title" data-astro-cid-zetdm5md>Página No Encontrada</h2> <p class="error-description" data-astro-cid-zetdm5md>
+Lo sentimos, la página que buscas no existe o ha sido movida.
+</p> <div class="error-actions" data-astro-cid-zetdm5md> <a href="./index.html" class="btn btn-primary" data-astro-cid-zetdm5md>Ir al Inicio</a> <a href="./portafolio/index.html" class="btn btn-outline-primary" data-astro-cid-zetdm5md>Ver Portafolio</a> <a href="./contacto/index.html" class="btn btn-outline-primary" data-astro-cid-zetdm5md>Contacto</a> </div> </div> </div> </div> </div> </section>  </main> <!-- Footer --> <!-- Footer --><footer class="footer-wrapper" data-astro-cid-sz7xmlte> <!-- Divider --> <div class="divider" data-astro-cid-sz7xmlte></div> <div class="container" data-astro-cid-sz7xmlte> <div class="row g-3" data-astro-cid-sz7xmlte> <!-- Footer Card --> <div class="col-12 col-sm-6 col-lg-4" data-astro-cid-sz7xmlte> <div class="footer-card pe-lg-4" data-astro-cid-sz7xmlte> <a href="./index.html" class="d-block mb-4" data-astro-cid-sz7xmlte> <img loading="lazy" src="./assets/img/logo-disenopaginas-n.png" alt="DiseñoPáginas.cl" width="185" height="62" data-astro-cid-sz7xmlte> </a> <p class="mb-0" data-astro-cid-sz7xmlte>Somos especialistas en diseño web profesional con más de 13 años 
+                  de experiencia creando sitios web de alta calidad. Nos comprometemos a encontrar
+                   la mejor solución para comunicar de forma rápida, efectiva y con alcance en el 
+                   tiempo acerca de su empresa o servicios a través de la web. Creamos sitios web
+                    modernos, responsivos y optimizados para SEO que impulsan el crecimiento de su 
+                    negocio.</p> </div> </div> <!-- Footer Card --> <div class="col-12 col-sm-6 col-lg-5 offset-lg-0" data-astro-cid-sz7xmlte> <div class="footer-card" data-astro-cid-sz7xmlte> <h5 class="mb-4" data-astro-cid-sz7xmlte>Links relacionados</h5> <!-- Footer Nav with new links --> <div class="row" data-astro-cid-sz7xmlte> <!-- First column --> <div class="col-6" data-astro-cid-sz7xmlte> <ul class="footer-nav" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-pymes" data-astro-cid-sz7xmlte>Diseño Web Pymes</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-clinicas-dentales" data-astro-cid-sz7xmlte>Web dentistas</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/servicios/diseno-logotipos" data-astro-cid-sz7xmlte>Logos y Afiche</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/tienda-online/" data-astro-cid-sz7xmlte>Tiendas Online</a></li> <li data-astro-cid-sz7xmlte><a href="https://aplicacionweb.cl" rel="dofollow" target="_blank" data-astro-cid-sz7xmlte>Apps web para tu negocio</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-empresas-mineria" data-astro-cid-sz7xmlte>Empresas Minería</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-abogados" data-astro-cid-sz7xmlte>Abogados</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-psicologos/" data-astro-cid-sz7xmlte>Psicólogos</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/veterinarias" data-astro-cid-sz7xmlte>Veterinaria</a></li> <li data-astro-cid-sz7xmlte><a href="https://g.page/r/CRxqVQxLHZqREBM/review" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>Reseñas Google</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-corredor-propiedades/" data-astro-cid-sz7xmlte>Web Corredor Propiedades</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-turismo" data-astro-cid-sz7xmlte>Web turismo</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.marketers1.com/CL/Temuco/1574128182815302/Dise%C3%B1o-Paginas-Web-Chile" target="blank" data-astro-cid-sz7xmlte>
+Marketers1.com</a></li> </ul> </div> <!-- Second column --> <div class="col-6" data-astro-cid-sz7xmlte> <ul class="footer-nav" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/antofagasta" data-astro-cid-sz7xmlte>Antofagasta</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/la-serena" data-astro-cid-sz7xmlte>La Serena</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/santiago" data-astro-cid-sz7xmlte>Santiago</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/concepcion" data-astro-cid-sz7xmlte>Concepción</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/web-temuco" data-astro-cid-sz7xmlte>Temuco</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/valdivia" data-astro-cid-sz7xmlte>Valdivia</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/osorno" data-astro-cid-sz7xmlte>Osorno</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/puerto-montt" data-astro-cid-sz7xmlte>Puerto Montt</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/diseno-web-arica.php" data-astro-cid-sz7xmlte>Arica</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/landing/" target="blank" data-astro-cid-sz7xmlte>Mi Landing Page</a></li> <li data-astro-cid-sz7xmlte><a href="https://diseñopaginas.cl/web-inteligencia-artificial/" target="blank" data-astro-cid-sz7xmlte>Web con IA</a></li> </ul> </div> </div> </div> </div> <!-- Footer Card --> <div class="col-12 col-sm-6 col-lg-3" data-astro-cid-sz7xmlte> <div class="footer-card" data-astro-cid-sz7xmlte> <h5 class="mb-4" data-astro-cid-sz7xmlte>Información de contacto</h5> <!-- Contact Info --> <div class="contact-info" data-astro-cid-sz7xmlte> <p class="mb-2" data-astro-cid-sz7xmlte><i class="ti ti-map-pin me-2" data-astro-cid-sz7xmlte></i>Temuco - Chile</p> <p class="mb-2" data-astro-cid-sz7xmlte><i class="ti ti-phone me-2" data-astro-cid-sz7xmlte></i>(+56) 9 61765268</p> <p class="mb-2" data-astro-cid-sz7xmlte><i class="ti ti-mail me-2" data-astro-cid-sz7xmlte></i>codigoraul@gmail.com</p> <p class="mb-0" data-astro-cid-sz7xmlte><i class="ti ti-clock me-2" data-astro-cid-sz7xmlte></i>Lunes a sábado</p> </div> <h5 class="mb-4 mt-4" data-astro-cid-sz7xmlte>Redes Sociales</h5> <!-- Social Nav --> <nav class="social-links d-flex align-items-center social-footer gap-2 " aria-label="Redes sociales" data-astro-cid-zamss57n> <a href="https://www.facebook.com/PaginasChile/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Facebook" title="Facebook" data-astro-cid-zamss57n> <i class="ti ti-brand-facebook text-xl" data-astro-cid-zamss57n></i> </a><a href="https://twitter.com/raulriquelme2" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Twitter" title="Twitter" data-astro-cid-zamss57n> <i class="ti ti-brand-x text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.linkedin.com/in/raul-riquelme-69a16859/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en LinkedIn" title="LinkedIn" data-astro-cid-zamss57n> <i class="ti ti-brand-linkedin text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.instagram.com/disenopaginas/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Instagram" title="Instagram" data-astro-cid-zamss57n> <i class="ti ti-brand-instagram text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.pinterest.es/boketo11/" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Pinterest" title="Pinterest" data-astro-cid-zamss57n> <i class="ti ti-brand-pinterest text-xl" data-astro-cid-zamss57n></i> </a><a href="https://www.behance.net/codigoraul" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en Behance" title="Behance" data-astro-cid-zamss57n> <i class="ti ti-brand-behance text-xl" data-astro-cid-zamss57n></i> </a><a href="https://api.whatsapp.com/send?phone=56961765268&text=Hola,%20vi%20su%20contacto%20desde%20dise%C3%B1opaginas.cl%20y%20necesito%20un%20servicio:" target="_blank" rel="noopener noreferrer" class="social-link transition-all duration-300 hover:scale-110" aria-label="Síguenos en WhatsApp" title="WhatsApp" data-astro-cid-zamss57n> <i class="ti ti-brand-whatsapp text-xl" data-astro-cid-zamss57n></i> </a> </nav>  </div> </div> </div> </div> <!-- Divider --> <div class="divider" data-astro-cid-sz7xmlte></div> <!-- Copyright Wrapper --> <div class="copyright-wrapper" data-astro-cid-sz7xmlte> <div class="container" data-astro-cid-sz7xmlte> <div class="row align-items-center" data-astro-cid-sz7xmlte> <!-- Copyright --> <div class="col-12 col-md-6" data-astro-cid-sz7xmlte> <p class="mb-3 mb-md-0 copyright" data-astro-cid-sz7xmlte>Copyright &copy; <span id="year" data-astro-cid-sz7xmlte>2026</span> <a href="./index.html" data-astro-cid-sz7xmlte>DiseñoPáginas.cl</a> - Todos los derechos reservados.</p> </div> <!-- Footer Bottom Nav --> <div class="col-12 col-md-6" data-astro-cid-sz7xmlte> <div class="footer-bottom-nav" data-astro-cid-sz7xmlte> <a href="./contacto/index.html" data-astro-cid-sz7xmlte>Contacto</a> <a href="./servicios/index.html" data-astro-cid-sz7xmlte>Servicios</a> <a href="./portafolio/index.html" data-astro-cid-sz7xmlte>Portafolio</a> <a href="/servicios/diseno-web-chile#faq" data-astro-cid-sz7xmlte>Preguntas Frecuentes</a> </div> </div> </div> </div> </div> </footer>  <!-- Scripts diferidos --> <script src="./assets/js/bootstrap.bundle.min.js" defer></script> <script src="./assets/js/swiper-bundle.min.js" defer></script> <script src="./assets/js/wow.min.js" defer></script> <script src="./assets/js/active.js" defer></script> <!-- Jivosite Chat - 4s después para no afectar métricas -->  </body> </html> 
