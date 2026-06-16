@@ -107,7 +107,6 @@ Redirect 301 /inicio.php /
 Redirect 301 /home.php /
 Redirect 301 /nosotros.php /
 Redirect 301 /quienes-somos.php /
-Redirect 301 /diseno-web-corredor-propiedades.php https://diseñopaginas.cl/diseno-web-corredor-propiedades
 
 # ===== HEADERS DE CACHE =====
 <IfModule mod_headers.c>

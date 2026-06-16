@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diseño Tienda Online Chile | WooCommerce + Webpay + Carrito de Compras</title>
-  <meta name="description" content="Creamos tu tienda online en Chile con WooCommerce, carrito de compras, Webpay Plus y Chilexpress. Ecommerce profesional con SEO para aparecer en Google. +13 años de experiencia. Cotiza gratis." />
+  <meta name="description" content="Tiendas online en Chile con WooCommerce, carrito de compras, Webpay Plus y Chilexpress. Ecommerce profesional optimizado para Google. Cotiza gratis." />
   <meta name="keywords" content="diseño tienda online chile, tienda online chile, crear tienda online chile, ecommerce chile, woocommerce chile, página web con carrito de compras, tienda virtual chile, carrito compras webpay, woocommerce santiago" />
   <link rel="canonical" href="https://diseñopaginas.cl/tienda-online/" />
   <meta property="og:title" content="Diseño Tienda Online Chile | WooCommerce + Webpay + Carrito de Compras" />
@@ -19,6 +19,15 @@ import Footer from '../components/Footer.astro';
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://diseñopaginas.cl/tienda-online/" />
   <meta property="og:image" content="https://diseñopaginas.cl/assets/img/servicios/diseno-web-venta-online.webp" />
+  <meta property="og:image:width" content="700" />
+  <meta property="og:image:height" content="394" />
+  <meta property="og:image:alt" content="Diseño de tienda online en Chile con WooCommerce y Webpay" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:site_name" content="DiseñoPáginas.cl" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diseño Tienda Online Chile | WooCommerce + Webpay" />
+  <meta name="twitter:description" content="Ecommerce profesional en Chile: WooCommerce, Webpay Plus, Chilexpress y SEO para Google. Cotiza gratis." />
+  <meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/servicios/diseno-web-venta-online.webp" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/webfont/tabler-icons.min.css" crossorigin="anonymous" />
@@ -101,7 +110,8 @@ import Footer from '../components/Footer.astro';
     }
     .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
     .nav-logo span { color: var(--blue); }
-    .nav-logo img { display: block; }
+    .nav-logo img { display: block; height: 58px; width: auto; }
+    @media (max-width: 768px) { .nav-logo img { height: 46px; } }
     .nav-links { display: flex; align-items: center; gap: .2rem; list-style: none; margin: 0; padding: 0; }
     .nav-links a {
       text-decoration: none; color: var(--soft); font-size: .875rem; font-weight: 500;
@@ -157,15 +167,18 @@ import Footer from '../components/Footer.astro';
     .slide-text { font-size: .975rem; line-height: 1.8; margin-bottom: 1.5rem; color: rgba(255,255,255,.88); }
     .hero-titles-container { display: flex; flex-direction: column; justify-content: center; }
     .hero-pagination {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 10px; z-index: 10;
+      position: absolute; bottom: 28px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 10px; z-index: 100;
     }
     .swiper-pagination-bullet {
-      width: 10px; height: 10px; background: rgba(255,255,255,.35);
+      width: 14px; height: 14px; background: rgba(255,255,255,.5);
       border-radius: 50%; cursor: pointer; transition: all .3s ease;
-      border: 1.5px solid rgba(255,255,255,.3);
+      border: 2px solid white; display: block;
     }
-    .swiper-pagination-bullet-active { background: #AEF8FF; transform: scale(1.3); border-color: #AEF8FF; }
+    .swiper-pagination-bullet-active {
+      background: #AEF8FF; border-color: #AEF8FF;
+      transform: scale(1.3);
+    }
     @media (max-width: 768px) {
       .hero-section { height: 100svh; min-height: 580px; }
       .slide-overlay { background: rgba(1,20,55,.65); }
@@ -174,8 +187,8 @@ import Footer from '../components/Footer.astro';
     /* ── STATS ── */
     .stats-bar { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .stat-cell { text-align: center; padding: 2rem 1rem; }
-    .stat-num { font-size: 40px; font-weight: 800; color: var(--blue); line-height: 1; display: block; letter-spacing: -.02em; }
-    .stat-lbl { font-size: 14px; color: var(--muted); margin-top: .4rem; display: block; }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--blue); line-height: 1; display: block; letter-spacing: -.01em; }
+    .stat-lbl { font-size: 13px; color: var(--muted); margin-top: .3rem; display: block; }
 
     /* ── LABELS / TITLES ── */
     .section-label {
@@ -203,7 +216,7 @@ import Footer from '../components/Footer.astro';
       padding: .35rem 1.1rem; border-radius: 999px; white-space: nowrap;
     }
     .serv-img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 1.5rem; }
-    .serv-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .75rem; line-height: 28px; }
+    .serv-card h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: .75rem; line-height: 30px; }
     .serv-card p { font-size: 15px; color: var(--soft); margin-bottom: 1.1rem; line-height: 1.7; }
     .feat-list { list-style: none; padding: 0; margin: 0 0 1.75rem; }
     .feat-list li { font-size: 14px; color: #374151; padding: .35rem 0; display: flex; align-items: center; gap: .6rem; }
@@ -242,6 +255,7 @@ import Footer from '../components/Footer.astro';
       display: flex; align-items: center; justify-content: center;
       color: var(--blue); font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem;
     }
+    .adv-icon svg { width: 26px; height: 26px; }
     .adv-item h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
     .adv-item p { font-size: 15px; color: var(--soft); margin: 0; line-height: 1.65; }
 
@@ -293,7 +307,7 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="/assets/img/tienda-online/logo.svg" alt="DiseñoPaginas.cl" width="140" height="53" style="height:40px;width:auto;" />
+          <img src="/assets/img/tienda-online/logo.svg" alt="DiseñoPaginas.cl" width="140" height="53" class="nav-logo-img" />
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#servicios">Servicios</a></li>
@@ -371,9 +385,12 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
 
-      </div>
-      <div class="hero-pagination"></div>
-    </div>
+      </div><!-- /swiper-wrapper -->
+    </div><!-- /hero-swiper -->
+
+    <!-- Paginación dentro del hero, encima del swiper -->
+    <div class="hero-pagination" id="heroPagination"></div>
+
   </section>
 
   <!-- ══ STATS ══ -->
@@ -381,11 +398,11 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <div class="row g-0">
         <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
-          <span class="stat-num">+120</span>
-          <span class="stat-lbl">Sitios entregados</span>
+          <span class="stat-num">+400</span>
+          <span class="stat-lbl">Proyectos entregados</span>
         </div>
         <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
-          <span class="stat-num">5 años</span>
+          <span class="stat-num">13 años</span>
           <span class="stat-lbl">De experiencia</span>
         </div>
         <div class="col-6 col-md-3 stat-cell" style="border-right:1px solid var(--border);">
@@ -587,19 +604,83 @@ import Footer from '../components/Footer.astro';
       </div>
       <div class="row g-3">
         {[
-          { i:"ti-rocket", t:"Velocidad extrema", d:"Sitios con carga en menos de 1 segundo. Google premia la velocidad con mejores posiciones y tus usuarios también la agradecen." },
-          { i:"ti-search", t:"SEO desde el inicio", d:"Metaetiquetas, estructura semántica y contenido optimizado para posicionar en Google desde el primer día que publicas." },
-          { i:"ti-device-mobile", t:"100% Responsive", d:"Tu sitio luce perfecto en celular, tablet y computador. El 60% de las compras en Chile se hacen desde smartphone." },
-          { i:"ti-lock", t:"Seguridad incluida", d:"Certificado SSL, protección básica y actualizaciones para mantener tu sitio seguro y a tus clientes confiados." },
-          { i:"ti-headset", t:"Soporte en Chile", d:"Comunicación directa, sin intermediarios. Soporte en español y horario chileno. Sin esperar días para una respuesta." },
-          { i:"ti-palette", t:"Diseño a medida", d:"Sin plantillas genéricas. Cada proyecto refleja tu identidad de marca, tus objetivos y el mercado que quieres conquistar." },
-        ].map(a => (
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 19a9 9 0 0 1 14 0" />
+                <path d="M12 12l3-3" />
+                <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"></circle>
+                <path d="M7 14l-2 2" />
+                <path d="M17 14l2 2" />
+              </svg>
+            ),
+            t: "Velocidad extrema",
+            d: "Sitios con carga en menos de 1 segundo. Google premia la velocidad con mejores posiciones y tus usuarios también la agradecen."
+          },
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="5" />
+                <path d="M16 16l4 4" />
+              </svg>
+            ),
+            t: "SEO desde el inicio",
+            d: "Metaetiquetas, estructura semántica y contenido optimizado para posicionar en Google desde el primer día que publicas."
+          },
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="14" height="10" rx="2" />
+                <path d="M7 20h10" />
+                <path d="M9 16v4" />
+              </svg>
+            ),
+            t: "100% Responsive",
+            d: "Tu sitio luce perfecto en celular, tablet y computador. El 60% de las compras en Chile se hacen desde smartphone."
+          },
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l7 4v5c0 5-3 9-7 9s-7-4-7-9V7z" />
+                <path d="M9 12l3 3l4-4" />
+              </svg>
+            ),
+            t: "Seguridad incluida",
+            d: "Certificado SSL, protección básica y actualizaciones para mantener tu sitio seguro y a tus clientes confiados."
+          },
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9a6 6 0 0 1 12 0v4" />
+                <path d="M4 15v2a3 3 0 0 0 3 3h1" />
+                <path d="M20 15v2a3 3 0 0 1-3 3h-1" />
+                <path d="M8 15h-2a2 2 0 0 1-2-2v-1" />
+                <path d="M16 15h2a2 2 0 0 0 2-2v-1" />
+              </svg>
+            ),
+            t: "Soporte en Chile",
+            d: "Comunicación directa, sin intermediarios. Soporte en español y horario chileno. Sin esperar días para una respuesta."
+          },
+          {
+            icon: (
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 4a8 8 0 1 1 -1 16" />
+                <path d="M11 20a2 2 0 0 1 -2 -2c0 -1.1.9 -2 2 -2h4a2 2 0 0 0 0 -4h-1" />
+                <circle cx="8.5" cy="10.5" r="1" fill="currentColor" stroke="none"></circle>
+                <circle cx="14.5" cy="8.5" r="1" fill="currentColor" stroke="none"></circle>
+                <circle cx="16" cy="13" r="1" fill="currentColor" stroke="none"></circle>
+              </svg>
+            ),
+            t: "Diseño a medida",
+            d: "Sin plantillas genéricas. Cada proyecto refleja tu identidad de marca, tus objetivos y el mercado que quieres conquistar."
+          }
+        ].map(({ icon, t, d }) => (
           <div class="col-md-6 col-lg-4">
             <div class="adv-item">
-              <div class="adv-icon"><i class={`ti ${a.i}`}></i></div>
+              <div class="adv-icon">{icon}</div>
               <div>
-                <h4>{a.t}</h4>
-                <p>{a.d}</p>
+                <h4>{t}</h4>
+                <p>{d}</p>
               </div>
             </div>
           </div>
@@ -794,6 +875,28 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
+  <!-- Estilos globales para elementos creados dinámicamente por JS -->
+  <style is:global>
+    .hero-pagination {
+      position: absolute; bottom: 28px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 10px; z-index: 100;
+    }
+    .swiper-pagination-bullet {
+      width: 14px !important; height: 14px !important;
+      background: rgba(255,255,255,0.6) !important;
+      border-radius: 50% !important; cursor: pointer !important;
+      transition: all .3s ease !important;
+      border: 2px solid white !important; display: block !important;
+      flex-shrink: 0;
+    }
+    .swiper-pagination-bullet-active {
+      background: #AEF8FF !important; border-color: #AEF8FF !important;
+      transform: scale(1.3) !important;
+    }
+    .swiper-slide { display: none; opacity: 0; transition: opacity .6s ease; position: absolute; inset: 0; }
+    .swiper-slide-active { display: block !important; opacity: 1 !important; }
+  </style>
+
   <!-- ══ FOOTER — idéntico a diseñopaginas.cl ══ -->
   <style is:global>
     /* Estilos globales del footer que normalmente vienen de Layout.astro */
@@ -827,11 +930,12 @@ import Footer from '../components/Footer.astro';
 
     // ── Hero Slider
     document.addEventListener('DOMContentLoaded', function () {
-      const slides     = document.querySelectorAll('.hero-swiper .swiper-slide');
-      const pagination = document.querySelector('.hero-pagination');
+      const slides     = document.querySelectorAll('.swiper-wrapper .swiper-slide');
+      const pagination = document.getElementById('heroPagination');
       let current = 0, timer;
 
-      if (pagination) {
+      // Crear bullets
+      if (pagination && slides.length) {
         pagination.innerHTML = '';
         slides.forEach((_, i) => {
           const b = document.createElement('span');
@@ -842,7 +946,7 @@ import Footer from '../components/Footer.astro';
       }
 
       function show(idx) {
-        const bullets = document.querySelectorAll('.hero-pagination .swiper-pagination-bullet');
+        const bullets = pagination ? pagination.querySelectorAll('.swiper-pagination-bullet') : [];
         slides.forEach(s  => s.classList.remove('swiper-slide-active'));
         bullets.forEach(b => b.classList.remove('swiper-pagination-bullet-active'));
         if (slides[idx])  slides[idx].classList.add('swiper-slide-active');
@@ -852,7 +956,10 @@ import Footer from '../components/Footer.astro';
       function next() { current = (current + 1) % slides.length; show(current); }
       function restart() { clearInterval(timer); timer = setInterval(next, 5000); }
 
-      setTimeout(() => { show(0); if (slides.length > 1) restart(); }, 100);
+      // Iniciar
+      setTimeout(() => {
+        if (slides.length) { show(0); if (slides.length > 1) restart(); }
+      }, 100);
     });
   </script>
 
