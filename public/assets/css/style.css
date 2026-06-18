@@ -1743,6 +1743,34 @@ picture.jarallax-img img {
   color: #004597;
 }
 
+/* ===== Custom override to force dark footer theme ===== */
+.footer-wrapper {
+  background-color: #27262B !important;
+  color: #DDDEDC !important;
+}
+
+.footer-wrapper p,
+.footer-wrapper .footer-nav a,
+.footer-wrapper .contact-info p,
+.footer-wrapper .copyright,
+.footer-wrapper .copyright a,
+.footer-wrapper .footer-bottom-nav a {
+  color: #DDDEDC !important;
+}
+
+.footer-wrapper h5 {
+  color: #FFFFFF !important;
+}
+
+.footer-wrapper .footer-nav a:hover,
+.footer-wrapper .footer-bottom-nav a:hover {
+  color: #35A3EA !important;
+}
+
+.footer-wrapper .copyright-wrapper {
+  background-color: #1a1b1a !important;
+}
+
 .footer-top {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 50px;
