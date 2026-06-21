@@ -36,38 +36,38 @@
    text-shadow: 1px 1px #717171;
    font-weight: 500 !important;
    line-height: 1.3 !important;
-   margin-bottom: 16px !important;
-   font-size: 20px !important;
+   margin-bottom: 14px !important;
+   font-size: 14px !important;
 }
 
 /* Responsive para hero-subtitle (h2 del slide 1) */
 @media only screen and (min-width: 576px) {
    .hero-section .hero-content .hero-subtitle {
-      font-size: 20px !important;
+      font-size: 14px !important;
    }
 }
 
 @media only screen and (min-width: 768px) {
    .hero-section .hero-content .hero-subtitle {
-      font-size: 22px !important;
+      font-size: 14px !important;
    }
 }
 
 @media only screen and (min-width: 992px) {
    .hero-section .hero-content .hero-subtitle {
-      font-size: 26px !important;
+      font-size: 15px !important;
    }
 }
 
 @media only screen and (min-width: 1200px) {
    .hero-section .hero-content .hero-subtitle {
-      font-size: 30px !important;
+      font-size: 16px !important;
    }
 }
 
 @media only screen and (min-width: 1400px) {
    body .hero-section .hero-content .hero-subtitle {
-      font-size: 26px !important;
+      font-size: 16px !important;
    }
 }
 

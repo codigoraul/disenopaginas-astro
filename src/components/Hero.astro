@@ -54,7 +54,7 @@
                            Nuestros diseños profesionales generan <strong>
                            confianza inmediata y conversiones reales</strong>.
                         </p>
-                        <a class="btn border-2 btn-outline-light" href="/contacto">Contáctanos <i class="ti ti-arrow-up-right"></i></a>
+                        <a class="btn border-2 btn-outline-light" href="/portafolio">Ver Portafolio <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -73,7 +73,7 @@
                            La IA nos ayuda a asegurar que tu sitio sea altamente funcional y fácil de navegar para tus usuarios. Si no tienes tiempo de describir al 100% tus servicios te ayudamos con las nuevas tecnologías de la IA
                            a crear texto profesionales y acordes a tu marca.
                         </p>
-                        <a class="btn border-2 btn-outline-light" href="/contacto">Contáctanos <i class="ti ti-arrow-up-right"></i></a>
+                        <a class="btn border-2 btn-outline-light" href="/contacto">Solicitar Presupuesto <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -90,13 +90,13 @@
                         </div>
                         <p>
                            Para comenzar tu proyecto web, necesitas:<br><br>
-                           <strong>1. Información básica de tu empresa</strong><br>
-                           <strong>2. Contenido (textos e imágenes) que quieras incluir</strong><br>
-                           <strong>3. Ejemplos de sitios web que te gusten</strong><br>
-                           <strong>4. Objetivos del sitio web</strong><br>
-                           <strong>5. Dominio (si ya lo tienes)</strong>
+                           1. Información básica de tu empresa<br>
+                           2. Contenido (textos e imágenes) que quieras incluir<br>
+                           3. Ejemplos de sitios web que te gusten<br>
+                           4. Objetivos del sitio web<br>
+                           5. Dominio (si ya lo tienes)
                         </p>
-                        <a class="btn border-2 btn-outline-light" href="/contacto">Contáctanos <i class="ti ti-arrow-up-right"></i></a>
+                        <a class="btn border-2 btn-outline-light" href="/contacto">Comenzar Ahora <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -133,6 +133,20 @@
 .hero-single-col .hero-titles-container {
   height: auto;
   margin-bottom: 0.5rem;
+}
+
+/* Grupo de dos botones CTA lado a lado */
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-cta-group {
+    justify-content: center;
+  }
 }
 
 /* Botón CTA profesional: ancho según contenido, no estirado */
@@ -271,7 +285,7 @@
 
 .hero-main-title {
   order: 2;
-  font-size: 1.7rem;
+  font-size: 58px;
   font-weight: 700;
   line-height: 1.15;
   color: #ffffff !important;

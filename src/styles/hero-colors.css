@@ -20,6 +20,23 @@ body .hero-section {
    color: #ffffff !important;
 }
 
+/* Subtítulo del hero (sobre el título): blanco y pequeño.
+   Gana a las reglas globales .hero-content h2 (36-76px) de style.css */
+.hero-section .hero-content .hero-subtitle {
+   font-size: 0.95rem !important;
+   color: #ffffff !important;
+   font-weight: 500 !important;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+   .hero-section .hero-content .hero-subtitle {
+      font-size: 0.8rem !important;
+   }
+}
+
 .hero-section .hero-content h2 span {
    color: #004597 !important;
    font-weight: 600;
