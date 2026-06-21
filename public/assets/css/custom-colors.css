@@ -101,12 +101,29 @@ a:focus {
   color: #ffffff !important;
 }
 
-.header-area .header-top .right-side .social-nav a {
+/* Iconos sociales del header: BLANCOS (claros) sobre la barra azul.
+   Cubre tanto la clase antigua (.social-nav) como la actual del
+   componente SocialLinks (.social-links / .social-header / .social-link). */
+.header-area .header-top .right-side .social-nav a,
+.header-area .header-top .right-side .social-nav a i,
+.header-area .header-top .right-side .social-links a,
+.header-area .header-top .right-side .social-links a i,
+.header-area .header-top .right-side .social-header a,
+.header-area .header-top .right-side .social-header a i,
+.header-area .header-top .right-side .social-link,
+.header-area .header-top .right-side .social-link i {
   color: #ffffff !important;
   transition: all 0.3s ease;
 }
 
-.header-area .header-top .right-side .social-nav a:hover {
+.header-area .header-top .right-side .social-nav a:hover,
+.header-area .header-top .right-side .social-nav a:hover i,
+.header-area .header-top .right-side .social-links a:hover,
+.header-area .header-top .right-side .social-links a:hover i,
+.header-area .header-top .right-side .social-header a:hover,
+.header-area .header-top .right-side .social-header a:hover i,
+.header-area .header-top .right-side .social-link:hover,
+.header-area .header-top .right-side .social-link:hover i {
   color: #004597 !important;
   transform: translateY(-2px);
 } 
