@@ -3,6 +3,9 @@
 <style>
   .service-content p {
     font-size: 15px !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
   }
   
   h2 {
@@ -22,7 +25,7 @@
   }
   
   .service-card {
-    border-radius: 12px !important;
+    border-radius: 8px !important;
     border: 1px solid #e5e7eb;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -41,7 +44,7 @@
   }
 
   .service-card .shape {
-    border-radius: 12px !important;
+    border-radius: 8px !important;
   }
   
   /* Reemplazar imagen de fondo por gradiente */
@@ -70,6 +73,8 @@
   .service-content {
     position: relative;
     z-index: 1;
+    padding-left: 6px;
+    padding-right: 10px;
   }
   
   /* Estilos para los títulos como enlaces */
@@ -90,6 +95,22 @@
   
   .service-section {
     background: #eeeef0;
+  }
+
+  /* MÓVIL: reducir el espacio gris lateral para que las tarjetas usen casi todo el ancho */
+  @media (max-width: 575px) {
+    .service-section > .container {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+      max-width: 100% !important;
+    }
+    .service-section .row.g-4 {
+      --bs-gutter-x: 0.5rem;
+    }
+    .service-section .row.g-4 > [class*="col-"] {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
   }
 </style>
 
