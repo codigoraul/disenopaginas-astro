@@ -96,11 +96,11 @@ import Testimonials from '../components/Testimonials.astro';
          <div class="row align-items-center g-4 g-lg-5">
             <div class="col-12 col-lg-6">
                <img
-                  src="/assets/img/heroes/diseno-web-pymes-chile.webp"
+                  src="/assets/img/heroes/diseno-web-chile-mockup.webp"
                   alt="Diseño de páginas web para empresas y pymes en Chile"
-                  width="1000" height="667"
+                  width="700" height="486"
                   loading="lazy" decoding="async"
-                  class="img-fluid rounded-4 shadow-sm" />
+                  class="img-fluid intro-anim" />
             </div>
             <div class="col-12 col-lg-6">
                <h2 class="mb-3">Diseño de páginas web para empresas y pymes en Chile</h2>
@@ -114,6 +114,44 @@ import Testimonials from '../components/Testimonials.astro';
          </div>
       </div>
    </section>
+
+   <style>
+      /* Entrada de la imagen del mockup al hacer scroll a la sección */
+      .intro-anim.anim-ready {
+         opacity: 0;
+         transform: translateX(-45px);
+         transition: opacity .8s ease, transform .8s ease;
+         will-change: opacity, transform;
+      }
+      .intro-anim.anim-ready.is-visible {
+         opacity: 1;
+         transform: translateX(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+         .intro-anim.anim-ready { opacity: 1; transform: none; transition: none; }
+      }
+      /* Hover del botón: texto en celeste del logo en vez de oscuro */
+      .intro-home .btn-primary:hover,
+      .intro-home .btn-primary:focus {
+         color: #00F4F3 !important;
+      }
+   </style>
+
+   <script>
+      const introImg = document.querySelector('.intro-anim');
+      if (introImg && 'IntersectionObserver' in window) {
+         introImg.classList.add('anim-ready');
+         const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+               if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  io.unobserve(entry.target);
+               }
+            });
+         }, { threshold: 0.3 });
+         io.observe(introImg);
+      }
+   </script>
 
    <Services />
    <AlgunosTrabajos />
