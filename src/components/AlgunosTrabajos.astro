@@ -381,4 +381,18 @@
   .project-content {
     padding: 15px;
   }
+
+  /* MÓVIL: reducir el espacio exagerado entre las flechas y las imágenes */
+  @media (max-width: 767px) {
+    .project-section .row.align-items-end {
+      padding-bottom: 0.5rem !important;
+    }
+    .project-section .divider-sm {
+      height: 0 !important;
+      margin: 0 !important;
+    }
+    .project-swiper .swiper-wrapper {
+      padding: 0 0 !important;
+    }
+  }
 </style>

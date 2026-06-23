@@ -275,6 +275,26 @@
   }
 }
 
+/* === Mejoras de presentación del slider en MÓVIL === */
+@media (max-width: 991px) {
+  /* Overlay más oscuro (degradado) para que el texto resalte sobre las fotos claras */
+  .video-overlay {
+    background: linear-gradient(180deg, rgba(1, 28, 66, 0.45) 0%, rgba(1, 28, 66, 0.72) 100%);
+  }
+  /* Subtítulo en celeste corporativo como acento de marca */
+  .hero-section .hero-content .hero-subtitle {
+    color: #60E1FD !important;
+  }
+  /* Aire entre el párrafo y el botón (el CSS móvil ponía el párrafo pegado) */
+  .hero-section .hero-single-col .btn-outline-light {
+    margin-top: 1.6rem !important;
+  }
+  /* Un poco más de respiro entre títulos y párrafo */
+  .hero-section .hero-content .hero-titles-container {
+    margin-bottom: 1rem !important;
+  }
+}
+
 /* Hero Titles */
 .hero-titles-container {
   display: flex;
@@ -401,10 +421,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Imágenes para el fondo mobile (una por slide)
   const mobileBgImages = [
-    '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp',
-    '/assets/img/blog/seo-estructura.jpg',
-    '/assets/img/blog/guia-seo-principiantes/portada.webp',
-    '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp'
+    '/assets/img/heroes/slider-movil-1.webp',
+    '/assets/img/heroes/slider-movil-2.webp',
+    '/assets/img/heroes/slider-movil-3.webp',
+    '/assets/img/heroes/slider-movil-1.webp'
   ];
 
   // Clear any existing bullets first

@@ -183,6 +183,31 @@
 
 
 
+/* MÓVIL: título del slider en blanco para que contraste con el overlay oscuro
+   (en desktop sigue siendo #444f67 sobre el fondo claro) */
+@media (max-width: 991px) {
+   .hero-section .hero-content h1,
+   .hero-section .hero-content .swiper-slide:nth-child(2) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.40) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.2px;
+      line-height: 1.12 !important;
+   }
+}
+
+/* Slide 4 (título largo "¿Qué necesito...?"): más pequeño y compacto en móvil
+   para reducir la altura y que el botón suba */
+@media (max-width: 575px) {
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
+      font-size: 33px !important;
+      line-height: 1.05 !important;
+      margin-bottom: 14px !important;
+   }
+}
+
 /* Estilos para el Hero Slider */
 .hero-swiper {
    width: 100%;
