@@ -141,12 +141,63 @@ function minifyAllCSS() {
 }
 
 // ============================================================
+// 3. Combinar los CSS bloqueantes en UN solo archivo
+//    (bootstrap + style + custom-colors → critical.min.css)
+//    Reduce de 3 requests render-blocking a 1.
+// ============================================================
+function combineBlockingCSS() {
+  console.log('\n🔗 Combinando CSS bloqueantes en un solo archivo...');
+
+  const cssDir = path.join(distDir, 'assets/css');
+  const parts = ['bootstrap.min.css', 'style.css', 'custom-colors.css'];
+  const paths = parts.map(f => path.join(cssDir, f));
+  if (!paths.every(p => fs.existsSync(p))) {
+    console.log('  ⚠️  No se encontraron los 3 CSS, se omite la combinación.');
+    return;
+  }
+
+  const combined = paths.map(p => fs.readFileSync(p, 'utf8')).join('\n');
+  const outFile = path.join(cssDir, 'critical.min.css');
+  fs.writeFileSync(outFile, combined, 'utf8');
+  console.log(`  ✅ critical.min.css creado (${(Buffer.byteLength(combined, 'utf8') / 1024).toFixed(1)}KB)`);
+
+  // Reescribir referencias en todos los HTML del dist
+  const linkRe = /<link\s+rel="stylesheet"\s+href="(?:\.?\/)?assets\/css\/(bootstrap\.min|style|custom-colors)\.css">\s*/g;
+  let htmlCount = 0;
+  function rewriteHtml(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        rewriteHtml(full);
+      } else if (entry.name.endsWith('.html')) {
+        let html = fs.readFileSync(full, 'utf8');
+        if (!linkRe.test(html)) continue;
+        linkRe.lastIndex = 0;
+        let first = true;
+        html = html.replace(linkRe, () => {
+          if (first) {
+            first = false;
+            return '<link rel="stylesheet" href="./assets/css/critical.min.css">';
+          }
+          return '';
+        });
+        fs.writeFileSync(full, html, 'utf8');
+        htmlCount++;
+      }
+    }
+  }
+  rewriteHtml(distDir);
+  console.log(`  ✅ ${htmlCount} archivos HTML actualizados a critical.min.css`);
+}
+
+// ============================================================
 // Ejecutar
 // ============================================================
 async function main() {
   console.log('\n🚀 Optimización de CSS iniciada...\n');
   await purgeUnusedCSS();
   minifyAllCSS();
+  combineBlockingCSS();
   console.log('\n✨ Optimización de CSS completada.\n');
 }
 
