@@ -40,7 +40,7 @@
                      <div class="col-12 hero-single-col">
                         <div class="hero-titles-container">
                            <h2 class="mb-0 hero-main-title">
-                             Diseño Web de Calidad Profesional
+                             Diseño Web Profesional
                            </h2>
                            <h3 class="hero-subtitle">Tu empresa con un <b>Diseño web de calidad</b></h3>
                         </div>
@@ -220,6 +220,31 @@
   transition: background-image 0.5s ease;
 }
 
+/* Desktop: fondo degradado azul para el primer slide */
+@media (min-width: 992px) {
+  .hero-mobile-bg {
+    background-image: url('/assets/img/heroes/slider-desktop-3.webp');
+  }
+  /* Slide 1 (fondo claro): texto oscuro en el primer pintado, antes de que corra el JS */
+  .hero-swiper:not(.is-initialized) .hero-main-title { color: #1c2b4a !important; }
+  .hero-swiper:not(.is-initialized) .hero-subtitle { color: #004597 !important; text-shadow: none !important; }
+  .hero-swiper:not(.is-initialized) .hero-content p { color: #2b3a55 !important; }
+}
+
+/* Texto oscuro cuando el slide activo tiene fondo claro (desktop) */
+@media (min-width: 992px) {
+  :global(.hero-section.light-slide) .hero-main-title {
+    color: #1c2b4a !important;
+  }
+  :global(.hero-section.light-slide) .hero-subtitle {
+    color: #004597 !important;
+    text-shadow: none !important;
+  }
+  :global(.hero-section.light-slide) .hero-content p {
+    color: #2b3a55 !important;
+  }
+}
+
 /* Primer slide visible antes de que corra el JS: mejora FCP/LCP y evita CLS */
 .hero-swiper:not(.is-initialized) .swiper-slide:first-child {
   display: block;
@@ -233,7 +258,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(1, 28, 66, 0.45) 0%, rgba(1, 28, 66, 0.72) 100%);
+  /* Sin overlay por defecto (desktop): el degradado del fondo se ve limpio.
+     El oscurecido solo se aplica en móvil (más abajo). */
+  background: transparent;
   z-index: 2;
 }
 
@@ -403,13 +430,23 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentSlide = 0;
   let slideInterval;
 
-  // Imágenes para el fondo mobile (una por slide)
-  const mobileBgImages = [
+  // Imágenes de fondo (una por slide) — set distinto para desktop y móvil
+  const isDesktop = window.matchMedia('(min-width: 992px)');
+  const mobileImages = [
     '/assets/img/heroes/slider-movil-1.webp',
     '/assets/img/heroes/slider-movil-2.webp',
     '/assets/img/heroes/slider-movil-3.webp',
     '/assets/img/heroes/slider-movil-1.webp'
   ];
+  const desktopImages = [
+    '/assets/img/heroes/slider-desktop-3.webp',
+    '/assets/img/heroes/slider-desktop-2.webp',
+    '/assets/img/heroes/slider-movil-3.webp',
+    '/assets/img/heroes/slider-desktop-3.webp'
+  ];
+  // Slides con fondo CLARO en desktop (texto oscuro): 0=slide1, 1=slide2, 3=slide4
+  const lightSlidesDesktop = [0, 1, 3];
+  const mobileBgImages = isDesktop.matches ? desktopImages : mobileImages;
 
   // Clear any existing bullets first
   if (paginationContainer) {
@@ -439,9 +476,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pagination[index]) {
       pagination[index].classList.add('swiper-pagination-bullet-active');
     }
-    // Cambiar imagen de fondo en mobile
+    // Cambiar imagen de fondo
     if (mobileBg && mobileBgImages[index]) {
       mobileBg.style.backgroundImage = `url('${mobileBgImages[index]}')`;
+    }
+    // Texto oscuro en slides con fondo claro (solo desktop)
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroSection.classList.toggle('light-slide', isDesktop.matches && lightSlidesDesktop.includes(index));
     }
   }
 

@@ -57,8 +57,9 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/favicon.ico">
 
-  <!-- Preload imagen hero LCP (fondo del slider en desktop y móvil) -->
-  <link rel="preload" as="image" href="/assets/img/heroes/slider-movil-1.webp" fetchpriority="high">
+  <!-- Preload imagen hero LCP (fondo del slider según dispositivo) -->
+  <link rel="preload" as="image" href="/assets/img/heroes/slider-movil-1.webp" fetchpriority="high" media="(max-width: 991px)">
+  <link rel="preload" as="image" href="/assets/img/heroes/slider-desktop-3.webp" fetchpriority="high" media="(min-width: 992px)">
 
   <!-- Fuentes auto-alojadas (sin conexiones a Google Fonts) -->
   <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
