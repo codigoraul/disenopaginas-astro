@@ -229,9 +229,17 @@
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: #011c42;
+  /* Imagen inicial en CSS para que el navegador la descubra de inmediato (LCP) */
+  background-image: url('/assets/img/heroes/slider-movil-1.webp');
   background-size: cover;
   background-position: center;
   transition: background-image 0.5s ease;
+}
+
+/* Primer slide visible antes de que corra el JS: mejora FCP/LCP y evita CLS */
+.hero-swiper:not(.is-initialized) .swiper-slide:first-child {
+  display: block;
+  opacity: 1;
 }
 
 @media (max-width: 991px) {
@@ -472,14 +480,16 @@ document.addEventListener('DOMContentLoaded', function() {
     slideInterval = setInterval(nextSlide, 5000);
   }
 
-  // Show first slide immediately
-  setTimeout(() => {
-    if (slides.length > 0) {
-      showSlide(0);
-      if (slides.length > 1) {
-        startSlider();
-      }
+  // Marcar el slider como inicializado y mostrar el primer slide de inmediato
+  // (sin esperar 200ms) para no retrasar el pintado del hero en móvil.
+  const heroSwiper = document.querySelector('.hero-swiper');
+  if (heroSwiper) heroSwiper.classList.add('is-initialized');
+
+  if (slides.length > 0) {
+    showSlide(0);
+    if (slides.length > 1) {
+      startSlider();
     }
-  }, 200);
+  }
 });
 </script>
