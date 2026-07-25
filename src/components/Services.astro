@@ -2,7 +2,7 @@
 ---
 <style>
   .service-content p {
-    font-size: 15px !important;
+    font-size: 16px !important;
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
@@ -17,70 +17,60 @@
   }
   
   .pe-h3 {
-    font-size: 20px !important;
+    font-size: 21px !important;
   }
   
   h2[data-astro-cid-g5jplrhu] {
     font-size: clamp(26px, 3vw, 28px) !important;
   }
   
+  /* Estilo tipo "Base": tarjeta plana, imagen al ras arriba, texto con padding */
   .service-card {
-    border-radius: 8px !important;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-radius: 14px !important;
+    border: none;
+    box-shadow: none;
+    background: #f1f1f3;
+    padding: 0;
     overflow: hidden;
+    height: 100%;
+    transition: background 0.25s ease;
   }
 
+  .service-card:hover {
+    background: #e8e8ec;
+  }
+
+  /* La imagen ocupa todo el ancho y toca los bordes superiores */
   .service-card .service-thumb {
-    border-radius: 8px !important;
+    border-radius: 0 !important;
     overflow: hidden;
-    margin-bottom: 16px;
+    margin: 0 0 20px 0;
   }
 
   .service-card .service-thumb img {
-    border-radius: 8px !important;
+    border-radius: 0 !important;
     width: 100%;
     height: auto;
+    display: block;
   }
 
-  .service-card .shape {
-    border-radius: 8px !important;
-  }
-  
-  /* Reemplazar imagen de fondo por gradiente */
+  /* Anular el "shape" heredado del template (creaba un velo blanco) */
   .shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff !important;
-    z-index: 0;
-    opacity: 0.5;
-  }
-  
-  /* Ocultar la imagen */
-  .shape img {
     display: none !important;
   }
   
-  /* Ajustar opacidad al pasar el mouse */
-  .service-card:hover .shape {
-    opacity: 0.7;
-  }
-  
-  /* Asegurar que el contenido esté por encima */
+  /* El texto sí lleva padding interno */
   .service-content {
     position: relative;
     z-index: 1;
-    padding-left: 6px;
-    padding-right: 10px;
+    padding: 0 30px 34px 30px;
   }
   
   /* Estilos para los títulos como enlaces */
   .service-title {
     display: block;
-    font-size: clamp(20px, 2.5vw, 24px);
+    font-size: clamp(22px, 2.5vw, 26px);
     font-weight: 600;
     color: #333;
     text-decoration: none;
@@ -95,6 +85,37 @@
   
   .service-section {
     background: #eeeef0;
+  }
+
+  /* Más aire entre tarjetas (anula también g-xl-3 en pantallas grandes) */
+  .service-section .row.g-4,
+  .service-section .row.g-xl-3 {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    .service-section .row.g-xl-3 {
+      --bs-gutter-x: 2.25rem;
+      --bs-gutter-y: 2.25rem;
+    }
+  }
+
+  /* MÓVIL: títulos de tarjeta más grandes y legibles */
+  @media (max-width: 767px) {
+    .service-title {
+      font-size: 26px !important;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .pe-h3 {
+      font-size: 19px !important;
+      line-height: 1.35;
+    }
+    .service-content p {
+      font-size: 16px !important;
+      line-height: 1.6;
+    }
   }
 
   /* MÓVIL: reducir el espacio gris lateral para que las tarjetas usen casi todo el ancho */
