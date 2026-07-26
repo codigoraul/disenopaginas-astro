@@ -5,7 +5,7 @@
 
 /* Estilos para el título principal en móvil */
 .hero-section .hero-content h1 {
-   color: #444f67 !important;
+   color: #004597 !important;
    font-size: 48px !important;
    font-weight: 600 !important;
    line-height: 1.15 !important;
@@ -75,7 +75,7 @@
 .hero-section .hero-content .swiper-slide:nth-child(2) h2,
 .hero-section .hero-content .swiper-slide:nth-child(3) h2,
 .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
-   color: #444f67 !important;
+   color: #004597 !important;
    font-size: 48px !important;
    font-weight: 600 !important;
    line-height: 1.15 !important;
@@ -86,29 +86,33 @@
 /* Responsive específico para h2 de slides 2 y 3 */
 @media only screen and (min-width: 576px) {
    .hero-section .hero-content .swiper-slide:nth-child(2) h2,
-   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
       font-size: 36px !important;
    }
 }
 
 @media only screen and (min-width: 768px) {
    .hero-section .hero-content .swiper-slide:nth-child(2) h2,
-   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
       font-size: 47px !important;
    }
 }
 
 @media only screen and (min-width: 992px) {
    .hero-section .hero-content .swiper-slide:nth-child(2) h2,
-   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
-      font-size: 62px !important;
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
+      font-size: 60px !important;
    }
 }
 
 @media only screen and (min-width: 1400px) {
    .hero-section .hero-content .swiper-slide:nth-child(2) h2,
-   .hero-section .hero-content .swiper-slide:nth-child(3) h2 {
-      font-size: 65px !important;
+   .hero-section .hero-content .swiper-slide:nth-child(3) h2,
+   .hero-section .hero-content .swiper-slide:nth-child(4) h2 {
+      font-size: 60px !important;
    }
 }
 
@@ -285,4 +289,20 @@ body .hero-section .hero-swiper .swiper-pagination.hero-pagination {
    font-size: 22px;
    color: #164597;
    font-weight: 400;
+}
+/* Slide 3: fondo claro en desktop, texto de descripción oscuro para contraste */
+@media only screen and (min-width: 992px) {
+   .hero-section .hero-content .swiper-slide:nth-child(3) p {
+      color: #2b3a55 !important;
+      text-shadow: none !important;
+   }
+}
+
+/* Desktop: texto sobre el título (subtítulo/h3) en azul corporativo */
+@media only screen and (min-width: 992px) {
+   .hero-section .hero-content .hero-subtitle,
+   .hero-section .hero-content h3 {
+      color: #004597 !important;
+      text-shadow: none !important;
+   }
 }
