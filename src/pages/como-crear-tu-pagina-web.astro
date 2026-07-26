@@ -1,0 +1,507 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const pasos = [
+  {
+    n: '1',
+    titulo: 'Conversamos sobre tu negocio',
+    texto: 'Una reunión corta, por WhatsApp o videollamada. Me cuentas qué haces, a quién le vendes y qué te gustaría lograr con el sitio. No necesitas saber nada técnico.',
+    tuya: 'Contarme de tu negocio',
+    mia: 'Proponerte una estructura'
+  },
+  {
+    n: '2',
+    titulo: 'Reunimos el contenido',
+    texto: 'Textos, fotos y logo. Si no tienes textos, los redactamos juntos. Si no tienes logo, lo diseñamos. Esta es la etapa donde más participas y la que más acelera el proyecto.',
+    tuya: 'Enviar fotos y datos',
+    mia: 'Redactar y ordenar'
+  },
+  {
+    n: '3',
+    titulo: 'Diseño tu sitio',
+    texto: 'Te muestro una primera versión y la ajustamos hasta que quede como quieres. Verás el sitio en un enlace privado antes de publicarlo, en computador y en celular.',
+    tuya: 'Revisar y comentar',
+    mia: 'Diseñar y corregir'
+  },
+  {
+    n: '4',
+    titulo: 'Publicamos',
+    texto: 'Registramos el dominio (tunegocio.cl), configuramos el hosting y el correo, y dejamos el sitio en línea. De esto me encargo yo por completo.',
+    tuya: 'Elegir el dominio',
+    mia: 'Todo lo técnico'
+  },
+  {
+    n: '5',
+    titulo: 'Google empieza a mostrarte',
+    texto: 'Configuro tu ficha de Google, el mapa y las herramientas para medir visitas. Aparecer en Google no es inmediato: toma entre 2 y 8 semanas según la competencia de tu rubro.',
+    tuya: 'Tener paciencia',
+    mia: 'SEO y seguimiento'
+  }
+];
+
+const faqs = [
+  {
+    p: '¿Cuánto cuesta hacer una página web en Chile?',
+    r: 'En diseñopaginas.cl los sitios parten desde $240.000, pago único en dos cuotas, con hosting y dominio incluidos el primer año. El precio final depende de cuántas secciones necesites y si requieres tienda online o reservas. Puedes ver el detalle en la página de tarifas.'
+  },
+  {
+    p: '¿Cuánto se demora?',
+    r: 'Entre 2 y 4 semanas para un sitio corporativo. El plazo depende casi por completo de lo rápido que llegue el contenido: es la etapa donde más se demoran los proyectos.'
+  },
+  {
+    p: '¿Necesito saber de computación?',
+    r: 'No. La parte técnica la hago yo. Tú aportas el conocimiento de tu negocio, que es lo que yo no tengo. Si quieres editar el sitio después, te enseño a hacerlo en una sesión de media hora.'
+  },
+  {
+    p: '¿Qué es un dominio y qué es el hosting?',
+    r: 'El dominio es la dirección de tu sitio (tunegocio.cl). El hosting es el espacio donde vive el sitio, como un arriendo. Ambos se pagan una vez al año y en el primer año van incluidos.'
+  },
+  {
+    p: '¿Puedo modificar el sitio yo mismo después?',
+    r: 'Sí. Los sitios quedan autoadministrables: puedes cambiar textos, fotos, precios o agregar publicaciones sin depender de nadie.'
+  },
+  {
+    p: '¿Qué pasa si no tengo fotos ni textos?',
+    r: 'Es lo más común y no es un problema. Trabajamos con bancos de imágenes profesionales y redactamos los textos en conjunto a partir de lo que me cuentes en la primera reunión.'
+  },
+  {
+    p: '¿Mi sitio va a aparecer primero en Google?',
+    r: 'El sitio nace optimizado para SEO, pero nadie puede garantizar la primera posición. Lo que sí se puede asegurar es que Google lo encuentre, lo entienda y lo indexe rápido, que es la base para posicionar. En rubros con poca competencia local se logra en semanas; en rubros muy competidos toma meses de trabajo sostenido.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.p,
+    acceptedAnswer: { '@type': 'Answer', text: f.r }
+  }))
+};
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo crear tu página web en Chile',
+  description: 'Los 5 pasos para crear tu primera página web profesional en Chile, explicados sin tecnicismos.',
+  step: pasos.map((p, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: p.titulo,
+    text: p.texto
+  }))
+};
+---
+
+<Layout
+  title="Cómo crear tu página web en Chile: los 5 pasos, sin tecnicismos"
+  description="¿Es tu primera página web? Te explicamos paso a paso qué necesitas, cuánto demora y cuánto cuesta crear un sitio web profesional en Chile. Desde $240.000."
+  keywords="crear pagina web chile, como hacer una pagina web, cuanto cuesta una pagina web en chile, primera pagina web, pasos para crear un sitio web"
+  breadcrumbs={[{ name: "Cómo crear tu página web", url: "https://diseñopaginas.cl/como-crear-tu-pagina-web" }]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+  <Breadcrumb title="Cómo crear tu página web" currentPage="Cómo crear tu página web" />
+
+  <!-- Intro -->
+  <section class="intro-section pt-5 pb-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <h1 class="page-h1">¿Es tu primera página web?</h1>
+          <p class="lead-text">
+            Si nunca has tenido un sitio, lo más probable es que no sepas por dónde partir
+            ni qué te van a pedir. Es normal. Esta página explica el proceso completo en
+            palabras simples: qué necesitas tener listo, qué hago yo, cuánto demora y
+            cuánto cuesta.
+          </p>
+          <p class="lead-text mb-0">
+            Spoiler: no necesitas saber nada técnico. Lo único indispensable es que
+            conozcas tu negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pasos -->
+  <section class="pasos-section pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <h2 class="section-h2">El proceso, paso a paso</h2>
+
+          {pasos.map((p) => (
+            <div class="paso-card">
+              <div class="paso-num">{p.n}</div>
+              <div class="paso-body">
+                <h3 class="paso-title">{p.titulo}</h3>
+                <p class="paso-text">{p.texto}</p>
+                <div class="paso-tags">
+                  <span class="tag tag-tuya"><strong>Tú:</strong> {p.tuya}</span>
+                  <span class="tag tag-mia"><strong>Yo:</strong> {p.mia}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section class="checklist-section pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <div class="checklist-box">
+            <h2 class="section-h2 mb-3">Lo que necesitas tener a mano</h2>
+            <p class="mb-4">Nada de esto tiene que estar perfecto. Si te falta algo, lo resolvemos juntos.</p>
+            <ul class="checklist">
+              <li>El nombre de tu negocio y a qué se dedica</li>
+              <li>Qué servicios o productos ofreces</li>
+              <li>Fotos de tu trabajo, tu local o tu equipo (si las tienes)</li>
+              <li>Tu logo (si no tienes, lo diseñamos)</li>
+              <li>Datos de contacto: teléfono, correo, dirección, redes</li>
+              <li>Dos o tres sitios que te gusten, para entender tu estilo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precio -->
+  <section class="precio-section pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <div class="precio-box">
+            <p class="precio-label">Sitios web profesionales</p>
+            <p class="precio-monto">desde $240.000</p>
+            <p class="precio-nota">
+              Pago único, en dos cuotas. Incluye hosting y dominio el primer año,
+              sitio autoadministrable y optimización SEO inicial.
+            </p>
+            <a href="/tarifas" class="btn-secundario">Ver los tres planes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <h2 class="section-h2">Preguntas frecuentes</h2>
+          {faqs.map((f) => (
+            <div class="faq-item">
+              <h3 class="faq-q">{f.p}</h3>
+              <p class="faq-r">{f.r}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+          <div class="cta-box">
+            <h2 class="cta-title">¿Partimos?</h2>
+            <p class="cta-text">
+              La primera conversación no tiene costo ni compromiso. Me cuentas qué
+              necesitas y te digo con franqueza si puedo ayudarte y cuánto costaría.
+            </p>
+            <div class="cta-buttons">
+              <a href="/contacto" class="btn-principal">Conversemos</a>
+              <a href="/portafolio" class="btn-secundario">Ver trabajos anteriores</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-h1 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #004597;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .lead-text {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #3a4149;
+    margin-bottom: 16px;
+  }
+
+  .section-h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #1c2b4a;
+    margin-bottom: 28px;
+  }
+
+  .paso-card {
+    display: flex;
+    gap: 22px;
+    padding: 26px 0;
+    border-bottom: 1px solid #e4e7ec;
+  }
+
+  .paso-card:last-child {
+    border-bottom: none;
+  }
+
+  .paso-num {
+    flex: 0 0 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #004597;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .paso-body {
+    flex: 1;
+  }
+
+  .paso-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: #1c2b4a;
+    margin-bottom: 8px;
+  }
+
+  .paso-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a515a;
+    margin-bottom: 12px;
+  }
+
+  .paso-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+
+  .tag-tuya {
+    background: #e8f0fb;
+    color: #004597;
+  }
+
+  .tag-mia {
+    background: #eef0f2;
+    color: #454655;
+  }
+
+  .checklist-box,
+  .precio-box,
+  .cta-box {
+    background: #f7f9fb;
+    border: 1px solid #e4e7ec;
+    border-radius: 12px;
+    padding: 34px;
+  }
+
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .checklist li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a515a;
+  }
+
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 7px;
+    width: 8px;
+    height: 14px;
+    border-right: 3px solid #004597;
+    border-bottom: 3px solid #004597;
+    transform: rotate(42deg);
+  }
+
+  .precio-box {
+    text-align: center;
+  }
+
+  .precio-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #454655;
+    margin-bottom: 6px;
+  }
+
+  .precio-monto {
+    font-size: 40px;
+    font-weight: 600;
+    color: #004597;
+    margin-bottom: 12px;
+  }
+
+  .precio-nota {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4a515a;
+    max-width: 60ch;
+    margin: 0 auto 22px;
+  }
+
+  .faq-item {
+    padding: 22px 0;
+    border-bottom: 1px solid #e4e7ec;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-q {
+    font-size: 18px;
+    font-weight: 600;
+    color: #004597;
+    margin-bottom: 8px;
+  }
+
+  .faq-r {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #4a515a;
+    margin-bottom: 0;
+  }
+
+  .cta-box {
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1c2b4a;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #4a515a;
+    max-width: 62ch;
+    margin: 0 auto 24px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-principal,
+  .btn-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-principal {
+    background: #004597;
+    color: #ffffff;
+    border: 2px solid #004597;
+  }
+
+  .btn-principal:hover {
+    background: #00356f;
+    border-color: #00356f;
+    color: #ffffff;
+  }
+
+  .btn-secundario {
+    background: transparent;
+    color: #004597;
+    border: 2px solid #004597;
+  }
+
+  .btn-secundario:hover {
+    background: #004597;
+    color: #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    .page-h1 {
+      font-size: 30px;
+    }
+
+    .section-h2 {
+      font-size: 24px;
+    }
+
+    .lead-text {
+      font-size: 16px;
+    }
+
+    .paso-card {
+      gap: 16px;
+    }
+
+    .paso-num {
+      flex: 0 0 38px;
+      height: 38px;
+      font-size: 17px;
+    }
+
+    .checklist-box,
+    .precio-box,
+    .cta-box {
+      padding: 24px 20px;
+    }
+
+    .precio-monto {
+      font-size: 32px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
