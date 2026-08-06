@@ -1,0 +1,81 @@
+---
+/**
+ * MediosPago.astro
+ * Muestra los medios de pago aceptados (tarjetas, transferencia) y la
+ * posibilidad de pagar en cuotas.
+ *
+ * Props:
+ *  - variante: "completa" (tarifas / contacto) | "minima" (footer)
+ *  - texto: sobrescribe el mensaje principal (opcional)
+ */
+interface Props {
+  variante?: 'completa' | 'minima';
+  texto?: string;
+}
+
+const { variante = 'completa', texto } = Astro.props;
+
+const mensaje = texto ?? 'Tarjeta de crédito, débito o transferencia · <strong>paga en cuotas con tu tarjeta</strong>';
+---
+
+{variante === 'completa' && (
+  <div class="dp-pago-linea">
+    <span class="dp-pago-linea__txt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path>
+      </svg>
+      <span set:html={mensaje} />
+    </span>
+
+    <span class="dp-iconos" role="list" aria-label="Medios de pago aceptados">
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Visa"><rect width="46" height="28" rx="4" fill="#fff" stroke="#e3e7ed"></rect><text x="23" y="19" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="700" font-style="italic" fill="#1A1F71">VISA</text></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Mastercard"><rect width="46" height="28" rx="4" fill="#fff" stroke="#e3e7ed"></rect><circle cx="19" cy="14" r="8" fill="#EB001B"></circle><circle cx="27" cy="14" r="8" fill="#F79E1B"></circle><path d="M23 8.1a8 8 0 0 0 0 11.8 8 8 0 0 0 0-11.8z" fill="#FF5F00"></path></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="American Express"><rect width="46" height="28" rx="4" fill="#2E77BC"></rect><text x="23" y="13" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="700" fill="#fff">AMERICAN</text><text x="23" y="21" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="700" fill="#fff">EXPRESS</text></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Redcompra"><rect width="46" height="28" rx="4" fill="#fff" stroke="#e3e7ed"></rect><text x="23" y="13" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#E30613">RED</text><text x="23" y="22" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#333">COMPRA</text></svg>
+    </span>
+  </div>
+)}
+
+{variante === 'minima' && (
+  <div class="dp-footer-pagos">
+    <span>Paga en <strong>cuotas con tu tarjeta</strong></span>
+    <span class="dp-iconos" role="list" aria-label="Medios de pago aceptados">
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Visa"><rect width="46" height="28" rx="4" fill="#fff"></rect><text x="23" y="19" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="700" font-style="italic" fill="#1A1F71">VISA</text></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Mastercard"><rect width="46" height="28" rx="4" fill="#fff"></rect><circle cx="19" cy="14" r="8" fill="#EB001B"></circle><circle cx="27" cy="14" r="8" fill="#F79E1B"></circle><path d="M23 8.1a8 8 0 0 0 0 11.8 8 8 0 0 0 0-11.8z" fill="#FF5F00"></path></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="American Express"><rect width="46" height="28" rx="4" fill="#2E77BC"></rect><text x="23" y="13" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="700" fill="#fff">AMERICAN</text><text x="23" y="21" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="700" fill="#fff">EXPRESS</text></svg>
+      <svg viewBox="0 0 46 28" role="listitem" aria-label="Redcompra"><rect width="46" height="28" rx="4" fill="#fff"></rect><text x="23" y="13" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#E30613">RED</text><text x="23" y="22" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="7" font-weight="700" fill="#333">COMPRA</text></svg>
+    </span>
+    <span>· Procesados por Mercado Pago</span>
+  </div>
+)}
+
+<style is:global>
+  /* ── Versión completa ─────────────────────────────── */
+  .dp-pago-linea{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+    gap:8px 14px;padding:14px 18px;margin:0 auto;max-width:720px;
+    border:1px solid #e3e7ed;border-radius:10px;background:#fff;
+    font-size:.88rem;color:#5a6472;line-height:1.4;
+  }
+  .dp-pago-linea__txt{display:inline-flex;align-items:center;gap:8px;text-align:left;}
+  .dp-pago-linea__txt svg{width:16px;height:16px;flex-shrink:0;color:#004597;}
+  .dp-pago-linea__txt strong{color:#004597;font-weight:600;}
+
+  .dp-iconos{display:inline-flex;align-items:center;gap:6px;}
+  .dp-iconos svg{height:22px;width:auto;}
+
+  /* ── Versión mínima (footer) ──────────────────────── */
+  .dp-footer-pagos{
+    display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;
+    font-size:.78rem;color:#a8b0bc;opacity:.95;
+    margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);
+  }
+  .dp-footer-pagos strong{color:#fff;font-weight:600;}
+  .dp-footer-pagos .dp-iconos svg{height:18px;}
+
+  @media (max-width:576px){
+    .dp-pago-linea{flex-direction:column;text-align:center;gap:10px;padding:16px;}
+    .dp-pago-linea__txt{text-align:center;}
+    .dp-footer-pagos{font-size:.7rem;gap:8px;}
+  }
+</style>

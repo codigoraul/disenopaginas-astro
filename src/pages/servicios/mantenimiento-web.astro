@@ -27,7 +27,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
             <img loading="lazy" src="/assets/img/servicios/mantenimiento-de-tu-pagina-web.webp" alt="Mantenimiento Web" class="img-fluid rounded mb-4">
             
             <!-- Service Title -->
-            <h1 class="h2 fw-bold mb-4">Mantenimiento de tu Web</h1>
+            <h1 class="fw-bold mb-4">Mantenimiento de tu Web</h1>
             
             <!-- Service Description -->
             <p class="lead mb-4">
@@ -158,10 +158,10 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
             </div>
 
             <!-- Urgency Card -->
-            <div class="urgency-card p-4 border border-warning rounded mb-4">
-              <h5 class="fw-bold mb-3 text-warning">¿Sitio Web con Problemas?</h5>
+            <div class="urgency-card p-4 rounded mb-4">
+              <h5 class="fw-bold mb-3 urgency-title">¿Sitio Web con Problemas?</h5>
               <p class="mb-3">Si tu página web tiene errores, está lenta o fue hackeada, podemos solucionarlo urgentemente.</p>
-              <a href="tel:+56961765268" class="btn btn-warning w-100">
+              <a href="tel:+56961765268" class="btn btn-urgencia w-100">
                 <i class="ti ti-phone me-2"></i>Llamar Ahora
               </a>
             </div>
@@ -226,17 +226,42 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   }
   
   .contact-card {
-    background-color: #c4d7f9 !important;
+    background-color: #dee7fb !important;
   }
   
   .cta-section {
-    background-color: #C4D7F9 !important;
-    color: #333 !important;
+    background-color: #dee7fb !important;
+    color: #0B100F !important;
   }
   
   .cta-section h4,
   .cta-section p {
-    color: #333 !important;
+    color: #0B100F !important;
+  }
+
+  /* Tarjeta de urgencia: contraste accesible, sin el ámbar ilegible */
+  .urgency-card {
+    background-color: #fdf6e7;
+    border: 1px solid #e8c98a;
+  }
+
+  .urgency-title {
+    color: #8a5300 !important;
+  }
+
+  .btn-urgencia {
+    background-color: #8a5300;
+    color: #ffffff !important;
+    border: 1px solid #8a5300;
+    font-weight: 600;
+    transition: background-color 0.25s ease;
+  }
+
+  .btn-urgencia:hover,
+  .btn-urgencia:focus {
+    background-color: #6b4000;
+    border-color: #6b4000;
+    color: #ffffff !important;
   }
 </style>
 
