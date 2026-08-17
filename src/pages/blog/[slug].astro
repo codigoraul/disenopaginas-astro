@@ -6,27 +6,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 export async function getStaticPaths() {
    const { getPosts } = await import('../../lib/wordpress.js');
 
-   // Los .astro que viven en esta misma carpeta ya son páginas propias y
-   // tienen prioridad sobre esta ruta dinámica. Se excluyen sus slugs para
-   // no generar rutas duplicadas.
-   const staticSlugs = Object.keys(import.meta.glob('./*.astro'))
-      .map((file) => (file.split('/').pop() || '').replace(/\.astro$/, ''))
-      .filter((slug) => !slug.startsWith('['));
+   // Unica fuente de los articulos. Si la API falla, el error sube y corta
+   // el build, dejando intacto el sitio ya publicado en el servidor.
+   const posts: any[] = await getPosts();
 
-   let posts: any[] = [];
-   try {
-      posts = await getPosts();
-   } catch (e) {
-      const motivo = e instanceof Error ? e.message : String(e);
-      console.error('[blog/[slug]] No se pudo leer WordPress:', motivo);
-   }
-
-   return posts
-      .filter((post: any) => !staticSlugs.includes(post.slug))
-      .map((post: any) => ({
-         params: { slug: post.slug },
-         props: { post },
-      }));
+   return posts.map((post: any) => ({
+      params: { slug: post.slug },
+      props: { post },
+   }));
 }
 
 const { post } = Astro.props as { post: any };

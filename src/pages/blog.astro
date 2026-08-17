@@ -3,77 +3,20 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { getPosts } from '../lib/wordpress.js';
 
-// Artículos estáticos que viven en src/pages/blog/*.astro.
-// Solo se muestran como respaldo si WordPress no responde.
-const staticPosts = [
-   {
-      title: '¿Cuánto Cuesta una Página Web en Chile 2026? Precios Reales',
-      url: '/blog/cuanto-cuesta-pagina-web-chile',
-      image: '/assets/img/blog/cuanto-cuesta-pagina-web-chile/portada.webp',
-      imageAlt: 'Cuánto cuesta una página web en Chile 2026',
-      category: 'Precios',
-      dateFormatted: '12 Junio 2026',
-   },
-   {
-      title: 'IA en Diseño Web: Por Qué Necesitas un Experto Humano',
-      url: '/blog/ia-diseno-web-experto-humano',
-      image: '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp',
-      imageAlt: 'IA en Diseño Web',
-      category: 'Diseño Web',
-      dateFormatted: '17 Abril 2026',
-   },
-   {
-      title: 'Diseño Web Híbrido: WordPress Headless con Astro.js',
-      url: '/blog/disenoweb-hibrido-wordpress-headless-astro',
-      image: '/assets/img/blog/wordpress-headless-astro/portada.webp',
-      imageAlt: 'Diseño Web Híbrido',
-      category: 'Diseño Web',
-      dateFormatted: '12 Febrero 2025',
-   },
-   {
-      title: 'SEO y Estructura Web 2025: Optimización para Empresas',
-      url: '/blog/tendencias-web-ia-2025',
-      image: '/assets/img/blog/tendencias-web-ia-2025/portada.jpg',
-      imageAlt: 'SEO y Estructura Web',
-      category: 'Diseño Web',
-      dateFormatted: '15 Enero 2025',
-   },
-   {
-      title: 'Guía completa de SEO para principiantes',
-      url: '/blog/guia-seo-principiantes',
-      image: '/assets/img/blog/guia-seo-principiantes/portada.webp',
-      imageAlt: 'Guía SEO',
-      category: 'SEO',
-      dateFormatted: '12 Enero 2025',
-   },
-];
+// Todo el blog se sirve desde WordPress headless.
+// Si la API falla, se corta el build a proposito: al no generarse un deploy,
+// el sitio que ya esta publicado sigue intacto en el servidor. Eso protege
+// mejor que mostrar un listado incompleto.
+const wpPosts: any[] = await getPosts();
 
-let wpPosts: any[] = [];
-
-try {
-   wpPosts = await getPosts();
-} catch (e) {
-   const motivo = e instanceof Error ? e.message : String(e);
-   console.error(
-      '[blog] WordPress no disponible, se muestran los artículos estáticos:',
-      motivo
-   );
-}
-
-// Si WordPress responde con entradas, manda WordPress.
-// Si falla o viene vacío, caemos a los artículos estáticos.
-const usingWordPress = wpPosts.length > 0;
-
-const posts = usingWordPress
-   ? wpPosts.map((post: any) => ({
-        title: post.title,
-        url: `/blog/${post.slug}`,
-        image: post.image,
-        imageAlt: post.imageAlt,
-        category: post.category,
-        dateFormatted: post.dateFormatted,
-     }))
-   : staticPosts;
+const posts = wpPosts.map((post: any) => ({
+   title: post.title,
+   url: `/blog/${post.slug}`,
+   image: post.image,
+   imageAlt: post.imageAlt,
+   category: post.category,
+   dateFormatted: post.dateFormatted,
+}));
 ---
 
 <Layout title="Blog - Diseño Web y Tecnología">
