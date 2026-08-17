@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap sincronizado con el que estaba publicado en el servidor.
+  Las URLs que genera Astro llevan barra final para que coincidan con su
+  <link rel="canonical"> y no respondan 301.
+  Las URLs que no salen del build de Astro se mantienen tal cual estaban.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Página principal -->
@@ -98,7 +104,7 @@
   </url>
 
   <!-- ========================== -->
-  <!-- Landings por Rubro         -->
+  <!-- Páginas por rubro          -->
   <!-- ========================== -->
 
   <url>
@@ -111,13 +117,6 @@
   <url>
     <loc>https://diseñopaginas.cl/diseno-web-pymes/</loc>
     <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://diseñopaginas.cl/blog/cuanto-cuesta-pagina-web-chile/</loc>
-    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -144,49 +143,63 @@
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/diseno-web-psicologos/</loc>
+    <loc>https://diseñopaginas.cl/diseno-web-psicologos</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/diseno-web-corredor-propiedades/</loc>
+    <loc>https://diseñopaginas.cl/diseno-web-corredor-propiedades</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/veterinarias/</loc>
+    <loc>https://diseñopaginas.cl/veterinarias</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/productos-online/</loc>
+    <loc>https://diseñopaginas.cl/productos-online</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/landing/</loc>
+    <loc>https://diseñopaginas.cl/reservas-online-profesionales</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/web-inteligencia-artificial/</loc>
+    <loc>https://diseñopaginas.cl/landing</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/web-inteligencia-artificial</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/google-ads-chile/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- ========================== -->
-  <!-- Páginas generales          -->
+  <!-- Páginas institucionales    -->
   <!-- ========================== -->
 
   <url>
@@ -210,68 +223,121 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- ========================== -->
+  <!-- Blog                       -->
+  <!-- ========================== -->
+
   <url>
     <loc>https://diseñopaginas.cl/blog/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://diseñopaginas.cl/blog/por-que-mi-web-no-aparece-en-google/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/blog/cuanto-cuesta-pagina-web-chile/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/blog/guia-seo-principiantes/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/blog/disenoweb-hibrido-wordpress-headless-astro/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/blog/ia-diseno-web-experto-humano/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/blog/tendencias-web-ia-2025/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ========================== -->
-  <!-- Landing Pages por Ciudad   -->
+  <!-- Páginas por ciudad         -->
   <!-- ========================== -->
 
   <url>
-    <loc>https://diseñopaginas.cl/santiago/</loc>
+    <loc>https://diseñopaginas.cl/santiago</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/antofagasta/</loc>
+    <loc>https://diseñopaginas.cl/antofagasta</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/la-serena/</loc>
+    <loc>https://diseñopaginas.cl/la-serena</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/concepcion/</loc>
+    <loc>https://diseñopaginas.cl/concepcion</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/web-temuco/</loc>
+    <loc>https://diseñopaginas.cl/vina-del-mar</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/valdivia/</loc>
+    <loc>https://diseñopaginas.cl/web-temuco</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/valdivia</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/osorno/</loc>
+    <loc>https://diseñopaginas.cl/osorno</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://diseñopaginas.cl/puerto-montt/</loc>
+    <loc>https://diseñopaginas.cl/puerto-montt</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
