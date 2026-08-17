@@ -1,7 +1,78 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
-// revisar aca
+import { getPosts } from '../lib/wordpress.js';
+
+// Artículos estáticos que viven en src/pages/blog/*.astro.
+// Solo se muestran como respaldo si WordPress no responde.
+const staticPosts = [
+   {
+      title: '¿Cuánto Cuesta una Página Web en Chile 2026? Precios Reales',
+      url: '/blog/cuanto-cuesta-pagina-web-chile',
+      image: '/assets/img/blog/cuanto-cuesta-pagina-web-chile/portada.webp',
+      imageAlt: 'Cuánto cuesta una página web en Chile 2026',
+      category: 'Precios',
+      dateFormatted: '12 Junio 2026',
+   },
+   {
+      title: 'IA en Diseño Web: Por Qué Necesitas un Experto Humano',
+      url: '/blog/ia-diseno-web-experto-humano',
+      image: '/assets/img/blog/ia-diseno-web-experto-humano/portada.webp',
+      imageAlt: 'IA en Diseño Web',
+      category: 'Diseño Web',
+      dateFormatted: '17 Abril 2026',
+   },
+   {
+      title: 'Diseño Web Híbrido: WordPress Headless con Astro.js',
+      url: '/blog/disenoweb-hibrido-wordpress-headless-astro',
+      image: '/assets/img/blog/wordpress-headless-astro/portada.webp',
+      imageAlt: 'Diseño Web Híbrido',
+      category: 'Diseño Web',
+      dateFormatted: '12 Febrero 2025',
+   },
+   {
+      title: 'SEO y Estructura Web 2025: Optimización para Empresas',
+      url: '/blog/tendencias-web-ia-2025',
+      image: '/assets/img/blog/tendencias-web-ia-2025/portada.jpg',
+      imageAlt: 'SEO y Estructura Web',
+      category: 'Diseño Web',
+      dateFormatted: '15 Enero 2025',
+   },
+   {
+      title: 'Guía completa de SEO para principiantes',
+      url: '/blog/guia-seo-principiantes',
+      image: '/assets/img/blog/guia-seo-principiantes/portada.webp',
+      imageAlt: 'Guía SEO',
+      category: 'SEO',
+      dateFormatted: '12 Enero 2025',
+   },
+];
+
+let wpPosts = [];
+
+try {
+   wpPosts = await getPosts();
+} catch (e) {
+   console.error(
+      '[blog] WordPress no disponible, se muestran los artículos estáticos:',
+      e.message
+   );
+}
+
+// Si WordPress responde con entradas, manda WordPress.
+// Si falla o viene vacío, caemos a los artículos estáticos.
+const usingWordPress = wpPosts.length > 0;
+
+const posts = usingWordPress
+   ? wpPosts.map((post) => ({
+        title: post.title,
+        url: `/blog/${post.slug}`,
+        image: post.image,
+        imageAlt: post.imageAlt,
+        category: post.category,
+        dateFormatted: post.dateFormatted,
+     }))
+   : staticPosts;
 ---
 
 <Layout title="Blog - Diseño Web y Tecnología">
@@ -19,167 +90,42 @@ import Breadcrumb from '../components/Breadcrumb.astro';
          </div>
 
          <div class="row g-4 g-xxl-5 justify-content-center">
-
-            <!-- Blog Card 0 - PRECIOS 2026 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="/assets/img/blog/cuanto-cuesta-pagina-web-chile/portada.webp" alt="Cuánto cuesta una página web en Chile 2026">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Precios</a>
-                        <div class="dot"></div>
-                        <a href="#">12 Junio 2026</a>
+            {posts.map((post, i) => (
+               <div class="col-12 col-sm-6 col-lg-4">
+                  <div
+                     class="blog-card wow fadeInUp"
+                     data-wow-duration="1000ms"
+                     data-wow-delay={`${300 + i * 100}ms`}
+                  >
+                     <!-- Post Image -->
+                     <div class="post-img">
+                        {post.image && (
+                           <a href={post.url}>
+                              <img loading="lazy" src={post.image} alt={post.imageAlt} />
+                           </a>
+                        )}
                      </div>
-                     <a class="post-title h4" href="/blog/cuanto-cuesta-pagina-web-chile">¿Cuánto Cuesta una Página Web en Chile 2026? Precios Reales</a>
-                     <a class="read-more-btn" href="/blog/cuanto-cuesta-pagina-web-chile">Leer más <i class="ti ti-arrow-right"></i></a>
+                     <!-- Post Body -->
+                     <div class="post-body">
+                        <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
+                           <span class="cat">{post.category}</span>
+                           <div class="dot"></div>
+                           <span>{post.dateFormatted}</span>
+                        </div>
+                        <a class="post-title h4" href={post.url}>{post.title}</a>
+                        <a class="read-more-btn" href={post.url}>
+                           Leer más <i class="ti ti-arrow-right"></i>
+                        </a>
+                     </div>
                   </div>
                </div>
-            </div>
-
-            <!-- Blog Card 1 - NUEVO -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="/assets/img/blog/ia-diseno-web-experto-humano/portada.webp" alt="IA en Diseño Web">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Diseño Web</a>
-                        <div class="dot"></div>
-                        <a href="#">17 Abril 2026</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/ia-diseno-web-experto-humano">IA en Diseño Web: Por Qué Necesitas un Experto Humano</a>
-                     <a class="read-more-btn" href="/blog/ia-diseno-web-experto-humano">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Blog Card 2 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="/assets/img/blog/tendencias-web-ia-2025/portada.jpg" alt="SEO y Estructura Web">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Diseño Web</a>
-                        <div class="dot"></div>
-                        <a href="#">15 Enero 2025</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/tendencias-web-ia-2025">SEO y Estructura Web 2025: Optimización para Empresas</a>
-                     <a class="read-more-btn" href="/blog/tendencias-web-ia-2025">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Blog Card 3 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="/assets/img/blog/guia-seo-principiantes/portada.webp" alt="Guía SEO">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">SEO</a>
-                        <div class="dot"></div>
-                        <a href="#">12 Enero 2025</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/guia-seo-principiantes">Guía completa de SEO para principiantes</a>
-                     <a class="read-more-btn" href="/blog/guia-seo-principiantes">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Blog Card 4 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="/assets/img/blog/wordpress-headless-astro/portada.webp" alt="Diseño Web Híbrido">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Diseño Web</a>
-                        <div class="dot"></div>
-                        <a href="#">12 Febrero 2025</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/disenoweb-hibrido-wordpress-headless-astro">Diseño Web Híbrido: WordPress Headless con Astro.js</a>
-                     <a class="read-more-btn" href="/blog/disenoweb-hibrido-wordpress-headless-astro">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Blog Card 4 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="assets/img/bg-img/5.jpg" alt="Diseño Web">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Diseño</a>
-                        <div class="dot"></div>
-                        <a href="#">5 Enero 2025</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/tendencias-diseno-web-2025">Tendencias de diseño web para 2025</a>
-                     <a class="read-more-btn" href="/blog/tendencias-diseno-web-2025">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Blog Card 5 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-               <div class="blog-card wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                  <!-- Post Image -->
-                  <div class="post-img">
-                     <img loading="lazy" src="assets/img/bg-img/6.jpg" alt="Hosting Web">
-                  </div>
-                  <!-- Post Body -->
-                  <div class="post-body">
-                     <div class="blog-meta flex-wrap d-flex align-items-center gap-2">
-                        <a href="#">Tecnología</a>
-                        <div class="dot"></div>
-                        <a href="#">3 Enero 2025</a>
-                     </div>
-                     <a class="post-title h4" href="/blog/elegir-mejor-hosting">Cómo elegir el mejor hosting para tu sitio web</a>
-                     <a class="read-more-btn" href="/blog/elegir-mejor-hosting">Leer más <i class="ti ti-arrow-right"></i></a>
-                  </div>
-               </div>
-            </div>
-
+            ))}
          </div>
-      </div>
-
-      <div class="divider-sm"></div>
-
-      <!-- Pagination -->
-      <div class="container">
-         <ul class="softora-pagination list-unstyled">
-            <li class="active"><a class="magnet-link" href="#">1</a></li>
-            <li><a class="magnet-link" href="#">2</a></li>
-            <li><a class="magnet-link" href="#">3</a></li>
-            <li><a class="magnet-link" href="#"><i class="ti ti-chevron-right"></i></a></li>
-         </ul>
       </div>
 
       <!-- Divider -->
       <div class="divider"></div>
    </div>
-
-   
 </Layout>
 
 <style>
@@ -192,14 +138,6 @@ import Breadcrumb from '../components/Breadcrumb.astro';
       font-weight: 700;
       color: #333;
       margin-bottom: 15px;
-   }
-
-   .section-subtitle {
-      font-size: 18px;
-      color: #666;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
    }
 
    .blog-card {
@@ -238,15 +176,11 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 
    .blog-meta {
       margin-bottom: 15px;
-   }
-
-   .blog-meta a {
-      color: #666;
-      text-decoration: none;
       font-size: 14px;
+      color: #666;
    }
 
-   .blog-meta a:first-child {
+   .blog-meta .cat {
       color: var(--primary-color);
       font-weight: 500;
    }
@@ -285,56 +219,4 @@ import Breadcrumb from '../components/Breadcrumb.astro';
    .read-more-btn:hover {
       gap: 10px;
    }
-
-   .softora-pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-top: 40px;
-   }
-
-   .softora-pagination li {
-      list-style: none;
-   }
-
-   .softora-pagination a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #f8f9fa;
-      color: #666;
-      text-decoration: none;
-      transition: all 0.3s ease;
-   }
-
-   .softora-pagination li.active a,
-   .softora-pagination a:hover {
-      background: var(--primary-color);
-      color: white;
-   }
-
-   .cta-wrapper {
-      padding: 80px 0;
-      color: white;
-   }
-
-   .cta-wrapper h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-   }
-
-   .cta-wrapper p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-   }
-
-   @media (max-width: 768px) {
-      .cta-wrapper h2 {
-         font-size: 2rem;
-      }
-   }
-</style> 
+</style>

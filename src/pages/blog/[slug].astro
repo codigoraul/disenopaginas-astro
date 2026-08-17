@@ -1,147 +1,232 @@
 ---
+// Detalle de artículo leyendo desde WordPress headless.
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { Image } from 'astro:assets';
 
-// Generar rutas estáticas para todas las publicaciones
 export async function getStaticPaths() {
-  // Importar las publicaciones desde la carpeta correcta
-  const allPosts = await Astro.glob('../../pages/blog/*.astro');
-  
-  // Filtrar solo los archivos que no sean [slug].astro
-  const posts = allPosts.filter(post => !post.file.includes('[slug]'));
-  
-  return posts.map(post => {
-    const slug = post.file.split('/').pop()?.replace(/\.astro$/, '');
-    return {
-      params: { slug },
-      props: { post },
-    };
-  });
+   const { getPosts } = await import('../../lib/wordpress.js');
+
+   // Los .astro que viven en esta misma carpeta ya son páginas propias y
+   // tienen prioridad sobre esta ruta dinámica. Se excluyen sus slugs para
+   // no generar rutas duplicadas.
+   const staticSlugs = Object.keys(import.meta.glob('./*.astro'))
+      .map((file) => file.split('/').pop().replace(/\.astro$/, ''))
+      .filter((slug) => !slug.startsWith('['));
+
+   let posts = [];
+   try {
+      posts = await getPosts();
+   } catch (e) {
+      console.error('[blog/[slug]] No se pudo leer WordPress:', e.message);
+   }
+
+   return posts
+      .filter((post) => !staticSlugs.includes(post.slug))
+      .map((post) => ({
+         params: { slug: post.slug },
+         props: { post },
+      }));
 }
 
-// Obtener la publicación actual de las props
 const { post } = Astro.props;
-const { Content, frontmatter } = post;
-
-// Si no se encuentra la publicación (no debería pasar con el enrutamiento correcto)
-if (!post) {
-  return Astro.redirect('/404');
-}
-
-// Get the slug from the URL
-const { slug } = Astro.params;
-
-// Importar la imagen correctamente si existe
-let imageUrl = frontmatter.image;
-if (frontmatter.image) {
-  try {
-    // Usar la ruta directa de la imagen
-    imageUrl = frontmatter.image;
-  } catch (e) {
-    console.warn('Could not load image:', frontmatter.image);
-  }
-}
 ---
 
-<Layout title={frontmatter.title || 'Artículo del Blog'}>
-  <!-- Breadcrumb -->
-  <Breadcrumb title="Blog" currentPage={frontmatter.title} />
+<Layout title={post.seoTitle} description={post.seoDescription}>
+   <Breadcrumb title="Blog" currentPage={post.title} />
 
-  <!-- Sección del Blog -->
-  <div class="blog-section">
-    <div class="divider"></div>
-    
-    <div class="container">
-      <div class="row g-5 g-md-4 g-xxl-5">
-        <!-- Contenido del Blog -->
-        <div class="col-12 col-md-7 col-lg-8">
-          <div class="pe-lg-3">
-            <div class="single-blog-content">
-              <div class="blog-card-two wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-                {imageUrl && (
-                  <img loading="lazy" 
-                    src={typeof imageUrl === 'string' ? imageUrl : imageUrl.src} 
-                    alt={frontmatter.title} 
-                    class="w-100 mb-4" 
-                    loading="lazy"
-                  />
-                )}
-                <h1 class="mb-3">{frontmatter.title}</h1>
-                <div class="post-meta mb-4">
-                  <span class="post-date">
-                    <i class="bi bi-calendar"></i> {new Date(frontmatter.date || frontmatter.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </span>
-                  {frontmatter.author && (
-                    <span class="post-author ms-3">
-                      <i class="bi bi-person"></i> {frontmatter.author}
-                    </span>
-                  )}
-                </div>
-                <div class="post-content">
-                  <Content />
-                </div>
-              </div>
+   <div class="blog-section">
+      <div class="post-container">
+         <article class="single-post">
+            <div class="post-meta-top d-flex flex-wrap align-items-center gap-2 mb-3">
+               <span class="cat">{post.category}</span>
+               <div class="dot"></div>
+               <span>{post.dateFormatted}</span>
+               <div class="dot"></div>
+               <span>{post.readingTime} min de lectura</span>
             </div>
-          </div>
-        </div>
+
+            <h1 class="post-heading mb-4">{post.title}</h1>
+
+            <div class="post-content" set:html={post.content}>
+               {post.image && (
+                  <img
+                     class="post-cover"
+                     src={post.image}
+                     alt={post.imageAlt}
+                     loading="eager"
+                  />
+               )}
+            </div>
+         </article>
       </div>
-    </div>
-  </div>
+      <div class="divider"></div>
+   </div>
 </Layout>
 
 <style>
-  .blog-section {
-    padding: 80px 0;
-  }
-  
-  .post-meta {
-    font-size: 1rem;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-  }
-  
-  .post-content {
-    line-height: 1.8;
-    color: var(--text-color);
-  }
-  
-  .post-content h2,
-  .post-content h3,
-  .post-content h4 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--heading-color);
-  }
-  
-  .post-content p {
-    margin-bottom: 1.5rem;
-  }
-  
-  .post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-  }
-  
-  .post-content ul,
-  .post-content ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-  }
-  
-  .post-content li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .post-author {
-    color: var(--text-color);
-  }
-  
-  .bi-calendar,
-  .bi-person {
-    margin-right: 0.25rem;
-    color: var(--primary-color);
-  }
+   .blog-section { padding: 70px 0; }
+
+   /* Contenedor más ancho que el container de Bootstrap */
+   .post-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+   }
+
+   .post-meta-top {
+      font-size: 14px;
+      color: #666;
+   }
+
+   .post-meta-top .cat {
+      color: #2F56DC;
+      font-weight: 600;
+   }
+
+   .dot {
+      width: 4px;
+      height: 4px;
+      background: #999;
+      border-radius: 50%;
+   }
+
+   .post-heading {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #004597;
+      max-width: 900px;
+   }
+
+   /* --- Imagen destacada flotando a la derecha --- */
+   .post-cover {
+      float: right;
+      width: 46%;
+      max-width: 540px;
+      height: auto;
+      border-radius: 12px;
+      margin: 4px 0 24px 32px;
+      shape-margin: 20px;
+   }
+
+   .post-content {
+      line-height: 1.8;
+      font-size: 15px;
+      color: #444;
+   }
+
+   /* limpia el flotado al final del artículo */
+   .post-content::after {
+      content: "";
+      display: block;
+      clear: both;
+   }
+
+   .post-content :global(h2) {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 2.4rem;
+      margin-bottom: 1rem;
+      color: #004597;
+      clear: none;
+   }
+
+   .post-content :global(h3) {
+      font-size: 21px;
+      font-weight: 600;
+      margin-top: 1.7rem;
+      margin-bottom: .75rem;
+      color: #2b2b2b;
+   }
+
+   .post-content :global(p) { margin-bottom: 1.3rem; }
+
+   .post-content :global(ul),
+   .post-content :global(ol) {
+      margin-bottom: 1.5rem;
+      padding-left: 1.4rem;
+   }
+
+   .post-content :global(li) { margin-bottom: .55rem; }
+
+   .post-content :global(strong) { color: #222; }
+
+   .post-content :global(img) {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+   }
+
+   /* --- Tablas --- */
+   .post-content :global(figure.wp-block-table),
+   .post-content :global(.tabla-wrap) {
+      margin: 1.8rem 0;
+      overflow-x: auto;
+   }
+
+   .post-content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14.5px;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+   }
+
+   .post-content :global(thead th) {
+      background: #1c1c1e;
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 16px;
+      white-space: nowrap;
+   }
+
+   .post-content :global(tbody td) {
+      padding: 13px 16px;
+      border-top: 1px solid #ececec;
+      vertical-align: middle;
+      color: #444;
+   }
+
+   .post-content :global(tbody td:first-child) {
+      font-weight: 700;
+      color: #222;
+   }
+
+   .post-content :global(tbody tr:hover td) {
+      background: #f7f9ff;
+   }
+
+   .post-content :global(blockquote) {
+      border-left: 4px solid #2F56DC;
+      padding: .5rem 0 .5rem 1.2rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #555;
+   }
+
+   .post-content :global(a) {
+      color: #2F56DC;
+      text-decoration: underline;
+   }
+
+   /* --- Responsive: la imagen deja de flotar --- */
+   @media (max-width: 991px) {
+      .post-cover {
+         float: none;
+         width: 100%;
+         max-width: 100%;
+         margin: 0 0 24px 0;
+      }
+      .post-heading { font-size: 32px; }
+   }
+
+   @media (max-width: 576px) {
+      .blog-section { padding: 45px 0; }
+      .post-heading { font-size: 27px; }
+      .post-content { font-size: 15px; }
+      .post-content :global(h2) { font-size: 24px; }
+      .post-content :global(h3) { font-size: 19px; }
+   }
 </style>
