@@ -13,13 +13,21 @@ export interface Props {
   description?: string;
   keywords?: string;
   canonical?: string;
+  ogImage?: string;
+  ogType?: string;
   breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, breadcrumbs } = Astro.props;
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, ogImage, ogType = 'website', breadcrumbs } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL || '';
 const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`;
+
+// Imagen para redes sociales: la propia de la página si se entrega
+// (por ejemplo la portada que trae Yoast), si no la genérica del sitio.
+const defaultOgImage = 'https://diseñopaginas.cl/assets/img/og-image.jpg';
+const socialImage = ogImage || defaultOgImage;
+const isDefaultOgImage = socialImage === defaultOgImage;
 ---
 
 <!DOCTYPE html>
@@ -31,13 +39,17 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
   {keywords && <meta name="keywords" content={keywords}>}
 
   <!-- ===== OPEN GRAPH ===== -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:url" content={currentUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image" content={socialImage} />
+  {isDefaultOgImage && (
+    <>
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+    </>
+  )}
   <meta property="og:locale" content="es_CL" />
   <meta property="og:site_name" content="DiseñoPaginas.cl" />
 
@@ -46,7 +58,7 @@ const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`
   <meta name="twitter:site" content="@raulriquelme2" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="https://diseñopaginas.cl/assets/img/og-image.jpg" />
+  <meta name="twitter:image" content={socialImage} />
 
   <!-- Canonical URL -->
   <link rel="canonical" href={currentUrl} />

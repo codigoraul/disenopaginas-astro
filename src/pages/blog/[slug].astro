@@ -10,28 +10,35 @@ export async function getStaticPaths() {
    // tienen prioridad sobre esta ruta dinámica. Se excluyen sus slugs para
    // no generar rutas duplicadas.
    const staticSlugs = Object.keys(import.meta.glob('./*.astro'))
-      .map((file) => file.split('/').pop().replace(/\.astro$/, ''))
+      .map((file) => (file.split('/').pop() || '').replace(/\.astro$/, ''))
       .filter((slug) => !slug.startsWith('['));
 
-   let posts = [];
+   let posts: any[] = [];
    try {
       posts = await getPosts();
    } catch (e) {
-      console.error('[blog/[slug]] No se pudo leer WordPress:', e.message);
+      const motivo = e instanceof Error ? e.message : String(e);
+      console.error('[blog/[slug]] No se pudo leer WordPress:', motivo);
    }
 
    return posts
-      .filter((post) => !staticSlugs.includes(post.slug))
-      .map((post) => ({
+      .filter((post: any) => !staticSlugs.includes(post.slug))
+      .map((post: any) => ({
          params: { slug: post.slug },
          props: { post },
       }));
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as { post: any };
 ---
 
-<Layout title={post.seoTitle} description={post.seoDescription}>
+<Layout
+   title={post.seoTitle}
+   description={post.seoDescription}
+   keywords={post.seoKeyword}
+   ogImage={post.ogImage}
+   ogType="article"
+>
    <Breadcrumb title="Blog" currentPage={post.title} />
 
    <div class="blog-section">

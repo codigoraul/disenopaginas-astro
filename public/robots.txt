@@ -12,6 +12,9 @@ Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /cache/
 Disallow: /admin/
+# Las portadas de los articulos del blog viven en la biblioteca de WordPress.
+# Se permite solo esa carpeta para que Google y las redes sociales las lean.
+Allow: /admin/wp-content/uploads/
 Disallow: /private/
 Disallow: /node_modules/
 Disallow: /.astro/

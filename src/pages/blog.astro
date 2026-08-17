@@ -48,14 +48,15 @@ const staticPosts = [
    },
 ];
 
-let wpPosts = [];
+let wpPosts: any[] = [];
 
 try {
    wpPosts = await getPosts();
 } catch (e) {
+   const motivo = e instanceof Error ? e.message : String(e);
    console.error(
       '[blog] WordPress no disponible, se muestran los artículos estáticos:',
-      e.message
+      motivo
    );
 }
 
@@ -64,7 +65,7 @@ try {
 const usingWordPress = wpPosts.length > 0;
 
 const posts = usingWordPress
-   ? wpPosts.map((post) => ({
+   ? wpPosts.map((post: any) => ({
         title: post.title,
         url: `/blog/${post.slug}`,
         image: post.image,
@@ -90,7 +91,7 @@ const posts = usingWordPress
          </div>
 
          <div class="row g-4 g-xxl-5 justify-content-center">
-            {posts.map((post, i) => (
+            {posts.map((post: any, i: number) => (
                <div class="col-12 col-sm-6 col-lg-4">
                   <div
                      class="blog-card wow fadeInUp"
