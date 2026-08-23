@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // La clave se carga desde gemini-key.php (NO se sube a git, súbelo por FTP al hosting)
 require __DIR__ . '/gemini-key.php';
-define('GEMINI_MODEL', 'gemini-2.0-flash');
+define('GEMINI_MODEL', 'gemini-3.6-flash');
 
 // Leer el cuerpo de la petición
 $input = json_decode(file_get_contents('php://input'), true);
@@ -109,7 +109,6 @@ function callGemini($payload) {
     ]);
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
 
     if ($httpCode !== 200 || !$response) {
         return null;

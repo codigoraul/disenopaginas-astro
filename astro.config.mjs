@@ -26,6 +26,11 @@ export default defineConfig({
   vite: {
     base: isDev ? '/' : './',
     cacheDir: '/tmp/.vite-cache',
+    server: {
+      proxy: {
+        '/chat.php': 'http://127.0.0.1:8787'
+      }
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
