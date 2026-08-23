@@ -1,5 +1,10 @@
 ---
 // Props del componente
+interface PlanOption {
+  value: string;
+  label: string;
+}
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -8,12 +13,20 @@ interface Props {
   action?: string;
   onSuccess?: string;
   onError?: string;
-      
+  selectLabel?: string;
+  selectPlaceholder?: string;
+  planOptions?: PlanOption[];
 }
 
-const { 
+const {
   title = "Formulario de Contacto",
-  subtitle = "No dudes en contactarnos, no enviamos spam a tu email"
+  subtitle = "No dudes en contactarnos, no enviamos spam a tu email",
+  selectPlaceholder = "Selecciona un plan",
+  planOptions = [
+    { value: "Web informativa básica estática", label: "Página web informativa básica estática - $220.000" },
+    { value: "Web informativa básica autoadministrable", label: "Página web informativa básica autoadministrable - $290.000" },
+    { value: "Tienda de productos online", label: "Tienda de productos online - desde $360.000" },
+  ],
 } = Astro.props;
 
 const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
@@ -39,10 +52,10 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
       </div>
       <div class="col-lg-6">
         <select name="presupuesto" required class="form-select">
-          <option value="">Selecciona un plan</option>
-          <option value="Web informativa básica estática">Página web informativa básica estática - $220.000</option>
-          <option value="Web informativa básica autoadministrable">Página web informativa básica autoadministrable - $290.000</option>
-          <option value="Tienda de productos online">Tienda de productos online - desde $360.000</option>
+          <option value="">{selectPlaceholder}</option>
+          {planOptions.map((opt) => (
+            <option value={opt.value}>{opt.label}</option>
+          ))}
         </select>
       </div>
       <div class="col-12">

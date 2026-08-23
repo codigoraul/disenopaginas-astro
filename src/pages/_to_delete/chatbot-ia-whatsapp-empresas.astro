@@ -1,0 +1,522 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Formulario from '../components/Formulario.astro';
+---
+
+<Layout
+  title="Chatbot IA para WhatsApp y Web | Atención al Cliente 24/7 para Empresas"
+  description="Implementamos un chatbot con Inteligencia Artificial en WhatsApp y en tu sitio web para que tu empresa atienda clientes 24/7, responda preguntas frecuentes y capture leads automáticamente. Cotización gratis."
+  keywords="chatbot ia whatsapp, chat ia para empresas, atencion al cliente con inteligencia artificial, chatbot whatsapp business chile, asistente virtual empresas"
+  canonical="https://diseñopaginas.cl/chatbot-ia-whatsapp-empresas"
+  breadcrumbs={[{ name: "Chatbot IA WhatsApp y Web", url: "https://diseñopaginas.cl/chatbot-ia-whatsapp-empresas" }]}
+>
+
+  <!-- Schema Service + FAQPage específico de esta página -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://diseñopaginas.cl/chatbot-ia-whatsapp-empresas#servicio",
+        "name": "Chatbot con Inteligencia Artificial para WhatsApp y Web",
+        "serviceType": "Atención al cliente automatizada con inteligencia artificial",
+        "description": "Implementación de chatbot con IA para WhatsApp Business y sitio web, con atención automática 24/7, respuestas a preguntas frecuentes y captura de leads para empresas chilenas.",
+        "provider": {
+          "@id": "https://diseñopaginas.cl/#negocio"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Chile"
+        },
+        "url": "https://diseñopaginas.cl/chatbot-ia-whatsapp-empresas"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona un chatbot con IA en WhatsApp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Conectamos WhatsApp Business a un modelo de inteligencia artificial entrenado con la información de tu empresa (productos, precios, horarios, preguntas frecuentes). El chatbot responde automáticamente a tus clientes las 24 horas, y cuando la consulta lo requiere, deriva la conversación a un vendedor o encargado real."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿El chatbot de IA también se puede poner en mi página web?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Instalamos un widget de chat con IA directamente en tu sitio web, con la misma base de conocimiento que el de WhatsApp, para que respondas consultas de visitantes en tiempo real y captures sus datos de contacto como leads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta un chatbot con IA para WhatsApp y web?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El valor depende de la cantidad de canales (WhatsApp, web o ambos), el volumen de mensajes y el nivel de integración con tu CRM o sistema de ventas. Cotizamos cada proyecto según las necesidades reales de tu empresa, sin costos ocultos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito saber programar para usar el chatbot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Nosotros configuramos el chatbot completo, entrenamos la IA con la información de tu negocio y te dejamos un panel simple para revisar conversaciones y actualizar respuestas cuando lo necesites."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Hero Section -->
+  <section class="hero-section bg-gradient-primary py-5">
+    <div class="container">
+      <div class="row align-items-center min-vh-75">
+        <div class="col-lg-8">
+          <div class="hero-content text-white">
+            <span class="badge bg-light text-primary mb-3 fs-6">Atención al Cliente con Inteligencia Artificial</span>
+            <h1 class="display-4 fw-bold mb-4">
+              Chatbot IA para <span class="text-aqua">WhatsApp y tu Sitio Web</span>
+            </h1>
+            <p class="lead mb-4 fs-5">
+              Implementamos un asistente con inteligencia artificial que responde a tus clientes por
+              WhatsApp y en tu página web las 24 horas del día, resuelve dudas frecuentes y captura
+              nuevos clientes automáticamente, sin que tengas que estar pendiente del celular.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contacto" class="btn btn-light btn-lg me-3">Cotización Gratuita</a>
+              <a href="#planes" class="btn btn-outline-light btn-lg">Ver Planes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué incluye -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center mb-5">
+          <h2 class="display-5 fw-bold text-navy mb-4">Un asistente de IA que atiende por ti</h2>
+          <p class="lead text-muted">Ideal para empresas que reciben muchas consultas repetitivas y no dan abasto respondiendo una a una</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-brand-whatsapp text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Chatbot en WhatsApp Business</h4>
+            <p class="text-muted mb-3">Conectado a tu número de WhatsApp, responde automáticamente y de forma natural las 24 horas.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Respuestas automáticas 24/7</li>
+              <li><i class="ti ti-check text-success me-2"></i>Deriva a un humano si es necesario</li>
+              <li><i class="ti ti-check text-success me-2"></i>Historial de conversaciones</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-message-chatbot text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Chat con IA en tu Sitio Web</h4>
+            <p class="text-muted mb-3">Widget de chat integrado en tu página web que responde a los visitantes en tiempo real.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Captura de datos de contacto</li>
+              <li><i class="ti ti-check text-success me-2"></i>Disponible en móvil y escritorio</li>
+              <li><i class="ti ti-check text-success me-2"></i>Diseño acorde a tu marca</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-brain text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">IA Entrenada con tu Negocio</h4>
+            <p class="text-muted mb-3">El chatbot conoce tus productos, servicios, precios y preguntas frecuentes reales.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Respuestas precisas y personalizadas</li>
+              <li><i class="ti ti-check text-success me-2"></i>Actualizable cuando lo necesites</li>
+              <li><i class="ti ti-check text-success me-2"></i>Tono acorde a tu empresa</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-users text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Captura Automática de Leads</h4>
+            <p class="text-muted mb-3">Cada conversación es una oportunidad: el chatbot pide nombre, teléfono e interés del cliente.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Datos organizados para tu equipo</li>
+              <li><i class="ti ti-check text-success me-2"></i>Notificación de nuevos contactos</li>
+              <li><i class="ti ti-check text-success me-2"></i>Más ventas, menos consultas perdidas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-clock text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Atención Fuera de Horario</h4>
+            <p class="text-muted mb-3">Tus clientes escriben a cualquier hora: el chatbot responde aunque tu equipo no esté disponible.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Sin horarios de atención</li>
+              <li><i class="ti ti-check text-success me-2"></i>Menos clientes perdidos por demora</li>
+              <li><i class="ti ti-check text-success me-2"></i>Mejor experiencia de compra</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
+            <div class="service-icon mb-3">
+              <i class="ti ti-settings text-primary fs-1"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Configuración e Integración</h4>
+            <p class="text-muted mb-3">Nosotros nos encargamos de todo el montaje técnico, sin que tengas que programar nada.</p>
+            <ul class="list-unstyled">
+              <li><i class="ti ti-check text-success me-2"></i>Puesta en marcha guiada</li>
+              <li><i class="ti ti-check text-success me-2"></i>Panel simple de administración</li>
+              <li><i class="ti ti-check text-success me-2"></i>Soporte post-implementación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="display-5 fw-bold text-navy mb-4">¿Por qué automatizar tu atención al cliente?</h2>
+          <div class="feature-list">
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-bolt text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Respuestas Instantáneas</h5>
+                <p class="text-muted mb-0">Tus clientes reciben respuesta al segundo, sin esperar a que alguien de tu equipo esté disponible.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-trending-up text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Más Conversión de Ventas</h5>
+                <p class="text-muted mb-0">Menos consultas sin responder significa menos clientes que se van a la competencia.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex mb-4">
+              <div class="feature-icon me-3">
+                <i class="ti ti-coin text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Ahorra Tiempo de tu Equipo</h5>
+                <p class="text-muted mb-0">La IA resuelve las preguntas repetitivas, y tu equipo se enfoca solo en los casos que realmente lo necesitan.</p>
+              </div>
+            </div>
+
+            <div class="feature-item d-flex">
+              <div class="feature-icon me-3">
+                <i class="ti ti-award text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">+13 Años Creando Soluciones Digitales</h5>
+                <p class="text-muted mb-0">La misma experiencia que aplicamos en diseño web la usamos para implementar tu chatbot con IA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="ps-lg-5 mt-5 mt-lg-0">
+            <h3 class="fw-bold text-navy mb-3">Un canal de ventas que nunca duerme</h3>
+            <p class="text-muted">
+              Cada mensaje sin responder es una venta que se puede perder. Un
+              <strong>chatbot con inteligencia artificial</strong> atiende a tus clientes al instante,
+              en WhatsApp y en tu sitio web, mientras tú te enfocas en hacer crecer tu negocio.
+            </p>
+            <p class="text-muted">
+              Si además necesitas renovar tu presencia digital, conoce nuestros
+              <a href="/servicios">servicios de diseño web</a> o revisa nuestras
+              <a href="/tarifas">tarifas y planes</a>.
+            </p>
+            <a href="#contacto" class="btn btn-primary btn-lg mt-3">Solicitar Cotización <i class="ti ti-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes -->
+  <section id="planes" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center mb-5">
+          <h2 class="display-6 fw-bold text-navy mb-4">Planes de Chatbot con IA</h2>
+          <p class="lead text-muted">Cada empresa es distinta: cotizamos según los canales y el volumen de conversaciones que necesites</p>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded text-center">
+            <i class="ti ti-brand-whatsapp text-primary fs-1 mb-3"></i>
+            <h4 class="fw-bold mb-3">Solo WhatsApp</h4>
+            <p class="text-muted mb-4">Chatbot con IA conectado a tu número de WhatsApp Business.</p>
+            <a href="#contacto" class="btn btn-outline-primary w-100">Cotizar Plan</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded text-center border-primary">
+            <i class="ti ti-message-chatbot text-primary fs-1 mb-3"></i>
+            <h4 class="fw-bold mb-3">Solo Sitio Web</h4>
+            <p class="text-muted mb-4">Widget de chat con IA instalado directamente en tu página web.</p>
+            <a href="#contacto" class="btn btn-outline-primary w-100">Cotizar Plan</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4 bg-white shadow-sm rounded text-center">
+            <i class="ti ti-stars text-primary fs-1 mb-3"></i>
+            <h4 class="fw-bold mb-3">WhatsApp + Sitio Web</h4>
+            <p class="text-muted mb-4">Atención automatizada en ambos canales, con la misma base de conocimiento.</p>
+            <a href="#contacto" class="btn btn-primary w-100">Cotizar Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ visible (coincide con el schema FAQPage de esta página) -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="display-6 fw-bold text-navy mb-5 text-center">Preguntas frecuentes</h2>
+
+          <div class="accordion" id="faqChatbot">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqc1">
+                  ¿Cómo funciona un chatbot con IA en WhatsApp?
+                </button>
+              </h3>
+              <div id="faqc1" class="accordion-collapse collapse show" data-bs-parent="#faqChatbot">
+                <div class="accordion-body text-muted">
+                  Conectamos WhatsApp Business a un modelo de inteligencia artificial entrenado con la
+                  información de tu empresa (productos, precios, horarios, preguntas frecuentes). El chatbot
+                  responde automáticamente a tus clientes las 24 horas, y cuando la consulta lo requiere,
+                  deriva la conversación a un vendedor o encargado real.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqc2">
+                  ¿El chatbot de IA también se puede poner en mi página web?
+                </button>
+              </h3>
+              <div id="faqc2" class="accordion-collapse collapse" data-bs-parent="#faqChatbot">
+                <div class="accordion-body text-muted">
+                  Sí. Instalamos un widget de chat con IA directamente en tu sitio web, con la misma base
+                  de conocimiento que el de WhatsApp, para que respondas consultas de visitantes en tiempo
+                  real y captures sus datos de contacto como leads.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqc3">
+                  ¿Cuánto cuesta un chatbot con IA para WhatsApp y web?
+                </button>
+              </h3>
+              <div id="faqc3" class="accordion-collapse collapse" data-bs-parent="#faqChatbot">
+                <div class="accordion-body text-muted">
+                  El valor depende de la cantidad de canales (WhatsApp, web o ambos), el volumen de mensajes
+                  y el nivel de integración con tu CRM o sistema de ventas. Cotizamos cada proyecto según las
+                  necesidades reales de tu empresa, sin costos ocultos.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqc4">
+                  ¿Necesito saber programar para usar el chatbot?
+                </button>
+              </h3>
+              <div id="faqc4" class="accordion-collapse collapse" data-bs-parent="#faqChatbot">
+                <div class="accordion-body text-muted">
+                  No. Nosotros configuramos el chatbot completo, entrenamos la IA con la información de tu
+                  negocio y te dejamos un panel simple para revisar conversaciones y actualizar respuestas
+                  cuando lo necesites.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section id="contacto" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <Formulario
+            title="Cotiza tu Chatbot con IA"
+            subtitle="Cuéntanos sobre tu empresa y te enviamos una propuesta sin compromiso"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-gradient-primary text-white cta-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="display-5 fw-bold mb-4">¿Listo para automatizar tu atención al cliente?</h2>
+          <p class="lead mb-4">
+            Cotización gratuita y sin compromiso. Te asesoramos sobre el mejor plan para tu empresa.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-light btn-lg me-3">
+              <i class="ti ti-mail me-2"></i>Cotización Gratuita
+            </a>
+            <a href="tel:+56961765268" class="btn btn-outline-light btn-lg">
+              <i class="ti ti-phone me-2"></i>(+56) 9 61765268
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #011C42 0%, #004597 100%);
+  }
+
+  .hero-section .hero-content {
+    padding: 5rem 1.5rem 3rem 2rem;
+  }
+
+  .hero-section .hero-content h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-section .hero-content h1 .text-aqua {
+    color: #AEF8FF !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-section .hero-content p {
+    color: #f2f6fb !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-navy {
+    color: #011C42 !important;
+  }
+
+  .text-aqua {
+    color: #AEF8FF !important;
+  }
+
+  .min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  }
+
+  .feature-item {
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .feature-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .hero-buttons .btn {
+    min-width: 180px;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, #002767 0%, #004ea1 100%);
+    color: #fefefe;
+  }
+
+  .cta-section h2,
+  .cta-section p {
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .cta-section .btn-light {
+    color: #011C42;
+  }
+
+  .cta-section .btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .cta-section .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #011C42;
+  }
+
+  @media (max-width: 768px) {
+    .hero-buttons .btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .hero-buttons .btn:last-child {
+      margin-bottom: 0;
+    }
+  }
+</style>
