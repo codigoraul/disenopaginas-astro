@@ -51,6 +51,25 @@ const { post } = Astro.props as { post: any };
                   />
                )}
             </div>
+
+            <div class="preferred-source-box">
+               <span class="preferred-source-text">
+                  ¿Te sirvió este artículo? Agréganos como fuente preferida en Google 🔎
+               </span>
+               <a
+                  class="preferred-source-btn"
+                  href="https://google.com/preferences/source?q=https://diseñopaginas.cl"
+                  target="_blank"
+                  rel="noopener"
+               >
+                  <img
+                     src="/assets/img/badges/google-preferred-source.webp"
+                     alt="Añadir como fuente preferida en Google"
+                     width="169"
+                     height="53"
+                  />
+               </a>
+            </div>
          </article>
       </div>
       <div class="divider"></div>
@@ -203,6 +222,50 @@ const { post } = Astro.props as { post: any };
    .post-content :global(a) {
       color: #2F56DC;
       text-decoration: underline;
+   }
+
+   /* --- Botón "Fuente preferida" de Google --- */
+   .preferred-source-box {
+      clear: both;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 2.5rem;
+      padding: 20px 24px;
+      background: #f4f7ff;
+      border: 1px solid #e1e8fb;
+      border-radius: 12px;
+   }
+
+   .preferred-source-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #004597;
+   }
+
+   .preferred-source-btn {
+      flex-shrink: 0;
+      display: inline-block;
+      line-height: 0;
+      opacity: 1;
+      transition: opacity .2s ease;
+   }
+
+   .preferred-source-btn img {
+      display: block;
+      height: 44px;
+      width: auto;
+   }
+
+   .preferred-source-btn:hover {
+      opacity: .85;
+   }
+
+   @media (max-width: 576px) {
+      .preferred-source-box { padding: 16px 18px; }
+      .preferred-source-text { font-size: 14px; }
    }
 
    /* --- Responsive: la imagen deja de flotar --- */

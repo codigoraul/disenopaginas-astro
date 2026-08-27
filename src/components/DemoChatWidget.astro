@@ -31,7 +31,7 @@ const {
   <!-- Botón flotante -->
   <button type="button" class="demo-chat-bubble" id="demoChatBubble" aria-label="Abrir chat de demostración con IA">
     <span class="demo-chat-bubble-icon">
-      <i class="ti ti-message-chatbot"></i>
+      <i class="ti ti-message-2"></i>
     </span>
     <span class="demo-chat-ping"></span>
   </button>
@@ -45,7 +45,7 @@ const {
   <div class="demo-chat-panel" id="demoChatPanel" role="dialog" aria-label="Chat de demostración con inteligencia artificial">
     <div class="demo-chat-header">
       <div class="demo-chat-avatar">
-        <i class="ti ti-robot-face"></i>
+        🤖
       </div>
       <div class="demo-chat-header-text">
         <strong>{botName}</strong>
@@ -57,7 +57,13 @@ const {
     </div>
 
     <div class="demo-chat-body" id="demoChatBody">
-      <div class="demo-chat-msg demo-chat-msg-bot">{welcomeMessage}</div>
+      <div class="demo-chat-row demo-chat-row-bot">
+        <div class="demo-chat-avatar-sm">🤖</div>
+        <div class="demo-chat-bubble-wrap">
+          <div class="demo-chat-msg demo-chat-msg-bot">{welcomeMessage}</div>
+          <span class="demo-chat-time" data-now></span>
+        </div>
+      </div>
     </div>
 
     <div class="demo-chat-quick" id="demoChatQuick">
@@ -77,7 +83,7 @@ const {
   </div>
 </div>
 
-<style>
+<style is:global>
   .demo-chat {
     position: fixed;
     bottom: 24px;
@@ -216,9 +222,9 @@ const {
     flex-shrink: 0;
   }
 
-  .demo-chat-avatar i {
+  .demo-chat-avatar {
     font-size: 1.3rem;
-    color: #42F2C6;
+    line-height: 1;
   }
 
   .demo-chat-header-text {
@@ -268,13 +274,61 @@ const {
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
     background: #f5f7fc;
     min-height: 140px;
   }
 
+  /* Fila de mensaje: avatar + burbuja + hora */
+  .demo-chat-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .demo-chat-row-bot {
+    align-self: flex-start;
+    flex-direction: row;
+  }
+
+  .demo-chat-row-user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+  }
+
+  .demo-chat-avatar-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: #2F56DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .demo-chat-avatar-sm {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .demo-chat-bubble-wrap {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 36px);
+  }
+
+  .demo-chat-row-user .demo-chat-bubble-wrap {
+    align-items: flex-end;
+  }
+
+  .demo-chat-row-bot .demo-chat-bubble-wrap {
+    align-items: flex-start;
+  }
+
   .demo-chat-msg {
-    max-width: 85%;
     padding: 10px 14px;
     border-radius: 14px;
     font-size: 0.88rem;
@@ -282,26 +336,36 @@ const {
   }
 
   .demo-chat-msg-bot {
-    align-self: flex-start;
     background: #ffffff;
     color: #1c2a4a;
+    border: 1px solid #e6eaf5;
     border-bottom-left-radius: 4px;
     box-shadow: 0 2px 8px rgba(11, 30, 77, 0.06);
   }
 
   .demo-chat-msg-user {
-    align-self: flex-end;
     background: linear-gradient(135deg, #2F56DC 0%, #16307A 100%);
     color: #ffffff;
     border-bottom-right-radius: 4px;
   }
 
-  .demo-chat-typing {
+  .demo-chat-time {
+    font-size: 0.68rem;
+    color: #9aa4bd;
+    margin-top: 4px;
+    padding: 0 4px;
+  }
+
+  .demo-chat-typing-row {
     align-self: flex-start;
+  }
+
+  .demo-chat-typing {
     display: flex;
     gap: 4px;
     padding: 12px 14px;
     background: #ffffff;
+    border: 1px solid #e6eaf5;
     border-radius: 14px;
     border-bottom-left-radius: 4px;
     box-shadow: 0 2px 8px rgba(11, 30, 77, 0.06);
@@ -417,20 +481,64 @@ const {
       body.scrollTop = body.scrollHeight;
     }
 
+    function formatTime() {
+      var d = new Date();
+      var h = d.getHours().toString().padStart(2, '0');
+      var m = d.getMinutes().toString().padStart(2, '0');
+      return h + ':' + m;
+    }
+
+    // Marca la hora del mensaje de bienvenida que viene renderizado desde el server.
+    var initialTime = body.querySelector('[data-now]');
+    if (initialTime) initialTime.textContent = formatTime();
+
     function addMessage(text, who) {
-      const el = document.createElement('div');
-      el.className = 'demo-chat-msg ' + (who === 'user' ? 'demo-chat-msg-user' : 'demo-chat-msg-bot');
-      el.textContent = text;
-      body.appendChild(el);
+      const isUser = who === 'user';
+      const row = document.createElement('div');
+      row.className = 'demo-chat-row ' + (isUser ? 'demo-chat-row-user' : 'demo-chat-row-bot');
+
+      if (!isUser) {
+        const avatar = document.createElement('div');
+        avatar.className = 'demo-chat-avatar-sm';
+        avatar.innerHTML = '🤖';
+        row.appendChild(avatar);
+      }
+
+      const wrap = document.createElement('div');
+      wrap.className = 'demo-chat-bubble-wrap';
+
+      const bubbleEl = document.createElement('div');
+      bubbleEl.className = 'demo-chat-msg ' + (isUser ? 'demo-chat-msg-user' : 'demo-chat-msg-bot');
+      bubbleEl.textContent = text;
+
+      const time = document.createElement('span');
+      time.className = 'demo-chat-time';
+      time.textContent = formatTime();
+
+      wrap.appendChild(bubbleEl);
+      wrap.appendChild(time);
+      row.appendChild(wrap);
+
+      body.appendChild(row);
       scrollToEnd();
     }
 
     function showTyping() {
-      const el = document.createElement('div');
-      el.className = 'demo-chat-typing';
-      el.id = 'demoChatTypingIndicator';
-      el.innerHTML = '<span></span><span></span><span></span>';
-      body.appendChild(el);
+      const row = document.createElement('div');
+      row.className = 'demo-chat-row demo-chat-row-bot demo-chat-typing-row';
+      row.id = 'demoChatTypingIndicator';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'demo-chat-avatar-sm';
+      avatar.innerHTML = '🤖';
+
+      const typing = document.createElement('div');
+      typing.className = 'demo-chat-typing';
+      typing.innerHTML = '<span></span><span></span><span></span>';
+
+      row.appendChild(avatar);
+      row.appendChild(typing);
+      body.appendChild(row);
       scrollToEnd();
     }
 
