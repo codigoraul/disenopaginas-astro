@@ -128,7 +128,12 @@ $payload = [
     'contents' => $contents,
     'generationConfig' => [
         'temperature' => 0.6,
-        'maxOutputTokens' => 500,
+        'maxOutputTokens' => 1024,
+        // Gemini 3.x reserva parte de maxOutputTokens para "pensar" antes de
+        // responder; en un flash sin razonamiento profundo eso deja muy pocos
+        // tokens para el texto visible y la respuesta sale cortada a la mitad.
+        // La desactivamos porque no la necesitamos para un chatbot de FAQ.
+        'thinkingConfig' => ['thinkingBudget' => 0],
     ],
 ];
 
