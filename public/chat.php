@@ -9,6 +9,28 @@
  * Nunca pongas la clave en el código que corre en el navegador (JS/Astro).
  */
 
+// ===== CORS: permite que este chat.php sea llamado desde la web de un cliente =====
+// Este mismo archivo puede vivir en TU servidor mientras el widget corre en el
+// dominio del cliente (o viceversa). Agrega aquí cada dominio autorizado.
+$allowedOrigins = [
+    'https://disenopaginas.cl',
+    'https://www.disenopaginas.cl',
+    // 'https://web-del-cliente.com', // <- agrega el dominio de cada cliente aquí
+];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowedOrigins, true)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+}
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// El navegador manda un preflight OPTIONS antes del POST real cuando hay CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 header('Content-Type: application/json; charset=utf-8');
 
 // Solo aceptar POST

@@ -75,7 +75,7 @@ const {
     <p class="demo-chat-disclaimer">{disclaimer}</p>
 
     <form class="demo-chat-input-row" id="demoChatForm">
-      <input type="text" id="demoChatInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <textarea id="demoChatInput" placeholder="Escribe tu pregunta..." autocomplete="off" rows="1"></textarea>
       <button type="submit" aria-label="Enviar mensaje">
         <i class="ti ti-send"></i>
       </button>
@@ -422,21 +422,27 @@ const {
 
   .demo-chat-input-row {
     display: flex;
+    align-items: flex-end;
     gap: 8px;
     padding: 10px 14px 14px;
     border-top: 1px solid #eef1f8;
   }
 
-  .demo-chat-input-row input {
+  .demo-chat-input-row textarea {
     flex: 1;
+    resize: none;
     border: 1px solid #e1e6f2;
-    border-radius: 999px;
+    border-radius: 18px;
     padding: 10px 14px;
     font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.3;
+    max-height: 110px;
+    overflow-y: auto;
     outline: none;
   }
 
-  .demo-chat-input-row input:focus {
+  .demo-chat-input-row textarea:focus {
     border-color: #2F56DC;
   }
 
@@ -600,11 +606,31 @@ const {
       });
     });
 
+    function resetInputHeight() {
+      input.style.height = 'auto';
+    }
+
+    function autoResizeInput() {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 110) + 'px';
+    }
+
+    input.addEventListener('input', autoResizeInput);
+
+    // En textarea, Enter envía el mensaje; Shift+Enter agrega un salto de línea.
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       const value = input.value.trim();
       if (!value) return;
       input.value = '';
+      resetInputHeight();
       if (quickWrap) quickWrap.style.display = 'none';
       sendMessage(value);
     });
