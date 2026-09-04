@@ -107,6 +107,7 @@ Redirect 301 /diseno-web-turismo.php /diseno-web-turismo
 Redirect 301 /turismo.php /diseno-web-turismo
 Redirect 301 /diseno-web-mineria.php /diseno-web-empresas-mineria
 Redirect 301 /mineria.php /diseno-web-empresas-mineria
+Redirect 301 /chatbot-whatsapp-ia /chatbot-ia
 Redirect 301 /diseno-web-valdivia.php /valdivia
 Redirect 301 /diseno-web-osorno.php /osorno
 Redirect 301 /diseno-web-temuco.php /web-temuco
