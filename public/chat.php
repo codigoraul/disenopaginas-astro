@@ -253,21 +253,61 @@ if (preg_match('/\[LEAD_CAPTURADO\]\s*(\{.*\})/s', $reply, $m)) {
         $leadContacto = htmlspecialchars($lead['contacto'] ?? 'Sin contacto');
         $leadInteres = htmlspecialchars($lead['interes'] ?? 'Sin detalle');
 
-        $to = "codigoraul@gmail.com";
-        $subject = "[Chatbot IA] Nuevo lead: $leadNombre";
-        $body = "El chatbot de la web capturo un contacto interesado:\n\n";
-        $body .= "Nombre: $leadNombre\n";
-        $body .= "Contacto: $leadContacto\n";
-        $body .= "Interes: $leadInteres\n\n";
-        $body .= "Conversacion completa:\n";
+        // Construye las burbujas de la conversacion completa
+        $chatHtml = '';
+        $renderBurbuja = function ($who, $text) {
+            $isBot = $who === 'Bot';
+            $align = $isBot ? 'left' : 'right';
+            $bg = $isBot ? '#f1f4fb' : '#2F56DC';
+            $color = $isBot ? '#16307A' : '#ffffff';
+            $label = $isBot ? 'Nova (bot)' : 'Visitante';
+            return '<div style="text-align:' . $align . ';margin:0 0 10px;">'
+                . '<div style="display:inline-block;max-width:80%;background:' . $bg . ';color:' . $color . ';'
+                . 'padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.4;text-align:left;">'
+                . '<strong style="display:block;font-size:11px;opacity:0.7;margin-bottom:3px;">' . $label . '</strong>'
+                . nl2br(htmlspecialchars($text))
+                . '</div></div>';
+        };
         foreach ($history as $turn) {
             $who = ($turn['role'] ?? '') === 'model' ? 'Bot' : 'Visitante';
-            $body .= "$who: " . ($turn['text'] ?? '') . "\n";
+            $chatHtml .= $renderBurbuja($who, (string)($turn['text'] ?? ''));
         }
-        $body .= "Visitante: $message\n";
+        $chatHtml .= $renderBurbuja('Visitante', $message);
 
-        $headers = "From: codigoraul@gmail.com\r\nContent-Type: text/plain; charset=UTF-8\r\n";
-        @mail($to, $subject, $body, $headers);
+        $to = "codigoraul@gmail.com";
+        $subject = "Nuevo lead del chatbot: $leadNombre";
+
+        $htmlBody = '
+<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;background:#f6f8fc;padding:24px;">
+  <div style="background:linear-gradient(135deg,#2F56DC,#16307A);border-radius:16px 16px 0 0;padding:20px 24px;">
+    <h2 style="color:#ffffff;margin:0;font-size:18px;">🤖 Nuevo lead capturado por el chatbot</h2>
+  </div>
+  <div style="background:#ffffff;border-radius:0 0 16px 16px;padding:0;overflow:hidden;box-shadow:0 4px 14px rgba(11,30,77,0.08);">
+    <table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;">
+      <tr>
+        <td style="padding:14px 20px;border-bottom:1px solid #eef1f8;color:#8a93ad;font-size:12px;text-transform:uppercase;letter-spacing:.04em;width:120px;">Nombre</td>
+        <td style="padding:14px 20px;border-bottom:1px solid #eef1f8;color:#16307A;font-size:15px;font-weight:600;">' . $leadNombre . '</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 20px;border-bottom:1px solid #eef1f8;color:#8a93ad;font-size:12px;text-transform:uppercase;letter-spacing:.04em;">Contacto</td>
+        <td style="padding:14px 20px;border-bottom:1px solid #eef1f8;color:#16307A;font-size:15px;font-weight:600;">' . $leadContacto . '</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 20px;color:#8a93ad;font-size:12px;text-transform:uppercase;letter-spacing:.04em;">Interés</td>
+        <td style="padding:14px 20px;color:#16307A;font-size:15px;font-weight:600;">' . $leadInteres . '</td>
+      </tr>
+    </table>
+    <div style="padding:20px 24px 24px;">
+      <p style="color:#8a93ad;font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 12px;">Conversación completa</p>
+      ' . $chatHtml . '
+    </div>
+  </div>
+  <p style="text-align:center;color:#aab2c8;font-size:11px;margin-top:16px;">Enviado automáticamente por el chatbot de diseñopaginas.cl</p>
+</div>';
+
+        $boundaryHeaders = "From: codigoraul@gmail.com\r\n"
+            . "Content-Type: text/html; charset=UTF-8\r\n";
+        @mail($to, $subject, $htmlBody, $boundaryHeaders);
     }
 }
 
