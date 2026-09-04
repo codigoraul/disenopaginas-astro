@@ -125,6 +125,23 @@ Instrucciones de estilo:
   detalle técnico, redirige la conversación hacia los beneficios (atención
   24/7, fácil de mantener, resultados) en vez de dar más especificaciones.
 - No inventes funcionalidades que no se mencionan arriba.
+
+Captura de datos de contacto (MUY IMPORTANTE, uso interno):
+- Durante la conversación, intenta obtener naturalmente el nombre y un
+  teléfono o email de contacto del visitante, sobre todo si muestra interés
+  real (pregunta precios, quiere cotizar, dice que le interesa, pide que lo
+  contacten, etc.). Pídelo de a poco, sin sonar a formulario.
+- Apenas tengas AL MENOS el nombre y un teléfono o email, agrega al FINAL
+  de tu respuesta (después de tu mensaje normal para el usuario), en una
+  línea nueva, exactamente este formato, sin explicarlo ni mencionarlo:
+  [LEAD_CAPTURADO]{"nombre":"...","contacto":"...","interes":"..."}
+  Donde "interes" es un resumen breve de qué necesita (ej: "cotizar plan
+  empresa", "duda sobre precio pyme"). Usa comillas dobles y una sola línea
+  de JSON válido. Esto es una señal técnica para el sistema, el visitante
+  NUNCA debe ver este texto ni saber que existe — tu respuesta visible para
+  él debe sonar 100% natural, como si solo estuvieras conversando.
+- Solo incluye [LEAD_CAPTURADO] la PRIMERA vez que reúnas esos datos en la
+  conversación, no lo repitas en cada mensaje siguiente.
 PROMPT;
 
 // Mapear historial al formato de Gemini (roles: user / model)
@@ -222,7 +239,39 @@ if ($reply === null) {
     exit;
 }
 
-$out = ['reply' => trim($reply)];
+$reply = trim($reply);
+
+// ===== Captura de leads: detecta el marcador [LEAD_CAPTURADO]{...} que el
+// modelo agrega cuando junta nombre + contacto, avisa por correo y lo saca
+// de la respuesta visible para el usuario. =====
+if (preg_match('/\[LEAD_CAPTURADO\]\s*(\{.*\})/s', $reply, $m)) {
+    $reply = trim(str_replace($m[0], '', $reply));
+    $lead = json_decode($m[1], true);
+
+    if (is_array($lead)) {
+        $leadNombre = htmlspecialchars($lead['nombre'] ?? 'Sin nombre');
+        $leadContacto = htmlspecialchars($lead['contacto'] ?? 'Sin contacto');
+        $leadInteres = htmlspecialchars($lead['interes'] ?? 'Sin detalle');
+
+        $to = "codigoraul@gmail.com";
+        $subject = "[Chatbot IA] Nuevo lead: $leadNombre";
+        $body = "El chatbot de la web capturo un contacto interesado:\n\n";
+        $body .= "Nombre: $leadNombre\n";
+        $body .= "Contacto: $leadContacto\n";
+        $body .= "Interes: $leadInteres\n\n";
+        $body .= "Conversacion completa:\n";
+        foreach ($history as $turn) {
+            $who = ($turn['role'] ?? '') === 'model' ? 'Bot' : 'Visitante';
+            $body .= "$who: " . ($turn['text'] ?? '') . "\n";
+        }
+        $body .= "Visitante: $message\n";
+
+        $headers = "From: codigoraul@gmail.com\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+        @mail($to, $subject, $body, $headers);
+    }
+}
+
+$out = ['reply' => $reply];
 if ($wantsDebug) {
     $out['debug_intento_1'] = $debug1;
 }
