@@ -159,7 +159,7 @@ $payload = [
     ],
 ];
 
-function callGemini($payload) {
+function callGemini($payload, &$debug = null) {
     $url = 'https://generativelanguage.googleapis.com/v1beta/models/' . GEMINI_MODEL . ':generateContent?key=' . GEMINI_API_KEY;
 
     $ch = curl_init($url);
@@ -172,6 +172,18 @@ function callGemini($payload) {
     ]);
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlErrNo = curl_errno($ch);
+    $curlErr = curl_error($ch);
+
+    // DEBUG TEMPORAL: guarda el detalle del intento para diagnosticar por que
+    // falla en este hosting. Quitar este bloque (y el uso de $debug) una vez
+    // resuelto el problema.
+    $debug = [
+        'http_code' => $httpCode,
+        'curl_errno' => $curlErrNo,
+        'curl_error' => $curlErr,
+        'response_snippet' => $response ? mb_substr($response, 0, 500) : null,
+    ];
 
     if ($httpCode !== 200 || !$response) {
         return null;
@@ -183,18 +195,34 @@ function callGemini($payload) {
 }
 
 // Intento 1
-$reply = callGemini($payload);
+$debug1 = null;
+$reply = callGemini($payload, $debug1);
 
 // Reintento silencioso: la capa gratuita de Gemini a veces falla una
 // consulta puntual por sobrecarga momentánea — un segundo intento suele bastar.
+$debug2 = null;
 if ($reply === null) {
-    $reply = callGemini($payload);
+    $reply = callGemini($payload, $debug2);
 }
+
+// DEBUG TEMPORAL: agrega ?debug=1 a la URL de chat.php (o manda debug:true en
+// el body) para ver por que esta fallando la llamada a Gemini en este hosting.
+// Quitar este bloque despues de diagnosticar.
+$wantsDebug = (isset($_GET['debug']) && $_GET['debug'] === '1') || (isset($input['debug']) && $input['debug'] === true);
 
 if ($reply === null) {
     http_response_code(200);
-    echo json_encode(['reply' => null]);
+    $out = ['reply' => null];
+    if ($wantsDebug) {
+        $out['debug_intento_1'] = $debug1;
+        $out['debug_intento_2'] = $debug2;
+    }
+    echo json_encode($out);
     exit;
 }
 
-echo json_encode(['reply' => trim($reply)]);
+$out = ['reply' => trim($reply)];
+if ($wantsDebug) {
+    $out['debug_intento_1'] = $debug1;
+}
+echo json_encode($out);
