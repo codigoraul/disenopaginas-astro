@@ -45,7 +45,7 @@ const {
   <div class="demo-chat-panel" id="demoChatPanel" role="dialog" aria-label="Chat de demostración con inteligencia artificial">
     <div class="demo-chat-header">
       <div class="demo-chat-avatar">
-        🤖
+        <img src="/assets/img/servicios/chatbot-robot-ia.webp" alt="Nova" width="42" height="42">
       </div>
       <div class="demo-chat-header-text">
         <strong>{botName}</strong>
@@ -58,7 +58,7 @@ const {
 
     <div class="demo-chat-body" id="demoChatBody">
       <div class="demo-chat-row demo-chat-row-bot">
-        <div class="demo-chat-avatar-sm">🤖</div>
+        <div class="demo-chat-avatar-sm"><img src="/assets/img/servicios/chatbot-robot-ia.webp" alt="Nova" width="28" height="28"></div>
         <div class="demo-chat-bubble-wrap">
           <div class="demo-chat-msg demo-chat-msg-bot">{welcomeMessage}</div>
           <span class="demo-chat-time" data-now></span>
@@ -220,6 +220,15 @@ const {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .demo-chat-avatar img,
+  .demo-chat-avatar-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
   .demo-chat-avatar {
@@ -307,6 +316,7 @@ const {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
   }
 
   .demo-chat-avatar-sm {
@@ -506,7 +516,7 @@ const {
       if (!isUser) {
         const avatar = document.createElement('div');
         avatar.className = 'demo-chat-avatar-sm';
-        avatar.innerHTML = '🤖';
+        avatar.innerHTML = '<img src="/assets/img/servicios/chatbot-robot-ia.webp" alt="Nova" width="28" height="28">';
         row.appendChild(avatar);
       }
 
@@ -536,7 +546,7 @@ const {
 
       const avatar = document.createElement('div');
       avatar.className = 'demo-chat-avatar-sm';
-      avatar.innerHTML = '🤖';
+      avatar.innerHTML = '<img src="/assets/img/servicios/chatbot-robot-ia.webp" alt="Nova" width="28" height="28">';
 
       const typing = document.createElement('div');
       typing.className = 'demo-chat-typing';
