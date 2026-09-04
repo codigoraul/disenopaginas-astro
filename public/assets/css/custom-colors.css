@@ -69,6 +69,7 @@
 .btn-outline-primary:focus {
   background-color: #2F56DC !important;
   border-color: #2F56DC !important;
+  color: #ffffff !important;
 }
 
 /* Links */

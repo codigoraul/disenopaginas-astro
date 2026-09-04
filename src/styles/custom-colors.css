@@ -205,6 +205,7 @@ h6, .h6 {
 .btn-outline-primary:focus {
   background-color: #004597 !important;
   border-color: #004597 !important;
+  color: #ffffff !important;
 }
 
 /* Links */
