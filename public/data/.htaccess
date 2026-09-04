@@ -1,0 +1,8 @@
+# Bloquea el acceso web directo a esta carpeta (aqui vive la base de
+# conversaciones). Solo chat.php e historial.php pueden leerla, via PHP.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Deny from all
+</IfModule>

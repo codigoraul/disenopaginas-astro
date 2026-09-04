@@ -73,6 +73,7 @@ const {
     </div>
 
     <p class="demo-chat-disclaimer">{disclaimer}</p>
+    <p class="demo-chat-privacy">Si nos dejas tu nombre y contacto, los usamos solo para responderte. Puedes pedir que los eliminemos cuando quieras.</p>
 
     <form class="demo-chat-input-row" id="demoChatForm">
       <textarea id="demoChatInput" placeholder="Escribe tu pregunta..." autocomplete="off" rows="1"></textarea>
@@ -430,6 +431,14 @@ const {
     padding: 4px 16px 8px;
   }
 
+  .demo-chat-privacy {
+    font-size: 0.64rem;
+    color: #b3bad0;
+    text-align: center;
+    margin: 0;
+    padding: 0 16px 8px;
+  }
+
   .demo-chat-input-row {
     display: flex;
     align-items: flex-end;
@@ -566,6 +575,22 @@ const {
     // Historial de la conversación, en el mismo formato que espera chat.php
     var history = [];
 
+    // Id de conversación: uno por sesión de navegador, para agrupar los
+    // mensajes de una misma visita en el historial del servidor.
+    function getConversationId() {
+      try {
+        var id = sessionStorage.getItem('demoChatConvId');
+        if (!id) {
+          id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+          sessionStorage.setItem('demoChatConvId', id);
+        }
+        return id;
+      } catch (e) {
+        return 'no-storage-' + Date.now();
+      }
+    }
+    var conversationId = getConversationId();
+
     var FALLBACK_REPLY = "Ahora mismo no puedo responder. Escríbenos por el formulario más abajo y te contactamos. 📋";
 
     function stripLightMarkdown(text) {
@@ -579,7 +604,7 @@ const {
       const res = await fetch('/chat.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history: hist }),
+        body: JSON.stringify({ message: text, history: hist, conversationId: conversationId }),
       });
       return res.json();
     }

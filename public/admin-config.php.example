@@ -1,0 +1,12 @@
+<?php
+/**
+ * Configuración de acceso al panel de historial (historial.php).
+ *
+ * IMPORTANTE: copia este archivo como "admin-config.php" (sin ".example")
+ * en la misma carpeta, cambia el usuario y la contraseña por unos tuyos,
+ * y súbelo por FTP a la raíz del hosting junto a chat.php. Este archivo
+ * NUNCA se sube a git (está en .gitignore), igual que gemini-key.php.
+ */
+
+define('HISTORIAL_USER', 'cambia-este-usuario');
+define('HISTORIAL_PASS', 'cambia-esta-clave-por-una-segura');

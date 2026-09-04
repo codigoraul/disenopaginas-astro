@@ -44,10 +44,58 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 require __DIR__ . '/gemini-key.php';
 define('GEMINI_MODEL', 'gemini-3.6-flash');
 
+// ===== Historial de conversaciones (SQLite, un solo archivo, sin MySQL) =====
+function getHistorialDb() {
+    $dir = __DIR__ . '/data';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0755, true);
+    }
+    $dbPath = $dir . '/conversaciones.sqlite';
+    try {
+        $db = new PDO('sqlite:' . $dbPath);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->exec("CREATE TABLE IF NOT EXISTS conversaciones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            conversation_id TEXT NOT NULL,
+            creado_en TEXT NOT NULL,
+            visitante TEXT NOT NULL,
+            bot TEXT,
+            lead_nombre TEXT,
+            lead_contacto TEXT,
+            lead_interes TEXT
+        )");
+        return $db;
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
+function guardarTurno($conversationId, $visitorMsg, $botReply, $lead = null) {
+    $db = getHistorialDb();
+    if (!$db) return;
+    try {
+        $stmt = $db->prepare("INSERT INTO conversaciones
+            (conversation_id, creado_en, visitante, bot, lead_nombre, lead_contacto, lead_interes)
+            VALUES (:cid, :fecha, :visitante, :bot, :nombre, :contacto, :interes)");
+        $stmt->execute([
+            ':cid' => $conversationId,
+            ':fecha' => gmdate('Y-m-d H:i:s'),
+            ':visitante' => $visitorMsg,
+            ':bot' => $botReply,
+            ':nombre' => $lead['nombre'] ?? null,
+            ':contacto' => $lead['contacto'] ?? null,
+            ':interes' => $lead['interes'] ?? null,
+        ]);
+    } catch (Exception $e) {
+        // Si falla el guardado, no interrumpe la respuesta al visitante.
+    }
+}
+
 // Leer el cuerpo de la petición
 $input = json_decode(file_get_contents('php://input'), true);
 $message = isset($input['message']) ? trim((string)$input['message']) : '';
 $history = isset($input['history']) && is_array($input['history']) ? $input['history'] : [];
+$conversationId = isset($input['conversationId']) ? substr((string)$input['conversationId'], 0, 100) : 'sin-id';
 
 if ($message === '') {
     http_response_code(400);
@@ -244,6 +292,7 @@ $reply = trim($reply);
 // ===== Captura de leads: detecta el marcador [LEAD_CAPTURADO]{...} que el
 // modelo agrega cuando junta nombre + contacto, avisa por correo y lo saca
 // de la respuesta visible para el usuario. =====
+$lead = null;
 if (preg_match('/\[LEAD_CAPTURADO\]\s*(\{.*\})/s', $reply, $m)) {
     $reply = trim(str_replace($m[0], '', $reply));
     $lead = json_decode($m[1], true);
@@ -310,6 +359,9 @@ if (preg_match('/\[LEAD_CAPTURADO\]\s*(\{.*\})/s', $reply, $m)) {
         @mail($to, $subject, $htmlBody, $boundaryHeaders);
     }
 }
+
+// Guarda el intercambio en el historial (no interrumpe la respuesta si falla)
+guardarTurno($conversationId, $message, $reply, $lead);
 
 $out = ['reply' => $reply];
 if ($wantsDebug) {

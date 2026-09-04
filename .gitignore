@@ -8,3 +8,5 @@ public/assets/img/bg-img/
 public/assets/img/core-img/bg.png
 public/assets/img/core-img/shape10.png
 public/gemini-key.php
+public/data/*.sqlite
+public/admin-config.php
