@@ -101,8 +101,21 @@ import DemoChatWidget from '../components/DemoChatWidget.astro';
     </div>
   </section>
 
+  <!-- Submenu sticky de esta landing -->
+  <nav class="chatbot-subnav" id="chatbotSubnav" aria-label="Secciones de esta página">
+    <div class="container">
+      <ul>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#faqChatbot">Preguntas frecuentes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Qué incluye -->
-  <section class="py-5">
+  <section id="como-funciona" class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center mb-5">
@@ -447,7 +460,61 @@ import DemoChatWidget from '../components/DemoChatWidget.astro';
 </Layout>
 
 <style>
+  /* ===== Submenu sticky de la landing ===== */
+  .chatbot-subnav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: #ffffff;
+    border-bottom: 1px solid #eef1f8;
+    box-shadow: 0 4px 16px rgba(11, 30, 77, 0.06);
+  }
+
+  .chatbot-subnav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .chatbot-subnav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chatbot-subnav a {
+    display: block;
+    white-space: nowrap;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0B1E4D;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .chatbot-subnav a:hover,
+  .chatbot-subnav a.is-active {
+    color: #2F56DC;
+    border-bottom-color: #2F56DC;
+  }
+
+  /* Evita que el submenu sticky tape el título al saltar por ancla */
+  #como-funciona,
+  #beneficios,
+  #planes,
+  #faqChatbot,
+  #contacto {
+    scroll-margin-top: 64px;
+  }
+
   /* ===== Fuente Sora autoalojada: más elegante y menos "gorda" que Outfit para esta landing ===== */
+: más elegante y menos "gorda" que Outfit para esta landing ===== */
   @font-face {
     font-family: 'Sora';
     font-style: normal;
@@ -732,3 +799,28 @@ import DemoChatWidget from '../components/DemoChatWidget.astro';
     }
   }
 </style>
+
+<script>
+  (function () {
+    const subnav = document.getElementById('chatbotSubnav');
+    if (!subnav) return;
+    const links = Array.from(subnav.querySelectorAll('a'));
+    const sections = links
+      .map((a) => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    function setActive() {
+      const y = window.scrollY + 80;
+      let current = sections[0];
+      sections.forEach((sec) => {
+        if (sec.offsetTop <= y) current = sec;
+      });
+      links.forEach((a) => {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  })();
+</script>
