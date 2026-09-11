@@ -294,20 +294,25 @@ import DemoChatWidget from '../components/DemoChatWidget.astro';
 
       <div class="row g-4 justify-content-center">
         <div class="col-md-6 col-lg-5">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded text-center">
-            <i class="ti ti-building-store text-primary fs-1 mb-3"></i>
+          <div class="service-card plan-card h-100 p-4 bg-white shadow-sm rounded text-center">
+            <div class="icon-tile icon-tile-teal mx-auto mb-3">
+              <i class="ti ti-building-store"></i>
+            </div>
             <h4 class="fw-bold mb-2">Pymes y Emprendimientos</h4>
-            <p class="display-6 fw-bold text-navy mb-1">$10.000<span class="fs-6 text-muted fw-normal"> CLP/mes</span></p>
+            <p class="display-6 fw-bold plan-price mb-1">$10.000<span class="fs-6 text-muted fw-normal"> CLP/mes</span></p>
             <p class="text-muted mb-4">Chatbot con IA instalado en tu sitio web, entrenado con la información de tu negocio.</p>
-            <a href="#contacto" class="btn btn-outline-primary w-100">Cotizar Plan</a>
+            <a href="#contacto" class="btn btn-outline-teal w-100">Cotizar Plan</a>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-5">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded text-center border-primary">
-            <i class="ti ti-building-skyscraper text-primary fs-1 mb-3"></i>
+          <div class="service-card plan-card plan-card-featured h-100 p-4 bg-white shadow rounded text-center">
+            <span class="plan-badge">Más elegido</span>
+            <div class="icon-tile mx-auto mb-3">
+              <i class="ti ti-building-skyscraper"></i>
+            </div>
             <h4 class="fw-bold mb-2">Empresas</h4>
-            <p class="display-6 fw-bold text-navy mb-1">$15.000<span class="fs-6 text-muted fw-normal"> CLP/mes</span></p>
+            <p class="display-6 fw-bold plan-price mb-1">$15.000<span class="fs-6 text-muted fw-normal"> CLP/mes</span></p>
             <p class="text-muted mb-4">Mismo servicio, pensado para negocios con mayor volumen de consultas.</p>
             <a href="#contacto" class="btn btn-primary w-100">Cotizar Plan</a>
           </div>
@@ -686,6 +691,53 @@ import DemoChatWidget from '../components/DemoChatWidget.astro';
   .icon-tile i {
     color: #ffffff;
     font-size: 1.6rem;
+  }
+
+  /* ===== Color extra en la sección de Planes ===== */
+  .icon-tile-teal {
+    background: linear-gradient(135deg, #42F2C6 0%, #0EA5A3 100%);
+    box-shadow: 0 8px 18px rgba(14, 165, 163, 0.28);
+  }
+
+  .plan-price {
+    color: #16307A !important;
+  }
+
+  .plan-card {
+    position: relative;
+    border: 2px solid #edf0f7;
+  }
+
+  .plan-card-featured {
+    border-color: #42F2C6;
+    background: linear-gradient(180deg, #f3fffb 0%, #ffffff 40%) !important;
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #42F2C6 0%, #0EA5A3 100%);
+    color: #063f3d;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(14, 165, 163, 0.35);
+  }
+
+  .btn-outline-teal {
+    border: 1.5px solid #0EA5A3;
+    color: #0EA5A3;
+    background: transparent;
+    transition: all 0.25s ease;
+  }
+
+  .btn-outline-teal:hover {
+    background: #0EA5A3;
+    color: #ffffff;
   }
 
   .feature-item {
