@@ -1,211 +1,315 @@
 ---
-
+// Servicios Especiales (home) — pestañas + panel. Usa las pills de Bootstrap (data-bs-toggle="pill").
+const services = [
+  {
+    id: 'astro',
+    num: '01',
+    tab: 'Página web en Astro',
+    hint: 'Sitios ultrarrápidos y con SEO',
+    eyebrow: 'Desarrollo web',
+    title: 'Sitios web con Velocidad Única',
+    text: 'Desarrollamos sitios web modernos y optimizados con Astro, garantizando velocidad de carga excepcional y excelente rendimiento. Nuestra experiencia en desarrollo web nos permite crear soluciones personalizadas que destacan en el mercado digital.',
+    items: ['Desarrollo con Astro Framework', 'Optimización de Velocidad', 'SEO Avanzado'],
+    img: '/assets/img/servicios/servicio-astro.webp',
+    alt: 'Página web en Astro',
+    href: '/servicios/paginas-rapida-astro',
+    icon: `<rect x="5" y="6" width="26" height="24" rx="3"/><path d="M5 12h26"/><path d="M12 18l3 3-3 3"/><path d="M18 24h6"/>`,
+  },
+  {
+    id: 'logo',
+    num: '02',
+    tab: 'Diseño y Rediseño de Logotipo',
+    hint: 'Identidad visual profesional',
+    eyebrow: 'Branding',
+    title: 'Diseño y Rediseño de Logotipos',
+    text: '¿Tu logo está desactualizado o mal diseñado? Te ayudamos a crear o rediseñar tu identidad visual con calidad profesional a precios económicos. Desarrollamos logotipos modernos, versátiles y optimizados para web, impresión y todos los formatos digitales que tu empresa necesita.',
+    items: ['Diseño de Logotipos Nuevos', 'Rediseño de Logos Antiguos', 'Formatos Web e Impresión'],
+    img: '/assets/img/servicios/diseno-logotipo2.webp',
+    alt: 'Diseño y Rediseño de Logotipo',
+    href: '/servicios/diseno-logotipos',
+    icon: `<path d="M18 5l3.5 8.5L30 15l-6.5 5.5L25.5 30 18 25.5 10.5 30l2-9.5L6 15l8.5-1.5z"/>`,
+  },
+  {
+    id: 'figma',
+    num: '03',
+    tab: 'Diseño UX UI en Figma',
+    hint: 'Prototipos y guías de estilo',
+    eyebrow: 'Diseño de interfaces',
+    title: 'Diseño UX UI en Figma',
+    text: 'Desarrollamos diseños web profesionales en Figma con guías de estilos completas. Creamos interfaces intuitivas y atractivas que mejoran la experiencia del usuario, incluyendo wireframes, prototipos interactivos y sistemas de diseño coherentes para tu marca.',
+    items: ['Wireframes y Prototipos', 'Guías de Estilos Completas', 'Diseño Responsive'],
+    img: '/assets/img/servicios/figma-guia-estilos.webp',
+    alt: 'Diseño UX UI en Figma',
+    href: '/servicios/maquetacion-web-figma',
+    icon: `<rect x="5" y="7" width="26" height="22" rx="3"/><path d="M5 13h26"/><rect x="9" y="17" width="8" height="8" rx="1.5"/><path d="M21 18h6M21 22h6M21 26h3"/>`,
+  },
+];
 ---
 
-
- <!-- Service 2 Section -->
- <section class="service-section bg-secondary">
-    <!-- Background Shape -->
-    <div class="bg-shape">
-       <img loading="lazy" src="assets/img/core-img/shape2.webp" alt="">
+<!-- Servicios Especiales -->
+<section class="sv2">
+  <div class="container">
+    <div class="row align-items-end g-4 g-xl-5 sv2-head">
+      <div class="col-12 col-md-6">
+        <div class="section-heading">
+          <span class="sub-title">DESTACADOS</span>
+          <h2 class="mb-0">Servicios Especiales</h2>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 offset-md-1">
+        <p class="mb-0 sv2-lead">Ofrecemos servicios mejorados y novedosos que incluyen diseño web rápido, diseño de logotipos profesionales y diseño web UX UI en Figma. Nuestro equipo de expertos está dedicado a crear soluciones digitales innovadoras que impulsan tu presencia online.</p>
+      </div>
     </div>
 
-    <!-- Divider -->
-    <div class="divider"></div>
+    <div class="row g-4 g-xl-5">
+      <!-- Pestañas -->
+      <div class="col-12 col-lg-4">
+        <div class="nav sv2-tabs" id="sv2-tabs" role="tablist" aria-orientation="vertical">
+          {services.map((s, i) => (
+            <button
+              type="button"
+              class={`sv2-tab${i === 0 ? ' active' : ''}`}
+              id={`sv2-tab-${s.id}`}
+              data-bs-toggle="pill"
+              data-bs-target={`#sv2-pane-${s.id}`}
+              role="tab"
+              aria-controls={`sv2-pane-${s.id}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+            >
+              <span class="sv2-icon" aria-hidden="true">
+                <svg viewBox="0 0 36 36" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={s.icon} />
+              </span>
+              <span class="sv2-tab-text">
+                <span class="sv2-tab-title">{s.tab}</span>
+                <span class="sv2-tab-hint">{s.hint}</span>
+              </span>
+              <span class="sv2-tab-num">{s.num}</span>
+            </button>
+          ))}
+        </div>
+      </div>
 
-    <div class="container">
-       <div class="row align-items-end g-4 g-xl-5">
-          <div class="col-12 col-md-6">
-             <div class="section-heading">
-                <span class="sub-title">DESTACADOS</span>
-                <h2 class="mb-0">Servicios Especiales</h2>
-             </div>
-          </div>
-
-          <div class="col-12 col-md-5 offset-md-1">
-             <div class="section-heading">
-                <p class="mb-0">Ofrecemos servicios mejorados y novedosos que incluyen diseño web rápido, diseño de logotipos profesionales y diseño web UX UI en Figma. Nuestro equipo de expertos está dedicado a crear soluciones digitales innovadoras que impulsan tu presencia online.</p>
-             </div>
-          </div>
-       </div>
-
-       <div class="divider-sm"></div>
-
-       <div class="row g-4 g-xl-5">
-          <!-- Service Nav -->
-          <div class="col-12 col-md-5 col-lg-4">
-             <div class="service-nav nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <div class="service-nav-item active" id="v-pills-home-tab" data-bs-toggle="pill"
-                   data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                   <div class="icon">
-                      <!-- Icono simplificado para desarrollo web -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                         <path d="M6 8C6 6.89543 6.89543 6 8 6H28C29.1046 6 30 6.89543 30 8V28C30 29.1046 29.1046 30 28 30H8C6.89543 30 6 29.1046 6 28V8Z" stroke="#004597" stroke-width="2" fill="none"/>
-                         <path d="M6 12H30" stroke="#004597" stroke-width="2"/>
-                         <circle cx="9" cy="9" r="1" fill="#004597"/>
-                         <circle cx="12" cy="9" r="1" fill="#004597"/>
-                         <circle cx="15" cy="9" r="1" fill="#004597"/>
-                         <path d="M12 18L15 21L12 24" stroke="#004597" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                         <path d="M18 24H24" stroke="#004597" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
-                   </div>
-                   <h4 class="mb-0">Página web en Astro </h4>
+      <!-- Panel -->
+      <div class="col-12 col-lg-8">
+        <div class="tab-content" id="sv2-content">
+          {services.map((s, i) => (
+            <div
+              class={`tab-pane fade${i === 0 ? ' show active' : ''}`}
+              id={`sv2-pane-${s.id}`}
+              role="tabpanel"
+              aria-labelledby={`sv2-tab-${s.id}`}
+            >
+              <article class="sv2-panel">
+                <div class="sv2-body">
+                  <span class="sv2-eyebrow">{s.num} · {s.eyebrow}</span>
+                  <h3 class="sv2-title">{s.title}</h3>
+                  <p class="sv2-text">{s.text}</p>
+                  <ul class="sv2-list list-unstyled">
+                    {s.items.map((it) => (
+                      <li><i class="ti ti-check" aria-hidden="true"></i>{it}</li>
+                    ))}
+                  </ul>
+                  <a class="btn btn-primary sv2-btn" href={s.href}>Leer Más <i class="ti ti-arrow-up-right"></i></a>
                 </div>
-
-                <div class="service-nav-item" id="v-pills-profile-tab" data-bs-toggle="pill"
-                   data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                   <div class="icon">
-                      <!-- Icono simplificado para diseño de logotipos -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                         <circle cx="18" cy="18" r="12" stroke="#011C42" stroke-width="2" fill="none"/>
-                         <path d="M12 18L16 22L24 14" stroke="#011C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                         <path d="M6 6L12 12" stroke="#011C42" stroke-width="2" stroke-linecap="round"/>
-                         <path d="M30 6L24 12" stroke="#011C42" stroke-width="2" stroke-linecap="round"/>
-                         <path d="M6 30L12 24" stroke="#011C42" stroke-width="2" stroke-linecap="round"/>
-                         <path d="M30 30L24 24" stroke="#011C42" stroke-width="2" stroke-linecap="round"/>
-                         <circle cx="18" cy="18" r="3" fill="#011C42"/>
-                      </svg>
-                   </div>
-                   <h4 class="mb-0">Diseño y Rediseño de Logotipo Empresa  </h4>
+                <div class="sv2-media">
+                  <div class="sv2-browser">
+                    <div class="sv2-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <img loading="lazy" src={s.img} alt={s.alt} width="820" height="591">
+                  </div>
                 </div>
-
-                <div class="service-nav-item" id="v-pills-contact-tab" data-bs-toggle="pill"
-                   data-bs-target="#v-pills-contact" role="tab" aria-controls="v-pills-contact" aria-selected="false">
-                   <div class="icon">
-                      <!-- Icono simplificado para diseño UX/UI -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                         <rect x="6" y="8" width="24" height="20" rx="2" stroke="#004597" stroke-width="2" fill="none"/>
-                         <path d="M6 14H30" stroke="#004597" stroke-width="2"/>
-                         <circle cx="9" cy="11" r="1" fill="#004597"/>
-                         <circle cx="12" cy="11" r="1" fill="#004597"/>
-                         <circle cx="15" cy="11" r="1" fill="#004597"/>
-                         <rect x="10" y="18" width="8" height="2" rx="1" fill="#004597"/>
-                         <rect x="10" y="22" width="12" height="2" rx="1" fill="#004597"/>
-                         <circle cx="24" cy="20" r="3" stroke="#004597" stroke-width="2" fill="none"/>
-                         <path d="M22 18L26 22" stroke="#004597" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
-                   </div>
-                   <h4 class="mb-0">Diseño UX UI en Figma</h4>
-                </div>
-             </div>
-          </div>
-
-          <!-- Service Tab Content -->
-          <div class="col-12 col-md-7 col-lg-8">
-             <div class="tab-content ps-lg-4" id="v-pills-tabContent">
-                <!-- Service Tab -->
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                   aria-labelledby="v-pills-home-tab">
-                   <!-- Service Tab Content -->
-                   <div class="service-tab-content">
-                      <img loading="lazy" src="assets/img/servicios/servicio-astro.webp" alt="Página web en Astro">
-
-                      <!-- Service Tab Card -->
-                      <div class="service-tab-card">
-                         <h4 class="mb-2">Sitios web con Velocidad Única</h4>
-                         <p>Desarrollamos sitios web modernos y optimizados con Astro, garantizando velocidad de carga excepcional y excelente rendimiento. Nuestra experiencia en desarrollo web nos permite crear soluciones personalizadas que destacan en el mercado digital.</p>
-                         <ul class="d-flex flex-column gap-2 list-unstyled mt-4">
-                            <li><i class="ti ti-circle-check"></i> Desarrollo con Astro Framework</li>
-                            <li><i class="ti ti-circle-check"></i> Optimización de Velocidad</li>
-                            <li><i class="ti ti-circle-check"></i> SEO Avanzado</li>
-                         </ul>
-                         <a class="btn btn-primary" href="/servicios/paginas-rapida-astro">Leer Más <i class="ti ti-arrow-up-right"></i></a>
-                      </div>
-                   </div>
-                </div>
-
-                <!-- Service Tab -->
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                   <!-- Service Tab Content -->
-                   <div class="service-tab-content">
-                      <img loading="lazy" src="assets/img/servicios/diseno-logotipo2.webp" alt="Diseño y Rediseño de Logotipo">
-
-                      <!-- Service Tab Card -->
-                      <div class="service-tab-card">
-                         <h4 class="mb-2">Diseño y Rediseño de Logotipos</h4>
-                         <p>¿Tu logo está desactualizado o mal diseñado? Te ayudamos a crear o rediseñar tu identidad visual con calidad profesional a precios económicos. Desarrollamos logotipos modernos, versátiles y optimizados para web, impresión y todos los formatos digitales que tu empresa necesita.</p>
-                         <ul class="d-flex flex-column gap-2 list-unstyled mt-4">
-                            <li><i class="ti ti-circle-check"></i> Diseño de Logotipos Nuevos</li>
-                            <li><i class="ti ti-circle-check"></i> Rediseño de Logos Antiguos</li>
-                            <li><i class="ti ti-circle-check"></i> Formatos Web e Impresión</li>
-                         </ul>
-                         <a class="btn btn-primary" href="/servicios/diseno-logotipos">Leer Más <i class="ti ti-arrow-up-right"></i></a>
-                      </div>
-                   </div>
-                </div>
-
-                <!-- Service Tab -->
-                <div class="tab-pane fade" id="v-pills-contact" role="tabpanel" aria-labelledby="v-pills-contact-tab">
-                   <!-- Service Tab Content -->
-                   <div class="service-tab-content">
-                      <img loading="lazy" src="assets/img/servicios/figma-guia-estilos.webp" alt="Diseño UX UI en Figma">
-
-                      <!-- Service Tab Card -->
-                      <div class="service-tab-card">
-                         <h4 class="mb-2">Diseño UX UI en Figma</h4>
-                         <p>Desarrollamos diseños web profesionales en Figma con guías de estilos completas. Creamos interfaces intuitivas y atractivas que mejoran la experiencia del usuario, incluyendo wireframes, prototipos interactivos y sistemas de diseño coherentes para tu marca.</p>
-                         <ul class="d-flex flex-column gap-2 list-unstyled mt-4">
-                            <li><i class="ti ti-circle-check"></i> Wireframes y Prototipos</li>
-                            <li><i class="ti ti-circle-check"></i> Guías de Estilos Completas</li>
-                            <li><i class="ti ti-circle-check"></i> Diseño Responsive</li>
-                         </ul>
-                         <a class="btn btn-primary" href="/servicios/maquetacion-web-figma">Leer Más <i class="ti ti-arrow-up-right"></i></a>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
+              </article>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-
-    <!-- Divider(s) -->
-    <div class="divider"></div>
-    <div class="divider"></div>
- </section>
+  </div>
+</section>
 
 <style>
-  /* Estilos específicos para service-tab-card en Services2.astro */
-  h4.mb-2 {
-  font-size: clamp(28px, 3vw, 36px);
-}
-  .service-tab-card {
+  .sv2 {
     position: relative;
-    padding: 40px 30px;
+    padding: clamp(64px, 9vw, 120px) 0;
+    background:
+      radial-gradient(900px 420px at 100% 0%, rgba(51, 89, 221, .10), transparent 60%),
+      radial-gradient(700px 380px at 0% 100%, rgba(0, 69, 151, .07), transparent 60%),
+      #f0f5fe;
+    overflow: hidden;
+  }
+  .sv2-head { margin-bottom: clamp(32px, 4vw, 56px); }
+  .sv2-lead { color: #4a5670; line-height: 1.7; }
+
+  /* ---------- Pestañas ---------- */
+  .sv2-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+  }
+  .sv2-tab {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 16px;
     width: 100%;
-    background-color: #FFFFFF;
-    -webkit-transition: all 350ms;
-    transition: all 350ms;
-    bottom: -60px;
-    z-index: 10;
+    padding: 20px 22px;
+    text-align: left;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid #dfe7f5;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background .25s, border-color .25s, box-shadow .25s, transform .25s;
+    overflow: hidden;
+  }
+  .sv2-tab::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 18%; bottom: 18%;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: linear-gradient(180deg, #3359dd, #004597);
+    transform: scaleY(0);
+    transition: transform .3s;
+  }
+  .sv2-tab:hover { background: #fff; border-color: #c9d6f0; transform: translateX(4px); }
+  .sv2-tab:focus-visible { outline: 2px solid #3359dd; outline-offset: 2px; }
+  .sv2-tab.active {
+    background: #fff;
+    border-color: rgba(51, 89, 221, .35);
+    box-shadow: 0 18px 40px -18px rgba(1, 28, 66, .28);
+    transform: none;
+  }
+  .sv2-tab.active::before { transform: scaleY(1); }
+
+  .sv2-icon {
+    display: grid;
+    place-items: center;
+    width: 48px; height: 48px;
     border-radius: 12px;
-    -webkit-box-shadow: 0px 30px 42px 0px rgba(33, 39, 37, 0.1);
-    box-shadow: 0px 30px 42px 0px rgba(33, 39, 37, 0.1);
+    color: #004597;
+    background: #eaf0fc;
+    transition: background .25s, color .25s;
   }
-  
-  @media only screen and (min-width:1200px) {
-    .service-tab-card {
-      position: absolute;
-      bottom: -184px;
-      right: 80px;
-      width: 419px !important;
-    }
+  .sv2-tab.active .sv2-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #3359dd, #004597);
+    box-shadow: 0 8px 18px -6px rgba(51, 89, 221, .55);
   }
-  
-  @media only screen and (min-width:1400px) {
-    .service-tab-card {
-      bottom: -124px;
-    }
+  .sv2-tab-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .sv2-tab-title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    color: #011c42;
   }
-  
-  /* Estilos para las tabs de servicios */
-  .service-nav .service-nav-item.active, 
-  .service-nav .service-nav-item:hover, 
-  .service-nav .service-nav-item:focus {
-    background-color: #3359dd;
+  .sv2-tab-hint { font-size: .87rem; color: #6b7690; }
+  .sv2-tab-num {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    font-size: .85rem;
+    color: #a6b3cc;
+    transition: color .25s;
   }
-  
-  /* Sobrescribir el color de fondo de la sección Servicios Especiales */
-  .service-section.bg-secondary {
-    background-color: #f0f5fe !important;
+  .sv2-tab.active .sv2-tab-num { color: #3359dd; }
+
+  /* ---------- Panel ---------- */
+  .sv2-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #fff;
+    border: 1px solid #e3eaf6;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(1, 28, 66, .25);
+    height: 100%;
+  }
+  .sv2-body { padding: clamp(28px, 3.2vw, 44px); display: flex; flex-direction: column; }
+  .sv2-eyebrow {
+    align-self: flex-start;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #3359dd;
+    background: #eef2fd;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .sv2-title {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #011c42;
+    margin-bottom: 14px;
+  }
+  .sv2-text { color: #4a5670; line-height: 1.7; margin-bottom: 22px; }
+  .sv2-list { display: grid; gap: 10px; margin-bottom: 28px; }
+  .sv2-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #1f2a44;
+  }
+  .sv2-list i {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 22px; height: 22px;
+    font-size: 13px;
+    color: #fff;
+    background: linear-gradient(135deg, #3359dd, #004597);
+    border-radius: 50%;
+  }
+  .sv2-btn { align-self: flex-start; margin-top: auto; }
+
+  .sv2-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 3vw, 36px);
+    background:
+      radial-gradient(420px 260px at 80% 10%, rgba(255, 255, 255, .18), transparent 60%),
+      linear-gradient(140deg, #0a2a6e 0%, #1d47c9 55%, #3359dd 100%);
+  }
+  .sv2-browser {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, .45);
+    transform: perspective(1200px) rotateY(-4deg);
+    transition: transform .5s;
+  }
+  .sv2-panel:hover .sv2-browser { transform: perspective(1200px) rotateY(0deg); }
+  .sv2-bar {
+    display: flex; gap: 6px;
+    padding: 9px 12px;
+    background: #f1f4f9;
+    border-bottom: 1px solid #e3e8f0;
+  }
+  .sv2-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d3dae6; }
+  .sv2-bar i:nth-child(1) { background: #ff6159; }
+  .sv2-bar i:nth-child(2) { background: #ffbd2e; }
+  .sv2-bar i:nth-child(3) { background: #28c941; }
+  .sv2-browser img { display: block; width: 100%; height: auto; }
+
+  @media (min-width: 768px) {
+    .sv2-panel { grid-template-columns: 1.05fr 1fr; }
+  }
+  @media (min-width: 992px) {
+    .sv2-tab { flex: 1 1 0; }
+  }
+  @media (max-width: 767.98px) {
+    .sv2-media { order: -1; }
+    .sv2-browser { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sv2-tab, .sv2-browser { transition: none; transform: none !important; }
   }
 </style>
