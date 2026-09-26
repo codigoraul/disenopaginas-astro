@@ -52,7 +52,7 @@ export default defineConfig({
               return 'assets/img/[name][extname]';
             }
             if (ext === 'css') {
-              return 'assets/css/[name][extname]';
+              return 'assets/css/[name].[hash][extname]'; // hash = evita CSS viejo en caché (.htaccess cachea CSS 1 año)
             }
             if (['woff', 'woff2', 'eot', 'ttf', 'otf'].includes(ext)) {
               return 'assets/fonts/[name][extname]';
