@@ -159,38 +159,29 @@ import Testimonials from '../components/Testimonials.astro';
    <Services2 />
 
    <!-- Proyecto Web Banner Section -->
-   <section class="proyecto-web-banner py-5 bg-light">
+   <section class="proyecto-web-banner">
       <div class="container">
-         <div class="row align-items-center">
-            <div class="col-12 col-lg-6">
-               <h2 class="mb-4">¿Qué necesito para comenzar mi proyecto web?</h2>
-               <p class="mb-4">Para comenzar tu proyecto web, necesitas:</p>
-               <div class="requisitos-list">
-                  <div class="requisito-item">
-                     <strong>1. Información básica de tu empresa</strong>
-                  </div>
-                  <div class="requisito-item">
-                     <strong>2. Contenido (textos e imágenes) que quieras incluir</strong>
-                  </div>
-                  <div class="requisito-item">
-                     <strong>3. Ejemplos de sitios web que te gusten</strong>
-                  </div>
-                  <div class="requisito-item">
-                     <strong>4. Objetivos del sitio web</strong>
-                  </div>
-                  <div class="requisito-item">
-                     <strong>5. Dominio (si ya lo tienes)</strong>
-                  </div>
-               </div>
-               <div class="mt-4">
-                  <p class="text-primary fw-bold">¿No tienes alguno de estos elementos? ¡No te preocupes!</p>
-                  <p>Podemos asesorarte en cada paso del proceso.</p>
+         <div class="row align-items-center g-4 g-xl-5">
+            <div class="col-12 col-lg-7">
+               <h2 class="pwb-title">¿Qué necesito para comenzar mi proyecto web?</h2>
+               <p class="pwb-lead">Para comenzar tu proyecto web, necesitas:</p>
+               <ol class="requisitos-list list-unstyled">
+                  <li class="requisito-item"><span class="req-num">1</span><span>Información básica de tu empresa</span></li>
+                  <li class="requisito-item"><span class="req-num">2</span><span>Contenido (textos e imágenes) que quieras incluir</span></li>
+                  <li class="requisito-item"><span class="req-num">3</span><span>Ejemplos de sitios web que te gusten</span></li>
+                  <li class="requisito-item"><span class="req-num">4</span><span>Objetivos del sitio web</span></li>
+                  <li class="requisito-item"><span class="req-num">5</span><span>Dominio (si ya lo tienes)</span></li>
+               </ol>
+               <div class="pwb-note">
+                  <i class="ti ti-info-circle" aria-hidden="true"></i>
+                  <p class="mb-0"><span>¿No tienes alguno de estos elementos? ¡No te preocupes!</span> Podemos asesorarte en cada paso del proceso.</p>
                </div>
             </div>
-            <div class="col-12 col-lg-6 text-center">
+            <div class="col-12 col-lg-5">
                <div class="banner-cta">
-                  <h3 class="mb-3">Comienza tu sitio web profesional hoy</h3>
-                  <a href="/contacto" class="btn btn-primary btn-lg">Comenzar Ahora <i class="ti ti-arrow-up-right"></i></a>
+                  <span class="pwb-cta-icon" aria-hidden="true"><i class="ti ti-rocket"></i></span>
+                  <h3 class="pwb-cta-title">Comienza tu sitio web profesional hoy</h3>
+                  <a href="/contacto" class="btn btn-primary">Comenzar Ahora <i class="ti ti-arrow-up-right"></i></a>
                </div>
             </div>
          </div>
@@ -257,65 +248,95 @@ import Testimonials from '../components/Testimonials.astro';
 
 <style>
 .proyecto-web-banner {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-top: 3px solid #004597;
-  border-bottom: 1px solid #dee2e6;
+  padding: clamp(56px, 7vw, 96px) 0;
+  background: linear-gradient(180deg, #f7f9fd 0%, #f1f5fb 100%);
+  border-top: 1px solid #e4eaf4;
 }
-
-.proyecto-web-banner h2 {
-  color: #011C42;
-  font-weight: 700;
-  font-size: 2rem;
+.pwb-title {
+  color: #24324d;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  line-height: 1.25;
+  margin-bottom: 12px;
 }
+.pwb-lead { color: #5b6780; margin-bottom: 24px; }
 
-.proyecto-web-banner h3 {
-  color: #011C42;
+.requisitos-list {
+  margin: 0 0 20px;
+  padding: 8px 24px;
+  background: #fff;
+  border: 1px solid #e4eaf4;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px -20px rgba(36, 50, 77, .25);
+}
+.requisito-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eef2f8;
+  color: #3a4660;
+  font-weight: 500;
+  font-size: 1.02rem;
+}
+.requisito-item:last-child { border-bottom: none; }
+.req-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: #edf2fd;
+  color: #3f63d8;
+  font-size: .85rem;
   font-weight: 600;
 }
 
-.requisitos-list {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border-left: 4px solid #004597;
+.pwb-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #eef3fd;
+  border-radius: 12px;
+  color: #5b6780;
+  font-size: .95rem;
 }
-
-.requisito-item {
-  padding: 8px 0;
-  border-bottom: 1px solid #f1f3f4;
-  color: #333;
-}
-
-.requisito-item:last-child {
-  border-bottom: none;
-}
-
-.requisito-item strong {
-  color: #011C42;
-  font-size: 1.1rem;
-}
+.pwb-note i { color: #3f63d8; font-size: 1.25rem; line-height: 1.3; }
+.pwb-note span { color: #3f63d8; font-weight: 600; }
 
 .banner-cta {
-  background: #BEFCFE;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: clamp(32px, 4vw, 48px) 32px;
+  background: linear-gradient(145deg, #eaf8fb 0%, #eef2fd 100%);
+  border: 1px solid #dce8f6;
+  border-radius: 20px;
+}
+.pwb-cta-icon {
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: #fff;
+  color: #3f63d8;
+  font-size: 1.6rem;
+  box-shadow: 0 10px 24px -12px rgba(63, 99, 216, .45);
+}
+.pwb-cta-title {
+  color: #24324d;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  line-height: 1.3;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .proyecto-web-banner h2 {
-    font-size: 1.5rem;
-  }
-  
-  .requisitos-list {
-    padding: 20px;
-  }
-  
-  .banner-cta {
-    padding: 30px 20px;
-    margin-top: 30px;
-  }
+  .requisitos-list { padding: 4px 18px; }
+  .banner-cta { padding: 30px 20px; }
 }
 
 /* Estilos E-E-A-T */
