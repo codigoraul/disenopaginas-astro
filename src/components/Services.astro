@@ -8,20 +8,8 @@
     hyphens: none;
   }
   
-  h2 {
-    font-size: clamp(28px, 3vw, 36px) !important;
-  }
-  
-  .section-heading h2 {
-    font-size: clamp(30px, 4vw, 36px) !important;
-  }
-  
   .pe-h3 {
     font-size: 21px !important;
-  }
-  
-  h2[data-astro-cid-g5jplrhu] {
-    font-size: clamp(26px, 3vw, 28px) !important;
   }
   
   /* Estilo tipo "Base": tarjeta plana, imagen al ras arriba, texto con padding */
@@ -39,9 +27,9 @@
   }
 
   .service-card:hover {
-    border-color: #004597;
+    border-color: #2F5FA8;
     transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0, 69, 151, 0.10);
+    box-shadow: 0 10px 28px rgba(47, 95, 168, 0.10);
   }
 
   /* La imagen ocupa todo el ancho y toca los bordes superiores */
@@ -74,7 +62,7 @@
   }
 
   .service-thumb-link:focus-visible {
-    outline: 3px solid #004597;
+    outline: 3px solid #2F5FA8;
     outline-offset: -3px;
   }
 
@@ -110,14 +98,7 @@
     background: #f4f6fa;
   }
 
-  /* Píldora del subtítulo en azul de marca, no gris neutro */
-  .service-section .section-heading .sub-title {
-    background: #e8f0fb !important;
-    color: #004597 !important;
-    border: none !important;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-  }
+  /* Subtítulo: estilo global "eyebrow" en custom-colors.css */
 
   /* Más aire entre tarjetas (anula también g-xl-3 en pantallas grandes) */
   .service-section .row.g-4,

@@ -35,44 +35,43 @@ import MediosPago from '../components/MediosPago.astro';
          <div class="faq-contact-card align-items-center p-0">
             <!-- Contact Info Card -->
             <div class="contact-info-card">
-              
+               <div class="info mt-4 cinfo">
+                  <span class="cinfo-eyebrow">Contacto directo</span>
+                  <h3 class="cinfo-title">Hablemos de tu proyecto</h3>
+                  <p class="cinfo-lead">Cuéntanos qué necesitas y te enviamos una propuesta clara, sin compromiso.</p>
 
-               <!-- Phone Number Card -->
-               <div class="info mt-4">
-                 
+                  <a class="cinfo-wa" href="https://api.whatsapp.com/send?phone=56961765268&text=Hola,%20vi%20su%20contacto%20desde%20dise%C3%B1opaginas.cl%20y%20necesito%20un%20servicio:" target="_blank" rel="noopener">
+                     <i class="ti ti-brand-whatsapp"></i>
+                     <span>Escríbenos por WhatsApp</span>
+                     <i class="ti ti-arrow-up-right cinfo-wa-arrow"></i>
+                  </a>
 
-                  <div class="contact-info-details">
-                     <!-- Dirección -->
-                     <div class="contact-item d-flex align-items-center mb-4">
-                        <div class="contact-icon me-3">
-                           <i class="ti ti-map-pin"></i>
-                        </div>
-                        <div>
-                           <h6 class="mb-1">Dirección de Oficina</h6>
-                           <p class="mb-0">Santiago, Chile</p>
-                        </div>
+                  <dl class="cinfo-list">
+                     <a class="cinfo-row" href="tel:+56961765268">
+                        <span class="cinfo-ic"><i class="ti ti-phone"></i></span>
+                        <div><dt>Teléfono</dt><dd>+56 9 6176 5268</dd></div>
+                        <i class="ti ti-arrow-right cinfo-go"></i>
+                     </a>
+                     <a class="cinfo-row" href="mailto:codigoraul@gmail.com">
+                        <span class="cinfo-ic"><i class="ti ti-mail"></i></span>
+                        <div><dt>Email</dt><dd>codigoraul@gmail.com</dd></div>
+                        <i class="ti ti-arrow-right cinfo-go"></i>
+                     </a>
+                     <div class="cinfo-row">
+                        <span class="cinfo-ic"><i class="ti ti-clock"></i></span>
+                        <div><dt>Horario</dt><dd>Lunes a viernes, 9:00 – 18:00</dd></div>
                      </div>
+                  </dl>
 
-                     <!-- Teléfono -->
-                     <div class="contact-item d-flex align-items-center mb-4">
-                        <div class="contact-icon me-3">
-                           <i class="ti ti-phone"></i>
-                        </div>
-                        <div>
-                           <h6 class="mb-1">Llámanos para Soporte:</h6>
-                           <p class="mb-0">+56 9 6176 5268</p>
-                        </div>
+                  <div class="cinfo-foot">
+                     <div class="cinfo-meta">
+                        <span class="cinfo-status"><span class="cinfo-dot"></span>Respondemos en menos de 24 h hábiles</span>
+                        <span class="cinfo-status"><i class="ti ti-map-2"></i>Atendemos a todo Chile</span>
                      </div>
-
-                     <!-- Email -->
-                     <div class="contact-item d-flex align-items-center">
-                        <div class="contact-icon me-3">
-                           <i class="ti ti-mail"></i>
-                        </div>
-                        <div>
-                           <h6 class="mb-1">Envíanos un Email:</h6>
-                           <p class="mb-0">codigoraul@gmail.com</p>
-                        </div>
+                     <div class="cinfo-social">
+                        <a href="https://www.facebook.com/PaginasChile/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+                        <a href="https://www.instagram.com/disenopaginas/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/raul-riquelme-69a16859/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
                      </div>
                   </div>
                </div>
@@ -101,7 +100,7 @@ import MediosPago from '../components/MediosPago.astro';
 
 <style>
   .contact-small-card .icon {
-    background-color: #4877E9;
+    background-color: #2F5FA8;
   }
   #formMessage {
     margin-bottom: 1rem;
@@ -164,7 +163,7 @@ import MediosPago from '../components/MediosPago.astro';
   .contact-icon {
     width: 50px;
     height: 50px;
-    background-color: #004597;
+    background-color: #2F5FA8;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -193,20 +192,206 @@ import MediosPago from '../components/MediosPago.astro';
 ;
     justify-content: center;
 }
-.info.mt-4 {
-  background: #ffffffd9;
-    width: 409px;
-    display: flex
-;
-    padding: 35px;
-    justify-content: center;
+/* Tarjeta de información de contacto — estilo editorial */
+.info.mt-4.cinfo {
+  background: #ffffff !important;
+  width: 100%;
+  max-width: 460px;
+  display: block;
+  padding: 40px 36px 30px;
+  border-radius: 20px;
+  border: 1px solid #e9ecf2 !important;
+  box-shadow: 0 1px 2px rgba(15,30,61,.04), 0 18px 40px -18px rgba(15,30,61,.18) !important;
+}
+.cinfo-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #5b6478;
+  margin-bottom: 12px;
+}
+.cinfo-eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: #2F5FA8;
+}
+.cinfo-title {
+  font-size: 26px !important;
+  line-height: 1.2 !important;
+  margin-bottom: 10px;
+}
+.cinfo-lead {
+  font-size: 15px;
+  color: #5b6478;
+  line-height: 1.65;
+  margin-bottom: 26px;
+}
+.cinfo-wa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #0f1e3d;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  margin-bottom: 22px;
+  transition: background .2s ease, transform .2s ease;
+}
+.cinfo-wa > .ti-brand-whatsapp {
+  font-size: 20px;
+  color: #25d366;
+}
+.cinfo-wa-arrow { margin-left: auto; font-size: 17px; opacity: .7; transition: transform .2s ease; }
+.cinfo-wa:hover { background: #2F5FA8; }
+.cinfo-wa:hover .cinfo-wa-arrow { transform: translate(2px,-2px); opacity: 1; }
+.cinfo-list { margin: 0 0 6px; }
+.cinfo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid #eef0f4;
+  text-decoration: none;
+  color: inherit;
+}
+.cinfo-row:last-child { border-bottom: 1px solid #eef0f4; }
+.cinfo-ic {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #e3e7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f1e3d;
+  flex-shrink: 0;
+  transition: all .2s ease;
+}
+.cinfo-ic i { font-size: 17px; }
+.cinfo-row dt {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #8a91a0;
+  margin: 0 0 2px;
+}
+.cinfo-row dd {
+  font-size: 15px;
+  font-weight: 500;
+  color: #0f1e3d;
+  margin: 0;
+}
+.cinfo-go {
+  margin-left: auto;
+  color: #b3b9c6;
+  font-size: 16px;
+  transition: all .2s ease;
+}
+a.cinfo-row:hover .cinfo-ic { background: #0f1e3d; border-color: #0f1e3d; color: #fff; }
+a.cinfo-row:hover .cinfo-go { color: #2F5FA8; transform: translateX(3px); }
+.cinfo-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+}
+.cinfo-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5b6478;
+}
+.cinfo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34,197,94,.15);
+}
+.cinfo-social { display: flex; gap: 6px; }
+.cinfo-social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5b6478;
+  transition: all .2s ease;
+}
+.cinfo-social a:hover { background: #f1f4f9; color: #0f1e3d; }
+@media (max-width: 767px) {
+  .info.mt-4.cinfo { padding: 30px 22px 24px; max-width: 100%; }
+  .cinfo-title { font-size: 22px !important; }
 }
 
-@media screen and (min-width: 768px) {
-   .info.mt-4 {
-      width: 74%;
-   }
+/* ===== Bloque unificado: info + formulario en una sola tarjeta dividida ===== */
+.faq-contact-card.faq-contact-card {
+  gap: 0 !important;
+  align-items: stretch !important;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15,30,61,.05), 0 30px 60px -30px rgba(15,30,61,.28);
 }
+.faq-contact-card.faq-contact-card > .contact-info-card {
+  flex: 0 0 42% !important;
+  width: 42% !important;
+  max-width: 42% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff !important;
+}
+.info.mt-4.cinfo {
+  margin: 0 !important;
+  max-width: 440px;
+  padding: 52px 48px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.faq-contact-card.faq-contact-card :global(.faq-contact-section.style-two) {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 991px) {
+  .faq-contact-card.faq-contact-card { flex-direction: column; }
+  .faq-contact-card.faq-contact-card > .contact-info-card { flex-basis: auto !important; width: 100% !important; max-width: 100% !important; }
+  .info.mt-4.cinfo { max-width: 100%; padding: 36px 24px !important; }
+}
+
+.cinfo-meta { display: grid; gap: 6px; }
+.cinfo-status i { font-size: 15px; color: #2F5FA8; width: 8px; display: inline-flex; justify-content: center; margin-right: 0; }
+.cinfo-foot { align-items: flex-end; }
+
+/* Panel izquierdo: tono suave para que ambas mitades se lean como un solo bloque */
+.faq-contact-card.faq-contact-card > .contact-info-card { background: #f7f8fb !important; }
+.info.mt-4.cinfo { background: transparent !important; }
+.cinfo-ic { background: #fff; }
+.cinfo-row { border-color: #e6e9f0 !important; }
+.cinfo-foot { flex-direction: column; align-items: flex-start !important; gap: 16px; }
+.cinfo-status { white-space: nowrap; }
+.cinfo-social a { background: #fff; border: 1px solid #e3e7ef; }
 </style>
 
 

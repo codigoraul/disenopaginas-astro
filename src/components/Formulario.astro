@@ -23,9 +23,10 @@ const {
   subtitle = "No dudes en contactarnos, no enviamos spam a tu email",
   selectPlaceholder = "Selecciona un plan",
   planOptions = [
-    { value: "Web informativa básica estática", label: "Página web informativa básica estática - $220.000" },
-    { value: "Web informativa básica autoadministrable", label: "Página web informativa básica autoadministrable - $290.000" },
-    { value: "Tienda de productos online", label: "Tienda de productos online - desde $360.000" },
+    { value: "Plan Básico", label: "Plan Básico - $260.000" },
+    { value: "Plan Medio", label: "Plan Medio - $360.000" },
+    { value: "Plan Avanzado", label: "Plan Avanzado - desde $420.000" },
+    { value: "No sé aún / Quiero asesoría", label: "No sé aún, quiero asesoría" },
   ],
 } = Astro.props;
 
@@ -77,7 +78,7 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
 
 <style>
   .faq-contact-section.style-two {
-    background: linear-gradient(135deg, #004597 0%, #05459a 100%) !important;
+    background: linear-gradient(135deg, #447DE9 0%, #1E2536 100%) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 15px !important;
   }
@@ -125,6 +126,7 @@ const SITE_KEY = "6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF";
   
   .btn-primary {
     background-color: #5ce1e6 !important;
+    background-image: none !important;
     border: none;
     padding: 15px 24px;
     font-weight: 700;

@@ -1,19 +1,39 @@
 /* Custom Colors for diseñopaginas.cl */
 
-/* Primary Color: #2F56DC */
+/* ===== Paleta de marca (sep-2026) — usar estas variables en adelante ===== */
+:root {
+  --dp-blue: #447DE9;        /* azul claro del logo */
+  --dp-blue-main: #2F5FA8;   /* azul principal serio: acentos, estados activos, hover */
+  --dp-navy: #1E2536;        /* azul noche */
+  --dp-navy-overlay: #1E2536C9; /* capa oscura sobre imágenes (breadcrumb) */
+  --dp-gradient: linear-gradient(135deg, #447DE9 0%, #1E2536 100%);
+  --dp-title: #0f1e3d;       /* color de títulos */
+  --dp-text-muted: #5b6478;  /* textos secundarios / etiquetas */
+}
+
+/* Primary Color: #2F5FA8 */
 .btn-primary {
-  background-color: #2F56DC !important;
-  border-color: #2F56DC !important;
+  background-color: #2F5FA8 !important;
+  background-image: linear-gradient(135deg, #447DE9 0%, #1E2536 100%) !important;
+  background-size: 140% 140%;
+  background-position: 0% 0%;
+  border-color: transparent !important;
+  color: #fff !important;
+  transition: filter .2s ease, transform .2s ease, box-shadow .2s ease !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #1e3a9e !important;
-  border-color: #1e3a9e !important;
+  background-color: #254B86 !important;
+  background-position: 0% 0%;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  border-color: transparent !important;
+  box-shadow: 0 8px 20px -8px rgba(30, 37, 54, .55);
 }
 
 .text-primary {
-  color: #2F56DC !important;
+  color: #2F5FA8 !important;
 }
 
 .bg-primary {
@@ -28,13 +48,13 @@
 .bg-secondary {
   background-color: #e8e8e8 !important;
 }
-/* Tertiary Color: #004597 */
+/* Tertiary Color: #2F5FA8 */
 .text-tertiary {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
 }
 
 .bg-tertiary {
-  background-color: #004597 !important;
+  background-color: #2F5FA8 !important;
 }
 
 /* Header specific colors */
@@ -51,7 +71,7 @@
 /* Ensure override for style-two variant as well */
 .header-area.style-two .navbar-nav li > a:hover,
 .header-area.style-two .navbar-nav li > a:focus {
-  color: #4877E9 !important;
+  color: #2F5FA8 !important;
 }
 
 .header-area.style-two .navbar-nav li .softora-dd-menu li > a:hover,
@@ -61,36 +81,36 @@
 
 /* Button hover effects */
 .btn-outline-primary {
-  border: 1px solid #2F56DC !important;
-  color: #2F56DC !important;
+  border: 1px solid #2F5FA8 !important;
+  color: #2F5FA8 !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-  background-color: #2F56DC !important;
-  border-color: #2F56DC !important;
+  background-color: #2F5FA8 !important;
+  border-color: #2F5FA8 !important;
   color: #ffffff !important;
 }
 
 /* Links */
 a:hover,
 a:focus {
-  color: #2F56DC !important;
+  color: #2F5FA8 !important;
 }
 
 /* Form elements */
 .form-control:focus {
-  border-color: #2F56DC !important;
+  border-color: #2F5FA8 !important;
   box-shadow: 0 0 0 0.2rem rgba(47, 86, 220, 0.25) !important;
 }
 
 /* Custom gradients */
 .gradient-primary {
-  background: linear-gradient(90deg, #2F56DC 0%, #767586 100%) !important;
+  background: linear-gradient(90deg, #2F5FA8 0%, #767586 100%) !important;
 }
 
 .gradient-secondary {
-  background: linear-gradient(90deg, #767586 0%, #004597 100%) !important;
+  background: linear-gradient(90deg, #767586 0%, #2F5FA8 100%) !important;
 }
 
 /* Header Top Colors */
@@ -125,6 +145,164 @@ a:focus {
 .header-area .header-top .right-side .social-header a:hover i,
 .header-area .header-top .right-side .social-link:hover,
 .header-area .header-top .right-side .social-link:hover i {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
   transform: translateY(-2px);
 } 
+
+/* ===== Tipografía de títulos (sep-2026): Sora + azul marino en vez de Outfit gris ===== */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.section-title, .sub-title, .subtitle,
+.service-section .service-title {
+  font-family: 'Sora', system-ui, sans-serif !important;
+  letter-spacing: -0.005em !important;
+}
+h1, h2, h3, h4, .h1, .h2, .h3, .h4, .section-title { color: #0f1e3d; }
+h1, .h1, h2, .h2 { font-weight: 600 !important; line-height: 1.22 !important; }
+h3, .h3, h4, .h4 { font-weight: 600 !important; line-height: 1.3 !important; }
+h5, .h5, h6, .h6, .sub-title, .subtitle { font-weight: 500 !important; }
+
+/* Hero: el título ya no se sale sobre la imagen */
+.hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title,
+.hero-section .hero-main-title.hero-main-title.hero-main-title {
+  white-space: normal !important;
+  max-width: 600px !important;
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1.14 !important;
+}
+
+/* Tarjetas de servicios: subtítulo azul más chico, proporcionado */
+.service-section .pe-h3.pe-h3.pe-h3 {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+  margin-bottom: 10px;
+}
+
+/* Subtítulos de sección tipo "eyebrow": sin píldora de color, texto sobrio con línea de acento */
+.section-heading .sub-title.sub-title {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  gap: 12px;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: #5b6478 !important;
+  margin-bottom: 14px;
+}
+.section-heading .sub-title.sub-title::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: #2F5FA8;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-heading.text-center .sub-title.sub-title::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: #2F5FA8;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-heading.style-two .sub-title.sub-title { color: rgba(255,255,255,0.75) !important; }
+.section-heading.style-two .sub-title.sub-title::before,
+.section-heading.style-two .sub-title.sub-title::after { background: #62b0ff; }
+
+/* Títulos de sección más contenidos y uniformes */
+section:not(.hero-section) h2.h2,
+section:not(.hero-section) h2 {
+  font-size: clamp(22px, 2vw, 28px) !important;
+}
+
+/* Títulos de tarjetas y bloques internos, proporcionales al h2 de sección */
+.service-section .service-title.service-title { font-size: 20px !important; line-height: 1.3 !important; }
+.sv2 .sv2-title.sv2-title { font-size: clamp(22px, 2vw, 26px) !important; line-height: 1.25 !important; }
+
+/* Portafolio (carrusel de proyectos): título en una línea y menos aire */
+.project-section .section-heading h2.mb-0 {
+  font-size: clamp(22px, 2.1vw, 28px) !important;
+}
+@media (min-width: 992px) {
+  .project-section .section-heading h2.mb-0 { white-space: nowrap; }
+}
+.project-section > .divider { height: 40px !important; }
+.project-section > .divider-sm { height: 12px !important; }
+
+/* Intro home: más aire arriba y abajo (antes py-5 = 48px) */
+section.intro-home.py-5 {
+  padding-top: 80px !important;
+  padding-bottom: 44px !important;
+}
+@media (max-width: 767px) {
+  section.intro-home.py-5 { padding-top: 56px !important; padding-bottom: 16px !important; }
+}
+
+/* ===== Animaciones de aparición (WOW) más rápidas y sutiles en todo el sitio ===== */
+.wow {
+  animation-duration: .45s !important;
+  animation-timing-function: cubic-bezier(.22,.61,.36,1) !important;
+}
+.wow[data-wow-delay] { animation-delay: .08s !important; }
+.wow[data-wow-delay="0ms"], .wow[data-wow-delay="100ms"], .wow[data-wow-delay="200ms"],
+.wow[data-wow-delay="300ms"], .wow[data-wow-delay="400ms"] { animation-delay: 0s !important; }
+.wow[data-wow-delay="500ms"], .wow[data-wow-delay="600ms"] { animation-delay: .08s !important; }
+.wow[data-wow-delay="700ms"], .wow[data-wow-delay="800ms"] { animation-delay: .16s !important; }
+.wow[data-wow-delay="900ms"], .wow[data-wow-delay="1000ms"],
+.wow[data-wow-delay="1100ms"], .wow[data-wow-delay="1200ms"] { animation-delay: .22s !important; }
+.wow.fadeInUp { animation-name: dpFadeUp !important; }
+@keyframes dpFadeUp {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wow { animation: none !important; visibility: visible !important; }
+}
+
+/* Botones del hero (slider) con el mismo degradado del logo */
+.hero-section .btn.btn-outline-light.btn-outline-light {
+  background-color: #2F5FA8 !important;
+  background-image: linear-gradient(135deg, #447DE9 0%, #1E2536 100%) !important;
+  background-size: 140% 140%;
+  background-position: 0% 0%;
+  border-color: transparent !important;
+  color: #fff !important;
+  transition: filter .2s ease, transform .2s ease, box-shadow .2s ease !important;
+}
+.hero-section .btn.btn-outline-light.btn-outline-light:hover {
+  background-position: 0% 0%;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(30, 37, 54, .55);
+}
+
+/* Intro home: CTA + dato de experiencia como gancho */
+.intro-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+.intro-trust {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #5b6478;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.intro-trust strong {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2F5FA8;
+  white-space: nowrap;
+  padding-right: 14px;
+  border-right: 1px solid #e3e7ef;
+}

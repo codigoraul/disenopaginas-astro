@@ -46,7 +46,7 @@ import MediosPago from '../components/MediosPago.astro';
                   <h4>Plan Básico</h4>
                   <p class="mb-0">Para pymes nuevas</p>
                   <div class="border-top mt-4 mb-3"></div>
-                  <h2 class="price-value mb-0" style="color: #004597;">$290.000<span>/Una vez</span></h2>
+                  <h2 class="price-value mb-0" style="color: #2F5FA8;">$260.000<span>/Una vez</span></h2>
                   <p class="text-muted small">En 2 pagos o en cuotas con tarjeta de crédito</p>
                </div>
                <!-- Package Content -->
@@ -200,7 +200,7 @@ import MediosPago from '../components/MediosPago.astro';
                   <h4>Plan Avanzado</h4>
                   <p class="mb-0">Para empresas grandes y complejas</p>
                   <div class="border-top mt-4 mb-3"></div>
-                  <h2 class="price-value mb-0" style="color: #004597;">$480.000<span>/Una vez</span></h2>
+                  <h2 class="price-value mb-0" style="color: #2F5FA8;">Desde $420.000<span>/Una vez</span></h2>
                   <p class="text-muted small">En 2 pagos o en cuotas con tarjeta de crédito</p>
                </div>
                <!-- Package Content -->
@@ -330,10 +330,10 @@ import MediosPago from '../components/MediosPago.astro';
       width: 16px;
       height: 16px;
       flex-shrink: 0;
-      color: #004597;
+      color: #2F5FA8;
    }
    .dp-subtitulo-cuotas strong {
-      color: #004597;
+      color: #2F5FA8;
       font-weight: 600;
    }
 
@@ -353,7 +353,7 @@ import MediosPago from '../components/MediosPago.astro';
    }
    
    .pricing-card-two.active {
-      border: 2px solid #97e2e9;
+      border: 1.5px solid #2F5FA8;
       transform: scale(1.05);
    }
    
@@ -401,7 +401,7 @@ import MediosPago from '../components/MediosPago.astro';
    .happy-counts h3 {
       font-size: 3rem;
       font-weight: bold;
-      color: #004597;
+      color: #2F5FA8;
       margin-bottom: 10px;
    }
    
@@ -451,7 +451,7 @@ import MediosPago from '../components/MediosPago.astro';
    }
    
    .sub-title {
-      color: #004597;
+      color: #2F5FA8;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -460,13 +460,29 @@ import MediosPago from '../components/MediosPago.astro';
    
    /* Sobrescribir el color morado del Plan Medio activo por nuestro azul */
    .pricing-card-two.active .packgae-name-price {
-      background-color: #004597 !important;
+      background-color: #2F5FA8 !important;
    }
+   .pricing-card-two.active .packgae-name-price p {
+      color: #dbe5f7 !important;
+   }
+   .pricing-card-two.active .packgae-name-price .price-value {
+      color: #ffffff !important;
+   }
+   .pricing-card-two.active .packgae-name-price .price-value span {
+      color: #c3d3ef !important;
+   }
+   .pricing-card-two.active .border-top {
+      border-color: rgba(255,255,255,.22) !important;
+   }
+   /* Precio de los planes laterales: azul noche, "/Una vez" gris */
+   .pricing-card-two .packgae-name-price h4 { color: #1E2536; }
+   .pricing-card-two.active .packgae-name-price h4 { color: #ffffff !important; }
+   .dp-subtitulo-cuotas strong { color: #2F5FA8 !important; }
 </style>
 
 <!-- SVG Sprite for Check Icons -->
 <svg style="display: none;">
-  <symbol id="check-icon" viewBox="0 0 24 24" fill="none" stroke="#004597" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2F5FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="20 6 9 17 4 12"></polyline>
   </symbol>
 </svg>

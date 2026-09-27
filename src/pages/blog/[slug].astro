@@ -92,7 +92,7 @@ const { post } = Astro.props as { post: any };
    }
 
    .post-meta-top .cat {
-      color: #2F56DC;
+      color: #2F5FA8;
       font-weight: 600;
    }
 
@@ -104,10 +104,10 @@ const { post } = Astro.props as { post: any };
    }
 
    .post-heading {
-      font-size: 40px;
+      font-size: 32px !important;
       font-weight: 700;
       line-height: 1.25;
-      color: #004597;
+      color: #2F5FA8;
       max-width: 900px;
    }
 
@@ -136,11 +136,11 @@ const { post } = Astro.props as { post: any };
    }
 
    .post-content :global(h2) {
-      font-size: 28px;
+      font-size: 24px !important;
       font-weight: 700;
       margin-top: 2.4rem;
       margin-bottom: 1rem;
-      color: #004597;
+      color: #2F5FA8;
       clear: none;
    }
 
@@ -212,7 +212,7 @@ const { post } = Astro.props as { post: any };
    }
 
    .post-content :global(blockquote) {
-      border-left: 4px solid #2F56DC;
+      border-left: 4px solid #2F5FA8;
       padding: .5rem 0 .5rem 1.2rem;
       margin: 2rem 0;
       font-style: italic;
@@ -220,7 +220,7 @@ const { post } = Astro.props as { post: any };
    }
 
    .post-content :global(a) {
-      color: #2F56DC;
+      color: #2F5FA8;
       text-decoration: underline;
    }
 
@@ -242,7 +242,7 @@ const { post } = Astro.props as { post: any };
    .preferred-source-text {
       font-size: 15px;
       font-weight: 600;
-      color: #004597;
+      color: #2F5FA8;
    }
 
    .preferred-source-btn {
@@ -276,14 +276,14 @@ const { post } = Astro.props as { post: any };
          max-width: 100%;
          margin: 0 0 24px 0;
       }
-      .post-heading { font-size: 32px; }
+      .post-heading { font-size: 28px !important; }
    }
 
    @media (max-width: 576px) {
       .blog-section { padding: 45px 0; }
-      .post-heading { font-size: 27px; }
+      .post-heading { font-size: 24px !important; }
       .post-content { font-size: 15px; }
-      .post-content :global(h2) { font-size: 24px; }
+      .post-content :global(h2) { font-size: 21px !important; }
       .post-content :global(h3) { font-size: 19px; }
    }
 </style>

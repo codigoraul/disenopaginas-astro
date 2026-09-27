@@ -2,7 +2,7 @@
 
 /* Brand palette variables */
 :root {
-  --color-primary: #004597;        /* azul navy profesional */
+  --color-primary: #2F5FA8;        /* azul navy profesional */
   --color-primary-600: #003366;    /* hover/darker */
   --color-primary-100: #E6F2FF;    /* tint */
   --color-text-dark: #737285;      /* navy/morado oscuro */
@@ -59,10 +59,10 @@ h6, .h6 {
   background-color: transparent !important;
 }
 
-/* Primary Color: #004597 */
+/* Primary Color: #2F5FA8 */
 .btn-primary {
-  background-color: #004597 !important;
-  border-color: #004597 !important;
+  background-color: #2F5FA8 !important;
+  border-color: #2F5FA8 !important;
 }
 
 .btn-primary:hover,
@@ -72,11 +72,11 @@ h6, .h6 {
 }
 
 .text-primary {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
 }
 
 .bg-primary {
-  background-color: #004597 !important;
+  background-color: #2F5FA8 !important;
 }
 
 /* Secondary Color: #454655 */
@@ -197,32 +197,32 @@ h6, .h6 {
 
 /* Button hover effects */
 .btn-outline-primary {
-  border: 1px solid #004597 !important;
-  color: #004597 !important;
+  border: 1px solid #2F5FA8 !important;
+  color: #2F5FA8 !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-  background-color: #004597 !important;
-  border-color: #004597 !important;
+  background-color: #2F5FA8 !important;
+  border-color: #2F5FA8 !important;
   color: #ffffff !important;
 }
 
 /* Links */
 a:hover,
 a:focus {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
 }
 
 /* Form elements */
 .form-control:focus {
-  border-color: #004597 !important;
-  box-shadow: 0 0 0 0.2rem rgba(0, 69, 151, 0.25) !important;
+  border-color: #2F5FA8 !important;
+  box-shadow: 0 0 0 0.2rem rgba(47, 95, 168, 0.25) !important;
 }
 
 /* Custom gradients */
 .gradient-primary {
-  background: linear-gradient(90deg, #004597 0%, #454655 100%) !important;
+  background: linear-gradient(90deg, #2F5FA8 0%, #454655 100%) !important;
 }
 
 .gradient-secondary {
@@ -259,8 +259,8 @@ a:focus {
 
 /* Servicios Especiales - Hover Effect */
 .service-card:hover {
-  background-color: rgba(0, 69, 151, 0.05) !important;
-  border-color: #004597 !important;
+  background-color: rgba(47, 95, 168, 0.05) !important;
+  border-color: #2F5FA8 !important;
   transform: translateY(-5px);
   transition: all 0.3s ease;
 }
@@ -268,11 +268,11 @@ a:focus {
 .service-card:hover .service-title,
 .service-card:hover .service-number,
 .service-card:hover .btn {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
 }
 
 .service-card:hover .service-content h3 {
-  color: #004597 !important;
+  color: #2F5FA8 !important;
 }
 
 .service-card:hover .service-thumb img {
