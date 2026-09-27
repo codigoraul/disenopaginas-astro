@@ -84,11 +84,13 @@
                            <h3 class="hero-subtitle">Comienza tu sitio web profesional hoy</h3>
                         </div>
                         <p>
-                           Para comenzar tu proyecto web, necesitas:<br><br>
-                           1. Información básica de tu empresa<br>
-                           2. Contenido (textos e imágenes)<br>
-                           3. Objetivos del sitio web
+                           Para comenzar tu proyecto web, solo necesitas:
                         </p>
+                        <ul class="hero-steps">
+                           <li><span>1</span>Información de tu empresa</li>
+                           <li><span>2</span>Textos e imágenes</li>
+                           <li><span>3</span>Objetivos del sitio</li>
+                        </ul>
                         <a class="btn border-2 btn-outline-light" href="/como-crear-tu-pagina-web">Ver los pasos <i class="ti ti-arrow-up-right"></i></a>
                      </div>
                   </div>
@@ -197,6 +199,53 @@
   /* Subir el contenido para dejar sitio a los puntos y a la tarjeta */
   .hero-section > .container { padding-bottom: 70px; }
   .hero-pagination { display: none !important; }
+}
+
+/* Slide 4: requisitos en fila compacta */
+.hero-steps {
+  list-style: none;
+  padding: 0;
+  margin: -1rem 0 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.hero-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .75);
+  border: 1px solid #e3e7ef;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E2536;
+}
+.hero-steps li span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e9edf4;
+  border: none;
+  color: #1E2536;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 991px) {
+  .hero-steps { justify-content: center; margin: 0.2rem 0 0; gap: 6px; }
+  .hero-steps li {
+    font-size: 12.5px;
+    padding: 5px 11px 5px 6px;
+    gap: 6px;
+    background: rgba(255, 255, 255, .14);
+    border-color: rgba(255, 255, 255, .25);
+    color: #fff;
+  }
+  .hero-steps li span { width: 18px; height: 18px; font-size: 11px; background: rgba(255,255,255,.25); color: #fff; }
 }
 
 /* Botón CTA profesional: ancho según contenido, no estirado */
@@ -566,12 +615,35 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileBg && mobileBgImages[index]) {
       mobileBg.style.backgroundImage = `url('${mobileBgImages[index]}')`;
     }
+    fitHeroTitle();
     // Texto oscuro en slides con fondo claro (solo desktop)
     const heroSection = document.querySelector('.hero-section');
     if (heroSection) {
       heroSection.classList.toggle('light-slide', isDesktop.matches && lightSlidesDesktop.includes(index));
     }
   }
+
+  // Títulos del hero: en escritorio, si no cabe en 1 línea se achica hasta caber (máx. -20%);
+  // si ni así cabe (título largo), queda en 2 líneas un poco más chico. En móvil se marca .is-multiline.
+  function fitHeroTitle() {
+    const h = document.querySelector('.hero-swiper .swiper-slide-active .hero-main-title');
+    if (!h) return;
+    h.classList.remove('is-multiline');
+    h.style.removeProperty('font-size');
+    const lines = () => {
+      const lh = parseFloat(getComputedStyle(h).lineHeight) || parseFloat(getComputedStyle(h).fontSize) * 1.1;
+      return h.offsetHeight > lh * 1.5 ? 2 : 1;
+    };
+    if (lines() === 1) return;
+    if (!isDesktop.matches) { h.classList.add('is-multiline'); return; }
+    const base = parseFloat(getComputedStyle(h).fontSize);
+    for (let f = base - 1; f >= base * 0.8; f -= 1) {
+      h.style.setProperty('font-size', f + 'px', 'important');
+      if (lines() === 1) return;
+    }
+    h.style.setProperty('font-size', (base * 0.88) + 'px', 'important');
+  }
+  window.addEventListener('resize', fitHeroTitle);
 
   function nextSlide() {
     if (slides.length === 0) return;

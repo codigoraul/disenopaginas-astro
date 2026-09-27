@@ -369,3 +369,22 @@ section.intro-home.py-5 {
     line-height: 1.65 !important;
   }
 }
+
+/* Hero: títulos grandes en una línea; si quedan en 2 líneas (clase .is-multiline, la pone Hero.astro) se achican */
+@media (min-width: 992px) {
+  .hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title {
+    font-size: clamp(36px, calc(3.9vw - 4px), 52px) !important;
+    max-width: 48vw !important;
+    line-height: 1.08 !important;
+  }
+  .hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title.is-multiline {
+    font-size: clamp(36px, 3.4vw, 49px) !important;
+    line-height: 1.12 !important;
+  }
+}
+@media (max-width: 991px) {
+  .hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title.is-multiline {
+    font-size: clamp(26px, 7vw, 34px) !important;
+    line-height: 1.15 !important;
+  }
+}
