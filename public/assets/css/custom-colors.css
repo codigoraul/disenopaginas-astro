@@ -222,7 +222,7 @@ section:not(.hero-section) h2 {
 }
 
 /* Títulos de tarjetas y bloques internos, proporcionales al h2 de sección */
-.service-section .service-title.service-title { font-size: 20px !important; line-height: 1.3 !important; }
+.service-section .service-title.service-title { font-size: 22px !important; line-height: 1.3 !important; }
 .sv2 .sv2-title.sv2-title { font-size: clamp(22px, 2vw, 26px) !important; line-height: 1.25 !important; }
 
 /* Portafolio (carrusel de proyectos): título en una línea y menos aire */
@@ -305,4 +305,67 @@ section.intro-home.py-5 {
   white-space: nowrap;
   padding-right: 14px;
   border-right: 1px solid #e3e7ef;
+}
+
+/* ===== Menú móvil: más grande y fácil de tocar ===== */
+@media (max-width: 991px) {
+  .header-area .navbar-toggler {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e3e7ef !important;
+    border-radius: 10px;
+    padding: 0;
+  }
+  .header-area .navbar-toggler i { font-size: 24px; color: #1E2536; }
+  .header-area .navbar-toggler:focus { box-shadow: none; }
+
+  .header-area #disenopaginasNav .navbar-nav {
+    margin-top: 16px;
+    padding: 8px 0 16px;
+    border-top: 1px solid #eceff4;
+    gap: 0;
+  }
+  .header-area #disenopaginasNav .nav-item { width: 100%; }
+  .header-area #disenopaginasNav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    padding: 14px 6px !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em;
+    color: #1E2536 !important;
+    border-bottom: 1px solid #eceff4;
+  }
+  .header-area #disenopaginasNav .nav-item:last-child .nav-link { border-bottom: none; }
+  .header-area #disenopaginasNav .nav-link::after {
+    content: "\2192";
+    font-size: 16px;
+    color: #b3b9c6;
+    transition: transform .2s ease, color .2s ease;
+  }
+  .header-area #disenopaginasNav .nav-link:active::after,
+  .header-area #disenopaginasNav .nav-link:hover::after { color: #2F5FA8; transform: translateX(3px); }
+  .header-area #disenopaginasNav .nav-link.active {
+    color: #2F5FA8 !important;
+    font-weight: 600 !important;
+  }
+  .header-area #disenopaginasNav .nav-link.active::after { color: #2F5FA8; }
+}
+
+/* Hero móvil: título con más peso y párrafo proporcionado */
+@media (max-width: 991px) {
+  .hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title {
+    font-size: clamp(32px, 8.5vw, 42px) !important;
+    line-height: 1.12 !important;
+  }
+  .hero-section .hero-content .swiper-slide p {
+    font-size: 15.5px !important;
+    line-height: 1.65 !important;
+  }
 }
