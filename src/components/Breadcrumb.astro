@@ -15,7 +15,7 @@ const { title, currentPage, bgImage = "/assets/img/bg-img/bg-title.webp" } = Ast
     <!-- Breadcrumb Content -->
     <div class="breadcrumb-content">
       
-      <p class="breadcrumb-title" style="font-size: 32px; font-weight: 500; letter-spacing: 0.05rem; color: #dadada; line-height: 0.5; text-shadow: 1px 1px 2px rgb(47, 95, 168);">
+      <p class="breadcrumb-title" style="font-size: 32px; font-weight: 500; letter-spacing: 0.05rem; color: #dadada; line-height: 1.25; text-shadow: 1px 1px 2px rgb(47, 95, 168);">
         {title}
       </p>
       <ul class="list-unstyled" style="color: #cdcdcd;">
@@ -79,7 +79,10 @@ const { title, currentPage, bgImage = "/assets/img/bg-img/bg-title.webp" } = Ast
     }
     /* Título del breadcrumb más pequeño en móvil (en desktop sigue 32px) */
     .breadcrumb-title {
-      font-size: 28px !important;
+      font-size: 22px !important;
+      line-height: 1.3 !important;
+      letter-spacing: 0 !important;
+      padding: 0 16px;
     }
   }
 </style>

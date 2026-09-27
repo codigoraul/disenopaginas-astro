@@ -458,6 +458,33 @@
   transform: scale(1.3);
   border-color: #2F5FA8;
 }
+
+/* Deslizable: el gesto horizontal lo maneja el slider, el vertical hace scroll normal */
+.hero-section {
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.hero-section:active { cursor: grabbing; }
+.hero-section a, .hero-section button { cursor: pointer; }
+
+/* Móvil: puntos visibles sobre fondo oscuro, activo como píldora blanca */
+@media (max-width: 991px) {
+  .hero-pagination .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, .45);
+    border-color: transparent;
+    width: 8px;
+    height: 8px;
+  }
+  .hero-pagination .swiper-pagination-bullet-active {
+    background: #ffffff;
+    border-color: #ffffff;
+    width: 22px;
+    border-radius: 6px;
+    transform: none;
+  }
+}
 </style>
 
 <script>
@@ -530,6 +557,34 @@ document.addEventListener('DOMContentLoaded', function() {
     if (slides.length === 0) return;
     currentSlide = (currentSlide + 1) % 4; // Force only 4 slides
     showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    if (slides.length === 0) return;
+    currentSlide = (currentSlide - 1 + 4) % 4;
+    showSlide(currentSlide);
+  }
+
+  // Deslizar con el dedo o arrastrando con el mouse
+  const heroSectionEl = document.querySelector('.hero-section');
+  if (heroSectionEl) {
+    let startX = null, startY = null, dragging = false;
+    heroSectionEl.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('a, button, .swiper-pagination-bullet')) return;
+      startX = e.clientX; startY = e.clientY; dragging = true;
+    });
+    const endDrag = (e) => {
+      if (!dragging || startX === null) return;
+      const dx = e.clientX - startX, dy = e.clientY - startY;
+      dragging = false; startX = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        dx < 0 ? nextSlide() : prevSlide();
+        startSlider();
+      }
+    };
+    heroSectionEl.addEventListener('pointerup', endDrag);
+    heroSectionEl.addEventListener('pointercancel', () => { dragging = false; startX = null; });
+    heroSectionEl.addEventListener('dragstart', (e) => e.preventDefault());
   }
 
   function startSlider() {
