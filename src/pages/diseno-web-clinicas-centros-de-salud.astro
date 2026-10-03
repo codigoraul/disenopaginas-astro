@@ -1,70 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const servicios = [
-  { icon: 'building-factory', t: 'Sitios Web Corporativos', d: 'Diseño profesional que refleja la solidez y experiencia de su empresa minera.', li: ['Imagen corporativa', 'Diseño industrial', 'Navegación profesional'] },
-  { icon: 'certificate', t: 'Certificaciones y Normas', d: 'Destacamos sus certificaciones ISO, normas de seguridad y estándares mineros.', li: ['ISO 9001, 14001, 45001', 'Normas de seguridad', 'Acreditaciones'] },
-  { icon: 'users', t: 'Portal de Proveedores', d: 'Área privada para proveedores con documentos, licitaciones y procesos.', li: ['Acceso restringido', 'Documentos seguros', 'Proceso de registro'] },
-  { icon: 'leaf', t: 'Sustentabilidad', d: 'Secciones dedicadas a mostrar sus compromisos ambientales y sociales.', li: ['Reportes ambientales', 'Responsabilidad social', 'Proyectos comunitarios'] },
-  { icon: 'shield-lock', t: 'Seguridad Avanzada', d: 'Máxima seguridad para proteger información sensible y corporativa.', li: ['SSL Premium', 'Firewall avanzado', 'Backup diario'] },
-  { icon: 'briefcase', t: 'Portal de Empleos', d: 'Sistema para publicar ofertas laborales y recibir postulaciones del sector.', li: ['Ofertas laborales', 'CV online', 'Filtros especializados'] },
-];
-const tipos = [
-  { icon: 'mountain', t: 'Mineras', d: 'Empresas extractivas, faenas mineras' },
-  { icon: 'tools', t: 'Contratistas', d: 'Servicios especializados, mantención' },
-  { icon: 'truck', t: 'Proveedores', d: 'Equipos, insumos, tecnología' },
-  { icon: 'flask', t: 'Laboratorios', d: 'Análisis, ensayos, certificación' },
-];
-const regiones = [
-  { n: '01', t: 'Norte Grande', d: 'Arica, Tarapacá, Antofagasta', m: ['Cobre', 'Litio', 'Oro'] },
-  { n: '02', t: 'Norte Chico', d: 'Atacama, Coquimbo', m: ['Hierro', 'Cobre', 'Oro'] },
-  { n: '03', t: 'Centro Sur', d: "O'Higgins, Maule, Biobío", m: ['Cobre', 'Carbón'] },
-];
-const proyectos = [
-  { img: 'emcl', t: 'Estándares Mineros Chile', d: 'Control de calidad minero', u: 'emcl.cl' },
-  { img: 'wps', t: 'WPS Pipelines', d: 'Tuberías de pipeline y estaciones', u: 'wps.cl' },
-  { img: 'arqueocat', t: 'Arqueocat', d: 'Servicios arqueológicos profesionales', u: 'arqueocat.cl' },
-];
-const razones = [
-  { icon: 'shield-check', t: 'Experiencia Sectorial', d: 'Conocemos las necesidades específicas del sector minero chileno.' },
-  { icon: 'lock', t: 'Seguridad Corporativa', d: 'Máximos estándares de seguridad para información sensible.' },
-  { icon: 'award', t: 'Imagen Profesional', d: 'Sitios que proyectan solidez y confianza corporativa.' },
-  { icon: 'edit', t: 'Web Autoadministrable', d: 'Panel simple para actualizar textos, imágenes, documentos y ofertas laborales sin depender de un programador.' },
-  { icon: 'bolt', t: 'Rápida, hecha en Astro JS', d: 'Sitios livianos que cargan en menos de 1 segundo, con mejor experiencia de usuario y posicionamiento en Google.' },
-  { icon: 'headset', t: 'Soporte Especializado', d: 'Atención técnica que comprende el sector minero.' },
-];
-const faq = [
-  { q: '¿Cuánto cuesta una página web para una empresa minera o contratista?', a: 'Depende del alcance: un sitio corporativo simple parte en el rango de nuestras tarifas web, y los proyectos con portal de proveedores, portal de empleos o área privada se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo.' },
-  { q: '¿Podremos editar el sitio nosotros mismos?', a: 'Sí. Entregamos el sitio autoadministrable: pueden cambiar textos, imágenes, documentos y publicar ofertas laborales desde un panel simple, sin depender de un programador. Si prefieren, también nos encargamos de las actualizaciones.' },
-  { q: '¿Qué tan rápido será el sitio?', a: 'Lo construimos con Astro JS, un framework que entrega páginas muy livianas, y lo optimizamos para que cargue en menos de 1 segundo, lo que mejora la experiencia y el posicionamiento en Google.' },
-  { q: '¿Pueden mostrar nuestras certificaciones ISO y normas de seguridad?', a: 'Sí. Diseñamos secciones dedicadas a certificaciones (ISO 9001, 14001, 45001), políticas de seguridad, acreditaciones y reportes, de forma que sean fáciles de encontrar para mandantes y auditores.' },
-  { q: '¿Se puede crear un portal privado para proveedores?', a: 'Sí. Implementamos áreas con acceso restringido para documentos, procesos de registro y licitaciones, con foco en la seguridad de la información.' },
-  { q: '¿Trabajan con empresas de todo Chile, no solo del norte?', a: 'Sí. Atendemos empresas mineras, contratistas, proveedores y laboratorios de todo el país, desde Arica hasta el Biobío, y nos coordinamos por WhatsApp, correo o videollamada.' },
-  { q: '¿El sitio quedará optimizado para aparecer en Google?', a: 'Construimos cada sitio con SEO técnico desde el inicio: carga rápida, estructura ordenada y textos pensados para búsquedas como "diseño web minería". También ofrecemos posicionamiento web SEO si quieres destacar más.' },
-  { q: '¿Cuánto demora el proyecto?', a: 'Un sitio corporativo suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y materiales. Te damos un plazo claro en la cotización.' },
-];
+const servicios = [{"icon": "world", "t": "Sitio Web Institucional", "d": "Diseño limpio y profesional que transmite confianza desde el primer vistazo.", "li": ["Diseño responsivo", "Rápido en móviles", "Imagen de marca"]}, {"icon": "calendar-event", "t": "Agenda y Reserva de Horas", "d": "Formularios, agenda online o botón a WhatsApp para solicitar hora fácilmente.", "li": ["Reserva online", "WhatsApp directo", "Aviso de nuevas solicitudes"]}, {"icon": "stethoscope", "t": "Especialidades y Profesionales", "d": "Páginas por especialidad y presentación del equipo para que el paciente sepa a quién acudir.", "li": ["Ficha por especialidad", "Cuerpo profesional", "Horarios y ubicación"]}, {"icon": "search", "t": "SEO Local y Google Maps", "d": "Posicionamiento para búsquedas como \"centro de salud en mi ciudad\" o \"clínica cerca de mí\".", "li": ["Google Business Profile", "Palabras clave locales", "Contenido optimizado"]}, {"icon": "shield-check", "t": "Seguridad y Confianza", "d": "Sitio con certificado SSL y formularios seguros para proteger los datos de contacto.", "li": ["Conexión segura", "Respaldos automáticos", "Buenas prácticas"]}, {"icon": "messages", "t": "Blog y Educación en Salud", "d": "Artículos útiles para pacientes que posicionan su centro y refuerzan su autoridad.", "li": ["Blog integrado", "Contenido por especialidad", "Mejor posicionamiento"]}];
+const tipos = [{"icon": "building-hospital", "t": "Clínicas y centros médicos", "d": "Varias especialidades y profesionales"}, {"icon": "brain", "t": "Salud mental y psicología", "d": "Terapia, bienestar y desarrollo personal"}, {"icon": "heart-handshake", "t": "Centros de bienestar", "d": "Kinesiología, nutrición y terapias"}, {"icon": "eye", "t": "Ópticas y laboratorios", "d": "Servicios de apoyo y diagnóstico"}];
+const regiones = [{"n": "01", "t": "Norte", "d": "Arica, Iquique, Antofagasta, Calama, La Serena", "m": ["Arica", "Antofagasta", "La Serena"]}, {"n": "02", "t": "Centro", "d": "Santiago, Valparaíso, Viña del Mar, Rancagua, Concepción", "m": ["Santiago", "Viña del Mar", "Concepción"]}, {"n": "03", "t": "Sur", "d": "Temuco, Valdivia, Osorno, Puerto Montt y la Patagonia", "m": ["Temuco", "Valdivia", "Puerto Montt"]}];
+const proyectos = [{"img": "drejuvenece", "t": "Dr. Ejuvenece", "d": "Clínica estética", "u": "drejuvenece.cl"}, {"img": "centroimpulsate", "t": "Centro Impúlsate", "d": "Centro de desarrollo personal", "u": "centroimpulsate.cl"}, {"img": "laboralma", "t": "Laboralma", "d": "Psicólogos para empresas", "u": "laboralma.cl"}, {"img": "ortodonciaparatodos", "t": "Ortodoncia Para Todos", "d": "Clínica de ortodoncia en Temuco", "u": "ortodonciaparatodos.cl"}, {"img": "dentovital", "t": "Clínica DentoVital", "d": "Clínica dental en Antofagasta", "u": "dentistaantofagasta.cl"}, {"img": "opticacity", "t": "Opticacity", "d": "Óptica", "u": "opticacity.cl"}];
+const razones = [{"icon": "award", "t": "13+ Años de Experiencia", "d": "Hemos creado sitios para clínicas dentales, centros de salud mental, estética y capacitación en salud."}, {"icon": "users", "t": "Pensado en el Paciente", "d": "Información clara, contacto simple y navegación cómoda desde el celular."}, {"icon": "edit", "t": "Web Autoadministrable", "d": "Panel simple para actualizar textos, imágenes, horarios y artículos usted mismo, sin depender de un programador."}, {"icon": "bolt", "t": "Rápida, hecha en Astro JS", "d": "Sitios livianos que cargan en menos de 1 segundo, mejor experiencia para el paciente y mejor posicionamiento en Google."}, {"icon": "map-pin", "t": "SEO Local", "d": "Optimización para que su centro aparezca en las búsquedas de su ciudad."}, {"icon": "headset", "t": "Soporte Cercano", "d": "Atención directa por WhatsApp para cambios, horarios y nuevas prestaciones."}];
+const faq = [{"q": "¿Cuánto cuesta una página web para una clínica o centro de salud?", "a": "Depende del alcance: un sitio institucional con especialidades, equipo y contacto parte en el rango de nuestras tarifas web, y los proyectos con agenda online, varias sedes o blog se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo."}, {"q": "¿Podré editar yo mismo la página web?", "a": "Sí. Entregamos el sitio autoadministrable: puede cambiar textos, imágenes, horarios y publicar artículos desde un panel simple, sin depender de un programador. Si prefiere, también nos encargamos nosotros de las actualizaciones."}, {"q": "¿Qué tan rápida será mi página web?", "a": "Construimos los sitios con Astro JS, un framework que entrega páginas muy livianas, y los optimizamos para que carguen en menos de 1 segundo. Esto mejora la experiencia de los pacientes y el posicionamiento en Google."}, {"q": "¿Cómo hago para aparecer en Google cuando buscan \"centros de salud\" o \"clínicas\" en mi ciudad?", "a": "Combinamos un sitio rápido y bien estructurado con SEO local: ficha de Google Business Profile, páginas por especialidad y textos con la ciudad y los servicios que ofrece su centro. También ofrecemos posicionamiento web SEO si quiere destacar más."}, {"q": "¿Los pacientes podrán pedir hora desde la web?", "a": "Sí. Podemos integrar un formulario de solicitud de hora, una agenda online o un botón directo a WhatsApp, según cómo atienda su centro."}, {"q": "¿Pueden presentar a cada profesional y especialidad?", "a": "Sí. Armamos páginas por especialidad y una sección del equipo con foto, cargo y áreas de atención, para que el paciente sepa a quién consultar."}, {"q": "¿Trabajan con centros de salud de cualquier ciudad?", "a": "Sí. Desarrollamos sitios para clínicas y centros de salud de todo Chile, y nos coordinamos por WhatsApp, correo o videollamada."}, {"q": "¿Cuánto demora el proyecto?", "a": "Un sitio para clínica o centro de salud suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y fotografías. Te damos un plazo claro en la cotización."}];
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
-const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Carbón', 'Salitre'];
+const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición", "Pediatría", "Odontología", "Laboratorio", "Bienestar"];
 ---
 
 <Layout
-  title="Diseño Web Empresas Minería Chile | Páginas Web Sector Minero"
-  description="Especialistas en diseño web para empresas mineras en Chile. Páginas web corporativas para minería, contratistas y proveedores del sector. ¡Consulta gratis!"
-  keywords="diseño web minería, páginas web empresas mineras, sitios web sector minero Chile, diseño web corporativo minería"
+  title="Diseño Web para Clínicas y Centros de Salud | Páginas Web Salud Chile"
+  description="Diseño de páginas web para clínicas de salud y centros de salud en Chile. Sitios profesionales con agenda online, SEO local y WhatsApp que atraen más pacientes. ¡Consulta gratis!"
+  keywords="diseño web clínicas de salud, páginas web centros de salud, diseño web centro médico, sitio web clínica, página web centro de salud Chile, marketing digital salud"
   navItems={[
     { label: "Servicios", href: "#servicios" },
-    { label: "Empresas", href: "#empresas" },
-    { label: "Regiones", href: "#regiones" },
+    { label: "Centros", href: "#empresas" },
     { label: "Proyectos", href: "#proyectos" },
     { label: "Por qué elegirnos", href: "#por-que" },
     { label: "Preguntas", href: "#faq" },
     { label: "Cotizar", href: "#contacto" },
   ]}
-  breadcrumbs={[{ name: "Diseño Web Empresas Minería", url: "https://diseñopaginas.cl/diseno-web-empresas-mineria" }]}
+  breadcrumbs={[{ name: "Diseño Web Clínicas y Centros de Salud", url: "https://diseñopaginas.cl/diseno-web-clinicas-centros-de-salud" }]}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 
@@ -72,29 +35,23 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
     <!-- HERO -->
     <section class="mn-hero" id="inicio">
       <div class="mn-wrap mn-hero__in">
-        <span class="mn-eyebrow">Especialistas en Sector Minero</span>
-        <h1>Diseño Web para <em>Empresas de Minería</em></h1>
+        <span class="mn-eyebrow">Especialistas en Sector Salud</span>
+        <h1>Diseño Web para <em>Clínicas y Centros de Salud</em></h1>
         <p class="mn-lead">
-          Creamos sitios web corporativos para empresas mineras, contratistas y proveedores del sector
-          que proyectan solidez, confianza y profesionalismo. Más de 13 años especializados en el sector minero chileno.
+          Creamos sitios web profesionales para clínicas de salud, centros médicos y centros de bienestar que generan confianza, muestran sus especialidades y facilitan que los pacientes pidan hora. Más de 13 años diseñando sitios web en Chile.
         </p>
         <div class="mn-cta">
-          <a href="/contacto" class="mn-btn mn-btn--cu">Consulta Gratuita <i class="ti ti-arrow-right"></i></a>
-          <a href="#portafolio-mineria" class="mn-btn mn-btn--ghost">Ver Trabajos</a>
+          <a href="#contacto" class="mn-btn mn-btn--cu">Consulta Gratuita <i class="ti ti-arrow-right"></i></a>
+          <a href="#proyectos" class="mn-btn mn-btn--ghost">Ver Trabajos</a>
         </div>
-        <ul class="mn-chips">
-          <li><i class="ti ti-clock-check"></i> +13 años de experiencia</li>
-          <li><i class="ti ti-bolt"></i> Hecho en Astro JS · carga en menos de 1 s</li>
-          <li><i class="ti ti-edit"></i> Web autoadministrable</li>
-          <li><i class="ti ti-lock"></i> Seguridad corporativa</li>
-        </ul>
+        <ul class="mn-chips"><li><i class="ti ti-clock-check"></i> +13 años de experiencia</li><li><i class="ti ti-bolt"></i> Hecho en Astro JS · carga en menos de 1 s</li><li><i class="ti ti-edit"></i> Web autoadministrable</li></ul>
       </div>
     </section>
 
-    <!-- CINTA DE MINERALES -->
+    <!-- CINTA -->
     <div class="mn-band" aria-hidden="true">
       <div class="mn-band__t">
-        {[...minerales, ...minerales, ...minerales].map(m => <span>{m}</span>)}
+        {[...banda, ...banda, ...banda].map(m => <span>{m}</span>)}
       </div>
     </div>
 
@@ -102,8 +59,8 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
     <section class="mn-sec" id="servicios">
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Servicios Web Especializados para Minería</h2>
-          <p>Soluciones digitales diseñadas específicamente para el sector minero</p>
+          <h2>Servicios Web para Clínicas y Centros de Salud</h2>
+          <p>Todo lo que su centro necesita para que los pacientes lo encuentren y lo contacten</p>
         </header>
         <div class="mn-grid mn-grid--3">
           {servicios.map((s, i) => (
@@ -119,13 +76,13 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
       </div>
     </section>
 
-    <!-- TIPOS DE EMPRESAS -->
+    <!-- TIPOS -->
     <section class="mn-sec mn-sec--dark" id="empresas">
       <div class="mn-wrap mn-split">
         <div class="mn-split__txt">
           <header class="mn-head mn-head--left">
-            <h2>Tipos de Empresas del Sector Minero</h2>
-            <p>Atendemos todo tipo de empresas relacionadas con la minería</p>
+            <h2>Para Todo Tipo de Centros de Salud</h2>
+            <p>Adaptamos el sitio a la forma en que su centro atiende y a lo que más quiere destacar</p>
           </header>
           <div class="mn-grid mn-grid--2">
             {tipos.map(t => (
@@ -137,18 +94,16 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
             ))}
           </div>
         </div>
-        <figure class="mn-photo">
-          <img src="/assets/img/mineria/excavadora.webp" alt="Excavadora y camión minero en faena" loading="lazy" width="640" height="480" />
-        </figure>
+        <figure class="mn-shots"><img src="/assets/img/portafolio/drejuvenece.webp" alt="Diseño web Dr. Ejuvenece clínica estética" loading="lazy" width="480" height="285" /><img src="/assets/img/portafolio/centroimpulsate.webp" alt="Diseño web Centro Impúlsate" loading="lazy" width="480" height="285" /></figure>
       </div>
     </section>
 
-    <!-- REGIONES -->
+    <!-- COBERTURA -->
     <section class="mn-sec" id="regiones">
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Principales Regiones Mineras de Chile</h2>
-          <p>Especializados en empresas de las principales zonas mineras del país</p>
+          <h2>Centros de Salud en Todo Chile</h2>
+          <p>Trabajamos de forma remota con clínicas y centros de salud de todas las regiones</p>
         </header>
         <div class="mn-grid mn-grid--3">
           {regiones.map(r => (
@@ -163,13 +118,13 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
       </div>
     </section>
 
-    <!-- PROYECTOS DEL SECTOR -->
+    <!-- PROYECTOS -->
     <section class="mn-sec mn-sec--soft" id="proyectos">
-      <span id="portafolio-mineria"></span>
+      <span id="portafolio-salud"></span>
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Proyectos Web para el Sector Industrial y Minero</h2>
-          <p>Sitios reales que hemos desarrollado para empresas del rubro</p>
+          <h2>Proyectos Web del Sector Salud</h2>
+          <p>Sitios reales que hemos desarrollado para el rubro</p>
         </header>
         <div class="mn-grid mn-grid--3">
           {proyectos.map(p => (
@@ -183,15 +138,13 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
       </div>
     </section>
 
-    <!-- POR QUÉ ELEGIRNOS -->
+    <!-- POR QUÉ -->
     <section class="mn-sec" id="por-que">
       <div class="mn-wrap mn-split mn-split--rev">
-        <figure class="mn-photo mn-photo--tall">
-          <img src="/assets/img/mineria/camion-aljibe.webp" alt="Operación minera en faena" loading="lazy" width="675" height="585" />
-        </figure>
+        <figure class="mn-shots"><img src="/assets/img/portafolio/laboralma.webp" alt="Diseño web Laboralma psicólogos" loading="lazy" width="480" height="285" /><img src="/assets/img/portafolio/opticacity.webp" alt="Diseño web Opticacity óptica" loading="lazy" width="480" height="285" /></figure>
         <div class="mn-split__txt">
           <header class="mn-head mn-head--left">
-            <h2>¿Por qué elegir nuestros servicios para su empresa minera?</h2>
+            <h2>¿Por qué elegirnos para el sitio de su clínica o centro de salud?</h2>
           </header>
           <div class="mn-list">
             {razones.map(r => (
@@ -201,6 +154,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
               </div>
             ))}
           </div>
+          <p class="mn-xlink">¿Su consulta es dental? Vea nuestro <a href="/diseno-web-clinicas-dentales">diseño web para clínicas dentales</a>.</p>
         </div>
       </div>
     </section>
@@ -209,7 +163,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
     <section class="mn-sec mn-sec--soft" id="faq">
       <div class="mn-wrap mn-wrap--narrow">
         <header class="mn-head">
-          <h2>Preguntas frecuentes sobre diseño web para minería</h2>
+          <h2>Preguntas frecuentes sobre diseño web para clínicas y centros de salud</h2>
         </header>
         <div class="mn-faq">
           {faq.map(f => (
@@ -225,14 +179,14 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
     <!-- CTA FINAL -->
     <section class="mn-final" id="contacto">
       <div class="mn-wrap">
-        <h2>¿Listo para proyectar la solidez de su empresa minera?</h2>
+        <h2>¿Listo para que más pacientes encuentren su centro de salud?</h2>
         <p>Déjenos sus datos y le escribimos por WhatsApp para una consulta gratuita</p>
         <form class="mn-form" id="mn-form" novalidate>
-          <label class="mn-f"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su empresa" /></label>
+          <label class="mn-f"><span>Clínica o centro</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su clínica o centro" /></label>
           <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
-          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@empresa.cl" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@centro.cl" /></label>
           <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
-          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Complete empresa, teléfono y un correo válido.</p>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Complete nombre, teléfono y un correo válido.</p>
         </form>
         <div class="mn-cta mn-cta--c">
           <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
@@ -241,7 +195,6 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
       </div>
     </section>
   </div>
-
 
 <script is:inline>
   (function(){
@@ -252,7 +205,6 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
     document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
   })();
 </script>
-
 <script is:inline>
   (function(){
     var f=document.getElementById('mn-form');if(!f)return;
@@ -264,7 +216,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
       ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
       if(!ok){if(emp.length<2)f.elements.empresa.classList.add('bad');if(fono.replace(/\D/g,'').length<8)f.elements.fono.classList.add('bad');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
       document.getElementById('mn-form-err').hidden=true;
-      var t='Hola, vengo de diseñopaginas.cl (página Minería) y quiero una consulta gratuita.\nEmpresa: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      var t='Hola, vengo de diseñopaginas.cl (página Clínicas y Centros de Salud) y quiero una consulta gratuita.\nCentro: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
       window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
     });
   })();
@@ -272,7 +224,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
 </Layout>
 
 <style is:global>
-  .mn{--ink:#0B111B;--ink2:#121A28;--ink3:#1B2536;--cu:#E08A3C;--cu2:#F4B26E;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
+  .mn{--ink:#052F38;--ink2:#08404B;--ink3:#0C5360;--cu:#17BFC4;--cu2:#8EF0EE;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
   .mn h1,.mn h2,.mn h3{font-family:'Sora','Outfit',sans-serif;margin:0}
   .mn-wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
   .mn-wrap--narrow{width:min(860px,100% - 2rem)}
@@ -280,14 +232,14 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
 
   html{scroll-behavior:smooth}
   .mn-hero,.mn-sec,.mn-final{scroll-margin-top:110px}
-  #disenopaginasNav .nav-link.on{color:#E08A3C !important}
+  #disenopaginasNav .nav-link.on{color:#17BFC4 !important}
 
   /* FORMULARIO */
   .mn-form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;max-width:62rem;margin:2rem auto 0;text-align:left;align-items:end}
   .mn-f{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:#C9D3E2;font-weight:500}
   .mn-f input{font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:.85rem 1rem;min-height:50px}
   .mn-f input::placeholder{color:#8B98AE}
-  .mn-f input:focus{outline:2px solid #F4B26E;outline-offset:1px;background:rgba(255,255,255,.12)}
+  .mn-f input:focus{outline:2px solid #8EF0EE;outline-offset:1px;background:rgba(255,255,255,.12)}
   .mn-f input.bad{border-color:#ff7a7a}
   .mn-form .mn-btn{min-height:50px;justify-content:center;cursor:pointer;white-space:nowrap}
   .mn-form__err{grid-column:1/-1;margin:0 !important;color:#ffb4b4 !important;text-align:center;max-width:none !important}
@@ -295,10 +247,10 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   @media (max-width:860px){.mn-form{grid-template-columns:1fr}}
 
   /* HERO */
-  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(11,17,27,.94) 0%,rgba(11,17,27,.78) 48%,rgba(11,17,27,.35) 100%),url('/assets/img/mineria/hero-mineria.webp') center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
+  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(5,47,56,.94) 0%,rgba(5,47,56,.78) 48%,rgba(5,47,56,.35) 100%),url('/assets/img/heroes/diseno-web-clinicas-dentales-chile.webp') right center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
   .mn-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--cu),var(--cu2),transparent)}
   .mn-hero__in{position:relative}
-  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(244,178,110,.45);border-radius:99px;background:rgba(224,138,60,.1);margin-bottom:1.4rem}
+  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(142,240,238,.45);border-radius:99px;background:rgba(23,191,196,.1);margin-bottom:1.4rem}
   .mn-hero h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;font-weight:700;letter-spacing:-.01em;max-width:19ch;text-wrap:balance;color:#fff}
   .mn-hero h1 em{font-style:normal;color:var(--cu2)}
   .mn-lead{margin:1.4rem 0 0;max-width:40rem;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;color:#E6EBF3;text-wrap:pretty}
@@ -306,8 +258,8 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   .mn-cta--c{justify-content:center}
   .mn-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
   .mn-btn:hover{transform:translateY(-2px)}
-  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#1A1209;box-shadow:0 12px 26px -12px rgba(224,138,60,.7)}
-  .mn-btn--cu:hover{color:#1A1209;box-shadow:0 18px 32px -12px rgba(224,138,60,.85)}
+  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#032126;box-shadow:0 12px 26px -12px rgba(23,191,196,.7)}
+  .mn-btn--cu:hover{color:#032126;box-shadow:0 18px 32px -12px rgba(23,191,196,.85)}
   .mn-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
   .mn-btn--ghost:hover{background:rgba(255,255,255,.14);color:#fff}
   .mn-chips{list-style:none;padding:0;margin:2.4rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
@@ -315,7 +267,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   .mn-chips i{color:var(--cu2);font-size:1.1rem}
 
   /* CINTA */
-  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #1d2738}
+  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #0F4A55}
   .mn-band__t{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mn-slide 38s linear infinite}
   .mn-band__t span{font-family:'Sora',sans-serif;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:#7C8AA3;white-space:nowrap}
   .mn-band__t span::after{content:"◆";margin-left:3rem;color:var(--cu);font-size:.6rem;vertical-align:middle}
@@ -339,10 +291,10 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   @media(max-width:640px){.mn-grid--3,.mn-grid--2{grid-template-columns:1fr}}
 
   /* TARJETAS DE SERVICIO */
-  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(11,17,27,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
-  .mn-card:hover{transform:translateY(-4px);border-color:rgba(224,138,60,.5);box-shadow:0 22px 40px -24px rgba(11,17,27,.4)}
+  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(5,47,56,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .mn-card:hover{transform:translateY(-4px);border-color:rgba(23,191,196,.5);box-shadow:0 22px 40px -24px rgba(5,47,56,.4)}
   .mn-num{position:absolute;top:1.3rem;right:1.4rem;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;color:#C5CCD9;letter-spacing:.08em}
-  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#FFF3E4,#FFE2C2);color:#B9651D;font-size:1.6rem;margin-bottom:1.1rem}
+  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#E3F8F8,#BFEEEE);color:#0B8A92;font-size:1.6rem;margin-bottom:1.1rem}
   .mn-ico--sm{width:46px;height:46px;font-size:1.35rem;flex:0 0 46px;margin:0}
   .mn-card h3{font-size:1.12rem;font-weight:700;margin-bottom:.5rem;color:var(--tx)}
   .mn-card p{color:var(--mut);margin:0 0 1rem;line-height:1.65}
@@ -357,7 +309,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   .mn-photo{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
   .mn-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
   .mn-photo--tall img{aspect-ratio:1/1}
-  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,17,27,.45));pointer-events:none}
+  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,47,56,.45));pointer-events:none}
   .mn-tile{padding:1.3rem;border-radius:16px;background:var(--ink3);border:1px solid #28344a;transition:border-color .3s,transform .3s}
   .mn-tile:hover{border-color:var(--cu);transform:translateY(-3px)}
   .mn-tile i{font-size:1.7rem;color:var(--cu2)}
@@ -371,11 +323,11 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   .mn-reg h3{font-size:1.15rem;margin:.6rem 0 .3rem;color:var(--tx)}
   .mn-reg p{color:var(--mut);margin:0 0 1rem}
   .mn-tags{display:flex;flex-wrap:wrap;gap:.45rem}
-  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#FFF3E4;color:#9A5416;font-weight:600}
+  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#E3F8F8;color:#0A6D75;font-weight:600}
 
   /* PROYECTOS */
-  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(11,17,27,.35);transition:transform .3s,box-shadow .3s}
-  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(11,17,27,.5);color:var(--tx)}
+  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(5,47,56,.35);transition:transform .3s,box-shadow .3s}
+  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(5,47,56,.5);color:var(--tx)}
   .mn-proj__img{aspect-ratio:480/285;background:var(--soft);overflow:hidden}
   .mn-proj__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .mn-proj:hover img{transform:scale(1.04)}
@@ -389,7 +341,7 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   /* POR QUÉ */
   .mn-list{display:grid;gap:1rem}
   .mn-li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .3s}
-  .mn-li:hover{border-color:rgba(224,138,60,.5)}
+  .mn-li:hover{border-color:rgba(23,191,196,.5)}
   .mn-li h3{font-size:1.02rem;margin-bottom:.2rem}
   .mn-li p{margin:0;color:var(--mut)}
 
@@ -403,7 +355,17 @@ const minerales = ['Cobre', 'Litio', 'Oro', 'Hierro', 'Plata', 'Molibdeno', 'Car
   .mn-faq__i p{margin:0;padding:0 0 1.2rem;color:var(--mut);line-height:1.7}
 
   /* CTA */
-  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(224,138,60,.28),transparent 70%),linear-gradient(160deg,#0B111B,#16213A)}
+  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(23,191,196,.28),transparent 70%),linear-gradient(160deg,#052F38,#0C5360)}
   .mn-final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;max-width:34rem;margin:0 auto;text-wrap:balance;color:#fff}
   .mn-final p{margin:1rem auto 0;max-width:34rem;color:#C9D3E2;text-wrap:pretty}
+
+  /* CAPTURAS */
+  .mn-shots{margin:0;display:grid;gap:1rem;align-content:center}
+  .mn-shots img{width:100%;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 50px -24px rgba(0,0,0,.55);background:#fff;display:block}
+  .mn-shots img:nth-child(odd){transform:translateX(-4%) rotate(-1.2deg)}
+  .mn-shots img:nth-child(even){transform:translateX(4%) rotate(1.2deg)}
+  .mn-sec:not(.mn-sec--dark) .mn-shots img{border-color:#E3E7EE;box-shadow:0 24px 50px -28px rgba(11,17,27,.45)}
+  @media (max-width:860px){.mn-shots img:nth-child(odd),.mn-shots img:nth-child(even){transform:none}}
+  .mn-xlink{margin:1.6rem 0 0;font-size:.98rem}
+  .mn-xlink a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>

@@ -130,14 +130,21 @@
 
   <url>
     <loc>https://diseñopaginas.cl/diseno-web-clinicas-dentales/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://diseñopaginas.cl/diseno-web-clinicas-centros-de-salud/</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://diseñopaginas.cl/diseno-web-empresas-mineria/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -16,9 +16,10 @@ export interface Props {
   ogImage?: string;
   ogType?: string;
   breadcrumbs?: BreadcrumbItem[];
+  navItems?: { label: string; href: string }[];
 }
 
-const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, ogImage, ogType = 'website', breadcrumbs } = Astro.props;
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, ogImage, ogType = 'website', breadcrumbs, navItems } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL || '';
 const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`;
@@ -378,7 +379,7 @@ const isDefaultOgImage = socialImage === defaultOgImage;
 
 <body>
   <!-- Header -->
-  <Header />
+  <Header navItems={navItems} />
 
   <!-- Main Content -->
   <main>

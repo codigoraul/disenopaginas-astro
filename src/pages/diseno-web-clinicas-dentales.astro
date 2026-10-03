@@ -1,437 +1,371 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+
+const servicios = [{"icon": "world", "t": "Páginas Web Profesionales", "d": "Diseño moderno y profesional que transmite confianza y credibilidad a sus pacientes potenciales.", "li": ["Diseño responsivo", "Optimizado para móviles", "Carga rápida"]}, {"icon": "calendar", "t": "Sistema de Citas Online", "d": "Permita que sus pacientes agenden citas las 24 horas del día desde su sitio web.", "li": ["Calendario integrado", "Confirmación automática", "Recordatorios por email"]}, {"icon": "search", "t": "SEO para Dentistas", "d": "Posicionamiento en Google para aparecer cuando busquen \"dentista cerca de mí\".", "li": ["Google My Business", "Palabras clave locales", "Contenido optimizado"]}, {"icon": "palette", "t": "Logotipos Dentales", "d": "Diseño de identidad visual profesional para su clínica dental.", "li": ["Diseño personalizado", "Múltiples formatos", "Manual de marca"]}, {"icon": "shield-check", "t": "Certificados SSL", "d": "Seguridad garantizada para proteger los datos de sus pacientes.", "li": ["Conexión segura", "Confianza del paciente", "Mejor SEO"]}, {"icon": "headset", "t": "Soporte Técnico", "d": "Mantenimiento y actualizaciones constantes de su sitio web.", "li": ["Soporte continuo", "Actualizaciones incluidas", "Respaldos automáticos"]}];
+const tipos = [{"icon": "building-hospital", "t": "Clínicas dentales", "d": "Equipos de varios profesionales y sucursales"}, {"icon": "dental", "t": "Ortodoncia y endodoncia", "d": "Especialistas con tratamientos acotados"}, {"icon": "sparkles", "t": "Estética dental", "d": "Blanqueamiento, carillas y diseño de sonrisa"}, {"icon": "school", "t": "Cursos y academias", "d": "Capacitación y formación para dentistas"}];
+const regiones = [{"n": "01", "t": "Norte", "d": "Arica, Iquique, Antofagasta, Calama, La Serena", "m": ["Arica", "Antofagasta", "La Serena"]}, {"n": "02", "t": "Centro", "d": "Santiago, Valparaíso, Viña del Mar, Rancagua, Concepción", "m": ["Santiago", "Viña del Mar", "Concepción"]}, {"n": "03", "t": "Sur", "d": "Temuco, Valdivia, Osorno, Puerto Montt y la Patagonia", "m": ["Temuco", "Valdivia", "Puerto Montt"]}];
+const proyectos = [{"img": "ortodonciaparatodos", "t": "Ortodoncia Para Todos", "d": "Clínica de ortodoncia en Temuco", "u": "ortodonciaparatodos.cl"}, {"img": "dentovital", "t": "Clínica DentoVital", "d": "Clínica dental en Antofagasta", "u": "dentistaantofagasta.cl"}, {"img": "endodonciatemuco", "t": "Endodoncia Temuco", "d": "Sociedad de dentistas especialistas", "u": "endodonciatemuco.cl"}, {"img": "academiadental", "t": "Academia Dental Chile", "d": "Cursos y capacitación para dentistas", "u": "academiadental.cl"}, {"img": "drejuvenece", "t": "Dr. Ejuvenece", "d": "Clínica estética", "u": "drejuvenece.cl"}, {"img": "acasalud", "t": "Acasalud", "d": "Capacitación en salud", "u": "acasalud.cl"}];
+const razones = [{"icon": "award", "t": "13+ Años de Experiencia", "d": "Especialistas en diseño web para el sector salud y dental en Chile."}, {"icon": "users", "t": "Enfoque en Pacientes", "d": "Diseñamos pensando en atraer y convertir visitantes en pacientes reales."}, {"icon": "edit", "t": "Web Autoadministrable", "d": "Panel simple para actualizar textos, imágenes, horarios y artículos usted mismo, sin depender de un programador."}, {"icon": "bolt", "t": "Rápida, hecha en Astro JS", "d": "Sitios livianos que cargan en menos de 1 segundo, mejor experiencia para el paciente y mejor posicionamiento en Google."}, {"icon": "map-pin", "t": "SEO Local", "d": "Optimización para aparecer en búsquedas locales de servicios dentales."}, {"icon": "device-mobile", "t": "100% Responsivo", "d": "Su sitio se verá perfecto en todos los dispositivos móviles."}];
+const faq = [{"q": "¿Cuánto cuesta una página web para una clínica dental?", "a": "Depende del alcance: un sitio informativo con las secciones principales parte en el rango de nuestras tarifas web, y los proyectos con agenda online, varias sucursales o blog se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo."}, {"q": "¿Podré editar yo mismo la página web?", "a": "Sí. Entregamos el sitio autoadministrable: puede cambiar textos, imágenes, horarios y publicar artículos desde un panel simple, sin depender de un programador. Si prefiere, también nos encargamos nosotros de las actualizaciones."}, {"q": "¿Qué tan rápida será mi página web?", "a": "Construimos los sitios con Astro JS, un framework que entrega páginas muy livianas, y los optimizamos para que carguen en menos de 1 segundo. Esto mejora la experiencia de los pacientes y el posicionamiento en Google."}, {"q": "¿Mis pacientes podrán pedir hora desde la página?", "a": "Sí. Podemos integrar un sistema de citas online o un botón directo a WhatsApp, para que el paciente solicite su hora a cualquier hora del día desde el celular."}, {"q": "¿Cómo logro aparecer cuando buscan \"dentista cerca de mí\"?", "a": "Combinamos un sitio rápido y bien estructurado con SEO local: ficha de Google Business Profile, textos con la ciudad y los tratamientos que ofreces, y páginas por especialidad. También ofrecemos posicionamiento web SEO si quieres destacar más."}, {"q": "¿Pueden mostrar mis tratamientos, equipo y casos?", "a": "Sí. Armamos páginas por tratamiento (ortodoncia, implantes, blanqueamiento, etc.), presentación del equipo profesional, preguntas frecuentes de pacientes y galería de la clínica."}, {"q": "¿Trabajan con clínicas fuera de Temuco?", "a": "Sí. Desarrollamos sitios para clínicas y dentistas de todo Chile, y nos coordinamos por WhatsApp, correo o videollamada."}, {"q": "¿Cuánto demora el proyecto?", "a": "Un sitio para clínica dental suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y fotografías. Te damos un plazo claro en la cotización."}];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const banda = ["Ortodoncia", "Implantes", "Endodoncia", "Estética dental", "Blanqueamiento", "Odontopediatría", "Rehabilitación", "Periodoncia"];
 ---
 
-<Layout 
+<Layout
   title="Diseño Páginas Web Clínicas Dentales | Sitios Web para Dentistas Chile"
   description="Especialistas en diseño web para clínicas dentales y dentistas en Chile. Páginas web profesionales que atraen pacientes y destacan servicios odontológicos. ¡Consulta gratis!"
   keywords="diseño páginas web clínica dental, sitios web dentistas, páginas web odontología, diseño web dental Chile, marketing digital dentistas"
+  navItems={[
+    { label: "Servicios", href: "#servicios" },
+    { label: "Especialidades", href: "#empresas" },
+    { label: "Proyectos", href: "#proyectos" },
+    { label: "Por qué elegirnos", href: "#por-que" },
+    { label: "Preguntas", href: "#faq" },
+    { label: "Cotizar", href: "#contacto" },
+  ]}
   breadcrumbs={[{ name: "Diseño Web Clínicas Dentales", url: "https://diseñopaginas.cl/diseno-web-clinicas-dentales" }]}
 >
-  <Header />
-  
-  <!-- Hero Section -->
-  <section class="hero-section bg-gradient-primary py-5" style="background-image: linear-gradient(135deg, rgba(1,28,66,0.55) 0%, rgba(47, 95, 168,0.35) 100%), url('/assets/img/heroes/diseno-web-clinicas-dentales-chile.webp') !important; background-size: cover !important; background-position: center !important;">
-    <div class="container">
-      <div class="row align-items-center min-vh-75">
-        <div class="col-lg-8">
-          <div class="hero-content text-white">
-            <span class="badge bg-light text-primary mb-3 fs-6">Especialistas en Sector Dental</span>
-            <h1 class="display-4 fw-bold mb-4">
-              Diseño de Páginas Web para <span class="text-aqua">Clínicas Dentales</span>
-            </h1>
-            <p class="lead mb-4 fs-5">
-              Creamos sitios web profesionales para dentistas y clínicas odontológicas que atraen nuevos pacientes, 
-              destacan sus servicios y transmiten confianza. Más de 13 años especializados en el sector dental.
-            </p>
-            <div class="hero-buttons">
-              <a href="/contacto" class="btn btn-light btn-lg me-3">Consulta Gratuita</a>
-              <a href="#portafolio-dental" class="btn btn-outline-light btn-lg">Ver Trabajos</a>
-            </div>
-          </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+  <div class="mn">
+    <!-- HERO -->
+    <section class="mn-hero" id="inicio">
+      <div class="mn-wrap mn-hero__in">
+        <span class="mn-eyebrow">Especialistas en Sector Dental</span>
+        <h1>Diseño de Páginas Web para <em>Clínicas Dentales</em></h1>
+        <p class="mn-lead">
+          Creamos sitios web profesionales para dentistas y clínicas odontológicas que atraen nuevos pacientes, destacan sus servicios y transmiten confianza. Más de 13 años especializados en el sector dental.
+        </p>
+        <div class="mn-cta">
+          <a href="#contacto" class="mn-btn mn-btn--cu">Consulta Gratuita <i class="ti ti-arrow-right"></i></a>
+          <a href="#proyectos" class="mn-btn mn-btn--ghost">Ver Trabajos</a>
         </div>
+        <ul class="mn-chips"><li><i class="ti ti-clock-check"></i> +13 años de experiencia</li><li><i class="ti ti-bolt"></i> Hecho en Astro JS · carga en menos de 1 s</li><li><i class="ti ti-edit"></i> Web autoadministrable</li></ul>
+      </div>
+    </section>
+
+    <!-- CINTA -->
+    <div class="mn-band" aria-hidden="true">
+      <div class="mn-band__t">
+        {[...banda, ...banda, ...banda].map(m => <span>{m}</span>)}
       </div>
     </div>
-  </section>
 
-  <!-- Servicios Específicos -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Servicios Web Especializados para Dentistas</h2>
-          <p class="lead text-muted">Soluciones digitales diseñadas específicamente para el sector odontológico</p>
+    <!-- SERVICIOS -->
+    <section class="mn-sec" id="servicios">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Servicios Web Especializados para Dentistas</h2>
+          <p>Soluciones digitales diseñadas específicamente para el sector odontológico</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {servicios.map((s, i) => (
+            <article class="mn-card">
+              <span class="mn-num">{String(i + 1).padStart(2, '0')}</span>
+              <div class="mn-ico"><i class={`ti ti-${s.icon}`}></i></div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+              <ul>{s.li.map(x => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+            </article>
+          ))}
         </div>
       </div>
-      
-      <div class="row g-4">
-        <!-- Servicio 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-world text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Páginas Web Profesionales</h4>
-            <p class="text-muted mb-3">Diseño moderno y profesional que transmite confianza y credibilidad a sus pacientes potenciales.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Diseño responsivo</li>
-              <li><i class="ti ti-check text-success me-2"></i>Optimizado para móviles</li>
-              <li><i class="ti ti-check text-success me-2"></i>Carga rápida</li>
-            </ul>
+    </section>
+
+    <!-- TIPOS -->
+    <section class="mn-sec mn-sec--dark" id="empresas">
+      <div class="mn-wrap mn-split">
+        <div class="mn-split__txt">
+          <header class="mn-head mn-head--left">
+            <h2>Para Todas las Especialidades Dentales</h2>
+            <p>Adaptamos el sitio al tipo de clínica y a los tratamientos que más quiere destacar</p>
+          </header>
+          <div class="mn-grid mn-grid--2">
+            {tipos.map(t => (
+              <div class="mn-tile">
+                <i class={`ti ti-${t.icon}`}></i>
+                <h3>{t.t}</h3>
+                <p>{t.d}</p>
+              </div>
+            ))}
           </div>
         </div>
+        <figure class="mn-shots"><img src="/assets/img/portafolio/ortodonciaparatodos.webp" alt="Diseño web Ortodoncia Para Todos" loading="lazy" width="480" height="285" /><img src="/assets/img/portafolio/dentovital.webp" alt="Diseño web Clínica DentoVital Antofagasta" loading="lazy" width="480" height="285" /></figure>
+      </div>
+    </section>
 
-        <!-- Servicio 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-calendar text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Sistema de Citas Online</h4>
-            <p class="text-muted mb-3">Permita que sus pacientes agenden citas las 24 horas del día desde su sitio web.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Calendario integrado</li>
-              <li><i class="ti ti-check text-success me-2"></i>Confirmación automática</li>
-              <li><i class="ti ti-check text-success me-2"></i>Recordatorios por email</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-search text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">SEO para Dentistas</h4>
-            <p class="text-muted mb-3">Posicionamiento en Google para aparecer cuando busquen "dentista cerca de mí".</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Google My Business</li>
-              <li><i class="ti ti-check text-success me-2"></i>Palabras clave locales</li>
-              <li><i class="ti ti-check text-success me-2"></i>Contenido optimizado</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-palette text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Logotipos Dentales</h4>
-            <p class="text-muted mb-3">Diseño de identidad visual profesional para su clínica dental.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Diseño personalizado</li>
-              <li><i class="ti ti-check text-success me-2"></i>Múltiples formatos</li>
-              <li><i class="ti ti-check text-success me-2"></i>Manual de marca</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-shield-check text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Certificados SSL</h4>
-            <p class="text-muted mb-3">Seguridad garantizada para proteger los datos de sus pacientes.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Conexión segura</li>
-              <li><i class="ti ti-check text-success me-2"></i>Confianza del paciente</li>
-              <li><i class="ti ti-check text-success me-2"></i>Mejor SEO</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-headset text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Soporte Técnico</h4>
-            <p class="text-muted mb-3">Mantenimiento y actualizaciones constantes de su sitio web.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Soporte 24/7</li>
-              <li><i class="ti ti-check text-success me-2"></i>Actualizaciones incluidas</li>
-              <li><i class="ti ti-check text-success me-2"></i>Backup automático</li>
-            </ul>
-          </div>
+    <!-- COBERTURA -->
+    <section class="mn-sec" id="regiones">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Clínicas Dentales en Todo Chile</h2>
+          <p>Trabajamos de forma remota con dentistas y clínicas de todas las regiones</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {regiones.map(r => (
+            <article class="mn-reg">
+              <span class="mn-reg__n">{r.n}</span>
+              <h3>{r.t}</h3>
+              <p>{r.d}</p>
+              <div class="mn-tags">{r.m.map(x => <span>{x}</span>)}</div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portafolio Dental -->
-  <section id="portafolio-dental" class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Nuestros Trabajos en el Sector Dental</h2>
-          <p class="lead text-muted">Páginas web que hemos creado para clínicas dentales en Chile</p>
-        </div>
-      </div>
-      
-      <div class="row g-4">
-        <!-- Trabajo 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-1.jpg" alt="Odontología Temuco" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Odontología Temuco</h5>
-              <p class="text-muted mb-3">Clínica dental especializada en ortodoncia y implantes</p>
-              <a href="https://odontologiatemuco.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trabajo 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-2.jpg" alt="Ortodoncia Para Todos" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Ortodoncia Para Todos</h5>
-              <p class="text-muted mb-3">Especialistas en tratamientos de ortodoncia accesibles</p>
-              <a href="https://ortodonciaparatodos.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trabajo 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-3.jpg" alt="Clínica IDI" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Clínica IDI</h5>
-              <p class="text-muted mb-3">Centro integral de diagnóstico e implantología</p>
-              <a href="https://clinicaidi.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trabajo 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-4.jpg" alt="Dental Milenium" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Dental Milenium</h5>
-              <p class="text-muted mb-3">Clínica dental moderna con tecnología avanzada</p>
-              <a href="https://dentalmilenium.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trabajo 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-5.jpg" alt="Dental Estetic" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Dental Estetic</h5>
-              <p class="text-muted mb-3">Especialistas en estética dental y blanqueamiento</p>
-              <a href="http://dentalestetic.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trabajo 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-card bg-white rounded shadow-sm overflow-hidden">
-            <div class="portfolio-image">
-              <img loading="lazy" src="/assets/img/portfolio/dental-6.jpg" alt="Implantes Para Chile" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Implantes Para Chile</h5>
-              <p class="text-muted mb-3">Centro especializado en implantología dental</p>
-              <a href="http://implantesparachile.cl" target="_blank" class="btn btn-outline-primary btn-sm">
-                <i class="ti ti-external-link me-1"></i>Ver Sitio
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Por qué elegirnos -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <h2 class="display-5 fw-bold text-navy mb-4">¿Por qué elegir nuestros servicios para su clínica dental?</h2>
-          <div class="feature-list">
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-award text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">12+ Años de Experiencia</h5>
-                <p class="text-muted mb-0">Especialistas en diseño web para el sector salud y dental en Chile.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-users text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">Enfoque en Pacientes</h5>
-                <p class="text-muted mb-0">Diseñamos pensando en atraer y convertir visitantes en pacientes reales.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-map-pin text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">SEO Local</h5>
-                <p class="text-muted mb-0">Optimización para aparecer en búsquedas locales de servicios dentales.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex">
-              <div class="feature-icon me-3">
-                <i class="ti ti-device-mobile text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">100% Responsivo</h5>
-                <p class="text-muted mb-0">Su sitio se verá perfecto en todos los dispositivos móviles.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6">
-          <div class="image-wrapper">
-            <img loading="lazy" src="/assets/img/dental-team.jpg" alt="Equipo dental profesional" class="img-fluid rounded shadow">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-5 bg-gradient-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="display-5 fw-bold mb-4">¿Listo para atraer más pacientes con su nueva página web?</h2>
-          <p class="lead mb-4">
-            Consulta gratuita para conocer cómo podemos ayudar a su clínica dental a crecer en línea
-          </p>
-          <div class="cta-buttons">
-            <a href="/contacto" class="btn btn-light btn-lg me-3">
-              <i class="ti ti-phone me-2"></i>Consulta Gratuita
+    <!-- PROYECTOS -->
+    <section class="mn-sec mn-sec--soft" id="proyectos">
+      <span id="portafolio-dental"></span>
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Proyectos Web para Dentistas y Clínicas</h2>
+          <p>Sitios reales que hemos desarrollado para el rubro</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {proyectos.map(p => (
+            <a class="mn-proj" href={`https://${p.u}`} target="_blank" rel="noopener noreferrer">
+              <div class="mn-proj__img"><img src={`/assets/img/portafolio/${p.img}.webp`} alt={`Diseño web ${p.t}`} loading="lazy" width="480" height="285" /></div>
+              <div class="mn-proj__t"><strong>{p.t}</strong><span>{p.d}</span><em>{p.u} <i class="ti ti-arrow-up-right"></i></em></div>
             </a>
-            <a href="tel:+56961765268" class="btn btn-outline-light btn-lg">
-              <i class="ti ti-phone me-2"></i>(+56) 9 61765268
-            </a>
+          ))}
+        </div>
+        <p class="mn-more"><a href="/portafolio">Ver todo el portafolio <i class="ti ti-arrow-right"></i></a></p>
+      </div>
+    </section>
+
+    <!-- POR QUÉ -->
+    <section class="mn-sec" id="por-que">
+      <div class="mn-wrap mn-split mn-split--rev">
+        <figure class="mn-shots"><img src="/assets/img/portafolio/endodonciatemuco.webp" alt="Diseño web Endodoncia Temuco" loading="lazy" width="480" height="285" /><img src="/assets/img/portafolio/academiadental.webp" alt="Diseño web Academia Dental Chile" loading="lazy" width="480" height="285" /></figure>
+        <div class="mn-split__txt">
+          <header class="mn-head mn-head--left">
+            <h2>¿Por qué elegir nuestros servicios para su clínica dental?</h2>
+          </header>
+          <div class="mn-list">
+            {razones.map(r => (
+              <div class="mn-li">
+                <div class="mn-ico mn-ico--sm"><i class={`ti ti-${r.icon}`}></i></div>
+                <div><h3>{r.t}</h3><p>{r.d}</p></div>
+              </div>
+            ))}
           </div>
+          <p class="mn-xlink">¿Tiene una clínica médica o un centro de salud? Vea nuestro <a href="/diseno-web-clinicas-centros-de-salud">diseño web para clínicas y centros de salud</a>.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- FAQ -->
+    <section class="mn-sec mn-sec--soft" id="faq">
+      <div class="mn-wrap mn-wrap--narrow">
+        <header class="mn-head">
+          <h2>Preguntas frecuentes sobre diseño web para clínicas dentales</h2>
+        </header>
+        <div class="mn-faq">
+          {faq.map(f => (
+            <details class="mn-faq__i">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mn-final" id="contacto">
+      <div class="mn-wrap">
+        <h2>¿Listo para atraer más pacientes con su nueva página web?</h2>
+        <p>Déjenos sus datos y le escribimos por WhatsApp para una consulta gratuita</p>
+        <form class="mn-form" id="mn-form" novalidate>
+          <label class="mn-f"><span>Clínica o consulta</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su clínica" /></label>
+          <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@clinica.cl" /></label>
+          <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Complete nombre, teléfono y un correo válido.</p>
+        </form>
+        <div class="mn-cta mn-cta--c">
+          <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
+          <a href="tel:+56961765268" class="mn-btn mn-btn--ghost"><i class="ti ti-phone"></i> (+56) 9 61765268</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script is:inline>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
+    var map=links.map(function(a){return{a:a,el:document.querySelector(a.getAttribute('href'))}}).filter(function(x){return x.el});
+    function upd(){var y=window.scrollY+140,cur=null;map.forEach(function(x){var t=x.el.getBoundingClientRect().top+window.scrollY;if(t<=y)cur=x});links.forEach(function(a){a.classList.toggle('on',!!cur&&cur.a===a)})}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+    document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
+  })();
+</script>
+<script is:inline>
+  (function(){
+    var f=document.getElementById('mn-form');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(n){return f.elements[n].value.trim()};
+      var emp=v('empresa'),fono=v('fono'),mail=v('correo');
+      var ok=emp.length>1&&fono.replace(/\D/g,'').length>=8&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail);
+      ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
+      if(!ok){if(emp.length<2)f.elements.empresa.classList.add('bad');if(fono.replace(/\D/g,'').length<8)f.elements.fono.classList.add('bad');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
+      document.getElementById('mn-form-err').hidden=true;
+      var t='Hola, vengo de diseñopaginas.cl (página Clínicas Dentales) y quiero una consulta gratuita.\nClínica: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
+    });
+  })();
+</script>
 </Layout>
 
-<style>
-  .bg-gradient-primary {
-    background: linear-gradient(135deg, #011C42 0%, #2F5FA8 100%);
-  }
+<style is:global>
+  .mn{--ink:#06152F;--ink2:#0B1F45;--ink3:#12295A;--cu:#2FB6E8;--cu2:#A9EEFF;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
+  .mn h1,.mn h2,.mn h3{font-family:'Sora','Outfit',sans-serif;margin:0}
+  .mn-wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+  .mn-wrap--narrow{width:min(860px,100% - 2rem)}
 
-  /* Contraste y padding del hero con imagen de fondo */
-  .hero-section .hero-content {
-    padding: 5rem 1.5rem 3rem 2rem;
-  }
 
-  .hero-section .hero-content h1 {
-    color: #ffffff !important;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  }
+  html{scroll-behavior:smooth}
+  .mn-hero,.mn-sec,.mn-final{scroll-margin-top:110px}
+  #disenopaginasNav .nav-link.on{color:#2FB6E8 !important}
 
-  .hero-section .hero-content h1 .text-aqua {
-    color: #AEF8FF !important;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  }
+  /* FORMULARIO */
+  .mn-form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;max-width:62rem;margin:2rem auto 0;text-align:left;align-items:end}
+  .mn-f{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:#C9D3E2;font-weight:500}
+  .mn-f input{font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:.85rem 1rem;min-height:50px}
+  .mn-f input::placeholder{color:#8B98AE}
+  .mn-f input:focus{outline:2px solid #A9EEFF;outline-offset:1px;background:rgba(255,255,255,.12)}
+  .mn-f input.bad{border-color:#ff7a7a}
+  .mn-form .mn-btn{min-height:50px;justify-content:center;cursor:pointer;white-space:nowrap}
+  .mn-form__err{grid-column:1/-1;margin:0 !important;color:#ffb4b4 !important;text-align:center;max-width:none !important}
+  .mn-final .mn-cta{margin-top:1.4rem}
+  @media (max-width:860px){.mn-form{grid-template-columns:1fr}}
 
-  .hero-section .hero-content p {
-    color: #f2f6fb !important;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .text-navy {
-    color: #011C42 !important;
-  }
-  
-  .text-aqua {
-    color: #AEF8FF !important;
-  }
-  
-  .min-vh-75 {
-    min-height: 75vh;
-  }
-  
-  .service-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e9ecef;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-  }
-  
-  .portfolio-card {
-    transition: transform 0.3s ease;
-  }
-  
-  .portfolio-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .portfolio-image {
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .portfolio-card:hover .portfolio-image img {
-    transform: scale(1.05);
-  }
-  
-  .feature-item {
-    padding: 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .feature-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .hero-buttons .btn {
-    min-width: 180px;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-buttons .btn {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    
-    .hero-buttons .btn:last-child {
-      margin-bottom: 0;
-    }
-  }
+  /* HERO */
+  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(6,21,47,.94) 0%,rgba(6,21,47,.78) 48%,rgba(6,21,47,.35) 100%),url('/assets/img/heroes/diseno-web-clinicas-dentales-chile.webp') center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
+  .mn-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--cu),var(--cu2),transparent)}
+  .mn-hero__in{position:relative}
+  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(169,238,255,.45);border-radius:99px;background:rgba(47,182,232,.1);margin-bottom:1.4rem}
+  .mn-hero h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;font-weight:700;letter-spacing:-.01em;max-width:19ch;text-wrap:balance;color:#fff}
+  .mn-hero h1 em{font-style:normal;color:var(--cu2)}
+  .mn-lead{margin:1.4rem 0 0;max-width:40rem;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;color:#E6EBF3;text-wrap:pretty}
+  .mn-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+  .mn-cta--c{justify-content:center}
+  .mn-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+  .mn-btn:hover{transform:translateY(-2px)}
+  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#04122B;box-shadow:0 12px 26px -12px rgba(47,182,232,.7)}
+  .mn-btn--cu:hover{color:#04122B;box-shadow:0 18px 32px -12px rgba(47,182,232,.85)}
+  .mn-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+  .mn-btn--ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+  .mn-chips{list-style:none;padding:0;margin:2.4rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .mn-chips li{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);font-size:.9rem;color:#EAF0F8}
+  .mn-chips i{color:var(--cu2);font-size:1.1rem}
+
+  /* CINTA */
+  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #14264A}
+  .mn-band__t{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mn-slide 38s linear infinite}
+  .mn-band__t span{font-family:'Sora',sans-serif;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:#7C8AA3;white-space:nowrap}
+  .mn-band__t span::after{content:"◆";margin-left:3rem;color:var(--cu);font-size:.6rem;vertical-align:middle}
+  @keyframes mn-slide{to{transform:translateX(-33.333%)}}
+  @media (prefers-reduced-motion:reduce){.mn-band__t{animation:none}}
+
+  /* SECCIONES */
+  .mn-sec{padding:clamp(3.2rem,7vw,5.5rem) 0}
+  .mn-sec--soft{background:var(--soft)}
+  .mn-sec--dark{background:var(--ink2);color:#DCE3EE}
+  .mn-head{text-align:center;max-width:46rem;margin:0 auto clamp(1.8rem,4.5vw,2.8rem)}
+  .mn-head--left{text-align:left;margin-inline:0}
+  .mn-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);line-height:1.22;font-weight:700;letter-spacing:-.005em;text-wrap:balance;color:var(--tx)}
+  .mn-head p{margin:.8rem 0 0;color:var(--mut);font-size:1.05rem;text-wrap:pretty}
+  .mn-sec--dark .mn-head h2{color:#fff}
+  .mn-sec--dark .mn-head p{color:#A9B6CA}
+  .mn-grid{display:grid;gap:1.2rem}
+  .mn-grid--3{grid-template-columns:repeat(3,1fr)}
+  .mn-grid--2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:991px){.mn-grid--3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.mn-grid--3,.mn-grid--2{grid-template-columns:1fr}}
+
+  /* TARJETAS DE SERVICIO */
+  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(6,21,47,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .mn-card:hover{transform:translateY(-4px);border-color:rgba(47,182,232,.5);box-shadow:0 22px 40px -24px rgba(6,21,47,.4)}
+  .mn-num{position:absolute;top:1.3rem;right:1.4rem;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;color:#C5CCD9;letter-spacing:.08em}
+  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#E8F6FD,#CBEBFA);color:#0F7FA8;font-size:1.6rem;margin-bottom:1.1rem}
+  .mn-ico--sm{width:46px;height:46px;font-size:1.35rem;flex:0 0 46px;margin:0}
+  .mn-card h3{font-size:1.12rem;font-weight:700;margin-bottom:.5rem;color:var(--tx)}
+  .mn-card p{color:var(--mut);margin:0 0 1rem;line-height:1.65}
+  .mn-card ul{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+  .mn-card li{display:flex;gap:.55rem;align-items:center;font-size:.93rem;color:var(--tx)}
+  .mn-card li i{color:var(--cu);font-size:1rem}
+
+  /* SPLIT */
+  .mn-split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  .mn-split--rev{grid-template-columns:.9fr 1.1fr}
+  @media(max-width:900px){.mn-split,.mn-split--rev{grid-template-columns:1fr}.mn-photo{order:-1}}
+  .mn-photo{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
+  .mn-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  .mn-photo--tall img{aspect-ratio:1/1}
+  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,21,47,.45));pointer-events:none}
+  .mn-tile{padding:1.3rem;border-radius:16px;background:var(--ink3);border:1px solid #28344a;transition:border-color .3s,transform .3s}
+  .mn-tile:hover{border-color:var(--cu);transform:translateY(-3px)}
+  .mn-tile i{font-size:1.7rem;color:var(--cu2)}
+  .mn-tile h3{font-size:1.02rem;color:#fff;margin:.7rem 0 .25rem}
+  .mn-tile p{margin:0;color:#A9B6CA;font-size:.92rem}
+
+  /* REGIONES */
+  .mn-reg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;position:relative;overflow:hidden}
+  .mn-reg::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--cu2),var(--cu))}
+  .mn-reg__n{font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:700;color:#EEF1F6;line-height:1}
+  .mn-reg h3{font-size:1.15rem;margin:.6rem 0 .3rem;color:var(--tx)}
+  .mn-reg p{color:var(--mut);margin:0 0 1rem}
+  .mn-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#E8F6FD;color:#0B6489;font-weight:600}
+
+  /* PROYECTOS */
+  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(6,21,47,.35);transition:transform .3s,box-shadow .3s}
+  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(6,21,47,.5);color:var(--tx)}
+  .mn-proj__img{aspect-ratio:480/285;background:var(--soft);overflow:hidden}
+  .mn-proj__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .mn-proj:hover img{transform:scale(1.04)}
+  .mn-proj__t{display:grid;gap:.15rem;padding:1.1rem 1.3rem 1.3rem}
+  .mn-proj__t strong{font-family:'Sora',sans-serif;font-size:1.02rem}
+  .mn-proj__t span{color:var(--mut);font-size:.92rem}
+  .mn-proj__t em{font-style:normal;color:var(--bl);font-weight:600;font-size:.9rem;margin-top:.35rem}
+  .mn-more{text-align:center;margin:1.8rem 0 0}
+  .mn-more a{font-weight:600;color:var(--tx);text-decoration:none;border-bottom:2px solid var(--cu);padding-bottom:2px}
+
+  /* POR QUÉ */
+  .mn-list{display:grid;gap:1rem}
+  .mn-li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .3s}
+  .mn-li:hover{border-color:rgba(47,182,232,.5)}
+  .mn-li h3{font-size:1.02rem;margin-bottom:.2rem}
+  .mn-li p{margin:0;color:var(--mut)}
+
+  /* FAQ */
+  .mn-faq{display:grid;gap:.8rem}
+  .mn-faq__i{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 1.4rem}
+  .mn-faq__i summary{cursor:pointer;list-style:none;padding:1.1rem 0;font-weight:600;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .mn-faq__i summary::-webkit-details-marker{display:none}
+  .mn-faq__i summary::after{content:"+";font-size:1.5rem;color:var(--cu);transition:transform .2s;line-height:1}
+  .mn-faq__i[open] summary::after{transform:rotate(45deg)}
+  .mn-faq__i p{margin:0;padding:0 0 1.2rem;color:var(--mut);line-height:1.7}
+
+  /* CTA */
+  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(47,182,232,.28),transparent 70%),linear-gradient(160deg,#06152F,#12295A)}
+  .mn-final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;max-width:34rem;margin:0 auto;text-wrap:balance;color:#fff}
+  .mn-final p{margin:1rem auto 0;max-width:34rem;color:#C9D3E2;text-wrap:pretty}
+
+  /* CAPTURAS */
+  .mn-shots{margin:0;display:grid;gap:1rem;align-content:center}
+  .mn-shots img{width:100%;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 50px -24px rgba(0,0,0,.55);background:#fff;display:block}
+  .mn-shots img:nth-child(odd){transform:translateX(-4%) rotate(-1.2deg)}
+  .mn-shots img:nth-child(even){transform:translateX(4%) rotate(1.2deg)}
+  .mn-sec:not(.mn-sec--dark) .mn-shots img{border-color:#E3E7EE;box-shadow:0 24px 50px -28px rgba(11,17,27,.45)}
+  @media (max-width:860px){.mn-shots img:nth-child(odd),.mn-shots img:nth-child(even){transform:none}}
+  .mn-xlink{margin:1.6rem 0 0;font-size:.98rem}
+  .mn-xlink a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>
