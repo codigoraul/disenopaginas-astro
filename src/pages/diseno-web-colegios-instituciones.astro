@@ -1,33 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const servicios = [{"icon": "world", "t": "Sitio Web Institucional", "d": "Diseño limpio y profesional que transmite confianza desde el primer vistazo.", "li": ["Diseño responsivo", "Rápido en móviles", "Imagen de marca"]}, {"icon": "calendar-event", "t": "Agenda y Reserva de Horas", "d": "Formularios, agenda online o botón a WhatsApp para solicitar hora fácilmente.", "li": ["Reserva online", "WhatsApp directo", "Aviso de nuevas solicitudes"]}, {"icon": "stethoscope", "t": "Especialidades y Profesionales", "d": "Páginas por especialidad y presentación del equipo para que el paciente sepa a quién acudir.", "li": ["Ficha por especialidad", "Cuerpo profesional", "Horarios y ubicación"]}, {"icon": "search", "t": "SEO Local y Google Maps", "d": "Posicionamiento para búsquedas como \"centro de salud en mi ciudad\" o \"clínica cerca de mí\".", "li": ["Google Business Profile", "Palabras clave locales", "Contenido optimizado"]}, {"icon": "shield-check", "t": "Seguridad y Confianza", "d": "Sitio con certificado SSL y formularios seguros para proteger los datos de contacto.", "li": ["Conexión segura", "Respaldos automáticos", "Buenas prácticas"]}, {"icon": "messages", "t": "Blog y Educación en Salud", "d": "Artículos útiles para pacientes que posicionan su centro y refuerzan su autoridad.", "li": ["Blog integrado", "Contenido por especialidad", "Mejor posicionamiento"]}];
-const tipos = [{"icon": "building-hospital", "t": "Clínicas y centros médicos", "d": "Varias especialidades y profesionales"}, {"icon": "brain", "t": "Salud mental y psicología", "d": "Terapia, bienestar y desarrollo personal"}, {"icon": "heart-handshake", "t": "Centros de bienestar", "d": "Kinesiología, nutrición y terapias"}, {"icon": "eye", "t": "Ópticas y laboratorios", "d": "Servicios de apoyo y diagnóstico"}];
+const servicios = [{"icon": "school", "t": "Sitio Web Institucional", "d": "Presente su proyecto educativo, valores, historia y equipo con un diseño que transmite confianza a las familias.", "li": ["Proyecto educativo", "Nuestro equipo", "Diseño responsivo"]}, {"icon": "clipboard-check", "t": "Admisión y Matrícula", "d": "Formularios de postulación y de contacto para recibir solicitudes de nuevas familias.", "li": ["Formulario de postulación", "Aviso de nuevas solicitudes", "Contacto por WhatsApp"]}, {"icon": "news", "t": "Noticias y Comunicados", "d": "Publique noticias, circulares y novedades de la comunidad de forma ordenada.", "li": ["Blog de noticias", "Circulares y avisos", "Fácil de actualizar"]}, {"icon": "calendar-event", "t": "Calendario y Eventos", "d": "Calendario escolar, actividades y fechas importantes siempre a la vista.", "li": ["Calendario escolar", "Próximos eventos", "Galería de fotos"]}, {"icon": "users", "t": "Información para Apoderados", "d": "Documentos, reglamentos, listas de útiles y enlaces a las plataformas que ya utilice el establecimiento.", "li": ["Documentos descargables", "Enlaces a plataformas", "Zona de apoderados"]}, {"icon": "search", "t": "SEO Local", "d": "Posicionamiento para que las familias lo encuentren al buscar colegios o jardines en su ciudad.", "li": ["Google Business Profile", "Palabras clave locales", "Contenido optimizado"]}];
+const tipos = [{"icon": "school", "t": "Colegios y liceos", "d": "Particulares, subvencionados y técnico profesionales"}, {"icon": "building-community", "t": "Jardines infantiles", "d": "Salas cuna y educación parvularia"}, {"icon": "certificate", "t": "Institutos y capacitación", "d": "Centros de formación y cursos"}, {"icon": "heart-handshake", "t": "Fundaciones y ONG", "d": "Corporaciones y organizaciones sociales"}];
 const regiones = [{"n": "01", "t": "Norte", "d": "Arica, Iquique, Antofagasta, Calama, La Serena", "m": ["Arica", "Antofagasta", "La Serena"]}, {"n": "02", "t": "Centro", "d": "Santiago, Valparaíso, Viña del Mar, Rancagua, Concepción", "m": ["Santiago", "Viña del Mar", "Concepción"]}, {"n": "03", "t": "Sur", "d": "Temuco, Valdivia, Osorno, Puerto Montt y la Patagonia", "m": ["Temuco", "Valdivia", "Puerto Montt"]}];
-const proyectos = [{"img": "drejuvenece", "t": "Dr. Ejuvenece", "d": "Clínica estética", "u": "drejuvenece.cl"}, {"img": "centroimpulsate", "t": "Centro Impúlsate", "d": "Centro de desarrollo personal", "u": "centroimpulsate.cl"}, {"img": "laboralma", "t": "Laboralma", "d": "Psicólogos para empresas", "u": "laboralma.cl"}, {"img": "ortodonciaparatodos", "t": "Ortodoncia Para Todos", "d": "Clínica de ortodoncia en Temuco", "u": "ortodonciaparatodos.cl"}, {"img": "dentovital", "t": "Clínica DentoVital", "d": "Clínica dental en Antofagasta", "u": "dentistaantofagasta.cl"}, {"img": "opticacity", "t": "Opticacity", "d": "Óptica", "u": "opticacity.cl"}];
-const razones = [{"icon": "award", "t": "13+ Años de Experiencia", "d": "Hemos creado sitios para clínicas dentales, centros de salud mental, estética y capacitación en salud."}, {"icon": "users", "t": "Pensado en el Paciente", "d": "Información clara, contacto simple y navegación cómoda desde el celular."}, {"icon": "edit", "t": "Web Autoadministrable", "d": "Panel simple para actualizar textos, imágenes, horarios y artículos usted mismo, sin depender de un programador."}, {"icon": "bolt", "t": "Rápida, hecha en Astro JS", "d": "Sitios livianos que cargan en menos de 1 segundo, mejor experiencia para el paciente y mejor posicionamiento en Google."}, {"icon": "map-pin", "t": "SEO Local", "d": "Optimización para que su centro aparezca en las búsquedas de su ciudad."}, {"icon": "headset", "t": "Soporte Cercano", "d": "Atención directa por WhatsApp para cambios, horarios y nuevas prestaciones."}];
-const faq = [{"q": "¿Cuánto cuesta una página web para una clínica o centro de salud?", "a": "Depende del alcance: un sitio institucional con especialidades, equipo y contacto parte en el rango de nuestras tarifas web, y los proyectos con agenda online, varias sedes o blog se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo."}, {"q": "¿Podré editar yo mismo la página web?", "a": "Sí. Entregamos el sitio autoadministrable: puede cambiar textos, imágenes, horarios y publicar artículos desde un panel simple, sin depender de un programador. Si prefiere, también nos encargamos nosotros de las actualizaciones."}, {"q": "¿Qué tan rápida será mi página web?", "a": "Construimos los sitios con Astro JS, un framework que entrega páginas muy livianas, y los optimizamos para que carguen en menos de 1 segundo. Esto mejora la experiencia de los pacientes y el posicionamiento en Google."}, {"q": "¿Cómo hago para aparecer en Google cuando buscan \"centros de salud\" o \"clínicas\" en mi ciudad?", "a": "Combinamos un sitio rápido y bien estructurado con SEO local: ficha de Google Business Profile, páginas por especialidad y textos con la ciudad y los servicios que ofrece su centro. También ofrecemos posicionamiento web SEO si quiere destacar más."}, {"q": "¿Los pacientes podrán pedir hora desde la web?", "a": "Sí. Podemos integrar un formulario de solicitud de hora, una agenda online o un botón directo a WhatsApp, según cómo atienda su centro."}, {"q": "¿Pueden presentar a cada profesional y especialidad?", "a": "Sí. Armamos páginas por especialidad y una sección del equipo con foto, cargo y áreas de atención, para que el paciente sepa a quién consultar."}, {"q": "¿Trabajan con centros de salud de cualquier ciudad?", "a": "Sí. Desarrollamos sitios para clínicas y centros de salud de todo Chile, y nos coordinamos por WhatsApp, correo o videollamada."}, {"q": "¿Cuánto demora el proyecto?", "a": "Un sitio para clínica o centro de salud suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y fotografías. Te damos un plazo claro en la cotización."}];
+const proyectos = [{"img": "academiadental", "t": "Academia Dental Chile", "d": "Cursos y capacitación para dentistas", "u": "academiadental.cl"}, {"img": "acasalud", "t": "Acasalud", "d": "Capacitación en salud", "u": "acasalud.cl"}, {"img": "centroimpulsate", "t": "Centro Impúlsate", "d": "Centro de desarrollo personal", "u": "centroimpulsate.cl"}];
+const razones = [{"icon": "award", "t": "13+ Años de Experiencia", "d": "Hemos creado sitios para academias, centros de capacitación y organizaciones en todo Chile."}, {"icon": "users", "t": "Pensado para la Comunidad", "d": "Información clara para apoderados, estudiantes y futuras familias, cómoda desde el celular."}, {"icon": "edit", "t": "Web Autoadministrable", "d": "Panel simple para publicar noticias, comunicados, fechas y documentos usted mismo, sin depender de un programador."}, {"icon": "bolt", "t": "Rápida, hecha en Astro JS", "d": "Sitios livianos que cargan en menos de 1 segundo, también desde el celular de los apoderados."}, {"icon": "headset", "t": "Soporte Cercano", "d": "Atención directa por WhatsApp para cambios, fechas y nuevas secciones."}];
+const faq = [{"q": "¿Cuánto cuesta una página web para un colegio o institución?", "a": "Depende del alcance: un sitio institucional con noticias, calendario y contacto parte en el rango de nuestras tarifas web, y los proyectos con admisión online, varias secciones o áreas para apoderados se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo."}, {"q": "¿Pueden incluir admisión o matrícula online?", "a": "Sí. Podemos incluir un formulario de postulación o de interés que le llegue por correo o WhatsApp, y enlaces a las plataformas de matrícula que el establecimiento ya utilice."}, {"q": "¿Podremos publicar noticias y comunicados nosotros mismos?", "a": "Sí. Entregamos el sitio autoadministrable: pueden publicar noticias, circulares, fechas y documentos desde un panel simple, sin depender de un programador. Si prefieren, también nos encargamos de las actualizaciones."}, {"q": "¿Qué tan rápido será el sitio?", "a": "Lo construimos con Astro JS, un framework que entrega páginas muy livianas, y lo optimizamos para que cargue en menos de 1 segundo, también desde el celular de los apoderados. Esto mejora la experiencia y el posicionamiento en Google."}, {"q": "¿Se puede integrar con la plataforma de notas o el sistema de gestión que usamos?", "a": "Podemos enlazar el sitio a la plataforma que ya utilicen, de modo que apoderados y estudiantes accedan desde un botón visible. Si necesitan algo más a medida, lo evaluamos en la cotización."}, {"q": "¿Trabajan con colegios e instituciones de todo Chile?", "a": "Sí. Desarrollamos sitios para establecimientos y organizaciones de todo el país, y nos coordinamos por WhatsApp, correo o videollamada."}, {"q": "¿Cuánto demora el proyecto?", "a": "Un sitio institucional suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y fotografías. Te damos un plazo claro en la cotización."}];
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
-const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición", "Pediatría", "Odontología", "Laboratorio", "Bienestar"];
+const banda = ["Admisión", "Matrícula", "Calendario escolar", "Noticias", "Apoderados", "Circulares", "Galería de eventos", "Transparencia"];
 ---
 
 <Layout
-  title="Diseño Web para Clínicas y Centros de Salud | Páginas Web Salud Chile"
-  description="Diseño de páginas web para clínicas de salud y centros de salud en Chile. Sitios profesionales con agenda online, SEO local y WhatsApp que atraen más pacientes. ¡Consulta gratis!"
-  keywords="diseño web clínicas de salud, páginas web centros de salud, diseño web centro médico, sitio web clínica, página web centro de salud Chile, marketing digital salud"
+  title="Diseño Web para Colegios e Instituciones | Páginas Web Educación Chile"
+  description="Diseño de páginas web para colegios, jardines infantiles, institutos y fundaciones en Chile. Admisión online, noticias, calendario y comunicación con apoderados. ¡Consulta gratis!"
+  keywords="diseño web colegios, páginas web instituciones educativas, sitio web colegio, diseño web jardín infantil, página web instituto, diseño web fundaciones Chile"
   navItems={[
     { label: "Servicios", href: "#servicios" },
-    { label: "Centros", href: "#empresas" },
+    { label: "Instituciones", href: "#empresas" },
     { label: "Proyectos", href: "#proyectos" },
     { label: "Por qué elegirnos", href: "#por-que" },
     { label: "Preguntas", href: "#faq" },
     { label: "Cotizar", href: "#contacto" },
   ]}
-  breadcrumbs={[{ name: "Diseño Web Clínicas y Centros de Salud", url: "https://diseñopaginas.cl/diseno-web-clinicas-centros-de-salud" }]}
+  breadcrumbs={[{ name: "Diseño Web Colegios e Instituciones", url: "https://diseñopaginas.cl/diseno-web-colegios-instituciones" }]}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 
@@ -35,10 +35,10 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <!-- HERO -->
     <section class="mn-hero" id="inicio">
       <div class="mn-wrap mn-hero__in">
-        <span class="mn-eyebrow">Especialistas en Sector Salud</span>
-        <h1>Diseño Web para <em>Clínicas y Centros de Salud</em></h1>
+        <span class="mn-eyebrow">Especialistas en Sector Educación</span>
+        <h1>Diseño Web para <em>Colegios e Instituciones</em></h1>
         <p class="mn-lead">
-          Creamos sitios web profesionales para clínicas de salud, centros médicos y centros de bienestar que generan confianza, muestran sus especialidades y facilitan que los pacientes pidan hora. Más de 13 años diseñando sitios web en Chile.
+          Creamos sitios web claros y modernos para colegios, jardines infantiles, institutos y fundaciones: presentan su proyecto educativo, facilitan la admisión y mantienen informados a apoderados y comunidad. Más de 13 años diseñando sitios web en Chile.
         </p>
         <div class="mn-cta">
           <a href="#contacto" class="mn-btn mn-btn--cu">Consulta Gratuita <i class="ti ti-arrow-right"></i></a>
@@ -59,8 +59,8 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <section class="mn-sec" id="servicios">
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Servicios Web para Clínicas y Centros de Salud</h2>
-          <p>Todo lo que su centro necesita para que los pacientes lo encuentren y lo contacten</p>
+          <h2>Servicios Web para Colegios e Instituciones</h2>
+          <p>Todo lo que su comunidad educativa necesita en un sitio simple de mantener</p>
         </header>
         <div class="mn-grid mn-grid--3">
           {servicios.map((s, i) => (
@@ -81,8 +81,8 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
       <div class="mn-wrap mn-split">
         <div class="mn-split__txt">
           <header class="mn-head mn-head--left">
-            <h2>Para Todo Tipo de Centros de Salud</h2>
-            <p>Adaptamos el sitio a la forma en que su centro atiende y a lo que más quiere destacar</p>
+            <h2>Para Todo Tipo de Instituciones</h2>
+            <p>Adaptamos el sitio a la realidad y a la comunidad de cada establecimiento</p>
           </header>
           <div class="mn-grid mn-grid--2">
             {tipos.map(t => (
@@ -94,7 +94,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
             ))}
           </div>
         </div>
-        <figure class="mn-photo"><img src="/assets/img/salud/centro-salud-paciente.webp" alt="Médico con estetoscopio en un centro de salud con pacientes en sala de espera" loading="lazy" width="900" height="542" /></figure>
+        <figure class="mn-photo"><img src="/assets/img/colegios/colegio-sala-clases.webp" alt="Docente presentando una clase a estudiantes en una sala moderna" loading="lazy" width="900" height="504" /></figure>
       </div>
     </section>
 
@@ -102,8 +102,8 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <section class="mn-sec" id="regiones">
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Centros de Salud en Todo Chile</h2>
-          <p>Trabajamos de forma remota con clínicas y centros de salud de todas las regiones</p>
+          <h2>Instituciones en Todo Chile</h2>
+          <p>Trabajamos de forma remota con colegios e instituciones de todas las regiones</p>
         </header>
         <div class="mn-grid mn-grid--3">
           {regiones.map(r => (
@@ -120,10 +120,10 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
 
     <!-- PROYECTOS -->
     <section class="mn-sec mn-sec--soft" id="proyectos">
-      <span id="portafolio-salud"></span>
+      <span id="portafolio-instituciones"></span>
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Proyectos Web del Sector Salud</h2>
+          <h2>Proyectos Web Institucionales y de Capacitación</h2>
           <p>Sitios reales que hemos desarrollado para el rubro</p>
         </header>
         <div class="mn-grid mn-grid--3">
@@ -141,10 +141,10 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <!-- POR QUÉ -->
     <section class="mn-sec" id="por-que">
       <div class="mn-wrap mn-split mn-split--rev">
-        <figure class="mn-photo mn-photo--tall"><img src="/assets/img/salud/equipo-salud.webp" alt="Equipo de profesionales de la salud caminando por un centro médico moderno" loading="lazy" width="900" height="600" /></figure>
+        <figure class="mn-photo mn-photo--tall"><img src="/assets/img/colegios/colegio-estudiantes.webp" alt="Estudiantes bajando las escaleras de un establecimiento educacional" loading="lazy" width="900" height="600" /></figure>
         <div class="mn-split__txt">
           <header class="mn-head mn-head--left">
-            <h2>¿Por qué elegirnos para el sitio de su clínica o centro de salud?</h2>
+            <h2>¿Por qué elegirnos para el sitio de su colegio o institución?</h2>
           </header>
           <div class="mn-list">
             {razones.map(r => (
@@ -154,7 +154,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
               </div>
             ))}
           </div>
-          <p class="mn-xlink">¿Su consulta es dental? Vea nuestro <a href="/diseno-web-clinicas-dentales">diseño web para clínicas dentales</a>.</p>
+          <p class="mn-xlink">¿Es una empresa u otra organización? Vea nuestro <a href="/diseno-web-pymes">diseño web para pymes</a>.</p>
         </div>
       </div>
     </section>
@@ -163,7 +163,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <section class="mn-sec mn-sec--soft" id="faq">
       <div class="mn-wrap mn-wrap--narrow">
         <header class="mn-head">
-          <h2>Preguntas frecuentes sobre diseño web para clínicas y centros de salud</h2>
+          <h2>Preguntas frecuentes sobre diseño web para colegios e instituciones</h2>
         </header>
         <div class="mn-faq">
           {faq.map(f => (
@@ -179,12 +179,12 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
     <!-- CTA FINAL -->
     <section class="mn-final" id="contacto">
       <div class="mn-wrap">
-        <h2>¿Listo para que más pacientes encuentren su centro de salud?</h2>
+        <h2>¿Listo para renovar la web de su colegio o institución?</h2>
         <p>Déjenos sus datos y le escribimos por WhatsApp para una consulta gratuita</p>
         <form class="mn-form" id="mn-form" novalidate>
-          <label class="mn-f"><span>Clínica o centro</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su clínica o centro" /></label>
+          <label class="mn-f"><span>Colegio o institución</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su colegio o institución" /></label>
           <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
-          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@centro.cl" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@colegio.cl" /></label>
           <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
           <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Complete nombre, teléfono y un correo válido.</p>
         </form>
@@ -216,7 +216,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
       ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
       if(!ok){if(emp.length<2)f.elements.empresa.classList.add('bad');if(fono.replace(/\D/g,'').length<8)f.elements.fono.classList.add('bad');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
       document.getElementById('mn-form-err').hidden=true;
-      var t='Hola, vengo de diseñopaginas.cl (página Clínicas y Centros de Salud) y quiero una consulta gratuita.\nCentro: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      var t='Hola, vengo de diseñopaginas.cl (página Colegios e Instituciones) y quiero una consulta gratuita.\nInstitución: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
       window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
     });
   })();
@@ -224,7 +224,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
 </Layout>
 
 <style is:global>
-  .mn{--ink:#052F38;--ink2:#08404B;--ink3:#0C5360;--cu:#17BFC4;--cu2:#8EF0EE;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
+  .mn{--ink:#0A1740;--ink2:#0F1F52;--ink3:#162B6B;--cu:#F2B431;--cu2:#FFD878;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
   .mn h1,.mn h2,.mn h3{font-family:'Sora','Outfit',sans-serif;margin:0}
   .mn-wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
   .mn-wrap--narrow{width:min(860px,100% - 2rem)}
@@ -232,14 +232,14 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
 
   html{scroll-behavior:smooth}
   .mn-hero,.mn-sec,.mn-final{scroll-margin-top:110px}
-  #disenopaginasNav .nav-link.on{color:#17BFC4 !important}
+  #disenopaginasNav .nav-link.on{color:#F2B431 !important}
 
   /* FORMULARIO */
   .mn-form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;max-width:62rem;margin:2rem auto 0;text-align:left;align-items:end}
   .mn-f{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:#C9D3E2;font-weight:500}
   .mn-f input{font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:.85rem 1rem;min-height:50px}
   .mn-f input::placeholder{color:#8B98AE}
-  .mn-f input:focus{outline:2px solid #8EF0EE;outline-offset:1px;background:rgba(255,255,255,.12)}
+  .mn-f input:focus{outline:2px solid #FFD878;outline-offset:1px;background:rgba(255,255,255,.12)}
   .mn-f input.bad{border-color:#ff7a7a}
   .mn-form .mn-btn{min-height:50px;justify-content:center;cursor:pointer;white-space:nowrap}
   .mn-form__err{grid-column:1/-1;margin:0 !important;color:#ffb4b4 !important;text-align:center;max-width:none !important}
@@ -247,10 +247,10 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   @media (max-width:860px){.mn-form{grid-template-columns:1fr}}
 
   /* HERO */
-  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(5,47,56,.94) 0%,rgba(5,47,56,.78) 48%,rgba(5,47,56,.35) 100%),url('/assets/img/salud/hero-salud.webp') right center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
+  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(10,23,64,.94) 0%,rgba(10,23,64,.78) 48%,rgba(10,23,64,.35) 100%),url('/assets/img/colegios/hero-colegios.webp') center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
   .mn-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--cu),var(--cu2),transparent)}
   .mn-hero__in{position:relative}
-  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(142,240,238,.45);border-radius:99px;background:rgba(23,191,196,.1);margin-bottom:1.4rem}
+  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(255,216,120,.45);border-radius:99px;background:rgba(242,180,49,.1);margin-bottom:1.4rem}
   .mn-hero h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;font-weight:700;letter-spacing:-.01em;max-width:19ch;text-wrap:balance;color:#fff}
   .mn-hero h1 em{font-style:normal;color:var(--cu2)}
   .mn-lead{margin:1.4rem 0 0;max-width:40rem;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;color:#E6EBF3;text-wrap:pretty}
@@ -258,8 +258,8 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   .mn-cta--c{justify-content:center}
   .mn-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
   .mn-btn:hover{transform:translateY(-2px)}
-  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#032126;box-shadow:0 12px 26px -12px rgba(23,191,196,.7)}
-  .mn-btn--cu:hover{color:#032126;box-shadow:0 18px 32px -12px rgba(23,191,196,.85)}
+  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#2A1E02;box-shadow:0 12px 26px -12px rgba(242,180,49,.7)}
+  .mn-btn--cu:hover{color:#2A1E02;box-shadow:0 18px 32px -12px rgba(242,180,49,.85)}
   .mn-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
   .mn-btn--ghost:hover{background:rgba(255,255,255,.14);color:#fff}
   .mn-chips{list-style:none;padding:0;margin:2.4rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
@@ -267,7 +267,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   .mn-chips i{color:var(--cu2);font-size:1.1rem}
 
   /* CINTA */
-  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #0F4A55}
+  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #1A2B63}
   .mn-band__t{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mn-slide 38s linear infinite}
   .mn-band__t span{font-family:'Sora',sans-serif;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:#7C8AA3;white-space:nowrap}
   .mn-band__t span::after{content:"◆";margin-left:3rem;color:var(--cu);font-size:.6rem;vertical-align:middle}
@@ -291,10 +291,10 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   @media(max-width:640px){.mn-grid--3,.mn-grid--2{grid-template-columns:1fr}}
 
   /* TARJETAS DE SERVICIO */
-  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(5,47,56,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
-  .mn-card:hover{transform:translateY(-4px);border-color:rgba(23,191,196,.5);box-shadow:0 22px 40px -24px rgba(5,47,56,.4)}
+  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(10,23,64,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .mn-card:hover{transform:translateY(-4px);border-color:rgba(242,180,49,.5);box-shadow:0 22px 40px -24px rgba(10,23,64,.4)}
   .mn-num{position:absolute;top:1.3rem;right:1.4rem;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;color:#C5CCD9;letter-spacing:.08em}
-  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#E3F8F8,#BFEEEE);color:#0B8A92;font-size:1.6rem;margin-bottom:1.1rem}
+  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#FFF6DC,#FCE7A8);color:#A8740A;font-size:1.6rem;margin-bottom:1.1rem}
   .mn-ico--sm{width:46px;height:46px;font-size:1.35rem;flex:0 0 46px;margin:0}
   .mn-card h3{font-size:1.12rem;font-weight:700;margin-bottom:.5rem;color:var(--tx)}
   .mn-card p{color:var(--mut);margin:0 0 1rem;line-height:1.65}
@@ -309,7 +309,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   .mn-photo{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
   .mn-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
   .mn-photo--tall img{aspect-ratio:1/1}
-  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,47,56,.45));pointer-events:none}
+  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,23,64,.45));pointer-events:none}
   .mn-tile{padding:1.3rem;border-radius:16px;background:var(--ink3);border:1px solid #28344a;transition:border-color .3s,transform .3s}
   .mn-tile:hover{border-color:var(--cu);transform:translateY(-3px)}
   .mn-tile i{font-size:1.7rem;color:var(--cu2)}
@@ -323,11 +323,11 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   .mn-reg h3{font-size:1.15rem;margin:.6rem 0 .3rem;color:var(--tx)}
   .mn-reg p{color:var(--mut);margin:0 0 1rem}
   .mn-tags{display:flex;flex-wrap:wrap;gap:.45rem}
-  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#E3F8F8;color:#0A6D75;font-weight:600}
+  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#FFF6DC;color:#8A5D07;font-weight:600}
 
   /* PROYECTOS */
-  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(5,47,56,.35);transition:transform .3s,box-shadow .3s}
-  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(5,47,56,.5);color:var(--tx)}
+  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(10,23,64,.35);transition:transform .3s,box-shadow .3s}
+  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(10,23,64,.5);color:var(--tx)}
   .mn-proj__img{aspect-ratio:480/285;background:var(--soft);overflow:hidden}
   .mn-proj__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .mn-proj:hover img{transform:scale(1.04)}
@@ -341,7 +341,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   /* POR QUÉ */
   .mn-list{display:grid;gap:1rem}
   .mn-li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .3s}
-  .mn-li:hover{border-color:rgba(23,191,196,.5)}
+  .mn-li:hover{border-color:rgba(242,180,49,.5)}
   .mn-li h3{font-size:1.02rem;margin-bottom:.2rem}
   .mn-li p{margin:0;color:var(--mut)}
 
@@ -355,7 +355,7 @@ const banda = ["Medicina general", "Kinesiología", "Psicología", "Nutrición",
   .mn-faq__i p{margin:0;padding:0 0 1.2rem;color:var(--mut);line-height:1.7}
 
   /* CTA */
-  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(23,191,196,.28),transparent 70%),linear-gradient(160deg,#052F38,#0C5360)}
+  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(242,180,49,.28),transparent 70%),linear-gradient(160deg,#0A1740,#162B6B)}
   .mn-final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;max-width:34rem;margin:0 auto;text-wrap:balance;color:#fff}
   .mn-final p{margin:1rem auto 0;max-width:34rem;color:#C9D3E2;text-wrap:pretty}
 
