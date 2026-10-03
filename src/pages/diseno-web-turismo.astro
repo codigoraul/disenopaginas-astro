@@ -1,415 +1,373 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+
+const servicios = [{"icon": "photo", "t": "Galerías Fotográficas", "d": "Galerías impactantes que muestran la belleza de sus destinos y servicios turísticos.", "li": ["Imágenes optimizadas", "Galerías interactivas", "Carga rápida"]}, {"icon": "calendar-event", "t": "Sistema de Reservas", "d": "Sistema completo de reservas online para hoteles, cabañas y tours.", "li": ["Reservas en tiempo real", "Calendario de disponibilidad", "Pagos online"]}, {"icon": "map-2", "t": "SEO Turístico Local", "d": "Posicionamiento para aparecer cuando busquen destinos y alojamientos en su zona.", "li": ["Google My Business", "Palabras clave turísticas", "SEO geolocalizado"]}, {"icon": "star", "t": "Sistema de Reseñas", "d": "Integración con plataformas de reseñas para mostrar testimonios de huéspedes.", "li": ["TripAdvisor integrado", "Google Reviews", "Testimonios destacados"]}, {"icon": "device-mobile", "t": "Diseño Mobile-First", "d": "Optimizado para móviles, donde la mayoría busca y reserva alojamientos.", "li": ["Responsive design", "Reservas móviles", "Carga ultrarrápida"]}, {"icon": "language", "t": "Sitios Multiidioma", "d": "Páginas en español e inglés para atraer turistas nacionales e internacionales.", "li": ["Español / Inglés", "Contenido traducido", "SEO multiidioma"]}];
+const tipos = [{"icon": "bed", "t": "Hoteles", "d": "Hoteles boutique, resorts, apart hoteles"}, {"icon": "home", "t": "Cabañas", "d": "Cabañas, casas rurales, glamping"}, {"icon": "plane", "t": "Agencias de viaje", "d": "Tours, excursiones, paquetes turísticos"}, {"icon": "mountain", "t": "Turismo aventura", "d": "Deportes extremos, ecoturismo"}];
+const regiones = [{"n": "01", "t": "Norte de Chile", "d": "Atacama, Antofagasta, Arica, La Serena", "m": ["Atacama", "Arica", "La Serena"]}, {"n": "02", "t": "Centro de Chile", "d": "Santiago, Valparaíso, Viña del Mar", "m": ["Santiago", "Valparaíso", "Viña del Mar"]}, {"n": "03", "t": "Sur de Chile", "d": "Pucón, Puerto Varas, Patagonia", "m": ["Pucón", "Puerto Varas", "Patagonia"]}];
+const proyectos = [{"img": "reservaelchequen", "t": "Reserva El Chequén", "d": "Condominio de parcelas en entorno natural", "u": "reservaelchequen.cl"}, {"img": "royalsoccer", "t": "Royal Soccer", "d": "Eventos de fútbol", "u": "royalsoccer.cl"}, {"img": "banqueteria-ch", "t": "Banquetería y Eventos", "d": "Servicios de banquetería y eventos", "u": "banqueteriarv.cl"}];
+const razones = [{"icon": "photo", "t": "Diseño Visual Impactante", "d": "Sitios que enamoran desde el primer vistazo y generan deseo de viajar."}, {"icon": "calendar-event", "t": "Conversión en Reservas", "d": "Optimizados para convertir visitantes en reservas reales."}, {"icon": "edit", "t": "Web Autoadministrable", "d": "Panel simple para actualizar tarifas, fotos, promociones y disponibilidad usted mismo, sin depender de un programador."}, {"icon": "bolt", "t": "Rápida, hecha en Astro JS", "d": "Sitios livianos que cargan en menos de 1 segundo, clave para quien reserva desde el celular."}, {"icon": "language", "t": "Alcance Internacional", "d": "Sitios preparados para atraer turistas de todo el mundo."}, {"icon": "search", "t": "Análisis de Resultados", "d": "Métricas claras sobre visitantes, reservas y conversiones."}];
+const faq = [{"q": "¿Cuánto cuesta una página web para un hotel, cabaña o agencia de viajes?", "a": "Depende del alcance: un sitio con galería, tarifas y contacto parte en el rango de nuestras tarifas web, y los proyectos con reservas online, pagos o varios idiomas se cotizan a medida. Escríbenos y te enviamos una propuesta sin costo."}, {"q": "¿Pueden incluir reservas online y pagos?", "a": "Sí. Podemos integrar un sistema de reservas con calendario de disponibilidad y medios de pago, o un botón directo a WhatsApp si prefiere gestionar las reservas de forma manual."}, {"q": "¿Cómo aparezco cuando buscan alojamiento o tours en mi zona?", "a": "Combinamos un sitio rápido y bien estructurado con SEO local: ficha de Google Business Profile, páginas por servicio y textos con el destino y la zona. También ofrecemos posicionamiento web SEO si quiere destacar más."}, {"q": "¿Puedo actualizar tarifas, fotos y promociones yo mismo?", "a": "Sí. Entregamos el sitio autoadministrable: puede cambiar tarifas, fotos, textos y promociones desde un panel simple, sin depender de un programador. Si prefiere, también nos encargamos de las actualizaciones."}, {"q": "¿Se puede tener el sitio en español e inglés?", "a": "Sí. Armamos sitios multiidioma para atraer turistas nacionales e internacionales, con contenido traducido y SEO para cada idioma."}, {"q": "¿Qué tan rápido será el sitio en el celular?", "a": "Construimos los sitios con Astro JS, un framework que entrega páginas muy livianas, y los optimizamos para que carguen en menos de 1 segundo, clave para quien busca y reserva desde el móvil."}, {"q": "¿Cuánto demora el proyecto?", "a": "Un sitio turístico suele estar listo en pocas semanas, según la cantidad de secciones y de lo rápido que recibamos contenidos y fotografías. Te damos un plazo claro en la cotización."}];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const banda = ["Hoteles", "Cabañas", "Glamping", "Agencias de viaje", "Tours", "Turismo aventura", "Ecoturismo", "Hostales"];
 ---
 
-<Layout 
+<Layout
   title="Diseño Web Turismo Chile | Páginas Web Hoteles y Agencias de Viaje"
   description="Especialistas en diseño web para empresas de turismo en Chile. Páginas web para hoteles, cabañas, agencias de viaje y tours que aumentan reservas. ¡Consulta gratis!"
   keywords="diseño web turismo, páginas web hoteles, sitios web agencias viaje, diseño web cabañas Chile, marketing turismo digital"
+  navItems={[
+    { label: "Servicios", href: "#servicios" },
+    { label: "Tipos de negocio", href: "#empresas" },
+    { label: "Destinos", href: "#regiones" },
+    { label: "Proyectos", href: "#proyectos" },
+    { label: "Por qué elegirnos", href: "#por-que" },
+    { label: "Preguntas", href: "#faq" },
+    { label: "Cotizar", href: "#contacto" },
+  ]}
   breadcrumbs={[{ name: "Diseño Web Turismo", url: "https://diseñopaginas.cl/diseno-web-turismo" }]}
 >
-  <Header />
-  
-  <!-- Hero Section -->
-  <section class="hero-section bg-gradient-primary py-5" style="background-image: linear-gradient(135deg, rgba(1,28,66,0.55) 0%, rgba(47, 95, 168,0.35) 100%), url('/assets/img/heroes/diseno-web-turismo-chile.webp') !important; background-size: cover !important; background-position: center !important;">
-    <div class="container">
-      <div class="row align-items-center min-vh-75">
-        <div class="col-lg-8">
-          <div class="hero-content text-white">
-            <span class="badge bg-light text-primary mb-3 fs-6">Especialistas en Sector Turismo</span>
-            <h1 class="display-4 fw-bold mb-4">
-              Diseño Web para <span class="text-aqua">Turismo y Hotelería</span>
-            </h1>
-            <p class="lead mb-4 fs-5">
-              Creamos sitios web atractivos para hoteles, cabañas, agencias de viaje y empresas turísticas 
-              que aumentan las reservas y destacan los destinos. Más de 13 años especializados en turismo chileno.
-            </p>
-            <div class="hero-buttons">
-              <a href="/contacto" class="btn btn-light btn-lg me-3">Consulta Gratuita</a>
-              <a href="#portafolio-turismo" class="btn btn-outline-light btn-lg">Ver Trabajos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 
-  <!-- Servicios Específicos -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Servicios Web Especializados para Turismo</h2>
-          <p class="lead text-muted">Soluciones digitales diseñadas específicamente para el sector turístico</p>
-        </div>
-      </div>
+  <div class="mn">
+    <!-- HERO -->
+    <section class="mn-hero" id="inicio">
       
-      <div class="row g-4">
-        <!-- Servicio 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-camera text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Galerías Fotográficas</h4>
-            <p class="text-muted mb-3">Galerías impactantes que muestran la belleza de sus destinos y servicios turísticos.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Imágenes optimizadas</li>
-              <li><i class="ti ti-check text-success me-2"></i>Galerías interactivas</li>
-              <li><i class="ti ti-check text-success me-2"></i>Carga rápida</li>
-            </ul>
-          </div>
+      <div class="mn-wrap mn-hero__in">
+        <span class="mn-eyebrow">Especialistas en Sector Turismo</span>
+        <h1>Diseño Web para <em>Turismo y Hotelería</em></h1>
+        <p class="mn-lead">
+          Creamos sitios web atractivos para hoteles, cabañas, agencias de viaje y empresas turísticas que aumentan las reservas y destacan los destinos. Más de 13 años especializados en turismo chileno.
+        </p>
+        <div class="mn-cta">
+          <a href="#contacto" class="mn-btn mn-btn--cu">Consulta Gratuita <i class="ti ti-arrow-right"></i></a>
+          <a href="#proyectos" class="mn-btn mn-btn--ghost">Ver Trabajos</a>
         </div>
+        <ul class="mn-chips"><li><i class="ti ti-clock-check"></i> +13 años de experiencia</li><li><i class="ti ti-bolt"></i> Hecho en Astro JS · carga en menos de 1 s</li><li><i class="ti ti-edit"></i> Web autoadministrable</li></ul>
+      </div>
+    </section>
 
-        <!-- Servicio 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-calendar-check text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Sistema de Reservas</h4>
-            <p class="text-muted mb-3">Sistema completo de reservas online para hoteles, cabañas y tours.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Reservas en tiempo real</li>
-              <li><i class="ti ti-check text-success me-2"></i>Calendario disponibilidad</li>
-              <li><i class="ti ti-check text-success me-2"></i>Pagos online</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-map-pin text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">SEO Turístico Local</h4>
-            <p class="text-muted mb-3">Posicionamiento para aparecer cuando busquen destinos y alojamientos en su zona.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Google My Business</li>
-              <li><i class="ti ti-check text-success me-2"></i>Palabras clave turísticas</li>
-              <li><i class="ti ti-check text-success me-2"></i>SEO geolocalizado</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-star text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Sistema de Reseñas</h4>
-            <p class="text-muted mb-3">Integración con plataformas de reseñas para mostrar testimonios de huéspedes.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>TripAdvisor integrado</li>
-              <li><i class="ti ti-check text-success me-2"></i>Google Reviews</li>
-              <li><i class="ti ti-check text-success me-2"></i>Testimonios destacados</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-device-mobile text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Diseño Mobile-First</h4>
-            <p class="text-muted mb-3">Optimizado para móviles, donde la mayoría busca y reserva alojamientos.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Responsive design</li>
-              <li><i class="ti ti-check text-success me-2"></i>Reservas móviles</li>
-              <li><i class="ti ti-check text-success me-2"></i>Carga ultrarrápida</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Servicio 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100 p-4 bg-white shadow-sm rounded">
-            <div class="service-icon mb-3">
-              <i class="ti ti-language text-primary fs-1"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Sitios Multiidioma</h4>
-            <p class="text-muted mb-3">Páginas en español e inglés para atraer turistas nacionales e internacionales.</p>
-            <ul class="list-unstyled">
-              <li><i class="ti ti-check text-success me-2"></i>Español / Inglés</li>
-              <li><i class="ti ti-check text-success me-2"></i>Contenido traducido</li>
-              <li><i class="ti ti-check text-success me-2"></i>SEO multiidioma</li>
-            </ul>
-          </div>
-        </div>
+    <!-- CINTA -->
+    <div class="mn-band" aria-hidden="true">
+      <div class="mn-band__t">
+        {[...banda, ...banda, ...banda].map(m => <span>{m}</span>)}
       </div>
     </div>
-  </section>
 
-  <!-- Tipos de Empresas Turísticas -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Tipos de Empresas Turísticas</h2>
-          <p class="lead text-muted">Creamos sitios web para todo tipo de negocios turísticos</p>
+    <!-- SERVICIOS -->
+    <section class="mn-sec" id="servicios">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Servicios Web Especializados para Turismo</h2>
+          <p>Soluciones digitales diseñadas específicamente para el sector turístico</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {servicios.map((s, i) => (
+            <article class="mn-card">
+              <span class="mn-num">{String(i + 1).padStart(2, '0')}</span>
+              <div class="mn-ico"><i class={`ti ti-${s.icon}`}></i></div>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+              <ul>{s.li.map(x => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+            </article>
+          ))}
         </div>
       </div>
-      
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="tourism-card text-center p-4 bg-white rounded shadow-sm h-100">
-            <i class="ti ti-building text-primary fs-1 mb-3"></i>
-            <h5 class="fw-bold mb-2">Hoteles</h5>
-            <p class="text-muted mb-0">Hoteles boutique, resorts, apart hoteles</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="tourism-card text-center p-4 bg-white rounded shadow-sm h-100">
-            <i class="ti ti-home text-primary fs-1 mb-3"></i>
-            <h5 class="fw-bold mb-2">Cabañas</h5>
-            <p class="text-muted mb-0">Cabañas, casas rurales, glamping</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="tourism-card text-center p-4 bg-white rounded shadow-sm h-100">
-            <i class="ti ti-plane text-primary fs-1 mb-3"></i>
-            <h5 class="fw-bold mb-2">Agencias de Viaje</h5>
-            <p class="text-muted mb-0">Tours, excursiones, paquetes turísticos</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3">
-          <div class="tourism-card text-center p-4 bg-white rounded shadow-sm h-100">
-            <i class="ti ti-mountain text-primary fs-1 mb-3"></i>
-            <h5 class="fw-bold mb-2">Turismo Aventura</h5>
-            <p class="text-muted mb-0">Deportes extremos, ecoturismo</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Destinos Destacados -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center mb-5">
-          <h2 class="display-5 fw-bold text-navy mb-4">Destinos Turísticos de Chile</h2>
-          <p class="lead text-muted">Especializados en promocionar los mejores destinos chilenos</p>
+    <!-- TIPOS -->
+    <section class="mn-sec mn-sec--dark" id="empresas">
+      <div class="mn-wrap mn-split">
+        <div class="mn-split__txt">
+          <header class="mn-head mn-head--left">
+            <h2>Tipos de Empresas Turísticas</h2>
+            <p>Creamos sitios web para todo tipo de negocios turísticos</p>
+          </header>
+          <div class="mn-grid mn-grid--2">
+            {tipos.map(t => (
+              <div class="mn-tile">
+                <i class={`ti ti-${t.icon}`}></i>
+                <h3>{t.t}</h3>
+                <p>{t.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
+        <figure class="mn-shots"><img src="/assets/img/portafolio/reservaelchequen.webp" alt="Diseño web Reserva El Chequén condominio de parcelas" loading="lazy" width="480" height="285" /><img src="/assets/img/portafolio/royalsoccer.webp" alt="Diseño web Royal Soccer eventos de fútbol" loading="lazy" width="480" height="285" /></figure>
       </div>
-      
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="destination-card bg-white rounded shadow-sm overflow-hidden h-100">
-            <div class="destination-image">
-              <img loading="lazy" src="/assets/img/servicios/turismo-norte-chile.jpg" alt="Norte de Chile" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Norte de Chile</h5>
-              <p class="text-muted mb-0">Atacama, Antofagasta, Arica, La Serena</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="destination-card bg-white rounded shadow-sm overflow-hidden h-100">
-            <div class="destination-image">
-              <img loading="lazy" src="/assets/img/servicios/turismo-centro-chile.jpg" alt="Centro de Chile" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Centro de Chile</h5>
-              <p class="text-muted mb-0">Santiago, Valparaíso, Viña del Mar</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="destination-card bg-white rounded shadow-sm overflow-hidden h-100">
-            <div class="destination-image">
-              <img loading="lazy" src="/assets/img/servicios/turismo-sur-chile.jpg" alt="Sur de Chile" class="img-fluid">
-            </div>
-            <div class="p-4">
-              <h5 class="fw-bold mb-2">Sur de Chile</h5>
-              <p class="text-muted mb-0">Pucón, Puerto Varas, Patagonia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Por qué elegirnos -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <h2 class="display-5 fw-bold text-navy mb-4">¿Por qué elegir nuestros servicios para su empresa turística?</h2>
-          <div class="feature-list">
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-eye text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">Diseño Visual Impactante</h5>
-                <p class="text-muted mb-0">Sitios que enamoran desde el primer vistazo y generan deseo de viajar.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-credit-card text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">Conversión en Reservas</h5>
-                <p class="text-muted mb-0">Optimizados para convertir visitantes en reservas reales.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex mb-4">
-              <div class="feature-icon me-3">
-                <i class="ti ti-world text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">Alcance Internacional</h5>
-                <p class="text-muted mb-0">Sitios preparados para atraer turistas de todo el mundo.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item d-flex">
-              <div class="feature-icon me-3">
-                <i class="ti ti-chart-line text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-2">Análisis de Resultados</h5>
-                <p class="text-muted mb-0">Métricas claras sobre visitantes, reservas y conversiones.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6">
-          <div class="image-wrapper">
-            <img loading="lazy" src="/assets/img/tourism-landscape.jpg" alt="Paisaje turístico chileno" class="img-fluid rounded shadow">
-          </div>
+    <!-- COBERTURA -->
+    <section class="mn-sec" id="regiones">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Destinos Turísticos de Chile</h2>
+          <p>Especializados en promocionar los mejores destinos chilenos</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {regiones.map(r => (
+            <article class="mn-reg">
+              <span class="mn-reg__n">{r.n}</span>
+              <h3>{r.t}</h3>
+              <p>{r.d}</p>
+              <div class="mn-tags">{r.m.map(x => <span>{x}</span>)}</div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="py-5 bg-gradient-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="display-5 fw-bold mb-4">¿Listo para aumentar sus reservas con una nueva página web?</h2>
-          <p class="lead mb-4">
-            Consulta gratuita para conocer cómo podemos ayudar a su empresa turística a crecer en línea
-          </p>
-          <div class="cta-buttons">
-            <a href="/contacto" class="btn btn-light btn-lg me-3">
-              <i class="ti ti-phone me-2"></i>Consulta Gratuita
+    <!-- PROYECTOS -->
+    <section class="mn-sec mn-sec--soft" id="proyectos">
+      <span id="portafolio-turismo"></span>
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Proyectos Web que Hemos Desarrollado</h2>
+          <p>Sitios reales que hemos desarrollado para el rubro</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {proyectos.map(p => (
+            <a class="mn-proj" href={`https://${p.u}`} target="_blank" rel="noopener noreferrer">
+              <div class="mn-proj__img"><img src={`/assets/img/portafolio/${p.img}.webp`} alt={`Diseño web ${p.t}`} loading="lazy" width="480" height="285" /></div>
+              <div class="mn-proj__t"><strong>{p.t}</strong><span>{p.d}</span><em>{p.u} <i class="ti ti-arrow-up-right"></i></em></div>
             </a>
-            <a href="tel:+56961765268" class="btn btn-outline-light btn-lg">
-              <i class="ti ti-phone me-2"></i>(+56) 9 61765268
-            </a>
+          ))}
+        </div>
+        <p class="mn-more"><a href="/portafolio">Ver todo el portafolio <i class="ti ti-arrow-right"></i></a></p>
+      </div>
+    </section>
+
+    <!-- POR QUÉ -->
+    <section class="mn-sec" id="por-que">
+      <div class="mn-wrap mn-split mn-split--rev">
+        <figure class="mn-shots"><img src="/assets/img/portafolio/banqueteria-ch.webp" alt="Diseño web banquetería y eventos" loading="lazy" width="480" height="285" /></figure>
+        <div class="mn-split__txt">
+          <header class="mn-head mn-head--left">
+            <h2>¿Por qué elegir nuestros servicios para su empresa turística?</h2>
+          </header>
+          <div class="mn-list">
+            {razones.map(r => (
+              <div class="mn-li">
+                <div class="mn-ico mn-ico--sm"><i class={`ti ti-${r.icon}`}></i></div>
+                <div><h3>{r.t}</h3><p>{r.d}</p></div>
+              </div>
+            ))}
           </div>
+          <p class="mn-xlink">¿Su negocio es de gastronomía o servicios? Vea nuestro <a href="/diseno-web-pymes">diseño web para pymes</a>.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- FAQ -->
+    <section class="mn-sec mn-sec--soft" id="faq">
+      <div class="mn-wrap mn-wrap--narrow">
+        <header class="mn-head">
+          <h2>Preguntas frecuentes sobre diseño web para turismo</h2>
+        </header>
+        <div class="mn-faq">
+          {faq.map(f => (
+            <details class="mn-faq__i">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mn-final" id="contacto">
+      <div class="mn-wrap">
+        <h2>¿Listo para aumentar sus reservas con una nueva página web?</h2>
+        <p>Déjenos sus datos y le escribimos por WhatsApp para una consulta gratuita</p>
+        <form class="mn-form" id="mn-form" novalidate>
+          <label class="mn-f"><span>Negocio turístico</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de su hotel, cabaña o agencia" /></label>
+          <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@turismo.cl" /></label>
+          <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Complete nombre, teléfono y un correo válido.</p>
+        </form>
+        <div class="mn-cta mn-cta--c">
+          <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
+          <a href="tel:+56961765268" class="mn-btn mn-btn--ghost"><i class="ti ti-phone"></i> (+56) 9 61765268</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script is:inline>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
+    var map=links.map(function(a){return{a:a,el:document.querySelector(a.getAttribute('href'))}}).filter(function(x){return x.el});
+    function upd(){var y=window.scrollY+140,cur=null;map.forEach(function(x){var t=x.el.getBoundingClientRect().top+window.scrollY;if(t<=y)cur=x});links.forEach(function(a){a.classList.toggle('on',!!cur&&cur.a===a)})}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+    document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
+  })();
+</script>
+<script is:inline>
+  (function(){
+    var f=document.getElementById('mn-form');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(n){return f.elements[n].value.trim()};
+      var emp=v('empresa'),fono=v('fono'),mail=v('correo');
+      var ok=emp.length>1&&fono.replace(/\D/g,'').length>=8&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail);
+      ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
+      if(!ok){if(emp.length<2)f.elements.empresa.classList.add('bad');if(fono.replace(/\D/g,'').length<8)f.elements.fono.classList.add('bad');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
+      document.getElementById('mn-form-err').hidden=true;
+      var t='Hola, vengo de diseñopaginas.cl (página Turismo) y quiero una consulta gratuita.\nNegocio: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
+    });
+  })();
+</script>
 </Layout>
 
-<style>
-  .bg-gradient-primary {
-    background: linear-gradient(135deg, #011C42 0%, #2F5FA8 100%);
-  }
+<style is:global>
+  .mn{--ink:#0A2A3A;--ink2:#0F3A4E;--ink3:#154B63;--cu:#F0794A;--cu2:#FFB48A;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
+  .mn h1,.mn h2,.mn h3{font-family:'Sora','Outfit',sans-serif;margin:0}
+  .mn-wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+  .mn-wrap--narrow{width:min(860px,100% - 2rem)}
 
-  /* Contraste y padding del hero con imagen de fondo */
-  .hero-section .hero-content {
-    padding: 5rem 1.5rem 3rem 2rem;
-  }
 
-  .hero-section .hero-content h1 {
-    color: #ffffff !important;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  }
+  html{scroll-behavior:smooth}
+  .mn-hero,.mn-sec,.mn-final{scroll-margin-top:110px}
+  #disenopaginasNav .nav-link.on{color:#F0794A !important}
 
-  .hero-section .hero-content h1 .text-aqua {
-    color: #AEF8FF !important;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  }
+  /* FORMULARIO */
+  .mn-form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;max-width:62rem;margin:2rem auto 0;text-align:left;align-items:end}
+  .mn-f{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:#C9D3E2;font-weight:500}
+  .mn-f input{font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:.85rem 1rem;min-height:50px}
+  .mn-f input::placeholder{color:#8B98AE}
+  .mn-f input:focus{outline:2px solid #FFB48A;outline-offset:1px;background:rgba(255,255,255,.12)}
+  .mn-f input.bad{border-color:#ff7a7a}
+  .mn-form .mn-btn{min-height:50px;justify-content:center;cursor:pointer;white-space:nowrap}
+  .mn-form__err{grid-column:1/-1;margin:0 !important;color:#ffb4b4 !important;text-align:center;max-width:none !important}
+  .mn-final .mn-cta{margin-top:1.4rem}
+  @media (max-width:860px){.mn-form{grid-template-columns:1fr}}
 
-  .hero-section .hero-content p {
-    color: #f2f6fb !important;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .text-navy {
-    color: #011C42 !important;
-  }
-  
-  .text-aqua {
-    color: #AEF8FF !important;
-  }
-  
-  .min-vh-75 {
-    min-height: 75vh;
-  }
-  
-  .service-card, .tourism-card, .destination-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e9ecef;
-  }
-  
-  .service-card:hover, .tourism-card:hover, .destination-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-  }
-  
-  .destination-image {
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .destination-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .destination-card:hover .destination-image img {
-    transform: scale(1.05);
-  }
-  
-  .feature-item {
-    padding: 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .feature-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .hero-buttons .btn {
-    min-width: 180px;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-buttons .btn {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-    
-    .hero-buttons .btn:last-child {
-      margin-bottom: 0;
-    }
-  }
+  /* HERO */
+  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(10,42,58,.94) 0%,rgba(10,42,58,.78) 48%,rgba(10,42,58,.35) 100%),url('/assets/img/heroes/diseno-web-turismo-chile.webp') center/cover no-repeat;padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
+  .mn-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--cu),var(--cu2),transparent)}
+  .mn-hero__in{position:relative}
+  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(255,180,138,.45);border-radius:99px;background:rgba(240,121,74,.1);margin-bottom:1.4rem}
+  .mn-hero h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;font-weight:700;letter-spacing:-.01em;max-width:19ch;text-wrap:balance;color:#fff}
+  .mn-hero h1 em{font-style:normal;color:var(--cu2)}
+  .mn-lead{margin:1.4rem 0 0;max-width:40rem;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;color:#E6EBF3;text-wrap:pretty}
+  .mn-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+  .mn-cta--c{justify-content:center}
+  .mn-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+  .mn-btn:hover{transform:translateY(-2px)}
+  .mn-btn--cu{background:linear-gradient(135deg,var(--cu2),var(--cu));color:#2B1105;box-shadow:0 12px 26px -12px rgba(240,121,74,.7)}
+  .mn-btn--cu:hover{color:#2B1105;box-shadow:0 18px 32px -12px rgba(240,121,74,.85)}
+  .mn-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+  .mn-btn--ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+  .mn-chips{list-style:none;padding:0;margin:2.4rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .mn-chips li{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);font-size:.9rem;color:#EAF0F8}
+  .mn-chips i{color:var(--cu2);font-size:1.1rem}
+
+  /* CINTA */
+  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #134258}
+  .mn-band__t{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mn-slide 38s linear infinite}
+  .mn-band__t span{font-family:'Sora',sans-serif;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:#7C8AA3;white-space:nowrap}
+  .mn-band__t span::after{content:"◆";margin-left:3rem;color:var(--cu);font-size:.6rem;vertical-align:middle}
+  @keyframes mn-slide{to{transform:translateX(-33.333%)}}
+  @media (prefers-reduced-motion:reduce){.mn-band__t{animation:none}}
+
+  /* SECCIONES */
+  .mn-sec{padding:clamp(3.2rem,7vw,5.5rem) 0}
+  .mn-sec--soft{background:var(--soft)}
+  .mn-sec--dark{background:var(--ink2);color:#DCE3EE}
+  .mn-head{text-align:center;max-width:46rem;margin:0 auto clamp(1.8rem,4.5vw,2.8rem)}
+  .mn-head--left{text-align:left;margin-inline:0}
+  .mn-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);line-height:1.22;font-weight:700;letter-spacing:-.005em;text-wrap:balance;color:var(--tx)}
+  .mn-head p{margin:.8rem 0 0;color:var(--mut);font-size:1.05rem;text-wrap:pretty}
+  .mn-sec--dark .mn-head h2{color:#fff}
+  .mn-sec--dark .mn-head p{color:#A9B6CA}
+  .mn-grid{display:grid;gap:1.2rem}
+  .mn-grid--3{grid-template-columns:repeat(3,1fr)}
+  .mn-grid--2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:991px){.mn-grid--3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.mn-grid--3,.mn-grid--2{grid-template-columns:1fr}}
+
+  /* TARJETAS DE SERVICIO */
+  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(10,42,58,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .mn-card:hover{transform:translateY(-4px);border-color:rgba(240,121,74,.5);box-shadow:0 22px 40px -24px rgba(10,42,58,.4)}
+  .mn-num{position:absolute;top:1.3rem;right:1.4rem;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;color:#C5CCD9;letter-spacing:.08em}
+  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#FFEDE3,#FFD5BF);color:#B4501F;font-size:1.6rem;margin-bottom:1.1rem}
+  .mn-ico--sm{width:46px;height:46px;font-size:1.35rem;flex:0 0 46px;margin:0}
+  .mn-card h3{font-size:1.12rem;font-weight:700;margin-bottom:.5rem;color:var(--tx)}
+  .mn-card p{color:var(--mut);margin:0 0 1rem;line-height:1.65}
+  .mn-card ul{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+  .mn-card li{display:flex;gap:.55rem;align-items:center;font-size:.93rem;color:var(--tx)}
+  .mn-card li i{color:var(--cu);font-size:1rem}
+
+  /* SPLIT */
+  .mn-split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  .mn-split--rev{grid-template-columns:.9fr 1.1fr}
+  @media(max-width:900px){.mn-split,.mn-split--rev{grid-template-columns:1fr}.mn-photo{order:-1}}
+  .mn-photo{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
+  .mn-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  .mn-photo--tall img{aspect-ratio:1/1}
+  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,42,58,.45));pointer-events:none}
+  .mn-tile{padding:1.3rem;border-radius:16px;background:var(--ink3);border:1px solid #28344a;transition:border-color .3s,transform .3s}
+  .mn-tile:hover{border-color:var(--cu);transform:translateY(-3px)}
+  .mn-tile i{font-size:1.7rem;color:var(--cu2)}
+  .mn-tile h3{font-size:1.02rem;color:#fff;margin:.7rem 0 .25rem}
+  .mn-tile p{margin:0;color:#A9B6CA;font-size:.92rem}
+
+  /* REGIONES */
+  .mn-reg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;position:relative;overflow:hidden}
+  .mn-reg::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--cu2),var(--cu))}
+  .mn-reg__n{font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:700;color:#EEF1F6;line-height:1}
+  .mn-reg h3{font-size:1.15rem;margin:.6rem 0 .3rem;color:var(--tx)}
+  .mn-reg p{color:var(--mut);margin:0 0 1rem}
+  .mn-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#FFEDE3;color:#963F14;font-weight:600}
+
+  /* PROYECTOS */
+  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(10,42,58,.35);transition:transform .3s,box-shadow .3s}
+  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(10,42,58,.5);color:var(--tx)}
+  .mn-proj__img{aspect-ratio:480/285;background:var(--soft);overflow:hidden}
+  .mn-proj__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .mn-proj:hover img{transform:scale(1.04)}
+  .mn-proj__t{display:grid;gap:.15rem;padding:1.1rem 1.3rem 1.3rem}
+  .mn-proj__t strong{font-family:'Sora',sans-serif;font-size:1.02rem}
+  .mn-proj__t span{color:var(--mut);font-size:.92rem}
+  .mn-proj__t em{font-style:normal;color:var(--bl);font-weight:600;font-size:.9rem;margin-top:.35rem}
+  .mn-more{text-align:center;margin:1.8rem 0 0}
+  .mn-more a{font-weight:600;color:var(--tx);text-decoration:none;border-bottom:2px solid var(--cu);padding-bottom:2px}
+
+  /* POR QUÉ */
+  .mn-list{display:grid;gap:1rem}
+  .mn-li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .3s}
+  .mn-li:hover{border-color:rgba(240,121,74,.5)}
+  .mn-li h3{font-size:1.02rem;margin-bottom:.2rem}
+  .mn-li p{margin:0;color:var(--mut)}
+
+  /* FAQ */
+  .mn-faq{display:grid;gap:.8rem}
+  .mn-faq__i{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 1.4rem}
+  .mn-faq__i summary{cursor:pointer;list-style:none;padding:1.1rem 0;font-weight:600;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .mn-faq__i summary::-webkit-details-marker{display:none}
+  .mn-faq__i summary::after{content:"+";font-size:1.5rem;color:var(--cu);transition:transform .2s;line-height:1}
+  .mn-faq__i[open] summary::after{transform:rotate(45deg)}
+  .mn-faq__i p{margin:0;padding:0 0 1.2rem;color:var(--mut);line-height:1.7}
+
+  /* CTA */
+  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(240,121,74,.28),transparent 70%),linear-gradient(160deg,#0A2A3A,#154B63)}
+  .mn-final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;max-width:34rem;margin:0 auto;text-wrap:balance;color:#fff}
+  .mn-final p{margin:1rem auto 0;max-width:34rem;color:#C9D3E2;text-wrap:pretty}
+
+  /* CAPTURAS */
+  .mn-shots{margin:0;display:grid;gap:1rem;align-content:center}
+  .mn-shots img{width:100%;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 50px -24px rgba(0,0,0,.55);background:#fff;display:block}
+  .mn-shots img:nth-child(odd){transform:translateX(-4%) rotate(-1.2deg)}
+  .mn-shots img:nth-child(even){transform:translateX(4%) rotate(1.2deg)}
+  .mn-sec:not(.mn-sec--dark) .mn-shots img{border-color:#E3E7EE;box-shadow:0 24px 50px -28px rgba(11,17,27,.45)}
+  @media (max-width:860px){.mn-shots img:nth-child(odd),.mn-shots img:nth-child(even){transform:none}}
+  .mn-xlink{margin:1.6rem 0 0;font-size:.98rem}
+  .mn-xlink a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>
