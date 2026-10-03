@@ -43,7 +43,7 @@
                       <div class="d-flex gap-4 flex-wrap align-items-center justify-content-between">
                          <!-- Testimonials Nav -->
                          <div class="testimonials-nav-link">
-                            <img loading="lazy" src="assets/img/testimonios/gerardo.png" alt="Gerardo Ojeda">
+                            <img loading="lazy" src="/assets/img/testimonios/gerardo.png" alt="Gerardo Ojeda">
                             <div>
                                <h4 class="mb-1">Gerardo Ojeda</h4>
                                <p class="mb-0">Cliente Satisfecho</p>
@@ -74,7 +74,7 @@
                       <div class="d-flex gap-4 flex-wrap align-items-center justify-content-between">
                          <!-- Testimonials Nav -->
                          <div class="testimonials-nav-link">
-                            <img loading="lazy" src="assets/img/testimonios/arqueocat.png" alt="Arqueocat">
+                            <img loading="lazy" src="/assets/img/testimonios/arqueocat.png" alt="Arqueocat">
                             <div>
                                <h4 class="mb-1">Arqueocat</h4>
                                <p class="mb-0">Arqueóloga</p>
@@ -105,7 +105,7 @@
                       <div class="d-flex gap-4 flex-wrap align-items-center justify-content-between">
                          <!-- Testimonials Nav -->
                          <div class="testimonials-nav-link">
-                            <img loading="lazy" src="assets/img/testimonios/lorena.png" alt="Lorena Gacitua">
+                            <img loading="lazy" src="/assets/img/testimonios/lorena.png" alt="Lorena Gacitua">
                             <div>
                                <h4 class="mb-1">Lorena Gacitua</h4>
                                <p class="mb-0">Psicóloga</p>
@@ -129,7 +129,7 @@
                 <!-- Testimonials Nav Link -->
                 <div class="testimonials-nav-link" id="testimonial-tab-one" data-bs-toggle="pill"
                    data-bs-target="#testimonial-one" role="tab" aria-controls="testimonial-one" aria-selected="true">
-                   <img loading="lazy" src="assets/img/testimonios/gerardo.png" alt="Gerardo Ojeda">
+                   <img loading="lazy" src="/assets/img/testimonios/gerardo.png" alt="Gerardo Ojeda">
                    <div>
                       <h4 class="mb-1">Gerardo Ojeda</h4>
                       <p class="mb-0">Cliente Satisfecho</p>
@@ -139,7 +139,7 @@
                 <!-- Testimonials Nav Link -->
                 <div class="testimonials-nav-link active" id="testimonial-tab-two" data-bs-toggle="pill"
                    data-bs-target="#testimonial-two" role="tab" aria-controls="testimonial-two" aria-selected="false">
-                   <img loading="lazy" src="assets/img/testimonios/arqueocat.png" alt="Arqueocat">
+                   <img loading="lazy" src="/assets/img/testimonios/arqueocat.png" alt="Arqueocat">
                    <div>
                       <h4 class="mb-1">Arqueocat</h4>
                       <p class="mb-0">Empresa Cliente</p>
@@ -150,7 +150,7 @@
                 <div class="testimonials-nav-link" id="testimonial-tab-three" data-bs-toggle="pill"
                    data-bs-target="#testimonial-three" role="tab" aria-controls="testimonial-three"
                    aria-selected="false">
-                   <img loading="lazy" src="assets/img/testimonios/lorena.png" alt="Lorena Gacitua">
+                   <img loading="lazy" src="/assets/img/testimonios/lorena.png" alt="Lorena Gacitua">
                    <div>
                       <h4 class="mb-1">Lorena Gacitua</h4>
                       <p class="mb-0">Cliente Satisfecha</p>
@@ -166,45 +166,62 @@
  </section>
 
 <style>
-   /* Sobrescribir el color de fondo de la sección de testimonios */
+   /* Fondo suave, igual al de Servicios */
    .testimonial-section.bg-secondary {
-     background-color: #EEEEF0 !important;
+     background-color: #f4f6fa !important;
    }
-   
-   /* Reducir tamaño de fuente del testimonio en 2px */
+
+   /* Tarjeta del testimonio */
+   .testimonial-card.style-two {
+     background: #ffffff;
+     border: 1px solid #e9ecf2;
+     border-radius: 18px !important;
+     box-shadow: 0 18px 40px -24px rgba(30, 37, 54, .22);
+   }
    .testimonial-text {
-     font-size: 1.125rem !important; /* Aproximadamente 18px en lugar de 20px */
+     font-size: 1.0625rem !important;
+     line-height: 1.75 !important;
+     color: #1E2536 !important;
    }
+   .testimonial-card :global(.quote-icon) { color: #d6e1f3; }
 
-   /* Reducir en un 8% el tamaño de las imágenes de perfil */
-   .testimonials-nav-link img {
-     width: 92% !important; /* Reducir de 100% a 92% (8% menos) */
-     height: 92% !important;
-   }
-
-   /* Aumentar el tamaño de fuente de los nombres en los testimonios en 2px */
-   .testimonials-nav-link h4 {
-     font-size: 1.25rem !important; /* Aproximadamente 20px, notablemente más grande */
-   }
-
-   /* Reducir en un 8% el tamaño de los subtítulos de los testimonios */
-   .testimonials-nav-link p {
-     font-size: 92% !important; /* Reducir de 100% a 92% (8% menos) */
-   }
-
-   /* Agregar padding y centrado a las tarjetas de navegación (tabs) */
+   /* Selector de clientes */
    .testimonials-nav-link {
-     padding: 14px !important;
+     padding: 14px 18px !important;
      align-items: center !important;
+     gap: 16px;
+     background: #ffffff !important;
+     border: 1px solid #e3e7ef !important;
+     border-radius: 14px !important;
+     cursor: pointer;
+     transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
    }
-
-   /* Cambiar fondo de las tarjetas de navegación de testimonios */
-   .testimonials-nav-link.active {
-     background: linear-gradient(135deg, #011C42 0%, #2DB4F0 100%) !important;
+   .testimonials-nav-link img {
+     flex: 0 0 80px;
+     aspect-ratio: 1 / 1;
+     border-radius: 50%;
+     object-fit: cover;
+     background: #fff;
+     border: 1px solid #e3e7ef;
    }
-
-   /* Color de fondo hover para las tarjetas de navegación */
+   .testimonials-nav-link h4 {
+     font-size: 1.125rem !important;
+     color: #1E2536 !important;
+   }
+   .testimonials-nav-link p {
+     font-size: 0.875rem !important;
+     color: #5b6478 !important;
+   }
    .testimonials-nav-link:hover {
-     background-color: #9abdf6 !important;
+     border-color: #2F5FA8 !important;
+     background: #f7f9fd !important;
    }
+   .testimonials-nav-link.active {
+     background: #2F5FA8 !important;
+     border-color: #2F5FA8 !important;
+     box-shadow: 0 12px 28px -14px rgba(47, 95, 168, .6);
+   }
+   .testimonials-nav-link.active h4 { color: #ffffff !important; }
+   .testimonials-nav-link.active p { color: #dbe5f7 !important; }
+   .testimonials-nav-link.active img { border-color: rgba(255, 255, 255, .6); }
 </style>

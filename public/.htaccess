@@ -97,6 +97,7 @@ Redirect 301 /paginas-rapidas.php /servicios/paginas-rapida-astro
 Redirect 301 /web-tienda-online.php /productos-online/
 RedirectMatch 301 ^/tienda-online/?$ /productos-online/
 RedirectMatch 301 ^/blog-wp/?$ /blog
+RedirectMatch 301 ^/diseno-web-pymes/?$ /
 RedirectMatch 301 ^/blog-wp/(.+)$ /blog/$1
 Redirect 301 /diseno-web-abogados.php /diseno-web-abogados
 Redirect 301 /abogados.php /diseno-web-abogados
