@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { getPosts } from '../lib/wordpress.js';
+import { getAstroPosts } from '../lib/articulos-astro.js';
 
 // Todo el blog se sirve desde WordPress headless.
 // Si la API falla, se corta el build a proposito: al no generarse un deploy,
 // el sitio que ya esta publicado sigue intacto en el servidor. Eso protege
 // mejor que mostrar un listado incompleto.
-const wpPosts: any[] = await getPosts();
+const wpPosts: any[] = [...getAstroPosts(), ...(await getPosts())];
 
 const posts = wpPosts.map((post: any) => ({
    title: post.title,

@@ -8,7 +8,9 @@ export async function getStaticPaths() {
 
    // Unica fuente de los articulos. Si la API falla, el error sube y corta
    // el build, dejando intacto el sitio ya publicado en el servidor.
-   const posts: any[] = await getPosts();
+   const wpPosts: any[] = await getPosts();
+   const { getAstroPosts } = await import('../../lib/articulos-astro.js');
+   const posts: any[] = [...getAstroPosts(), ...wpPosts];
 
    return posts.map((post: any) => ({
       params: { slug: post.slug },
