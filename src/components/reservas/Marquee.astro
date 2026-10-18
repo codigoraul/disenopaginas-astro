@@ -1,0 +1,9 @@
+---
+import { city } from '../../data/reservas-online';
+const fila = [...city.marquee, ...city.marquee];
+---
+<div class="mq" aria-label="Qué incluye el sistema de reservas">
+  <div class="mq__row" aria-hidden="true">
+    {fila.map(t => <span>{t}</span>)}
+  </div>
+</div>

@@ -1,0 +1,28 @@
+---
+import { I } from './icons';
+import { proyectos } from '../../data/reservas-proyectos';
+---
+<section class="sec sec--cream" id="portafolio">
+  <div class="wrap">
+    <div class="head head--split rv">
+      <h2>Nuestro portafolio de proyectos web</h2>
+      <div>
+        <p>Trabajamos con empresas de diversos sectores, así como con emprendedores que buscan destacar en el mercado digital chileno. Sea cual sea el tamaño de tu proyecto, estamos aquí para llevar tu presencia en línea al siguiente nivel. ¡Contáctanos para una cotización personalizada!</p>
+        <div class="arrows" style="margin-top:1.4rem">
+          <button type="button" id="prev" aria-label="Proyecto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I.left} /></button>
+          <button type="button" id="next" aria-label="Proyecto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I.arrow} /></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="track-wrap">
+    <div class="slides" id="slides" tabindex="0" aria-label="Proyectos realizados">
+      {proyectos.map(p => (
+        <a class="slide" href={`https://${p.u}`} target="_blank" rel="noopener noreferrer">
+          <div class="slide__img"><img src={`/assets/img/reservas-online/astro/${p.img}.webp`} alt={`Diseño web ${p.n}`} width="480" height="285" loading="lazy" decoding="async" /></div>
+          <div class="slide__t"><strong>{p.n}</strong><span>{p.d}</span><em>{p.u}</em></div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

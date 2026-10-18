@@ -1,0 +1,46 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+const facts = ['clock', 'bell', 'check', 'cms'];
+const dias = [['Lun', 19], ['Mar', 20], ['Mié', 21], ['Jue', 22], ['Vie', 23], ['Sáb', 24]];
+const horas = ['09:00', '10:30', '12:00', '15:00', '16:30', '18:00'];
+---
+<section class="hero" id="inicio">
+  <div class="hero__bgw" aria-hidden="true"><img src="/assets/img/reservas-online/hero-bg.webp" alt="" width="1400" height="875" fetchpriority="high" decoding="async" /></div>
+  <div class="wrap hero__grid">
+    <div>
+      {city.eyebrow && <p class="eyebrow hero__in" style="--d:0">{city.eyebrow}</p>}
+      <h1 class="hero__in" style="--d:0">{city.h1}</h1>
+      <p class="hero__txt hero__in" style="--d:1">{city.heroText}</p>
+      <div class="hero__cta hero__in" style="--d:2">
+        <a href="#contacto" class="btn btn--main">Solicitar demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.arrow} />
+        </a>
+        <a href="#precio" class="btn">Ver planes</a>
+      </div>
+      <ul class="facts hero__in" style="--d:3">
+        {city.heroFacts.map((f, i) => (
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I[facts[i]]} />{f}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="stage bk-stage hero__in" style="--d:2" aria-hidden="true">
+      <div class="bk">
+        <div class="bk__top"><strong>Reserva tu hora</strong><span>Octubre 2026</span></div>
+        <div class="bk__days">
+          {dias.map((d, i) => <div class={`bk__d ${i === 2 ? 'on' : ''}`}><small>{d[0]}</small><b>{d[1]}</b></div>)}
+        </div>
+        <p class="bk__lbl">Horarios disponibles</p>
+        <div class="bk__hrs">
+          {horas.map((h, i) => <span class={i === 1 ? 'on' : i === 3 ? 'off' : ''}>{h}</span>)}
+        </div>
+        <div class="bk__btn">Confirmar reserva</div>
+      </div>
+      <div class="bk__toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" set:html={I.check} />
+        <span><b>Reserva confirmada</b>Recordatorio enviado por SMS</span>
+      </div>
+      <div class="bk__pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I.clock} />Abierto 24/7</div>
+    </div>
+  </div>
+</section>

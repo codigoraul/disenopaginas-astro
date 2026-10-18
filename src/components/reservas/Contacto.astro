@@ -1,0 +1,36 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+---
+<section class="sec contact" id="contacto">
+  <div class="wrap contact__grid">
+    <div class="rv">
+      <h2>{city.contact.title}</h2>
+      {city.contact.text && <p class="lead2">{city.contact.text}</p>}
+      <div class="info">
+        <a href="mailto:codigoraul@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.mail} />codigoraul@gmail.com</a>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.pin} />{city.place}</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.clock} />{city.contact.hours}</div>
+      </div>
+    </div>
+    <form id="contactForm" class="form rv" method="POST" style="--i:2" novalidate>
+      <div class="two">
+        <label>Nombre<input type="text" name="nombre" autocomplete="name" required /></label>
+        <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+      </div>
+      <div class="two">
+        <label>Teléfono<input type="tel" name="fono" autocomplete="tel" required /></label>
+        <label>Plan o consulta
+          <select name="presupuesto" id="plan-select" required>
+            <option value="">Selecciona una opción</option>
+            {city.planOptions.map(o => <option value={o.value}>{o.label}</option>)}
+          </select>
+        </label>
+      </div>
+      <label>Mensaje<textarea name="mensaje" required></textarea></label>
+      <div id="recaptcha-container"></div>
+      <button type="submit" class="btn btn--block">Enviar mensaje</button>
+      <p class="msg" id="formMessage" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

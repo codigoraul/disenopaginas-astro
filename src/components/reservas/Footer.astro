@@ -1,0 +1,60 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+const todas = [
+  ['Páginas web Antofagasta', 'https://diseñopaginas.cl/antofagasta'],
+  ['Páginas web La Serena', 'https://diseñopaginas.cl/la-serena'],
+  ['Páginas web Santiago', 'https://diseñopaginas.cl/santiago'],
+  ['Páginas web Concepción', 'https://diseñopaginas.cl/concepcion'],
+  ['Páginas web Temuco', 'https://diseñopaginas.cl/web-temuco/'],
+  ['Páginas web Valdivia', 'https://diseñopaginas.cl/valdivia/'],
+  ['Páginas web Osorno', 'https://diseñopaginas.cl/osorno/'],
+  ['Páginas web Puerto Montt', 'https://diseñopaginas.cl/puerto-montt/'],
+  ['Páginas web Arica', 'https://diseñopaginas.cl/arica/'],
+];
+const ciudades = todas.filter(c => !c[0].includes(city.name));
+const servicios = [
+  ['Web Dentistas', 'https://diseñopaginas.cl/diseno-web-clinicas-dentales/'],
+  ['Logos e identidad visual', 'https://diseñopaginas.cl/servicios/diseno-logotipos/'],
+  ['Tiendas Online', 'https://diseñopaginas.cl/productos-online'],
+  ['Empresas Minería', 'https://diseñopaginas.cl/diseno-web-empresas-mineria/'],
+  ['Webs Abogados', 'https://diseñopaginas.cl/diseno-web-abogados/'],
+  ['Corredoras propiedades', 'https://diseñopaginas.cl/diseno-web-corredor-propiedades/'],
+];
+const redes = [
+  ['Facebook', 'https://web.facebook.com/PaginasChile', 'fb'],
+  ['Instagram', 'https://www.instagram.com/disenopaginas/', 'ig'],
+  ['LinkedIn', 'https://www.linkedin.com/in/raul-riquelme-69a16859/', 'in'],
+  ['X', 'https://x.com/raulriquelme2', 'x'],
+  ['Pinterest', 'https://pinterest.com/raulriquelme/', 'pin2'],
+];
+---
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__grid">
+      <div>
+        <img src="/assets/img/reservas-online/logo/disenopaginas-real.svg" alt="diseñopaginas.cl" width="145" height="52" loading="lazy" />
+        <p>Diseño y desarrollo de páginas web que transforman la presencia digital de empresas y emprendedores. Soluciones personalizadas y funcionales, con foco en calidad, usabilidad y estética. Diseñando páginas web desde 2012.</p>
+        <p><a href="mailto:codigoraul@gmail.com">codigoraul@gmail.com</a><br /><a href="tel:+56961765268">+56 9 6176 5268</a></p>
+        <div class="ft__social">
+          {redes.map(r => (
+            <a href={r[1]} target="_blank" rel="noopener noreferrer" aria-label={r[0]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I[r[2]]} />
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="ft__cols">
+        <div>
+          <h4>Servicios</h4>
+          <ul>{servicios.map(s => <li><a href={s[1]}>{s[0]}</a></li>)}</ul>
+        </div>
+        <div>
+          <h4>Otras ciudades</h4>
+          <ul>{ciudades.map(s => <li><a href={s[1]}>{s[0]}</a></li>)}</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft__bar"><div class="wrap">© <span id="year">2026</span> <a href="https://diseñopaginas.cl">diseñopaginas.cl</a></div></div>
+</footer>

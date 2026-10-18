@@ -1,0 +1,23 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+---
+<section class="sec sec--tint" id="servicios">
+  <div class="wrap">
+    <div class="head rv"><h2>{city.servicesTitle}</h2></div>
+    <div class="bento">
+      {city.services.map((s, i) => (
+        <article class="card rv" style={`--i:${i % 3}`}>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I[s.icon]} /></div>
+          <div class="card__b">
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            <a href="#contacto">Solicitar demo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.arrow} />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

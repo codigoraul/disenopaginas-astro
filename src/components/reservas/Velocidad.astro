@@ -1,0 +1,28 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+---
+<section class="sec" id="tecnologia">
+  <div class="wrap">
+  <div class="panel speed">
+    <div class="rv">
+      <h2>{city.tech.title}</h2>
+      <p class="lead">{city.tech.text}</p>
+      <ul class="chips">
+        {city.tech.items.map(p => (
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I[p.icon]} /><span><b>{p.title}</b><small>{p.text}</small></span></li>
+        ))}
+      </ul>
+    </div>
+    <div class="race rv" style="--i:2">
+      <h3>{city.how.title}</h3>
+      <ol class="steps">
+        {city.how.steps.map((s, i) => (
+          <li><span class="steps__n">{i + 1}</span><div><b>{s.t}</b><p>{s.d}</p></div></li>
+        ))}
+      </ol>
+      <a class="btn btn--ghost" href="#contacto">Quiero verlo funcionando</a>
+    </div>
+  </div>
+  </div>
+</section>

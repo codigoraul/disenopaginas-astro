@@ -1,0 +1,39 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+const links = [
+  { href: '#nosotros', t: 'Nosotros' },
+  { href: '#servicios', t: 'Para quién' },
+  { href: '#portafolio', t: 'Portafolio' },
+  { href: '#precio', t: 'Precios' },
+  { href: '#contacto', t: 'Contacto' },
+];
+const ic = (k) => I[k];
+---
+<div class="top">
+  <div class="wrap">
+    <div class="top__l">
+      <a href="mailto:codigoraul@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ic('mail')} />codigoraul@gmail.com</a>
+      <span class="top__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ic('pin')} />{city.place}</span>
+    </div>
+    <a href="tel:+56961765268"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ic('phone')} />+56 9 6176 5268</a>
+  </div>
+</div>
+<header class="hd" id="hd">
+  <div class="wrap hd__in">
+    <a class="hd__logo" href="https://diseñopaginas.cl" aria-label="diseñopaginas.cl, inicio">
+      <img src="/assets/img/reservas-online/logo/disenopaginas-real.svg" alt="diseñopaginas.cl" width="170" height="62" />
+    </a>
+    <nav class="hd__nav" aria-label="Principal">
+      {links.map(l => <a href={l.href}>{l.t}</a>)}
+    </nav>
+    <div class="hd__right">
+      <a class="btn btn--main hd__cta" href="#contacto">Solicitar demo</a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sheet"><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="sheet" id="sheet" aria-label="Menú móvil">
+  {links.map(l => <a href={l.href}>{l.t}</a>)}
+  <a class="btn btn--main" href="#contacto">Solicitar demo</a>
+</nav>

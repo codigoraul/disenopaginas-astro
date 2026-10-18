@@ -1,0 +1,196 @@
+---
+import '../styles/reservas-online.css';
+import { city } from '../data/reservas-online';
+import Testimonios from '../components/reservas/Testimonios.astro';
+import Header from '../components/reservas/Header.astro';
+import Hero from '../components/reservas/Hero.astro';
+import Marquee from '../components/reservas/Marquee.astro';
+import Nosotros from '../components/reservas/Nosotros.astro';
+import Servicios from '../components/reservas/Servicios.astro';
+import Velocidad from '../components/reservas/Velocidad.astro';
+import Portafolio from '../components/reservas/Portafolio.astro';
+import Experiencia from '../components/reservas/Experiencia.astro';
+import Precios from '../components/reservas/Precios.astro';
+import Contacto from '../components/reservas/Contacto.astro';
+import Footer from '../components/reservas/Footer.astro';
+import WhatsApp from '../components/reservas/WhatsApp.astro';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{city.title}</title>
+  <meta name="description" content={city.description} />
+  <link rel="canonical" href={`https://diseñopaginas.cl/${city.slug}/`} />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:site_name" content="diseñopaginas.cl" />
+  <meta property="og:url" content={`https://diseñopaginas.cl/${city.slug}/`} />
+  <meta property="og:title" content={city.title} />
+  <meta property="og:image" content={`${city.site}${city.ogImage}`} />
+  <meta name="twitter:image" content={`${city.site}${city.ogImage}`} />
+  <meta property="og:description" content={city.description} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={city.title} />
+  <meta name="twitter:description" content={city.description} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Service',
+    name: 'Sistema de Reservas Online', serviceType: 'Sistema de reservas y agenda de citas online',
+    description: city.schemaDescription,
+    url: `https://diseñopaginas.cl/${city.slug}/`,
+    areaServed: { '@type': 'Country', name: 'Chile' },
+    provider: { '@type': 'LocalBusiness', name: 'diseñopaginas.cl', url: 'https://diseñopaginas.cl/', telephone: '+56961765268', email: 'codigoraul@gmail.com', openingHours: city.hoursShort, address: { '@type': 'PostalAddress', addressLocality: 'Padre Las Casas', addressRegion: 'La Araucanía', addressCountry: 'CL' } },
+  })} />
+  <meta name="p:domain_verify" content="202a15564602cb7871e576394e4296b8" />
+  <meta name="theme-color" content="#F6F8FC" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script is:inline>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <Header />
+  <main>
+    <Hero />
+    <Marquee />
+    <Nosotros />
+    <Servicios />
+    <Velocidad />
+    <Portafolio />
+    <Experiencia />
+    <Testimonios />
+    <Precios />
+    <Contacto />
+  </main>
+  <Footer />
+  <WhatsApp />
+
+  <script>
+    const $ = (s: string, r: ParentNode = document) => r.querySelector(s) as HTMLElement | null;
+    const $$ = (s: string, r: ParentNode = document) => Array.from(r.querySelectorAll(s)) as HTMLElement[];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Header: fondo al hacer scroll + menú móvil
+    const hd = $('#hd'), burger = $('#burger'), sheet = $('#sheet');
+    const onScroll = () => hd?.classList.toggle('solid', scrollY > 30);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    const closeSheet = () => { sheet?.classList.remove('open'); burger?.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    burger?.addEventListener('click', () => {
+      const open = sheet?.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(!!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    $$('a', sheet!).forEach(a => a.addEventListener('click', closeSheet));
+    addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+    // Hero: los proyectos rotan en la pila de maquetas
+    const frs = $$('#stage .fr'), dots = $$('#dots i'), bd = $('#bd-name');
+    if (frs.length > 1) {
+      let k = 0; const n = frs.length;
+      const paint = () => {
+        frs.forEach((f, i) => f.dataset.p = String((i - k + n) % n));
+        dots.forEach((d, i) => d.classList.toggle('on', i === k));
+        if (bd) bd.textContent = frs[k].dataset.name || '';
+      };
+      if (!reduce) setInterval(() => { k = (k + 1) % n; paint(); }, 3800);
+      dots.forEach((d, i) => d.addEventListener('click', () => { k = i; paint(); }));
+    }
+
+    // Revelado al entrar en pantalla
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in'); io.unobserve(e.target);
+    }), { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+    $$('.rv, #race').forEach(el => io.observe(el));
+
+    // Contadores
+    $$('[data-count]').forEach(el => {
+      if (reduce) return;
+      const to = Number(el.dataset.count), suf = el.dataset.suffix || '';
+      el.textContent = '0' + suf;
+      const co = new IntersectionObserver(es => {
+        if (!es[0].isIntersecting) return; co.disconnect();
+        const t0 = performance.now();
+        const step = (t: number) => { const p = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(step); };
+        requestAnimationFrame(step);
+      }, { threshold: .6 });
+      co.observe(el);
+    });
+
+    // Brillo que sigue al cursor en tarjetas
+    $$('.card').forEach(c => c.addEventListener('pointermove', (e: PointerEvent) => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
+    }));
+
+    // Carrusel del portafolio
+    const slides = $('#slides');
+    const move = (d: number) => slides?.scrollBy({ left: d * Math.min(slides.clientWidth * .8, 400), behavior: reduce ? 'auto' : 'smooth' });
+    $('#prev')?.addEventListener('click', () => move(-1));
+    $('#next')?.addEventListener('click', () => move(1));
+
+    // Elegir plan -> rellena el formulario
+    $$('[data-plan]').forEach(b => b.addEventListener('click', () => {
+      const sel = $('#plan-select') as HTMLSelectElement | null; if (sel) sel.value = b.dataset.plan || '';
+    }));
+    const yr = $('#year'); if (yr) yr.textContent = String(new Date().getFullYear());
+
+    // Formulario + reCAPTCHA (se carga al interactuar)
+    const SITE_KEY = '6Lc1VBsTAAAAAJ94jzAhw1B3-Cgi3G6TRnoeejLF';
+    const form = $('#contactForm') as HTMLFormElement | null, msg = $('#formMessage');
+    let rcLoaded = false, widget: number | null = null;
+    const say = (ok: boolean, t: string) => { if (!msg) return; msg.textContent = t; msg.className = 'msg ' + (ok ? 'ok' : 'err'); };
+    const loadRc = () => {
+      if (rcLoaded) return; rcLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://www.google.com/recaptcha/api.js?render=explicit'; s.async = true; s.defer = true;
+      s.onload = () => (window as any).grecaptcha.ready(() => {
+        try { widget = (window as any).grecaptcha.render('recaptcha-container', { sitekey: SITE_KEY }); }
+        catch { say(false, 'No se pudo cargar la verificación. Recarga la página.'); }
+      });
+      s.onerror = () => say(false, 'No se pudo cargar la verificación. Recarga la página.');
+      document.head.appendChild(s);
+    };
+    form?.querySelectorAll('input,select,textarea').forEach(i => i.addEventListener('focus', loadRc, { once: true }));
+    form?.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const token = (window as any).grecaptcha?.getResponse(widget);
+      if (!token) { say(false, 'Marca la verificación "No soy un robot" antes de enviar.'); return; }
+      const fd = new FormData(form); fd.append('g-recaptcha-response', token);
+      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement; btn.disabled = true;
+      try {
+        const res = await fetch('/procesar-formulario.php', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.success) { say(true, '¡Mensaje enviado! Te respondemos a la brevedad.'); form.reset(); (window as any).grecaptcha?.reset(widget); }
+        else say(false, data.error || 'No se pudo enviar el mensaje. Inténtalo nuevamente.');
+      } catch { say(false, 'No se pudo enviar el mensaje. Inténtalo nuevamente.'); }
+      btn.disabled = false;
+    });
+  </script>
+<!-- JivoSite (chat en vivo): carga al primer gesto del usuario o a los 8 s -->
+<script is:inline>
+(function(){var done=false;function l(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='//code.jivosite.com/widget/PgpmFYkQWG';document.body.appendChild(s);}
+['scroll','mousemove','touchstart','keydown','click'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,8000);})();
+</script>
+<div class="ytm" id="ytm" hidden role="dialog" aria-modal="true" aria-label="Video"><button class="ytm__x" type="button" aria-label="Cerrar video">&times;</button><div class="ytm__box"></div></div>
+<script is:inline>
+(function(){var m=document.getElementById('ytm');if(!m)return;var box=m.querySelector('.ytm__box');
+function close(){m.hidden=true;box.innerHTML='';document.body.style.overflow='';}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-yt]');if(a){e.preventDefault();box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&rel=0" title="Video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';m.hidden=false;document.body.style.overflow='hidden';return;}
+if(e.target===m||e.target.closest('.ytm__x'))close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)close();});})();
+</script>
+<script is:inline>
+(function(){var s=document.getElementById('slides');if(!s)return;var down=false,sx=0,sl=0,moved=false,id=null;
+s.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;sx=e.clientX;sl=s.scrollLeft;});
+window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>5&&!moved){moved=true;s.classList.add('drag');}if(moved){s.scrollLeft=sl-dx;}});
+window.addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){setTimeout(function(){s.classList.remove('drag');},0);}});
+s.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+s.addEventListener('dragstart',function(e){e.preventDefault();});})();
+</script>
+</body>
+</html>

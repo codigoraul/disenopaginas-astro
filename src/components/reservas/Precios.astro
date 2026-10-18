@@ -1,0 +1,27 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+const chk = I.check;
+---
+<section class="sec sec--tint" id="precio">
+  <div class="wrap">
+    <h2 class="head2 rv">{city.pricing.title}</h2>
+    <div class="plans">
+      {city.pricing.plans.map((pl, i) => (
+        <article class={`plan rv ${pl.featured ? 'plan--top' : ''}`} style={`--i:${i}`}>
+          {pl.tag && <span class="flag">{pl.tag}</span>}
+          <h3>{pl.name} <em class="sub">· {pl.sub}</em></h3>
+          <div class="price">{pl.prefix && <small>{pl.prefix}</small>}{pl.price}{pl.per && <small class="per">{pl.per}</small>}</div>
+          <p class="once">{pl.once}<br /><strong>{pl.then}</strong></p>
+          <ul>
+            {pl.features.map(x => (
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={chk} />{x}</li>
+            ))}
+          </ul>
+          <a href="#contacto" class={`btn btn--block ${pl.featured ? 'btn--main' : 'btn--dark'}`} data-plan={pl.name}>Elegir este plan</a>
+        </article>
+      ))}
+    </div>
+    {city.pricing.intro && <p class="pay rv">{city.pricing.intro}</p>}
+  </div>
+</section>

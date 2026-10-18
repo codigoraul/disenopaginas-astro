@@ -1,0 +1,20 @@
+---
+import { city } from '../../data/reservas-online';
+---
+<section class="sec" id="experiencia">
+  <div class="wrap exp">
+    <div class="n rv">
+      <strong data-count="14" data-suffix="+">14+</strong>
+      <span>años creando soluciones web para profesionales y pymes</span>
+      <img src="/assets/img/reservas-online/hero-bg.webp" alt="Sistema de reservas online de diseñopaginas.cl" width="1400" height="875" loading="lazy" decoding="async" />
+    </div>
+    <div class="col">
+      {city.landing.blocks.map((x, i) => (
+        <article class="rv" style={`--i:${i}`}>
+          <h3>{x.title}</h3>
+          <p>{x.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

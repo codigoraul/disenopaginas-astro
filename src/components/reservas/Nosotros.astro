@@ -1,0 +1,42 @@
+---
+import { I } from './icons';
+import { city } from '../../data/reservas-online';
+const puntos = city.about.points;
+const textos = city.about.text;
+const citas = [
+  ['09:00', 'María P.', 'Consulta general', 'Confirmada', 'ok'],
+  ['10:30', 'Javier R.', 'Control', 'Pagada', 'pay'],
+  ['12:00', 'Camila S.', 'Primera evaluación', 'Pendiente', 'wait'],
+  ['15:30', 'Horario disponible', 'Reservable online', '', 'free'],
+];
+---
+<section class="sec" id="nosotros">
+  <div class="wrap about">
+    <div class="rv">
+      <h2>{city.about.title}</h2>
+      {textos.map(t => <p>{t}</p>)}
+      <div class="stats">
+        <div class="stat"><strong>{city.about.stat}</strong><span>de clientes satisfechos</span></div>
+        <div class="stat"><strong data-count="14" data-suffix="+">14+</strong><span>años creando soluciones web</span></div>
+      </div>
+      <p style="margin-top:1.4rem;font-size:.92rem;color:var(--mut)">{city.about.statNote}</p>
+      <a href="#contacto" class="btn btn--main" style="margin-top:1.6rem">Contáctanos</a>
+    </div>
+    <div>
+    <figure class="ag rv" aria-label="Ejemplo ilustrativo de agenda">
+      <div class="ag__h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.cal} /><strong>Agenda de hoy</strong><em>Ejemplo ilustrativo</em></div>
+      {citas.map(c => (
+        <div class={`ag__r ag__r--${c[4]}`}><b>{c[0]}</b><span><strong>{c[1]}</strong>{c[2]}</span>{c[3] && <i>{c[3]}</i>}</div>
+      ))}
+    </figure>
+    <ul class="points" style="margin-top:1rem">
+      {puntos.map((p, i) => (
+        <li class="rv" style={`--i:${i}`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.check} />
+          <span>{p.title && <strong>{p.title}. </strong>}{p.text}</span>
+        </li>
+      ))}
+    </ul>
+    </div>
+  </div>
+</section>
