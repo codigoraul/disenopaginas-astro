@@ -7,11 +7,34 @@
 export const WP_URL = 'https://xn--diseopaginas-dhb.cl/admin/wp-json/wp/v2';
 
 /**
+ * fetch con reintentos: el build en GitHub Actions a veces no logra
+ * conectar al hosting a la primera (Connect Timeout). Reintenta hasta
+ * 4 veces con espera creciente antes de fallar.
+ */
+async function wpFetch(url, intentos = 4) {
+  let ultimoError;
+  for (let i = 1; i <= intentos; i++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
+      if (res.ok || res.status < 500) return res;
+      ultimoError = new Error(`WordPress respondió ${res.status}`);
+    } catch (err) {
+      ultimoError = err;
+    }
+    if (i < intentos) {
+      console.warn(`[wordpress] intento ${i} falló (${ultimoError?.message}), reintentando...`);
+      await new Promise((r) => setTimeout(r, 5000 * i));
+    }
+  }
+  throw ultimoError;
+}
+
+/**
  * Trae todas las entradas publicadas, con imagen destacada y categoría
  * incrustadas (_embed) para no hacer una petición extra por post.
  */
 export async function getPosts(perPage = 100) {
-  const res = await fetch(`${WP_URL}/posts?per_page=${perPage}&_embed`);
+  const res = await wpFetch(`${WP_URL}/posts?per_page=${perPage}&_embed`);
   if (!res.ok) throw new Error(`WordPress respondió ${res.status} al pedir las entradas`);
   const posts = await res.json();
   return posts.map(normalizePost);
@@ -19,7 +42,7 @@ export async function getPosts(perPage = 100) {
 
 /** Trae una entrada por su slug. Devuelve null si no existe. */
 export async function getPostBySlug(slug) {
-  const res = await fetch(`${WP_URL}/posts?slug=${encodeURIComponent(slug)}&_embed`);
+  const res = await wpFetch(`${WP_URL}/posts?slug=${encodeURIComponent(slug)}&_embed`);
   if (!res.ok) throw new Error(`WordPress respondió ${res.status} al pedir "${slug}"`);
   const posts = await res.json();
   return posts.length ? normalizePost(posts[0]) : null;
