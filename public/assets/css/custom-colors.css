@@ -388,3 +388,9 @@ section.intro-home.py-5 {
     line-height: 1.15 !important;
   }
 }
+
+/* Móvil/tablet: ocultar la barra superior de redes (ocupaba ~50px antes del logo).
+   Las redes siguen en el footer y el WhatsApp en el botón flotante. */
+@media (max-width: 991px) {
+  .header-area.style-two .header-top { display: none !important; }
+}

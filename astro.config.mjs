@@ -12,7 +12,9 @@ export default defineConfig({
   output: 'static',
   outDir: './dist',
   build: {
-    format: 'directory'
+    format: 'directory',
+    // CSS de componentes inline en el HTML: evita 4 requests que bloqueaban el render
+    inlineStylesheets: 'always'
   },
   
   // Development server configuration

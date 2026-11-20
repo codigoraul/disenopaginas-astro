@@ -19,7 +19,7 @@ export interface Props {
   navItems?: { label: string; href: string }[];
 }
 
-const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 13 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, ogImage, ogType = 'website', breadcrumbs, navItems } = Astro.props;
+const { title= "Diseño Web Chile, Diseño páginas web Chile, Páginas Web Chile", description = "Diseño de páginas web en Chile para empresas de todos los tamaños. Más de 14 años de experiencia creando sitios web optimizados con SEO para atraer más clientes y potenciar tus servicios o productos", keywords, canonical, ogImage, ogType = 'website', breadcrumbs, navItems } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL || '';
 const currentUrl = canonical || `https://diseñopaginas.cl${Astro.url.pathname}`;
@@ -85,14 +85,14 @@ const isDefaultOgImage = socialImage === defaultOgImage;
 
   <!-- CSS NO CRÍTICO: diferido para no bloquear render -->
   <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/assets/css/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/tabler-icons-sub.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Fallback sin JS -->
   <noscript>
     <link rel="stylesheet" href={getCssPath('animate.css')}>
-    <link rel="stylesheet" href="/assets/css/tabler-icons.min.css">
+    <link rel="stylesheet" href="/assets/css/tabler-icons-sub.css?v=2">
     <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
     <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
   </noscript>
@@ -133,7 +133,7 @@ const isDefaultOgImage = socialImage === defaultOgImage;
     }
     @font-face {
       font-family: 'tabler-icons';
-      src: url('/assets/css/fonts/tabler-icons.woff2?v3.31.0') format('woff2');
+      src: url('/assets/css/fonts/tabler-icons-sub.woff2?v=2') format('woff2');
       font-display: swap;
       font-weight: normal;
       font-style: normal;
@@ -161,7 +161,7 @@ const isDefaultOgImage = socialImage === defaultOgImage;
         "@id": "https://diseñopaginas.cl/#negocio",
         "name": "DiseñoPaginas.cl",
         "legalName": "DiseñoPaginas.cl",
-        "description": "Agencia de diseño web profesional en Chile con más de 13 años de experiencia. Especialistas en páginas web con Astro, sitios autoadministrables con WordPress, tiendas online y posicionamiento SEO para empresas chilenas.",
+        "description": "Agencia de diseño web profesional en Chile con más de 14 años de experiencia. Especialistas en páginas web con Astro, sitios autoadministrables con WordPress, tiendas online y posicionamiento SEO para empresas chilenas.",
         "url": "https://diseñopaginas.cl/",
         "logo": {
           "@type": "ImageObject",
@@ -301,7 +301,7 @@ const isDefaultOgImage = socialImage === defaultOgImage;
         "givenName": "Raúl",
         "familyName": "Riquelme",
         "jobTitle": "Diseñador Web y Desarrollador — Fundador de DiseñoPaginas.cl",
-        "description": "Diseñador gráfico y desarrollador web con más de 13 años de experiencia profesional. Especialista en diseño web con Astro, WordPress y posicionamiento SEO para empresas chilenas. Más de 200 proyectos web entregados.",
+        "description": "Diseñador gráfico y desarrollador web con más de 14 años de experiencia profesional. Especialista en diseño web con Astro, WordPress y posicionamiento SEO para empresas chilenas. Más de 200 proyectos web entregados.",
         "url": "https://diseñopaginas.cl/",
         "email": "codigoraul@gmail.com",
         "telephone": "+56961765268",

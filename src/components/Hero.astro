@@ -29,7 +29,10 @@
                            Desarrollamos páginas web únicas, <strong>ultrarrápidas y autoadministrables</strong>, con diseño creativo
                            y tecnología de vanguardia para posicionar su empresa en los primeros lugares de Google.
                         </p>
-                        <a class="btn border-2 btn-outline-light" href="/contacto">Contáctanos <i class="ti ti-arrow-up-right"></i></a>
+                        <div class="hero-cta-group">
+                           <a class="btn border-2 btn-outline-light" href="/contacto">Cotiza tu página web <i class="ti ti-arrow-up-right"></i></a>
+                           <a class="hero-wa-btn" href="https://api.whatsapp.com/send?phone=56961765268&text=Hola,%20vi%20su%20contacto%20desde%20dise%C3%B1opaginas.cl%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" title="WhatsApp +56 9 6176 5268"><i class="ti ti-brand-whatsapp"></i></a>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -150,6 +153,26 @@
   }
 }
 
+/* Botón redondo de WhatsApp junto al CTA principal del hero */
+.hero-wa-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff !important;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.30);
+  transition: transform .2s ease, filter .2s ease;
+}
+.hero-wa-btn:hover,
+.hero-wa-btn:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
 /* Tarjeta flotante de experiencia (abajo a la derecha del hero) */
 .hero-exp {
   position: absolute;
@@ -255,26 +278,21 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #447DE9 0%, #1E2536 100%) !important;
-  background-size: 140% 140% !important;
-  background-position: 0% 0% !important;
+  background: #2F5FA8 !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 8px;
   padding: 15px 34px;
   font-weight: 600;
-  box-shadow: 0 6px 18px rgba(30, 37, 54, 0.28);
+  box-shadow: 0 6px 18px rgba(47, 95, 168, 0.25);
   transition: filter .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
 .hero-single-col .btn-outline-light:hover {
-  background: linear-gradient(135deg, #447DE9 0%, #1E2536 100%) !important;
-  background-size: 140% 140% !important;
-  background-position: 0% 0% !important;
-  filter: brightness(1.1);
+  background: #3A6BB8 !important;
   color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(30, 37, 54, 0.40);
+  box-shadow: 0 10px 26px rgba(47, 95, 168, 0.35);
 }
 
 @media (max-width: 768px) {
