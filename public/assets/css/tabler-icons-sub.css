@@ -105,6 +105,8 @@
 .ti-photo:before{content:"\eb0a"}
 .ti-pin:before{content:"\ec9c"}
 .ti-plane:before{content:"\eb6f"}
+.ti-presentation:before{content:"\eb70"}
+.ti-printer:before{content:"\eb0e"}
 .ti-quote:before{content:"\efbe"}
 .ti-receipt:before{content:"\edfd"}
 .ti-refresh:before{content:"\eb13"}
@@ -125,6 +127,7 @@
 .ti-sparkles:before{content:"\f6d7"}
 .ti-star:before{content:"\eb2e"}
 .ti-star-filled:before{content:"\f6a6"}
+.ti-stars:before{content:"\ed38"}
 .ti-stethoscope:before{content:"\edbe"}
 .ti-sunglasses:before{content:"\f239"}
 .ti-target:before{content:"\eb35"}

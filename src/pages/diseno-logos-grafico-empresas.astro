@@ -1,0 +1,531 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Piezas de diseño gráfico (agregar aquí los trabajos de Figma).
+// Guardar las imágenes en public/assets/img/diseno-grafico/ (webp, idealmente 1200x900).
+// Ejemplo: { img: '/assets/img/diseno-grafico/afiche-cliente.webp', t: 'Afiche promocional', d: 'Cliente · rubro' }
+const trabajos: { img: string; t: string; d: string }[] = [];
+
+const piezas = [
+  { img: 'afiches', icon: 'photo', t: 'Afiches y flyers', d: 'Afiches promocionales, flyers para eventos y volantes listos para imprimir o compartir por WhatsApp.', li: ['Formato impreso y digital', 'Tamaños carta, A4, A3 y más', 'Archivos listos para imprenta'] },
+  { img: 'brochure', icon: 'file-text', t: 'Brochure y catálogos', d: 'Brochure corporativo, dípticos, trípticos y catálogos de productos o servicios que presentan tu empresa con orden.', li: ['Diagramación profesional', 'PDF interactivo para enviar', 'Versión para imprenta'] },
+  { img: 'papeleria', icon: 'id-badge-2', t: 'Papelería corporativa', d: 'Tarjetas de presentación, hojas membretadas, firmas de correo, carpetas y credenciales con la misma identidad.', li: ['Tarjetas de presentación', 'Firma de email', 'Plantillas Word y PDF'] },
+  { img: 'redes', icon: 'brand-instagram', t: 'Piezas para redes sociales', d: 'Plantillas y publicaciones para Instagram, Facebook y LinkedIn coherentes con tu marca.', li: ['Posts e historias', 'Portadas y destacados', 'Plantillas editables'] },
+  { img: 'presentaciones', icon: 'presentation', t: 'Presentaciones corporativas', d: 'Presentaciones para ventas, licitaciones o directorio, claras y con diseño de marca.', li: ['PowerPoint o Google Slides', 'Gráficos e infografías', 'Plantilla reutilizable'] },
+  { img: 'manual-marca', icon: 'palette', t: 'Manual de marca y guía de estilos', d: 'Colores, tipografías y usos correctos del logo documentados en Figma para que tu marca se vea igual en todas partes.', li: ['Paleta y tipografías', 'Usos correctos e incorrectos', 'Guía de estilos en Figma'] },
+];
+
+const incluyeLogo = [
+  'Diseño original, nunca plantillas recicladas',
+  'Varias propuestas para elegir',
+  'Archivos vectoriales (SVG, AI, EPS, PDF)',
+  'Versiones PNG y JPG para web y redes',
+  'Versión horizontal, vertical e ícono',
+  'Variantes a color, blanco y negro',
+  'Guía de uso con colores y tipografías',
+  'Derechos 100% tuyos sobre el diseño final',
+];
+
+const paquetes = [
+  { t: 'Logo profesional', f: 'Para negocios que parten o necesitan renovar su imagen.', li: ['Diseño de logotipo original', 'Propuestas y revisiones', 'Archivos vectoriales y PNG', 'Variantes de color y versión ícono', 'Guía básica de uso'], top: false },
+  { t: 'Kit de marca', f: 'Logo + piezas para que tu empresa se vea profesional en todos lados.', li: ['Todo lo del logo profesional', 'Tarjetas de presentación', 'Firma de correo y hoja membretada', 'Plantillas para redes sociales', 'Manual de marca en Figma'], top: true },
+  { t: 'Marca + página web', f: 'Identidad completa y sitio web con el mismo diseño, de una sola vez.', li: ['Logo y kit de marca', 'Página web rápida hecha en Astro', 'Textos y SEO para Google', 'Dominio y hosting asesorados', 'Todo coherente desde el día uno'], top: false },
+];
+
+const pasos = [
+  { t: 'Briefing', d: 'Conversamos sobre tu empresa, tu público, tu competencia y lo que quieres transmitir.' },
+  { t: 'Conceptos', d: 'Investigamos referencias y bocetamos varias ideas antes de pasar a digital en Figma.' },
+  { t: 'Diseño y ajustes', d: 'Te presentamos las propuestas y las refinamos con tus comentarios hasta aprobarlas.' },
+  { t: 'Entrega', d: 'Recibes todos los archivos para web e imprenta, con la guía de uso de tu marca.' },
+];
+
+const razones = [
+  { icon: 'certificate', t: 'Diseñador gráfico de formación', d: 'Formación universitaria en Diseño Gráfico y más de 14 años creando marcas y sitios web para empresas chilenas.' },
+  { icon: 'layout', t: 'Diseño en Figma', d: 'Trabajamos tus piezas en Figma: puedes revisar avances en línea y tu guía de estilos queda ordenada para futuros diseños.' },
+  { icon: 'world-www', t: 'Coherencia con tu web', d: 'Como también hacemos tu página web, el logo, las piezas y el sitio comparten la misma identidad visual.' },
+  { icon: 'printer', t: 'Listo para imprenta y digital', d: 'Entregamos cada pieza en los formatos correctos: CMYK y sangrado para imprimir, RGB optimizado para web y redes.' },
+  { icon: 'key', t: 'Los derechos son tuyos', d: 'El diseño final te pertenece por completo: puedes usarlo, imprimirlo y modificarlo sin restricciones.' },
+  { icon: 'map-2', t: 'Empresas de todo Chile', d: 'Trabajamos 100% en línea por WhatsApp, correo y videollamada, desde Arica a Punta Arenas.' },
+];
+
+const faq = [
+  { q: '¿Cuánto cuesta el diseño de un logotipo para mi empresa?', a: 'Depende del alcance: un logotipo solo, un kit de marca con papelería o una identidad completa con página web. Cuéntanos qué necesitas y te enviamos una cotización sin costo y sin compromiso.' },
+  { q: '¿Cuánto tiempo toma el diseño de un logo?', a: 'El plazo habitual es de 7 a 10 días hábiles desde que recibimos el briefing. Las piezas gráficas como afiches o tarjetas suelen estar listas en pocos días; brochures y catálogos dependen de la cantidad de páginas y del contenido.' },
+  { q: '¿En qué formatos me entregan el logo y las piezas?', a: 'El logo se entrega en vectores (SVG, AI, EPS y PDF) para imprenta y en PNG y JPG para web y redes, en versiones a color, blanco y negro y para fondos claros y oscuros. Las piezas impresas van en PDF listo para imprenta.' },
+  { q: '¿Puedo pedir cambios en el diseño?', a: 'Sí. Las propuestas se ajustan según tus comentarios hasta que el diseño quede aprobado. Nuestro objetivo es que la marca te represente de verdad.' },
+  { q: '¿Necesito contratar la página web para pedir un logo o un brochure?', a: 'No es obligatorio: puedes cotizar el diseño de logo o de piezas gráficas por separado. Si además necesitas tu sitio web, el paquete Marca + página web te deja todo coherente desde el inicio.' },
+  { q: '¿Qué necesito para comenzar?', a: 'El nombre de tu empresa, a qué se dedica, tu público, colores o estilos que te gusten y algunos ejemplos de referencia. Con eso preparamos el briefing y comenzamos.' },
+  { q: '¿Trabajan con empresas fuera de Temuco?', a: 'Sí. Diseñamos logos y piezas gráficas para empresas de todo Chile y nos coordinamos por WhatsApp, correo o videollamada.' },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Diseño de logotipos y diseño gráfico para empresas',
+  serviceType: 'Diseño de logotipos, identidad corporativa y piezas gráficas',
+  provider: { '@type': 'ProfessionalService', name: 'DiseñoPáginas.cl', url: 'https://diseñopaginas.cl/' },
+  areaServed: { '@type': 'Country', name: 'Chile' },
+  url: 'https://diseñopaginas.cl/diseno-logos-grafico-empresas',
+};
+const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Brochure', 'Catálogos', 'Tarjetas de presentación', 'Papelería', 'Redes sociales', 'Presentaciones'];
+---
+
+<Layout
+  title="Diseño de Logotipos y Diseño Gráfico para Empresas | Chile"
+  description="Diseño de logotipos y logos para empresas en Chile, más diseño gráfico: identidad corporativa, afiches, brochure, tarjetas y piezas para redes. Diseñado en Figma. Cotiza gratis."
+  keywords="diseño logotipos, diseño logo, diseño de logo, diseño de logotipos, diseño de logos, diseño de logotipos para empresas, diseño de logos para empresas, diseño gráfico para empresas, diseño de brochure, diseño de afiches, identidad corporativa, diseño de logotipos chile"
+  canonical="https://diseñopaginas.cl/diseno-logos-grafico-empresas"
+  navItems={[
+    { label: "Logos", href: "#logos" },
+    { label: "Diseño gráfico", href: "#grafico" },
+    { label: "Paquetes", href: "#paquetes" },
+    { label: "Proceso", href: "#proceso" },
+    { label: "Preguntas", href: "#faq" },
+    { label: "Cotizar", href: "#contacto" },
+  ]}
+  breadcrumbs={[{ name: "Diseño de Logos y Diseño Gráfico", url: "https://diseñopaginas.cl/diseno-logos-grafico-empresas" }]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
+
+  <div class="mn">
+    <!-- HERO -->
+    <section class="mn-hero" id="inicio">
+      <picture>
+        <source media="(max-width: 767px)" srcset="/assets/img/diseno-grafico/hero-logos-movil.webp" />
+        <img class="dg-hero-bg" src="/assets/img/diseno-grafico/hero-logos-desktop.webp" alt="" width="1500" height="962" fetchpriority="high" decoding="async" aria-hidden="true" />
+      </picture>
+      <div class="dg-hero-ov"></div>
+      <div class="mn-wrap mn-hero__in dg-hero-grid">
+        <div>
+          <span class="mn-eyebrow">Diseño gráfico · Identidad de marca</span>
+          <h1>Diseño de Logos y <em>Diseño Gráfico para Empresas</em></h1>
+          <p class="mn-lead">
+            Creamos logos, identidad corporativa y piezas gráficas (afiches, brochure, tarjetas y contenido para redes) que hacen que tu empresa se vea profesional y se recuerde. Diseñado en Figma, listo para web e imprenta.
+          </p>
+          <div class="mn-cta">
+            <a href="#contacto" class="mn-btn mn-btn--cu">Cotizar mi diseño <i class="ti ti-arrow-right"></i></a>
+            <a href="#paquetes" class="mn-btn mn-btn--ghost">Ver paquetes</a>
+          </div>
+          <ul class="mn-chips"><li><i class="ti ti-clock-check"></i> +14 años de experiencia</li><li><i class="ti ti-palette"></i> Diseñado en Figma</li><li><i class="ti ti-file-text"></i> Archivos vectoriales incluidos</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CINTA -->
+    <div class="mn-band" aria-hidden="true">
+      <div class="mn-band__t">
+        {[...banda, ...banda, ...banda].map(m => <span>{m}</span>)}
+      </div>
+    </div>
+
+    <!-- LOGOS -->
+    <section class="mn-sec" id="logos">
+      <div class="mn-wrap mn-split">
+        <div class="mn-split__txt dg-txt">
+          <header class="mn-head mn-head--left">
+            <h2>Diseño de logotipos para empresas en Chile</h2>
+            <p>Tu logo es lo primero que ven y recuerdan tus clientes</p>
+          </header>
+          <p>
+            Nuestro <strong>diseño de logotipos</strong> crea logos simples, memorables y pensados para funcionar en cualquier tamaño: desde el ícono de tu perfil de Instagram hasta un letrero o una camioneta de la empresa. Partimos entendiendo tu negocio y tu competencia, y recién ahí diseñamos.
+          </p>
+          <p>
+            Hacemos el <strong>diseño de logo</strong> desde cero para empresas nuevas, y si ya tienes uno pero se ve antiguo o no funciona bien en web, también hacemos <strong>rediseño de logotipo</strong> manteniendo lo que tus clientes ya reconocen.
+          </p>
+          <ul class="dg-inc">
+            {incluyeLogo.map(x => <li><i class="ti ti-check"></i>{x}</li>)}
+          </ul>
+        </div>
+        <figure class="mn-shots dg-logo-fig"><img src="/assets/img/diseno-grafico/logo-construccion.svg" alt="Construcción de un logotipo sobre grilla con círculos guía" loading="lazy" width="400" height="260" /></figure>
+      </div>
+    </section>
+
+    <!-- DISEÑO GRÁFICO -->
+    <section class="mn-sec mn-sec--soft" id="grafico">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Diseño gráfico para empresas: afiches, brochure y más</h2>
+          <p>Todas las piezas que tu empresa necesita, con la misma identidad visual</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {piezas.map((s, i) => (
+            <article class="mn-card dg-card">
+              <div class="dg-card__img"><img src={`/assets/img/diseno-grafico/${s.img}.webp`} alt={`Ilustración de ${s.t.toLowerCase()} para empresas`} loading="lazy" decoding="async" width="800" height="600" /></div>
+              <span class="mn-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+              <ul>{s.li.map(x => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <p class="mn-xlink" style="text-align:center">¿Necesitas el diseño de la interfaz de tu sitio o app? Revisa nuestra <a href="/servicios/maquetacion-web-figma">maquetación web en Figma</a>.</p>
+      </div>
+    </section>
+
+    <!-- PAQUETES -->
+    <section class="mn-sec" id="paquetes">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Paquetes de diseño de marca</h2>
+          <p>Elige el punto de partida y lo ajustamos a lo que tu empresa necesita</p>
+        </header>
+        <div class="mn-grid mn-grid--3">
+          {paquetes.map(p => (
+            <article class={`dg-pack${p.top ? ' dg-pack--top' : ''}`}>
+              {p.top && <span class="dg-pack__badge">Recomendado</span>}
+              <h3>{p.t}</h3>
+              <p class="dg-pack__for">{p.f}</p>
+              <ul>{p.li.map(x => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+              <a href="#contacto" class={`mn-btn ${p.top ? 'mn-btn--cu' : 'mn-btn--line'}`}>Cotizar {p.t.toLowerCase()}</a>
+            </article>
+          ))}
+        </div>
+        <p class="mn-more"><a href="/tarifas">Ver tarifas de páginas web <i class="ti ti-arrow-right"></i></a></p>
+      </div>
+    </section>
+
+    <!-- TRABAJOS -->
+    <section class="mn-sec mn-sec--soft" id="trabajos">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Trabajos de diseño gráfico y logos</h2>
+          <p>Logos, identidades y piezas gráficas para empresas</p>
+        </header>
+        {trabajos.length > 0 && (
+          <div class="dg-gal">
+            {trabajos.map(t => (
+              <figure>
+                <img src={t.img} alt={t.t} loading="lazy" width="1200" height="900" />
+                <figcaption><strong>{t.t}</strong>{t.d}</figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+        <div class="dg-behance">
+          <div>
+            <strong>Mira más diseños en nuestro Behance</strong>
+            <p>Logos, identidades y piezas gráficas. Si quieres ver ejemplos de tu rubro, pídelos por WhatsApp y te los enviamos.</p>
+          </div>
+          <div class="mn-cta" style="margin:0">
+            <a href="https://www.behance.net/codigoraul" target="_blank" rel="noopener" class="mn-btn mn-btn--ghost"><i class="ti ti-brand-behance"></i> Ver Behance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="mn-sec mn-sec--dark" id="proceso">
+      <div class="mn-wrap">
+        <header class="mn-head">
+          <h2>Cómo diseñamos tu logo y tus piezas</h2>
+          <p>Un proceso claro, con avances que puedes revisar en Figma</p>
+        </header>
+        <div class="dg-steps">
+          {pasos.map((p, i) => (
+            <div class="dg-step"><span>{i + 1}</span><h3>{p.t}</h3><p>{p.d}</p></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ -->
+    <section class="mn-sec" id="por-que">
+      <div class="mn-wrap mn-split mn-split--rev">
+        <figure class="mn-shots"><img src="/assets/img/servicios/figma-guia-estilos.webp" alt="Guía de estilos de marca diseñada en Figma" loading="lazy" width="820" height="591" /></figure>
+        <div class="mn-split__txt">
+          <header class="mn-head mn-head--left">
+            <h2>¿Por qué diseñar tu marca con nosotros?</h2>
+          </header>
+          <div class="mn-list">
+            {razones.map(r => (
+              <div class="mn-li">
+                <div class="mn-ico mn-ico--sm"><i class={`ti ti-${r.icon}`}></i></div>
+                <div><h3>{r.t}</h3><p>{r.d}</p></div>
+              </div>
+            ))}
+          </div>
+          <p class="mn-xlink">¿También necesitas tu sitio? Conoce nuestro <a href="/">diseño de páginas web en Chile</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mn-sec mn-sec--soft" id="faq">
+      <div class="mn-wrap mn-wrap--narrow">
+        <header class="mn-head">
+          <h2>Preguntas frecuentes sobre diseño de logos y diseño gráfico</h2>
+        </header>
+        <div class="mn-faq">
+          {faq.map(f => (
+            <details class="mn-faq__i">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mn-final" id="contacto">
+      <div class="mn-wrap">
+        <h2>¿Listo para darle a tu empresa una imagen profesional?</h2>
+        <p>Déjanos tus datos y te escribimos por WhatsApp con una cotización sin costo</p>
+        <form class="mn-form" id="mn-form" novalidate>
+          <label class="mn-f"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de tu empresa" /></label>
+          <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@empresa.cl" /></label>
+          <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Completa empresa, teléfono y un correo válido.</p>
+        </form>
+        <div class="mn-cta mn-cta--c">
+          <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
+          <a href="tel:+56961765268" class="mn-btn mn-btn--ghost"><i class="ti ti-phone"></i> (+56) 9 61765268</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script is:inline>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
+    var map=links.map(function(a){return{a:a,el:document.querySelector(a.getAttribute('href'))}}).filter(function(x){return x.el});
+    function upd(){var y=window.scrollY+140,cur=null;map.forEach(function(x){var t=x.el.getBoundingClientRect().top+window.scrollY;if(t<=y)cur=x});links.forEach(function(a){a.classList.toggle('on',!!cur&&cur.a===a)})}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+    document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
+  })();
+</script>
+<script is:inline>
+  (function(){
+    var f=document.getElementById('mn-form');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(n){return f.elements[n].value.trim()};
+      var emp=v('empresa'),fono=v('fono'),mail=v('correo');
+      var ok=emp.length>1&&fono.replace(/\D/g,'').length>=8&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail);
+      ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
+      if(!ok){if(emp.length<2)f.elements.empresa.classList.add('bad');if(fono.replace(/\D/g,'').length<8)f.elements.fono.classList.add('bad');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
+      document.getElementById('mn-form-err').hidden=true;
+      var t='Hola, vengo de diseñopaginas.cl (página Logos y Diseño Gráfico) y quiero cotizar.\nEmpresa: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
+    });
+  })();
+</script>
+</Layout>
+
+<style is:global>
+  .mn{--ink:#141A26;--ink2:#1E2536;--ink3:#263049;--cu:#447DE9;--cu2:#7FB2FF;--bl:#447DE9;--tx:#1E2536;--mut:#5B6577;--line:#E3E7EE;--soft:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:var(--tx);background:#fff}
+  .mn h1,.mn h2,.mn h3{font-family:'Sora','Outfit',sans-serif;margin:0}
+  .mn-wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+  .mn-wrap--narrow{width:min(860px,100% - 2rem)}
+
+
+  html{scroll-behavior:smooth}
+  .mn-hero,.mn-sec,.mn-final{scroll-margin-top:110px}
+  #disenopaginasNav .nav-link.on{color:#447DE9 !important}
+
+  /* FORMULARIO */
+  .mn-form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:.8rem;max-width:62rem;margin:2rem auto 0;text-align:left;align-items:end}
+  .mn-f{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;color:#C9D3E2;font-weight:500}
+  .mn-f input{font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:.85rem 1rem;min-height:50px}
+  .mn-f input::placeholder{color:#8B98AE}
+  .mn-f input:focus{outline:2px solid #7FB2FF;outline-offset:1px;background:rgba(255,255,255,.12)}
+  .mn-f input.bad{border-color:#ff7a7a}
+  .mn-form .mn-btn{min-height:50px;justify-content:center;cursor:pointer;white-space:nowrap}
+  .mn-form__err{grid-column:1/-1;margin:0 !important;color:#ffb4b4 !important;text-align:center;max-width:none !important}
+  .mn-final .mn-cta{margin-top:1.4rem}
+  @media (max-width:860px){.mn-form{grid-template-columns:1fr}}
+
+  /* HERO */
+  .mn-hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(20,26,38,.94) 0%,rgba(20,26,38,.78) 48%,rgba(20,26,38,.35) 100%),radial-gradient(60% 90% at 85% 20%,rgba(68,125,233,.22),transparent 70%),linear-gradient(160deg,#141A26,#263049);padding:clamp(8.8rem,14vw,11rem) 0 clamp(3.5rem,8vw,6rem);overflow:hidden}
+  .mn-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--cu),var(--cu2),transparent)}
+  .mn-hero__in{position:relative}
+  .mn-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cu2);padding:.45rem .9rem;border:1px solid rgba(127,178,255,.45);border-radius:99px;background:rgba(68,125,233,.1);margin-bottom:1.4rem}
+  .mn-hero h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;font-weight:700;letter-spacing:-.01em;max-width:19ch;text-wrap:balance;color:#fff}
+  .mn-hero h1 em{font-style:normal;color:var(--cu2)}
+  .mn-lead{margin:1.4rem 0 0;max-width:40rem;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.7;color:#E6EBF3;text-wrap:pretty}
+  .mn-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+  .mn-cta--c{justify-content:center}
+  .mn-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+  .mn-btn:hover{transform:translateY(-2px)}
+  .mn-btn--cu{background:linear-gradient(135deg,#447DE9 0%,#2F5FA8 100%);color:#fff;box-shadow:0 12px 26px -12px rgba(68,125,233,.7)}
+  .mn-btn--cu:hover{color:#fff;box-shadow:0 18px 32px -12px rgba(68,125,233,.85)}
+  .mn-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+  .mn-btn--ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+  .mn-chips{list-style:none;padding:0;margin:2.4rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .mn-chips li{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);font-size:.9rem;color:#EAF0F8}
+  .mn-chips i{color:var(--cu2);font-size:1.1rem}
+
+  /* CINTA */
+  .mn-band{background:var(--ink);overflow:hidden;border-bottom:1px solid #1E2531}
+  .mn-band__t{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mn-slide 38s linear infinite}
+  .mn-band__t span{font-family:'Sora',sans-serif;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:#7C8AA3;white-space:nowrap}
+  .mn-band__t span::after{content:"◆";margin-left:3rem;color:var(--cu);font-size:.6rem;vertical-align:middle}
+  @keyframes mn-slide{to{transform:translateX(-33.333%)}}
+  @media (prefers-reduced-motion:reduce){.mn-band__t{animation:none}}
+
+  /* SECCIONES */
+  .mn-sec{padding:clamp(3.2rem,7vw,5.5rem) 0}
+  .mn-sec--soft{background:var(--soft)}
+  .mn-sec--dark{background:var(--ink2);color:#DCE3EE}
+  .mn-head{text-align:center;max-width:46rem;margin:0 auto clamp(1.8rem,4.5vw,2.8rem)}
+  .mn-head--left{text-align:left;margin-inline:0}
+  .mn-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);line-height:1.22;font-weight:700;letter-spacing:-.005em;text-wrap:balance;color:var(--tx)}
+  .mn-head p{margin:.8rem 0 0;color:var(--mut);font-size:1.05rem;text-wrap:pretty}
+  .mn-sec--dark .mn-head h2{color:#fff}
+  .mn-sec--dark .mn-head p{color:#A9B6CA}
+  .mn-grid{display:grid;gap:1.2rem}
+  .mn-grid--3{grid-template-columns:repeat(3,1fr)}
+  .mn-grid--2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:991px){.mn-grid--3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.mn-grid--3,.mn-grid--2{grid-template-columns:1fr}}
+
+  /* TARJETAS DE SERVICIO */
+  .mn-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:0 14px 34px -26px rgba(20,26,38,.35);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .mn-card:hover{transform:translateY(-4px);border-color:rgba(68,125,233,.5);box-shadow:0 22px 40px -24px rgba(20,26,38,.4)}
+  .mn-num{position:absolute;top:1.3rem;right:1.4rem;font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;color:#C5CCD9;letter-spacing:.08em}
+  .mn-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#EAF1FD,#D6E4FB);color:#2F5FA8;font-size:1.6rem;margin-bottom:1.1rem}
+  .mn-ico--sm{width:46px;height:46px;font-size:1.35rem;flex:0 0 46px;margin:0}
+  .mn-card h3{font-size:1.12rem;font-weight:700;margin-bottom:.5rem;color:var(--tx)}
+  .mn-card p{color:var(--mut);margin:0 0 1rem;line-height:1.65}
+  .mn-card ul{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+  .mn-card li{display:flex;gap:.55rem;align-items:center;font-size:.93rem;color:var(--tx)}
+  .mn-card li i{color:var(--cu);font-size:1rem}
+
+  /* SPLIT */
+  .mn-split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  .mn-split--rev{grid-template-columns:.9fr 1.1fr}
+  @media(max-width:900px){.mn-split,.mn-split--rev{grid-template-columns:1fr}.mn-photo{order:-1}}
+  .mn-photo{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
+  .mn-photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  .mn-photo--tall img{aspect-ratio:1/1}
+  .mn-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,26,38,.45));pointer-events:none}
+  .mn-tile{padding:1.3rem;border-radius:16px;background:var(--ink3);border:1px solid #28344a;transition:border-color .3s,transform .3s}
+  .mn-tile:hover{border-color:var(--cu);transform:translateY(-3px)}
+  .mn-tile i{font-size:1.7rem;color:var(--cu2)}
+  .mn-tile h3{font-size:1.02rem;color:#fff;margin:.7rem 0 .25rem}
+  .mn-tile p{margin:0;color:#A9B6CA;font-size:.92rem}
+
+  /* REGIONES */
+  .mn-reg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;position:relative;overflow:hidden}
+  .mn-reg::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--cu2),var(--cu))}
+  .mn-reg__n{font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:700;color:#EEF1F6;line-height:1}
+  .mn-reg h3{font-size:1.15rem;margin:.6rem 0 .3rem;color:var(--tx)}
+  .mn-reg p{color:var(--mut);margin:0 0 1rem}
+  .mn-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+  .mn-tags span{font-size:.8rem;padding:.3rem .7rem;border-radius:99px;background:#EAF1FD;color:#2F5FA8;font-weight:600}
+
+  /* PROYECTOS */
+  .mn-proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--tx);box-shadow:0 14px 34px -26px rgba(20,26,38,.35);transition:transform .3s,box-shadow .3s}
+  .mn-proj:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(20,26,38,.5);color:var(--tx)}
+  .mn-proj__img{aspect-ratio:480/285;background:var(--soft);overflow:hidden}
+  .mn-proj__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .mn-proj:hover img{transform:scale(1.04)}
+  .mn-proj__t{display:grid;gap:.15rem;padding:1.1rem 1.3rem 1.3rem}
+  .mn-proj__t strong{font-family:'Sora',sans-serif;font-size:1.02rem}
+  .mn-proj__t span{color:var(--mut);font-size:.92rem}
+  .mn-proj__t em{font-style:normal;color:var(--bl);font-weight:600;font-size:.9rem;margin-top:.35rem}
+  .mn-more{text-align:center;margin:1.8rem 0 0}
+  .mn-more a{font-weight:600;color:var(--tx);text-decoration:none;border-bottom:2px solid var(--cu);padding-bottom:2px}
+
+  /* POR QUÉ */
+  .mn-list{display:grid;gap:1rem}
+  .mn-li{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;transition:border-color .3s}
+  .mn-li:hover{border-color:rgba(68,125,233,.5)}
+  .mn-li h3{font-size:1.02rem;margin-bottom:.2rem}
+  .mn-li p{margin:0;color:var(--mut)}
+
+  /* FAQ */
+  .mn-faq{display:grid;gap:.8rem}
+  .mn-faq__i{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 1.4rem}
+  .mn-faq__i summary{cursor:pointer;list-style:none;padding:1.1rem 0;font-weight:600;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .mn-faq__i summary::-webkit-details-marker{display:none}
+  .mn-faq__i summary::after{content:"+";font-size:1.5rem;color:var(--cu);transition:transform .2s;line-height:1}
+  .mn-faq__i[open] summary::after{transform:rotate(45deg)}
+  .mn-faq__i p{margin:0;padding:0 0 1.2rem;color:var(--mut);line-height:1.7}
+
+  /* CTA */
+  .mn-final{text-align:center;color:#fff;padding:clamp(3.4rem,8vw,6rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(68,125,233,.28),transparent 70%),linear-gradient(160deg,#141A26,#263049)}
+  .mn-final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;max-width:34rem;margin:0 auto;text-wrap:balance;color:#fff}
+  .mn-final p{margin:1rem auto 0;max-width:34rem;color:#C9D3E2;text-wrap:pretty}
+
+  .mn-hero__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .mn-hero__ov{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(20,26,38,.94) 0%,rgba(20,26,38,.8) 48%,rgba(20,26,38,.55) 100%)}
+  .mn-hero__in{z-index:1}
+  @media (prefers-reduced-motion:reduce){.mn-hero__vid{display:none}}
+
+  /* CAPTURAS */
+  .mn-shots{margin:0;display:grid;gap:1rem;align-content:center}
+  .mn-shots img{width:100%;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 50px -24px rgba(0,0,0,.55);background:#fff;display:block}
+  .mn-shots img:nth-child(odd){transform:translateX(-4%) rotate(-1.2deg)}
+  .mn-shots img:nth-child(even){transform:translateX(4%) rotate(1.2deg)}
+  .mn-sec:not(.mn-sec--dark) .mn-shots img{border-color:#E3E7EE;box-shadow:0 24px 50px -28px rgba(11,17,27,.45)}
+  @media (max-width:860px){.mn-shots img:nth-child(odd),.mn-shots img:nth-child(even){transform:none}}
+  .mn-xlink{margin:1.6rem 0 0;font-size:.98rem}
+  .mn-xlink a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+  /* HERO con imagen a la derecha */
+  /* Fondo fotográfico del hero + capa de marca (oscura a la izquierda para el texto) */
+  .dg-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+  .dg-hero-ov{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(20,26,38,.95) 0%,rgba(20,26,38,.86) 42%,rgba(30,37,54,.55) 75%,rgba(30,37,54,.35) 100%),linear-gradient(0deg,rgba(68,125,233,.18),rgba(68,125,233,.18))}
+  .dg-hero-grid>div{max-width:44rem}
+  @media(max-width:767px){.dg-hero-ov{background:linear-gradient(180deg,rgba(20,26,38,.88) 0%,rgba(20,26,38,.92) 100%)}}
+
+  /* TARJETAS CON ILUSTRACIÓN */
+  .dg-card{padding:0;overflow:hidden}
+  .dg-card__img{background:#EFF1F3;border-bottom:1px solid var(--line);padding:1.1rem 1.6rem}
+  .dg-card__img img{display:block;width:100%;height:auto}
+  .dg-card .mn-num{top:auto;right:1.4rem;margin-top:1.3rem}
+  .dg-card h3,.dg-card p,.dg-card ul{margin-left:1.6rem;margin-right:1.6rem}
+  .dg-card h3{margin-top:1.4rem}
+  .dg-card ul{margin-bottom:1.7rem}
+  .dg-logo-fig img{transform:none !important;background:#EAF1FD}
+
+  /* INCLUYE (logo) */
+  .dg-inc{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem 1.2rem}
+  .dg-inc li{display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
+  .dg-inc i{color:var(--cu);font-size:1.15rem;margin-top:.1rem}
+  @media(max-width:640px){.dg-inc{grid-template-columns:1fr}}
+  .dg-txt p{color:var(--mut);line-height:1.75;margin:0 0 1rem}
+  .dg-txt a{color:#2F5FA8;font-weight:600}
+
+  /* PAQUETES */
+  .dg-pack{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.9rem 1.7rem;position:relative;box-shadow:0 14px 34px -26px rgba(20,26,38,.35)}
+  .dg-pack--top{border:2px solid var(--cu);box-shadow:0 26px 50px -28px rgba(68,125,233,.55)}
+  .dg-pack__badge{position:absolute;top:-.8rem;left:1.7rem;background:linear-gradient(135deg,#447DE9,#1E2536);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .8rem;border-radius:99px}
+  .dg-pack h3{font-size:1.25rem;margin-bottom:.35rem}
+  .dg-pack__for{color:var(--mut);font-size:.95rem;margin:0 0 1.2rem}
+  .dg-pack ul{list-style:none;padding:0;margin:0 0 1.6rem;display:grid;gap:.55rem;flex:1}
+  .dg-pack li{display:flex;gap:.55rem;align-items:flex-start;font-size:.95rem}
+  .dg-pack li i{color:var(--cu);margin-top:.15rem}
+  .dg-pack .mn-btn{justify-content:center}
+  .dg-pack .mn-btn--line{background:#fff;color:#1E2536;border-color:#C9D6EC}
+  .dg-pack .mn-btn--line:hover{border-color:var(--cu);color:#2F5FA8}
+
+  /* GALERÍA */
+  .dg-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .dg-gal figure{margin:0;border-radius:16px;overflow:hidden;background:var(--soft);border:1px solid var(--line)}
+  .dg-gal img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
+  .dg-gal figure:hover img{transform:scale(1.04)}
+  .dg-gal figcaption{padding:.8rem 1rem;font-size:.9rem;color:var(--mut)}
+  .dg-gal figcaption strong{display:block;color:var(--tx);font-family:'Sora',sans-serif}
+  @media(max-width:991px){.dg-gal{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.dg-gal{grid-template-columns:1fr}}
+  .dg-behance{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:space-between;padding:1.6rem 1.8rem;border-radius:18px;background:linear-gradient(135deg,#447DE9 0%,#1E2536 100%);color:#fff;margin-top:1.4rem}
+  .dg-behance p{margin:0;max-width:40rem;color:#E3ECFB}
+  .dg-behance strong{display:block;font-family:'Sora',sans-serif;font-size:1.15rem;color:#fff;margin-bottom:.2rem}
+
+  /* PROCESO */
+  .dg-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;counter-reset:dg}
+  .dg-step{background:var(--ink3);border:1px solid #33405c;border-radius:18px;padding:1.5rem}
+  .dg-step span{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#447DE9,#2F5FA8);color:#fff;font-weight:700;margin-bottom:.9rem}
+  .dg-step h3{color:#fff;font-size:1.05rem;margin-bottom:.35rem}
+  .dg-step p{margin:0;color:#A9B6CA;font-size:.93rem;line-height:1.6}
+  @media(max-width:991px){.dg-steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.dg-steps{grid-template-columns:1fr}}
+</style>

@@ -87,7 +87,7 @@ Redirect 301 /tarifas.php /tarifas
 Redirect 301 /blog.php /blog
 Redirect 301 /diseno-web.php /servicios/diseno-web
 Redirect 301 /diseno-web-chile.php /servicios/diseno-web-chile
-Redirect 301 /diseno-logotipos.php /servicios/diseno-logotipos
+Redirect 301 /diseno-logotipos.php /diseno-logos-grafico-empresas
 Redirect 301 /mantenimiento-web.php /servicios/mantenimiento-web
 Redirect 301 /posicionamiento-seo.php /servicios/posicionamiento-web-seo
 Redirect 301 /seo.php /servicios/posicionamiento-web-seo
@@ -101,6 +101,7 @@ Redirect 301 /web-tienda-online.php /productos-online/
 RedirectMatch 301 ^/tienda-online/?$ /productos-online/
 RedirectMatch 301 ^/blog-wp/?$ /blog
 RedirectMatch 301 ^/diseno-web-pymes/?$ /
+RedirectMatch 301 ^/servicios/diseno-logotipos/?$ /diseno-logos-grafico-empresas
 RedirectMatch 301 ^/blog-wp/(.+)$ /blog/$1
 Redirect 301 /diseno-web-abogados.php /diseno-web-abogados
 Redirect 301 /abogados.php /diseno-web-abogados
@@ -112,7 +113,7 @@ Redirect 301 /turismo.php /diseno-web-turismo
 Redirect 301 /diseno-web-mineria.php /diseno-web-empresas-mineria
 Redirect 301 /mineria.php /diseno-web-empresas-mineria
 Redirect 301 /paginas-web-empresas-mineria.php /diseno-web-empresas-mineria/
-Redirect 301 /diseno-de-logotipo.php /servicios/diseno-logotipos/
+Redirect 301 /diseno-de-logotipo.php /diseno-logos-grafico-empresas
 Redirect 301 /paginas-web-clinica-dental.php /diseno-web-clinicas-dentales/
 Redirect 301 /diseno-web-corredor-propiedades.php /diseno-web-corredor-propiedades/
 Redirect 301 /chatbot-whatsapp-ia /chatbot-ia

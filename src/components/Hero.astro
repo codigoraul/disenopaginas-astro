@@ -144,13 +144,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  align-items: center;
+  align-items: flex-end; /* el .btn trae margin-top propio: alinear por abajo */
 }
 
 @media (max-width: 768px) {
   .hero-cta-group {
     justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
+  .hero-cta-group .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: nowrap;
+  }
+  .hero-wa-btn { flex: 0 0 48px; width: 48px; height: 48px; font-size: 25px; }
 }
 
 /* Botón redondo de WhatsApp junto al CTA principal del hero */
