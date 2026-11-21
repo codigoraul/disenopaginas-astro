@@ -97,9 +97,11 @@ import Testimonials from '../components/Testimonials.astro';
             <div class="col-12 col-lg-6">
                <img
                   src="/assets/img/heroes/diseno-web-chile-mockup.webp"
+                  srcset="/assets/img/heroes/diseno-web-chile-mockup-620.webp 620w, /assets/img/heroes/diseno-web-chile-mockup.webp 700w"
+                  sizes="(min-width: 1400px) 636px, (min-width: 992px) 46vw, calc(100vw - 24px)"
                   alt="Diseño de páginas web para empresas y pymes en Chile"
                   width="700" height="486"
-                  loading="lazy" decoding="async"
+                  loading="eager" fetchpriority="high" decoding="async"
                   class="img-fluid intro-anim" />
             </div>
             <div class="col-12 col-lg-6">
@@ -131,6 +133,8 @@ import Testimonials from '../components/Testimonials.astro';
       @media (prefers-reduced-motion: reduce) {
          .intro-anim.anim-ready { opacity: 1; transform: none; transition: none; }
       }
+      /* Accesibilidad: enlaces dentro de párrafos distinguibles sin depender del color */
+      .eeat-content p a { text-decoration: underline; text-underline-offset: 3px; }
       /* Hover del botón: texto en celeste del logo en vez de oscuro */
       .intro-home .btn-primary:hover,
       .intro-home .btn-primary:focus {
@@ -140,7 +144,8 @@ import Testimonials from '../components/Testimonials.astro';
 
    <script>
       const introImg = document.querySelector('.intro-anim');
-      if (introImg && 'IntersectionObserver' in window) {
+      // Solo en escritorio: en móvil la imagen es el LCP y debe verse de inmediato
+      if (introImg && 'IntersectionObserver' in window && window.matchMedia('(min-width: 992px)').matches) {
          introImg.classList.add('anim-ready');
          const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {

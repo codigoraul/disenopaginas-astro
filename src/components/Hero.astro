@@ -272,11 +272,11 @@
     font-size: 12.5px;
     padding: 5px 11px 5px 6px;
     gap: 6px;
-    background: rgba(255, 255, 255, .14);
-    border-color: rgba(255, 255, 255, .25);
-    color: #fff;
+    background: rgba(255, 255, 255, .85);
+    border-color: #e3e7ef;
+    color: #1E2536;
   }
-  .hero-steps li span { width: 18px; height: 18px; font-size: 11px; background: rgba(255,255,255,.25); color: #fff; }
+  .hero-steps li span { width: 18px; height: 18px; font-size: 11px; background: #e9edf4; color: #1E2536; }
 }
 
 /* Botón CTA profesional: ancho según contenido, no estirado */
@@ -422,13 +422,21 @@
 
 /* === Mejoras de presentación del slider en MÓVIL === */
 @media (max-width: 991px) {
-  /* Overlay más oscuro (degradado) para que el texto resalte sobre las fotos claras */
+  /* Fondo claro: velo blanco suave que aclara hacia abajo, la imagen se sigue viendo */
   .video-overlay {
-    background: linear-gradient(180deg, rgba(1, 28, 66, 0.45) 0%, rgba(1, 28, 66, 0.72) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.50) 55%, rgba(255, 255, 255, 0.72) 100%) !important;
   }
-  /* Subtítulo en celeste corporativo como acento de marca */
+  /* Textos oscuros sobre el fondo claro */
   .hero-section .hero-content .hero-subtitle {
-    color: #60E1FD !important;
+    color: #2F5FA8 !important;
+    text-shadow: none !important;
+  }
+  .hero-section .hero-content .hero-main-title {
+    color: #1E2536 !important;
+    text-shadow: none !important;
+  }
+  .hero-section .hero-content p {
+    color: #2b3a55 !important;
   }
   /* Aire entre el párrafo y el botón (el CSS móvil ponía el párrafo pegado) */
   .hero-section .hero-single-col .btn-outline-light {
@@ -564,17 +572,17 @@
 .hero-section:active { cursor: grabbing; }
 .hero-section a, .hero-section button { cursor: pointer; }
 
-/* Móvil: puntos visibles sobre fondo oscuro, activo como píldora blanca */
+/* Móvil: puntos visibles sobre fondo claro, activo como píldora azul */
 @media (max-width: 991px) {
   .hero-pagination .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, .45);
+    background: rgba(30, 37, 54, .25);
     border-color: transparent;
     width: 8px;
     height: 8px;
   }
   .hero-pagination .swiper-pagination-bullet-active {
-    background: #ffffff;
-    border-color: #ffffff;
+    background: #2F5FA8;
+    border-color: #2F5FA8;
     width: 22px;
     border-radius: 6px;
     transform: none;

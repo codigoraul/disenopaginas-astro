@@ -37,7 +37,7 @@
       4.3 Breadcrumb (breadcrumb)
       4.4 Theming (theme)
 --------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap");
+/* Google Fonts eliminado: fuentes auto-alojadas en Layout.astro */
 /* Reboot CSS */
 * {
   margin: 0;

@@ -394,3 +394,45 @@ section.intro-home.py-5 {
 @media (max-width: 991px) {
   .header-area.style-two .header-top { display: none !important; }
 }
+
+/* ===== Hero MÓVIL claro (nov-2026): imagen visible con velo blanco suave que aclara hacia abajo,
+   textos oscuros (azul/negro) y títulos más grandes. No afecta escritorio. ===== */
+@media (max-width: 991px) {
+  .hero-section.hero-section .video-overlay {
+    background: linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,.50) 55%, rgba(255,255,255,.72) 100%) !important;
+  }
+  .hero-section.hero-section.hero-section { color: #1E2536 !important; }
+  .hero-section.hero-section.hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title {
+    color: #1E2536 !important;
+    text-shadow: none !important;
+    font-size: clamp(36px, 10vw, 46px) !important;
+    line-height: 1.1 !important;
+  }
+  .hero-section.hero-section.hero-section .hero-content .swiper-slide .hero-main-title.hero-main-title.is-multiline {
+    font-size: clamp(32px, 8.8vw, 40px) !important;
+  }
+  .hero-section.hero-section.hero-section .hero-content .hero-subtitle.hero-subtitle.hero-subtitle {
+    color: #2F5FA8 !important;
+    text-shadow: none !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+  .hero-section.hero-section.hero-section .hero-content .swiper-slide p { color: #2b3a55 !important; }
+  .hero-section.hero-section.hero-section .hero-content .swiper-slide p strong,
+  .hero-section.hero-section.hero-section .hero-content .hero-subtitle b { color: #1E2536 !important; }
+  .hero-section.hero-section.hero-section .hero-steps li {
+    background: rgba(255,255,255,.85) !important;
+    border-color: #e3e7ef !important;
+    color: #1E2536 !important;
+  }
+  .hero-section.hero-section.hero-section .hero-steps li span { background: #e9edf4 !important; color: #1E2536 !important; }
+  .hero-section.hero-section.hero-section .hero-pagination .swiper-pagination-bullet { background: rgba(30,37,54,.25) !important; }
+  .hero-section.hero-section.hero-section .hero-pagination .swiper-pagination-bullet-active { background: #2F5FA8 !important; }
+
+  /* Títulos de sección más grandes en móvil */
+  section:not(.hero-section) h2.h2,
+  section:not(.hero-section) h2,
+  .project-section .section-heading h2.mb-0 {
+    font-size: 26px !important;
+  }
+}
