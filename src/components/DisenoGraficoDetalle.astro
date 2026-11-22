@@ -1,0 +1,299 @@
+---
+// Plantilla de las páginas de detalle de diseño gráfico corporativo.
+// Datos en src/data/diseno-grafico-servicios.ts
+import Layout from '../layouts/Layout.astro';
+import '../styles/diseno-grafico.css';
+import { servicios, getServicio } from '../data/diseno-grafico-servicios';
+
+interface Props { slug: string }
+const s = getServicio(Astro.props.slug);
+const url = `https://diseñopaginas.cl/${s.slug}`;
+const hub = 'https://diseñopaginas.cl/diseno-logos-grafico-empresas';
+const otros = servicios.filter((x) => x.slug !== s.slug);
+const trabajos = s.trabajos ?? [];
+
+const pasos = [
+  { t: 'Briefing', d: 'Nos cuentas qué necesitas, para quién es y qué quieres lograr. Revisamos tu marca y tus referencias.' },
+  { t: 'Propuesta', d: 'Diseñamos la primera propuesta en Figma con la identidad corporativa de tu empresa.' },
+  { t: 'Ajustes', d: 'Refinamos el diseño con tus comentarios hasta que quede aprobado.' },
+  { t: 'Entrega', d: 'Recibes los archivos finales en los formatos que necesitas, listos para usar.' },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: s.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${s.h1} ${s.h1em}`,
+  serviceType: s.nombre,
+  description: s.description,
+  provider: { '@type': 'ProfessionalService', name: 'DiseñoPáginas.cl', url: 'https://diseñopaginas.cl/', telephone: '+56961765268' },
+  areaServed: { '@type': 'Country', name: 'Chile' },
+  url,
+};
+---
+
+<Layout
+  title={s.title}
+  description={s.description}
+  keywords={s.keywords}
+  canonical={url}
+  ogImage={`https://diseñopaginas.cl/assets/img/diseno-grafico/${s.img}.webp`}
+  navItems={[
+    { label: 'Qué incluye', href: '#incluye' },
+    { label: 'Tipos', href: '#tipos' },
+    { label: 'Proceso', href: '#proceso' },
+    { label: 'Preguntas', href: '#faq' },
+    { label: 'Otros servicios', href: '#servicios' },
+    { label: 'Cotizar', href: '#contacto' },
+  ]}
+  breadcrumbs={[
+    { name: 'Diseño de Logos y Diseño Gráfico', url: hub },
+    { name: s.nombre, url },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
+
+  <div class="mn">
+    <!-- HERO -->
+    <section class="mn-hero" id="inicio">
+      <div class="mn-wrap mn-hero__in dd-hero">
+        <div>
+          <nav class="dd-bc" aria-label="Ruta de navegación">
+            <a href="/">Inicio</a><i class="ti ti-chevron-right"></i>
+            <a href="/diseno-logos-grafico-empresas">Diseño gráfico</a><i class="ti ti-chevron-right"></i>
+            <span aria-current="page">{s.nombre}</span>
+          </nav>
+          <span class="mn-eyebrow">{s.eyebrow}</span>
+          <h1>{s.h1} <em>{s.h1em}</em></h1>
+          <p class="mn-lead">{s.lead}</p>
+          <div class="mn-cta">
+            <a href="#contacto" class="mn-btn mn-btn--cu">Cotizar ahora <i class="ti ti-arrow-right"></i></a>
+            <a href="#tipos" class="mn-btn mn-btn--ghost">Ver qué diseñamos</a>
+          </div>
+          <ul class="mn-chips"><li><i class="ti ti-clock-check"></i> +14 años de experiencia</li><li><i class="ti ti-palette"></i> Diseñado en Figma</li><li><i class="ti ti-printer"></i> Listo para imprenta y digital</li></ul>
+        </div>
+        <figure class="dd-hero-fig"><img src={`/assets/img/diseno-grafico/${s.img}.webp`} alt={`${s.nombre} para empresas diseñados por DiseñoPáginas.cl`} width="800" height="600" fetchpriority="high" decoding="async" /></figure>
+      </div>
+    </section>
+
+    <!-- INTRO + INCLUYE -->
+    <section class="mn-sec" id="incluye">
+      <div class="mn-wrap">
+        <div class="dd-intro dg-txt">
+          <header class="mn-head mn-head--left"><h2>{s.introH2}</h2></header>
+          {s.intro.map((p) => <p set:html={p} />)}
+        </div>
+        <div class="dd-box">
+          <h2 class="dd-h2s">{s.incluyeH2}</h2>
+          <ul class="dg-inc">{s.incluye.map((x) => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOS -->
+    <section class="mn-sec mn-sec--soft" id="tipos">
+      <div class="mn-wrap">
+        <header class="mn-head"><h2>{s.tiposH2}</h2><p>{s.tiposP}</p></header>
+        <div class="mn-grid mn-grid--3">
+          {s.tipos.map((t) => (
+            <article class="mn-card">
+              <div class="mn-ico"><i class={`ti ti-${t.icon}`}></i></div>
+              <h3>{t.t}</h3>
+              <p>{t.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- RUBROS -->
+    <section class="mn-sec mn-sec--dark" id="rubros">
+      <div class="mn-wrap">
+        <header class="mn-head"><h2>{s.usosH2}</h2><p>{s.usosP}</p></header>
+        <div class="mn-grid mn-grid--3">
+          {s.usos.map((u) => (
+            <div class="mn-tile"><i class={`ti ti-${u.icon}`}></i><h3>{u.t}</h3><p>{u.d}</p></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO + ENTREGA -->
+    <section class="mn-sec" id="proceso">
+      <div class="mn-wrap">
+        <header class="mn-head"><h2>Cómo trabajamos tu {s.nombre.toLowerCase()}</h2><p>Un proceso simple, 100% en línea, para empresas de todo Chile</p></header>
+        <div class="dd-steps">
+          {pasos.map((p, i) => (
+            <div class="dd-step"><span>{i + 1}</span><h3>{p.t}</h3><p>{p.d}</p></div>
+          ))}
+        </div>
+        <div class="dd-entrega">
+          <div>
+            <h2 class="dd-h2s">{s.entregaH2}</h2>
+            <ul>{s.entrega.map((x) => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+          </div>
+          <div class="dd-entrega__logo">
+            <strong>¿Aún no tienes logo?</strong>
+            <p>Toda pieza corporativa parte de una buena identidad. Revisa nuestro <a href="/diseno-logos-grafico-empresas">diseño de logos para empresas</a> y armamos todo con la misma línea gráfica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRABAJOS -->
+    <section class="mn-sec mn-sec--soft" id="trabajos">
+      <div class="mn-wrap">
+        {trabajos.length > 0 && (
+          <>
+            <header class="mn-head"><h2>Trabajos de {s.nombre.toLowerCase()}</h2></header>
+            <div class="dg-gal">
+              {trabajos.map((t) => (
+                <figure>
+                  <img src={t.img} alt={t.t} loading="lazy" width="1200" height="900" />
+                  <figcaption><strong>{t.t}</strong>{t.d}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </>
+        )}
+        <div class="dg-behance" style={trabajos.length ? '' : 'margin-top:0'}>
+          <div>
+            <strong>Mira ejemplos de diseño gráfico corporativo</strong>
+            <p>Revisa nuestros trabajos en Behance o pídenos por WhatsApp ejemplos de tu rubro.</p>
+          </div>
+          <div class="mn-cta" style="margin:0">
+            <a href="https://www.behance.net/codigoraul" target="_blank" rel="noopener" class="mn-btn mn-btn--ghost"><i class="ti ti-brand-behance"></i> Ver Behance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mn-sec" id="faq">
+      <div class="mn-wrap mn-wrap--narrow">
+        <header class="mn-head"><h2>Preguntas frecuentes sobre {s.nombre.toLowerCase()}</h2></header>
+        <div class="mn-faq">
+          {s.faq.map((f) => (
+            <details class="mn-faq__i"><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- OTROS SERVICIOS -->
+    <section class="mn-sec mn-sec--soft" id="servicios">
+      <div class="mn-wrap">
+        <header class="mn-head"><h2>Otros servicios de diseño gráfico corporativo</h2><p>Todas las piezas de tu empresa con la misma identidad visual</p></header>
+        <div class="dd-rel">
+          {otros.map((o) => (
+            <a href={`/${o.slug}`} class="dd-rel__i">
+              <img src={`/assets/img/diseno-grafico/${o.img}.webp`} alt="" loading="lazy" decoding="async" width="800" height="600" />
+              <span>{o.nombre}</span>
+              <i class="ti ti-arrow-right"></i>
+            </a>
+          ))}
+          <a href="/diseno-logos-grafico-empresas" class="dd-rel__i dd-rel__i--hub">
+            <img src="/assets/img/diseno-grafico/logo-construccion.svg" alt="" loading="lazy" width="400" height="260" />
+            <span>Diseño de logos para empresas</span>
+            <i class="ti ti-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mn-final" id="contacto">
+      <div class="mn-wrap">
+        <h2>{s.ctaH2}</h2>
+        <p>Déjanos tus datos y te escribimos por WhatsApp con una cotización sin costo</p>
+        <form class="mn-form" id="mn-form" novalidate data-pagina={s.nombre}>
+          <label class="mn-f"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de tu empresa" /></label>
+          <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@empresa.cl" /></label>
+          <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Completa empresa, teléfono y un correo válido.</p>
+        </form>
+        <div class="mn-cta mn-cta--c">
+          <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
+          <a href="tel:+56961765268" class="mn-btn mn-btn--ghost"><i class="ti ti-phone"></i> (+56) 9 61765268</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script is:inline>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
+    var map=links.map(function(a){return{a:a,el:document.querySelector(a.getAttribute('href'))}}).filter(function(x){return x.el});
+    function upd(){var y=window.scrollY+140,cur=null;map.forEach(function(x){var t=x.el.getBoundingClientRect().top+window.scrollY;if(t<=y)cur=x});links.forEach(function(a){a.classList.toggle('on',!!cur&&cur.a===a)})}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+    document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
+  })();
+</script>
+<script is:inline>
+  (function(){
+    var f=document.getElementById('mn-form');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(n){return f.elements[n].value.trim()};
+      var emp=v('empresa'),fono=v('fono'),mail=v('correo');
+      var okM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail),okF=fono.replace(/\D/g,'').length>=8,okE=emp.length>1;
+      ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
+      if(!(okM&&okF&&okE)){if(!okE)f.elements.empresa.classList.add('bad');if(!okF)f.elements.fono.classList.add('bad');if(!okM)f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
+      document.getElementById('mn-form-err').hidden=true;
+      var t='Hola, vengo de diseñopaginas.cl (página '+f.dataset.pagina+') y quiero cotizar.\nEmpresa: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
+    });
+  })();
+</script>
+</Layout>
+
+<style is:global>
+  .dd-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+  .dd-hero>div{max-width:44rem}
+  .dd-hero h1{max-width:22ch}
+  .dd-hero-fig{margin:0;border-radius:22px;overflow:hidden;background:#EFF1F3;padding:1.2rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .dd-hero-fig img{display:block;width:100%;height:auto}
+  @media(max-width:900px){.dd-hero{grid-template-columns:1fr}.dd-hero-fig{max-width:30rem}}
+  .dd-bc{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.85rem;color:#A9B6CA;margin-bottom:1.1rem}
+  .dd-bc a{color:#C9D3E2;text-decoration:none}
+  .dd-bc a:hover{color:#fff;text-decoration:underline}
+  .dd-bc i{font-size:.8rem;opacity:.7}
+  .dd-bc span{color:#fff}
+  .dd-intro{max-width:52rem}
+  .dd-box{margin-top:2rem;padding:clamp(1.4rem,3vw,2rem);border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 14px 34px -26px rgba(20,26,38,.35)}
+  .dd-h2s{font-size:clamp(1.2rem,2.4vw,1.45rem);font-weight:700;color:var(--tx);margin:0 0 .2rem}
+  .dd-box .dg-inc{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:640px){.dd-box .dg-inc{grid-template-columns:1fr}}
+  .dd-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .dd-step{border:1px solid var(--line);border-radius:18px;padding:1.5rem;background:#fff}
+  .dd-step span{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#447DE9,#2F5FA8);color:#fff;font-weight:700;margin-bottom:.9rem}
+  .dd-step h3{font-size:1.05rem;margin-bottom:.35rem}
+  .dd-step p{margin:0;color:var(--mut);font-size:.93rem;line-height:1.6}
+  @media(max-width:991px){.dd-steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.dd-steps{grid-template-columns:1fr}}
+  .dd-entrega{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem;margin-top:1.6rem}
+  .dd-entrega>div{border-radius:18px;padding:1.6rem 1.7rem}
+  .dd-entrega>div:first-child{background:var(--soft);border:1px solid var(--line)}
+  .dd-entrega ul{list-style:none;padding:0;margin:.9rem 0 0;display:grid;gap:.55rem}
+  .dd-entrega li{display:flex;gap:.55rem;align-items:flex-start}
+  .dd-entrega li i{color:var(--cu);margin-top:.15rem}
+  .dd-entrega__logo{background:var(--ink2);color:#C9D3E2}
+  .dd-entrega__logo strong{display:block;font-family:'Sora',sans-serif;color:#fff;font-size:1.15rem;margin-bottom:.4rem}
+  .dd-entrega__logo p{margin:0;line-height:1.65}
+  .dd-entrega__logo a{color:#7FB2FF;font-weight:600}
+  @media(max-width:860px){.dd-entrega{grid-template-columns:1fr}}
+  .dd-rel{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .dd-rel__i{display:grid;grid-template-columns:84px 1fr auto;gap:1rem;align-items:center;padding:.8rem 1.1rem .8rem .8rem;background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--tx);font-weight:600;font-family:'Sora',sans-serif;font-size:.98rem;transition:border-color .3s,transform .3s}
+  .dd-rel__i:hover{border-color:var(--cu);transform:translateY(-3px);color:var(--tx)}
+  .dd-rel__i img{width:84px;height:63px;object-fit:contain;background:#EFF1F3;border-radius:10px}
+  .dd-rel__i i{color:var(--cu)}
+  .dd-rel__i--hub img{background:#EAF1FD;padding:.4rem}
+  @media(max-width:991px){.dd-rel{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.dd-rel{grid-template-columns:1fr}}
+</style>

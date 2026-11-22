@@ -85,14 +85,14 @@ const isDefaultOgImage = socialImage === defaultOgImage;
 
   <!-- CSS NO CRÍTICO: diferido para no bloquear render -->
   <link rel="preload" href={getCssPath('animate.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/assets/css/tabler-icons-sub.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/tabler-icons-sub.css?v=3" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href={getCssPath('swiper-bundle.min.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href={getCssPath('hero-colors.css')} as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Fallback sin JS -->
   <noscript>
     <link rel="stylesheet" href={getCssPath('animate.css')}>
-    <link rel="stylesheet" href="/assets/css/tabler-icons-sub.css?v=2">
+    <link rel="stylesheet" href="/assets/css/tabler-icons-sub.css?v=3">
     <link rel="stylesheet" href={getCssPath('swiper-bundle.min.css')}>
     <link rel="stylesheet" href={getCssPath('hero-colors.css')}>
   </noscript>
@@ -135,7 +135,7 @@ const isDefaultOgImage = socialImage === defaultOgImage;
     :global(i.ti), :global(i[class^="ti-"]), :global(i[class*=" ti-"]) { font-style: normal; }
     @font-face {
       font-family: 'tabler-icons';
-      src: url('/assets/css/fonts/tabler-icons-sub.woff2?v=2') format('woff2');
+      src: url('/assets/css/fonts/tabler-icons-sub.woff2?v=3') format('woff2');
       font-display: swap;
       font-weight: normal;
       font-style: normal;

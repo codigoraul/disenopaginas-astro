@@ -7,12 +7,12 @@ import Layout from '../layouts/Layout.astro';
 const trabajos: { img: string; t: string; d: string }[] = [];
 
 const piezas = [
-  { img: 'afiches', icon: 'photo', t: 'Afiches y flyers', d: 'Afiches promocionales, flyers para eventos y volantes listos para imprimir o compartir por WhatsApp.', li: ['Formato impreso y digital', 'Tamaños carta, A4, A3 y más', 'Archivos listos para imprenta'] },
-  { img: 'brochure', icon: 'file-text', t: 'Brochure y catálogos', d: 'Brochure corporativo, dípticos, trípticos y catálogos de productos o servicios que presentan tu empresa con orden.', li: ['Diagramación profesional', 'PDF interactivo para enviar', 'Versión para imprenta'] },
-  { img: 'papeleria', icon: 'id-badge-2', t: 'Papelería corporativa', d: 'Tarjetas de presentación, hojas membretadas, firmas de correo, carpetas y credenciales con la misma identidad.', li: ['Tarjetas de presentación', 'Firma de email', 'Plantillas Word y PDF'] },
-  { img: 'redes', icon: 'brand-instagram', t: 'Piezas para redes sociales', d: 'Plantillas y publicaciones para Instagram, Facebook y LinkedIn coherentes con tu marca.', li: ['Posts e historias', 'Portadas y destacados', 'Plantillas editables'] },
-  { img: 'presentaciones', icon: 'presentation', t: 'Presentaciones corporativas', d: 'Presentaciones para ventas, licitaciones o directorio, claras y con diseño de marca.', li: ['PowerPoint o Google Slides', 'Gráficos e infografías', 'Plantilla reutilizable'] },
-  { img: 'manual-marca', icon: 'palette', t: 'Manual de marca y guía de estilos', d: 'Colores, tipografías y usos correctos del logo documentados en Figma para que tu marca se vea igual en todas partes.', li: ['Paleta y tipografías', 'Usos correctos e incorrectos', 'Guía de estilos en Figma'] },
+  { img: 'afiches', slug: 'diseno-afiches-flyers-corporativos', icon: 'photo', t: 'Afiches y flyers', d: 'Afiches promocionales, flyers para eventos y volantes listos para imprimir o compartir por WhatsApp.', li: ['Formato impreso y digital', 'Tamaños carta, A4, A3 y más', 'Archivos listos para imprenta'] },
+  { img: 'brochure', slug: 'diseno-brochure-corporativo', icon: 'file-text', t: 'Brochure y catálogos', d: 'Brochure corporativo, dípticos, trípticos y catálogos de productos o servicios que presentan tu empresa con orden.', li: ['Diagramación profesional', 'PDF interactivo para enviar', 'Versión para imprenta'] },
+  { img: 'papeleria', slug: 'diseno-papeleria-corporativa', icon: 'id-badge-2', t: 'Papelería corporativa', d: 'Tarjetas de presentación, hojas membretadas, firmas de correo, carpetas y credenciales con la misma identidad.', li: ['Tarjetas de presentación', 'Firma de email', 'Plantillas Word y PDF'] },
+  { img: 'redes', slug: 'diseno-redes-sociales-empresas', icon: 'brand-instagram', t: 'Piezas para redes sociales', d: 'Plantillas y publicaciones para Instagram, Facebook y LinkedIn coherentes con tu marca.', li: ['Posts e historias', 'Portadas y destacados', 'Plantillas editables'] },
+  { img: 'presentaciones', slug: 'diseno-presentaciones-corporativas', icon: 'presentation', t: 'Presentaciones corporativas', d: 'Presentaciones para ventas, licitaciones o directorio, claras y con diseño de marca.', li: ['PowerPoint o Google Slides', 'Gráficos e infografías', 'Plantilla reutilizable'] },
+  { img: 'manual-marca', slug: 'diseno-manual-identidad-corporativa', icon: 'palette', t: 'Manual de marca y guía de estilos', d: 'Colores, tipografías y usos correctos del logo documentados en Figma para que tu marca se vea igual en todas partes.', li: ['Paleta y tipografías', 'Usos correctos e incorrectos', 'Guía de estilos en Figma'] },
 ];
 
 const incluyeLogo = [
@@ -157,9 +157,10 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
             <article class="mn-card dg-card">
               <div class="dg-card__img"><img src={`/assets/img/diseno-grafico/${s.img}.webp`} alt={`Ilustración de ${s.t.toLowerCase()} para empresas`} loading="lazy" decoding="async" width="800" height="600" /></div>
               <span class="mn-num">{String(i + 1).padStart(2, '0')}</span>
-              <h3>{s.t}</h3>
+              <h3><a href={`/${s.slug}`} class="dg-card__lnk">{s.t}</a></h3>
               <p>{s.d}</p>
               <ul>{s.li.map(x => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+              <a href={`/${s.slug}`} class="dg-card__more">Ver servicio <i class="ti ti-arrow-right"></i></a>
             </article>
           ))}
         </div>
@@ -485,6 +486,11 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
   .dg-card h3{margin-top:1.4rem}
   .dg-card ul{margin-bottom:1.7rem}
   .dg-logo-fig img{transform:none !important;background:#EAF1FD}
+  .dg-card__lnk{color:inherit;text-decoration:none}
+  .dg-card__lnk::after{content:"";position:absolute;inset:0;z-index:1}
+  .dg-card ul{margin-bottom:1rem}
+  .dg-card__more{display:inline-flex;align-items:center;gap:.4rem;margin:0 1.6rem 1.6rem;font-weight:600;color:#2F5FA8;text-decoration:none;position:relative;z-index:2}
+  .dg-card:hover .dg-card__more{text-decoration:underline;text-underline-offset:3px}
 
   /* INCLUYE (logo) */
   .dg-inc{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem 1.2rem}
