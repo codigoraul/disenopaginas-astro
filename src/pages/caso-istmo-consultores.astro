@@ -1,0 +1,233 @@
+---
+// Caso de diseño: Istmo Consultores (logo + brochure corporativo).
+import Layout from '../layouts/Layout.astro';
+import '../styles/diseno-grafico.css';
+
+const url = 'https://diseñopaginas.cl/caso-istmo-consultores';
+const hub = 'https://diseñopaginas.cl/diseno-logos-grafico-empresas';
+const base = '/assets/img/diseno-grafico/portafolio/istmo';
+
+const paginas = [
+  { img: `${base}/istmo-brochure-portada.webp`, t: 'Portada', d: 'Logo, mensaje central y curva de marca que se repite en todo el documento.' },
+  { img: `${base}/istmo-brochure-asuntos-publicos.webp`, t: 'Áreas de práctica', d: 'Servicios ordenados en tarjetas, con jerarquía clara para una lectura rápida.' },
+  { img: `${base}/istmo-brochure-desarrollo-territorial.webp`, t: 'Desarrollo territorial y sectores', d: 'Contenido técnico denso presentado de forma limpia y fácil de recorrer.' },
+  { img: `${base}/istmo-brochure-contraportada.webp`, t: 'Contraportada', d: 'Cierre con llamado a la acción y datos de contacto.' },
+];
+
+const entregables = [
+  'Logotipo horizontal y vertical',
+  'Paleta de azules y tipografías de marca',
+  'Brochure corporativo de 7 páginas en A4',
+  'PDF para imprenta y PDF liviano para enviar por correo',
+  'Archivos editables en Figma',
+  'Sitio web con la misma identidad visual',
+];
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'Istmo Consultores: logo y brochure corporativo',
+  description: 'Caso de diseño de identidad corporativa y brochure para Istmo Consultores, consultora de asesoría empresarial en Chile y América Latina.',
+  creator: { '@type': 'ProfessionalService', name: 'DiseñoPáginas.cl', url: 'https://diseñopaginas.cl/' },
+  url,
+  image: `https://diseñopaginas.cl/assets/img/diseno-grafico/portafolio/brochure-istmo.webp`,
+};
+---
+
+<Layout
+  title="Caso Istmo Consultores: Logo y Brochure Corporativo | DiseñoPáginas.cl"
+  description="Así diseñamos la identidad de Istmo Consultores: logotipo, brochure corporativo de 7 páginas y sitio web con la misma línea gráfica. Mira las páginas del brochure."
+  keywords="diseño brochure corporativo, brochure consultora, diseño de logo consultora, identidad corporativa, caso de diseño, Istmo Consultores"
+  canonical={url}
+  ogImage="https://diseñopaginas.cl/assets/img/diseno-grafico/portafolio/brochure-istmo.webp"
+  navItems={[
+    { label: 'Logo', href: '#logo' },
+    { label: 'Brochure', href: '#brochure' },
+    { label: 'Entregables', href: '#entregables' },
+    { label: 'Cotizar', href: '#contacto' },
+  ]}
+  breadcrumbs={[
+    { name: 'Diseño de Logos y Diseño Gráfico', url: hub },
+    { name: 'Caso Istmo Consultores', url },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+
+  <div class="mn">
+    <!-- HERO -->
+    <section class="mn-hero" id="inicio">
+      <div class="mn-wrap mn-hero__in ci-hero">
+        <div>
+          <nav class="ci-bc" aria-label="Ruta de navegación">
+            <a href="/">Inicio</a><i class="ti ti-chevron-right"></i>
+            <a href="/diseno-logos-grafico-empresas">Diseño gráfico</a><i class="ti ti-chevron-right"></i>
+            <span aria-current="page">Istmo Consultores</span>
+          </nav>
+          <span class="mn-eyebrow">Caso de diseño · Identidad + brochure</span>
+          <h1>Istmo Consultores: <em>logo y brochure corporativo</em></h1>
+          <p class="mn-lead">Una consultora de asuntos públicos, innovación institucional y desarrollo territorial que necesitaba verse a la altura de sus clientes en Chile, América Latina y el Caribe. Diseñamos su logo, su brochure y su sitio web con una sola línea gráfica.</p>
+          <div class="mn-cta">
+            <a href="#brochure" class="mn-btn mn-btn--cu">Ver el brochure <i class="ti ti-chevron-down"></i></a>
+            <a href="#contacto" class="mn-btn mn-btn--ghost">Quiero algo así</a>
+          </div>
+        </div>
+        <figure class="ci-hero-fig"><img src="/assets/img/diseno-grafico/portafolio/brochure-istmo.webp" alt="Portada e interior del brochure corporativo de Istmo Consultores" width="1200" height="900" fetchpriority="high" decoding="async" /></figure>
+      </div>
+    </section>
+
+    <!-- LOGO -->
+    <section class="mn-sec" id="logo">
+      <div class="mn-wrap ci-split">
+        <div class="dg-txt">
+          <header class="mn-head mn-head--left"><h2>El logo: un punto de unión</h2></header>
+          <p>Un istmo es la franja de tierra que une dos territorios. Llevamos esa idea al símbolo: <strong>tres columnas que crecen sobre un puente</strong>, que hablan de conexión, avance y resultados.</p>
+          <p>Para el nombre usamos una <strong>tipografía serif</strong> que transmite trayectoria y seriedad, acompañada de "Consultores" en una sans espaciada. La paleta de azules, del marino al celeste, da confianza y le permite al logo funcionar en papel, pantalla y presentaciones.</p>
+          <p>Lo entregamos en versión horizontal, para web y documentos, y vertical, para redes sociales y espacios cuadrados.</p>
+        </div>
+        <div class="ci-logos">
+          <figure><img src="/assets/img/diseno-grafico/portafolio/logo-istmo.webp" alt="Logo horizontal de Istmo Consultores" loading="lazy" width="1600" height="800" /><figcaption>Versión horizontal</figcaption></figure>
+          <figure><img src={`${base}/logo-istmo-vertical.webp`} alt="Logo vertical de Istmo Consultores" loading="lazy" width="1200" height="900" /><figcaption>Versión vertical</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROCHURE -->
+    <section class="mn-sec mn-sec--soft" id="brochure">
+      <div class="mn-wrap">
+        <header class="mn-head"><h2>El brochure corporativo</h2><p>7 páginas en formato A4 que presentan la firma, sus áreas de práctica, su equipo y su experiencia. Estas son algunas de ellas; haz clic para verlas en grande.</p></header>
+        <div class="ci-pages" id="ci-pages">
+          {paginas.map((p, i) => (
+            <figure>
+              <button type="button" class="ci-pages__btn" data-img={p.img} data-t={p.t} aria-label={'Ampliar ' + p.t}>
+                <img src={p.img} alt={`Brochure Istmo Consultores – ${p.t}`} loading="lazy" width="1000" height="1413" />
+              </button>
+              <figcaption><span>{String(i === 3 ? 7 : [1, 3, 4][i]).padStart(2, '0')}</span><strong>{p.t}</strong>{p.d}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <dialog class="ci-lb" id="ci-lb">
+          <button type="button" class="ci-lb__x" aria-label="Cerrar"><i class="ti ti-x"></i></button>
+          <img src="" alt="" />
+          <p></p>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- ENTREGABLES -->
+    <section class="mn-sec" id="entregables">
+      <div class="mn-wrap ci-split">
+        <div>
+          <header class="mn-head mn-head--left"><h2>Qué entregamos</h2></header>
+          <ul class="dg-inc">{entregables.map((x) => <li><i class="ti ti-check"></i>{x}</li>)}</ul>
+        </div>
+        <div class="ci-web">
+          <strong>También diseñamos su sitio web</strong>
+          <p>El sitio de Istmo Consultores usa los mismos colores, tipografías y formas del brochure, para que la marca se vea igual en todas partes.</p>
+          <a href="https://istmoconsultores.cl" target="_blank" rel="noopener" class="mn-btn mn-btn--cu">Ver istmoconsultores.cl <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section class="mn-sec mn-sec--soft">
+      <div class="mn-wrap ci-rel">
+        <a href="/diseno-brochure-corporativo"><i class="ti ti-file-text"></i><span><strong>Diseño de brochure corporativo</strong>Brochure, dípticos, trípticos y catálogos para tu empresa</span><i class="ti ti-arrow-right"></i></a>
+        <a href="/diseno-logos-grafico-empresas#trabajos"><i class="ti ti-palette"></i><span><strong>Más logos que hemos diseñado</strong>Revisa el portafolio completo de logotipos</span><i class="ti ti-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mn-final" id="contacto">
+      <div class="mn-wrap">
+        <h2>¿Quieres un logo y un brochure así para tu empresa?</h2>
+        <p>Déjanos tus datos y te escribimos por WhatsApp con una cotización sin costo</p>
+        <form class="mn-form" id="mn-form" novalidate data-pagina="Caso Istmo Consultores">
+          <label class="mn-f"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required placeholder="Nombre de tu empresa" /></label>
+          <label class="mn-f"><span>Teléfono</span><input type="tel" name="fono" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" /></label>
+          <label class="mn-f"><span>Correo</span><input type="email" name="correo" autocomplete="email" required placeholder="contacto@empresa.cl" /></label>
+          <button type="submit" class="mn-btn mn-btn--cu"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+          <p class="mn-form__err" id="mn-form-err" role="alert" hidden>Completa empresa, teléfono y un correo válido.</p>
+        </form>
+        <div class="mn-cta mn-cta--c">
+          <a href="/contacto" class="mn-btn mn-btn--ghost"><i class="ti ti-mail"></i> Formulario completo de contacto</a>
+          <a href="tel:+56961765268" class="mn-btn mn-btn--ghost"><i class="ti ti-phone"></i> (+56) 9 61765268</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script is:inline>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
+    var map=links.map(function(a){return{a:a,el:document.querySelector(a.getAttribute('href'))}}).filter(function(x){return x.el});
+    function upd(){var y=window.scrollY+140,cur=null;map.forEach(function(x){var t=x.el.getBoundingClientRect().top+window.scrollY;if(t<=y)cur=x});links.forEach(function(a){a.classList.toggle('on',!!cur&&cur.a===a)})}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+    document.querySelectorAll('#disenopaginasNav a').forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById('disenopaginasNav');if(c&&c.classList.contains('show'))c.classList.remove('show')})});
+  })();
+  (function(){
+    var g=document.getElementById('ci-pages'),lb=document.getElementById('ci-lb'); if(!g||!lb||!lb.showModal) return;
+    var im=lb.querySelector('img'),tx=lb.querySelector('p');
+    g.addEventListener('click',function(e){var b=e.target.closest('.ci-pages__btn');if(!b)return;im.src=b.getAttribute('data-img');im.alt=b.getAttribute('data-t');tx.textContent=b.getAttribute('data-t');lb.showModal();});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.ci-lb__x'))lb.close();});
+  })();
+  (function(){
+    var f=document.getElementById('mn-form');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(n){return f.elements[n].value.trim()};
+      var emp=v('empresa'),fono=v('fono'),mail=v('correo');
+      var okM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail),okF=fono.replace(/\D/g,'').length>=8,okE=emp.length>1;
+      ['empresa','fono','correo'].forEach(function(n){f.elements[n].classList.remove('bad')});
+      if(!(okM&&okF&&okE)){if(!okE)f.elements.empresa.classList.add('bad');if(!okF)f.elements.fono.classList.add('bad');if(!okM)f.elements.correo.classList.add('bad');document.getElementById('mn-form-err').hidden=false;return}
+      document.getElementById('mn-form-err').hidden=true;
+      var t='Hola, vengo de diseñopaginas.cl (página '+f.dataset.pagina+') y quiero cotizar.\nEmpresa: '+emp+'\nTeléfono: '+fono+'\nCorreo: '+mail;
+      window.open('https://api.whatsapp.com/send?phone=56961765268&text='+encodeURIComponent(t),'_blank','noopener');
+    });
+  })();
+</script>
+</Layout>
+
+<style is:global>
+  .ci-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+  .ci-hero>div{max-width:44rem}
+  .ci-hero h1{font-size:clamp(1.75rem,3.6vw,2.6rem);font-weight:400;line-height:1.15;letter-spacing:-.015em;max-width:22ch}
+  .ci-hero h1 em{font-weight:500}
+  .ci-hero-fig{margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .ci-hero-fig img{display:block;width:100%;height:auto}
+  @media(max-width:900px){.ci-hero{grid-template-columns:1fr}.ci-hero-fig{max-width:34rem}}
+  .ci-bc{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.85rem;color:#A9B6CA;margin-bottom:1.1rem}
+  .ci-bc a{color:#C9D3E2;text-decoration:none}
+  .ci-bc a:hover{color:#fff;text-decoration:underline}
+  .ci-bc i{font-size:.8rem;opacity:.7}
+  .ci-bc span{color:#fff}
+  .ci-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  @media(max-width:900px){.ci-split{grid-template-columns:1fr}}
+  .ci-logos{display:grid;gap:1rem}
+  .ci-logos figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+  .ci-logos img{display:block;width:100%;height:auto}
+  .ci-logos figure:last-child img{max-height:260px;object-fit:contain}
+  .ci-logos figcaption{padding:.6rem 1rem;font-size:.85rem;color:var(--mut);border-top:1px solid var(--line)}
+  .ci-pages{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  @media(max-width:991px){.ci-pages{grid-template-columns:repeat(2,1fr)}}
+  .ci-pages figure{margin:0}
+  .ci-pages__btn{display:block;width:100%;padding:0;border:1px solid var(--line);background:#fff;cursor:zoom-in;border-radius:10px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(20,26,38,.45);transition:transform .3s}
+  .ci-pages__btn:hover{transform:translateY(-4px)}
+  .ci-pages img{display:block;width:100%;height:auto;aspect-ratio:1000/1413}
+  .ci-pages figcaption{padding:.9rem .2rem 0;font-size:.9rem;color:var(--mut);line-height:1.55}
+  .ci-pages figcaption span{display:block;font-family:'Sora',sans-serif;font-size:.75rem;letter-spacing:.12em;color:var(--cu);margin-bottom:.2rem}
+  .ci-pages figcaption strong{display:block;color:var(--tx);font-family:'Sora',sans-serif}
+  .ci-lb{border:0;padding:0;max-width:min(92vw,760px);background:transparent}
+  .ci-lb::backdrop{background:rgba(20,26,38,.9)}
+  .ci-lb img{display:block;max-width:100%;max-height:86vh;margin:0 auto;border-radius:8px}
+  .ci-lb p{color:#fff;text-align:center;margin:.7rem 0 0;font-family:'Sora',sans-serif}
+  .ci-lb__x{position:absolute;top:.5rem;right:.5rem;width:2.4rem;height:2.4rem;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#1E2536;font-size:1.2rem;cursor:pointer}
+  .ci-web{border-radius:20px;padding:clamp(1.5rem,3vw,2.2rem);background:var(--ink2);color:#C9D3E2}
+  .ci-web strong{display:block;font-family:'Sora',sans-serif;color:#fff;font-size:1.25rem;margin-bottom:.5rem}
+  .ci-web p{margin:0 0 1.4rem;line-height:1.65}
+  .ci-rel{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:760px){.ci-rel{grid-template-columns:1fr}}
+  .ci-rel a{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:1.2rem 1.4rem;background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--mut);font-size:.92rem;transition:border-color .3s,transform .3s}
+  .ci-rel a:hover{border-color:var(--cu);transform:translateY(-3px)}
+  .ci-rel a>i{font-size:1.5rem;color:var(--cu)}
+  .ci-rel strong{display:block;color:var(--tx);font-family:'Sora',sans-serif;font-size:1rem}
+</style>

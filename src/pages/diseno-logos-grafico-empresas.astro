@@ -3,8 +3,126 @@ import Layout from '../layouts/Layout.astro';
 
 // Piezas de diseño gráfico (agregar aquí los trabajos de Figma).
 // Guardar las imágenes en public/assets/img/diseno-grafico/ (webp, idealmente 1200x900).
-// Ejemplo: { img: '/assets/img/diseno-grafico/afiche-cliente.webp', t: 'Afiche promocional', d: 'Cliente · rubro' }
-const trabajos: { img: string; t: string; d: string }[] = [];
+// tipo: 'logo' | 'afiche' | 'brochure'
+// Ejemplo: { img: '/assets/img/diseno-grafico/portafolio/logo-cliente.webp', t: 'Logo Cliente', d: 'Rubro · Ciudad', tipo: 'logo' }
+type Trabajo = { img: string; t: string; d: string; tipo: 'logo' | 'afiche' | 'brochure'; url?: string; destacado?: boolean; caso?: string };
+const trabajos: Trabajo[] = [
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-istmo.webp',
+    t: 'Istmo Consultores',
+    d: 'Identidad para consultora de asesoría empresarial. Tres columnas que crecen sobre un puente evocan el istmo como punto de unión, con una tipografía serif que transmite trayectoria y seriedad. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://istmoconsultores.cl',
+    destacado: true,
+    caso: '/caso-istmo-consultores',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/brochure-istmo.webp',
+    t: 'Brochure Istmo Consultores',
+    d: 'Brochure corporativo de 7 páginas en A4 con la misma identidad del logo: áreas de práctica, equipo y experiencia de la firma.',
+    tipo: 'brochure',
+    caso: '/caso-istmo-consultores',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-vortec-consulting.webp',
+    t: 'Vortec Consulting',
+    d: 'Logotipo para consultora de capacitación empresarial en Santiago. Un globo de líneas en movimiento que transmite alcance y confianza. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://vortec-consulting.com',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-tornomatica.webp',
+    t: 'Tornomatica',
+    d: 'Logotipo para empresa de fabricación de partes y piezas. El engranaje dorado y la tipografía industrial reflejan precisión y trabajo metalmecánico. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://tornomatica.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-nelco.webp',
+    t: 'Nelco SpA',
+    d: 'Logotipo para empresa de movimiento de tierra y áridos. Un isotipo en rombo, como señalética de faena, y tipografía robusta que transmite fuerza y seguridad. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://nelcospa.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-armodent.webp',
+    t: 'Armodent',
+    d: 'Logotipo para clínica de odontología y estética facial. Un monograma A y D con tipografía clásica que transmite elegancia y confianza. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://armodent.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-psiconido.webp',
+    t: 'PsicoNido · Ps. Andrea Jara',
+    d: 'Logotipo para consulta de psicología de niños y adolescentes. Un nido que acoge a dos figuras, con lila y rosado que transmiten calidez, cuidado y contención. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://psiconido.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-cebien.webp',
+    t: 'Cebien · Centro de Salud y Bienestar',
+    d: 'Rediseño de logotipo para centro de salud en Concepción. Una mano que sostiene una hoja, con verde y azul que transmiten cuidado, salud y bienestar. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://cebien.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-grilli-abogados.webp',
+    t: 'Grilli Abogados',
+    d: 'Rediseño de logotipo para estudio jurídico. Una columna clásica en dorado sobre azul noche que transmite solidez, prestigio y confianza. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://grilliabogados.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-viman.webp',
+    t: 'Viman',
+    d: 'Rediseño de logotipo para fabricante de equipos industriales y aeroportuarios. Un escudo con chevrones en azul y naranja, colores de seguridad industrial que transmiten solidez y avance. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://viman.cl/prueba/',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-elquicapital.webp',
+    t: 'Elqui Capital',
+    d: 'Rediseño de logotipo para empresa de gestión técnica inmobiliaria. La cordillera del valle de Elqui junto a barras de crecimiento, en azules que transmiten solidez y proyección. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://elquicapital.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-cetracon.webp',
+    t: 'Cetracon',
+    d: 'Logotipo para empresa de negociaciones estratégicas. Una C formada por nodos conectados, en azul y verde, que transmite redes, acuerdos y confianza. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://cetracon.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-ckdelap.webp',
+    t: 'Psicóloga Clínica · Psicoterapia adulto',
+    d: 'Logotipo para consulta de psicoterapia de adultos. Un perfil con un trazo enredado que se ordena hacia abajo, en tonos suaves que transmiten calma y acompañamiento. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://ckdelap.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-ortodonciaparatodos.webp',
+    t: 'Ortodoncia Para Todos',
+    d: 'Logotipo para clínica de ortodoncia en Temuco. Tres figuras unidas por un arco de brackets que dibuja una sonrisa, en azules que transmiten cercanía y confianza. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://ortodonciaparatodos.cl',
+  },
+  {
+    img: '/assets/img/diseno-grafico/portafolio/logo-emcl.webp',
+    t: 'EMCL · Estándares Mineros Chile',
+    d: 'Logotipo para empresa de control de calidad en minería. Desarrollamos la M a partir de la forma que sugirió el cliente: dos piezas que encajan, en azul y gris, que transmiten precisión y estándar técnico. También diseñamos su página web.',
+    tipo: 'logo',
+    url: 'https://emcl.cl',
+  },
+];
+const filtros = [
+  { id: 'todos', t: 'Todos' },
+  { id: 'logo', t: 'Logos' },
+  { id: 'afiche', t: 'Afiches y flyers' },
+  { id: 'brochure', t: 'Brochure' },
+].filter(f => f.id === 'todos' || trabajos.some(x => x.tipo === f.id));
+// Solo en local (npm run dev) y mientras no haya trabajos: casillas de ejemplo para ver el espacio.
+const demo = import.meta.env.DEV && trabajos.length === 0;
 
 const piezas = [
   { img: 'afiches', slug: 'diseno-afiches-flyers-corporativos', icon: 'photo', t: 'Afiches y flyers', d: 'Afiches promocionales, flyers para eventos y volantes listos para imprimir o compartir por WhatsApp.', li: ['Formato impreso y digital', 'Tamaños carta, A4, A3 y más', 'Archivos listos para imprenta'] },
@@ -83,6 +201,7 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
     { label: "Logos", href: "#logos" },
     { label: "Diseño gráfico", href: "#grafico" },
     { label: "Paquetes", href: "#paquetes" },
+    { label: "Portafolio", href: "#trabajos" },
     { label: "Proceso", href: "#proceso" },
     { label: "Preguntas", href: "#faq" },
     { label: "Cotizar", href: "#contacto" },
@@ -194,26 +313,56 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
     <section class="mn-sec mn-sec--soft" id="trabajos">
       <div class="mn-wrap">
         <header class="mn-head">
-          <h2>Trabajos de diseño gráfico y logos</h2>
-          <p>Logos, identidades y piezas gráficas para empresas</p>
+          <h2>Portafolio de logos y diseño gráfico</h2>
+          <p>Logos, afiches y brochures que hemos diseñado para empresas</p>
         </header>
         {trabajos.length > 0 && (
+          <>
+            {filtros.length > 2 && (
+              <div class="dg-fil" role="group" aria-label="Filtrar portafolio">
+                {filtros.map((f, i) => (
+                  <button type="button" class={i === 0 ? 'on' : ''} data-f={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.t}</button>
+                ))}
+              </div>
+            )}
+            <div class="dg-gal" id="dg-gal">
+              {trabajos.map(t => (
+                <figure data-tipo={t.tipo} class={t.destacado ? 'dg-gal__dest' : undefined}>
+                  <button type="button" class="dg-gal__btn" data-img={t.img} data-t={t.t} aria-label={'Ampliar ' + t.t}>
+                    {t.destacado && <span class="dg-gal__tag"><i class="ti ti-star"></i> Trabajo destacado</span>}
+                    <img src={t.img} alt={t.t + ' – ' + t.d} loading="lazy" width={t.destacado ? 1600 : 1200} height={t.destacado ? 800 : 900} />
+                  </button>
+                  <figcaption>
+                    <strong>{t.t}</strong>{t.d}
+                    <span class="dg-gal__lnks">
+                      {t.caso && <a class="dg-gal__lnk dg-gal__lnk--caso" href={t.caso}>Ver caso completo <i class="ti ti-arrow-right"></i></a>}
+                      {t.url && <a class="dg-gal__lnk" href={t.url} target="_blank" rel="noopener">Ver sitio web <i class="ti ti-arrow-up-right"></i></a>}
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <dialog class="dg-lb" id="dg-lb">
+              <button type="button" class="dg-lb__x" aria-label="Cerrar"><i class="ti ti-x"></i></button>
+              <img src="" alt="" />
+              <p></p>
+            </dialog>
+          </>
+        )}
+        {demo && (
           <div class="dg-gal">
-            {trabajos.map(t => (
-              <figure>
-                <img src={t.img} alt={t.t} loading="lazy" width="1200" height="900" />
-                <figcaption><strong>{t.t}</strong>{t.d}</figcaption>
-              </figure>
+            {['Logo', 'Logo', 'Logo', 'Afiche', 'Afiche', 'Brochure'].map((x, i) => (
+              <figure class="dg-gal__demo"><div>{x} {i + 1}<small>Espacio para tu trabajo (solo visible en local)</small></div></figure>
             ))}
           </div>
         )}
         <div class="dg-behance">
           <div>
-            <strong>Mira más diseños en nuestro Behance</strong>
-            <p>Logos, identidades y piezas gráficas. Si quieres ver ejemplos de tu rubro, pídelos por WhatsApp y te los enviamos.</p>
+            <strong>¿Quieres ver más diseños de tu rubro?</strong>
+            <p>Escríbenos por WhatsApp y te enviamos ejemplos de logos, afiches y brochures parecidos a lo que necesitas.</p>
           </div>
           <div class="mn-cta" style="margin:0">
-            <a href="https://www.behance.net/codigoraul" target="_blank" rel="noopener" class="mn-btn mn-btn--ghost"><i class="ti ti-brand-behance"></i> Ver Behance</a>
+            <a href="https://api.whatsapp.com/send?phone=56961765268&text=Hola%2C%20quiero%20ver%20ejemplos%20de%20dise%C3%B1o%20de%20logos" target="_blank" rel="noopener" class="mn-btn mn-btn--ghost"><i class="ti ti-brand-whatsapp"></i> Pedir ejemplos</a>
           </div>
         </div>
       </div>
@@ -292,6 +441,21 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
     </section>
   </div>
 
+<script is:inline>
+(function(){
+  var g=document.getElementById('dg-gal'); if(!g) return;
+  var bs=[].slice.call(document.querySelectorAll('.dg-fil button'));
+  bs.forEach(function(b){b.addEventListener('click',function(){
+    bs.forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var f=b.getAttribute('data-f');
+    [].forEach.call(g.querySelectorAll('figure'),function(fi){fi.hidden=!(f==='todos'||fi.getAttribute('data-tipo')===f)});
+  })});
+  var lb=document.getElementById('dg-lb'); if(!lb||!lb.showModal) return;
+  var im=lb.querySelector('img'), tx=lb.querySelector('p');
+  g.addEventListener('click',function(e){var b=e.target.closest('.dg-gal__btn'); if(!b) return; im.src=b.getAttribute('data-img'); im.alt=b.getAttribute('data-t'); tx.textContent=b.getAttribute('data-t'); lb.showModal();});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.dg-lb__x')) lb.close();});
+})();
+</script>
 <script is:inline>
   (function(){
     var links=[].slice.call(document.querySelectorAll('#disenopaginasNav a.nav-link[href^="#"]')).filter(function(a){return a.getAttribute('href')!=='#contacto'});
@@ -520,6 +684,30 @@ const banda = ['Logotipos', 'Identidad corporativa', 'Afiches', 'Flyers', 'Broch
   .dg-gal figure:hover img{transform:scale(1.04)}
   .dg-gal figcaption{padding:.8rem 1rem;font-size:.9rem;color:var(--mut)}
   .dg-gal figcaption strong{display:block;color:var(--tx);font-family:'Sora',sans-serif}
+  .dg-fil{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:0 0 1.4rem}
+  .dg-fil button{border:1px solid var(--line);background:#fff;color:var(--tx);border-radius:999px;padding:.5rem 1.1rem;font-weight:600;font-size:.92rem;cursor:pointer}
+  .dg-fil button.on{background:#1E2536;border-color:#1E2536;color:#fff}
+  .dg-gal figure[hidden]{display:none}
+  .dg-gal__dest{grid-column:span 2;position:relative}
+  .dg-gal__dest img{aspect-ratio:2/1}
+  .dg-gal__dest figcaption{font-size:.95rem}
+  .dg-gal__dest figcaption strong{font-size:1.15rem}
+  .dg-gal__btn{position:relative}
+  .dg-gal__tag{position:absolute;top:.8rem;left:.8rem;z-index:1;display:inline-flex;align-items:center;gap:.3rem;padding:.35rem .75rem;border-radius:999px;background:linear-gradient(135deg,#447DE9 0%,#1E2536 100%);color:#fff;font-size:.8rem;font-weight:600}
+  @media(max-width:560px){.dg-gal__dest{grid-column:auto}.dg-gal__dest img{aspect-ratio:4/3}}
+  .dg-gal__lnks{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+  .dg-gal__lnk--caso{color:#fff !important;background:linear-gradient(135deg,#447DE9 0%,#2F5FA8 100%);padding:.35rem .8rem;border-radius:999px;text-decoration:none !important}
+  .dg-gal__lnk{display:inline-flex;align-items:center;gap:.25rem;margin-top:.5rem;font-weight:600;color:#2F5FA8;text-decoration:none}
+  .dg-gal__lnk:hover{text-decoration:underline;text-underline-offset:3px}
+  .dg-gal__btn{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;overflow:hidden}
+  .dg-gal__demo div{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;border:2px dashed #C9D3E3;border-radius:16px;color:#5B6B85;font-weight:700;font-family:'Sora',sans-serif;background:#fff}
+  .dg-gal__demo small{font-weight:400;font-family:inherit;font-size:.8rem}
+  .dg-gal__demo{border:0 !important;background:none !important}
+  .dg-lb{border:0;padding:0;max-width:min(92vw,1100px);background:transparent}
+  .dg-lb::backdrop{background:rgba(20,26,38,.88)}
+  .dg-lb img{display:block;max-width:100%;max-height:82vh;border-radius:12px;margin:0 auto}
+  .dg-lb p{color:#fff;text-align:center;margin:.7rem 0 0;font-family:'Sora',sans-serif}
+  .dg-lb__x{position:absolute;top:.5rem;right:.5rem;width:2.4rem;height:2.4rem;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#1E2536;font-size:1.2rem;cursor:pointer}
   @media(max-width:991px){.dg-gal{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.dg-gal{grid-template-columns:1fr}}
   .dg-behance{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:space-between;padding:1.6rem 1.8rem;border-radius:18px;background:linear-gradient(135deg,#447DE9 0%,#1E2536 100%);color:#fff;margin-top:1.4rem}

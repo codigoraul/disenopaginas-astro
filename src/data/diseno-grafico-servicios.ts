@@ -92,6 +92,9 @@ export const servicios: ServicioGrafico[] = [
   {
     slug: 'diseno-brochure-corporativo',
     img: 'brochure',
+    trabajos: [
+      { img: '/assets/img/diseno-grafico/portafolio/brochure-istmo.webp', t: 'Brochure Istmo Consultores', d: 'Brochure corporativo de 7 páginas en A4 para consultora de asesoría empresarial. Mira el caso completo en diseñopaginas.cl/caso-istmo-consultores.' },
+    ],
     nombre: 'Brochure corporativo y catálogos',
     title: 'Diseño de Brochure Corporativo y Catálogos para Empresas | Chile',
     description: 'Diseño de brochure corporativo y catálogos para empresas en Chile: brochure de servicios, catálogo de productos, dípticos y trípticos en PDF interactivo y versión para imprenta. Cotiza gratis.',
